@@ -33,4 +33,8 @@ dev.off()
 
 # Save also in epsg:2393 coordinates (better for northern Finland)
 pnro.sp.alt <- spTransform(pnro.sp, CRS("+init=epsg:2393"))
+# Add also area
+library("rgeos")
+pnro.sp.alt@data$area.m2 <- rgeos::gArea(pnro.sp.alt, byid=TRUE)
 save(pnro.sp.alt, file="pnro_spatial_epsg2393.RData")
+
