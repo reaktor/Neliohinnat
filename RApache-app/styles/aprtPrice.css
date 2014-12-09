@@ -1,0 +1,117 @@
+/* page */
+html, * {
+    padding:0;
+    margin:0;
+}
+body {
+    background-color:#FFFFFF;
+    margin:40px auto 0 auto;
+    font-size:1.0em;
+    color:#150517;
+    font-family:Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* headers */
+h1 {
+    font-size:2.4em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:5px;
+    color:#150517;
+}
+h2 {
+    color:#B2432A;
+}
+h3 {
+    font-size:1.3em;
+    font-weight:normal;
+    color:#134550;
+    border-bottom:1px solid #DDDDDD;
+}
+h4 {
+    color:"blue";
+    padding-bottom:5px;
+}
+
+/* paragraphs */
+p {
+    margin:2px 0 15px 0;
+    line-height:1.3em;
+}
+
+/* links */
+a {
+    color:#134550;
+    text-decoration:underline;
+}
+a:hover {
+    color:#CE6852;
+}
+/*
+div#nav_summary:hover{
+    background:#CE6852;
+}*/
+
+/* Placement*/
+div#container {
+    /* min-width:760px;  */
+    /* max-width:880px;   */
+    margin-left:auto; 
+    margin-right:auto;
+} /* centers layout when > max width */
+div#header {
+    margin-left:145px;
+    width:auto;
+}
+div#main_navigation {
+    clear:both;
+    margin-top: 20px;
+    margin-left:165px;
+    width:auto;
+}
+div#nav_summary{
+    float:left;
+    /* margin-left:125px;*/
+    width:200px;
+}
+div#nav_plots{
+    float: left;
+    /* margin-left:340px;*/
+    width:200px;
+}
+div#nav_apply_model{
+    float: left;
+    /*margin-left:555px;*/
+    width:200px;
+}
+div#main_page {
+    clear:both;
+    margin-top:60px;
+    margin-left:125px;
+    width:775px;
+/* float:left; */
+/* width:100%; */
+}
+div#left_bar {
+    float:left;
+    width:175px;
+    display:inline; /* stops IE doubling  margin on float*/
+/* margin-right:-170px; CWS - neg margin move */
+}
+div#middle_page {
+    width:600px;
+    margin-left:200px;
+/* margin-right:170px; */
+/* border: 1px solid black; */
+}
+#footer {
+    width:100%;
+    clear:both;
+    float:left;
+    text-align: center;
+    font-size: .6em;
+/* border: 1px solid black; */
+}
+li{
+    list-style-type: none;
+}

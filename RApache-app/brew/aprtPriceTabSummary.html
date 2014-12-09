@@ -1,0 +1,44 @@
+<%
+# read data if not available
+if(!exists("price.data")){
+  channel <-  open.db.connection(connection.info) 
+  price.data <- read.price.data(channel = channel,
+                connection.info = connection.info) 
+  dbDisconnect(channel)
+}
+%>
+
+<%# OLD STUFF Never mind this
+if(!any("aprt.env" == search())){
+  env <- attach(NULL, name="aprt.env")
+  app.dir <- "/var/www/sandbox/aprt_price"
+  load(file=paste(app.dir,".work.RData",sep="/"), envir=env  )
+
+  sink(file= file("/dev/null","w"))
+  attach(env)
+  sink()
+}
+%>
+
+
+<h3> Summary of sales data </h3>
+<p>    Data is donwloaded from the web site 
+  <a href="http://asuntojen.hintatiedot.fi/fi_FI/">asuntojen.hintatiedot.fi</a>, 
+  maintained by  the Finnish 
+  Ministry of the Environmnet on <%= format(price.data$queryDate[1],"%d.%m.%Y")  %>.
+</p>
+<p>
+  It contains information of <emph><%= nrow(price.data) %> </emph> appartments sold 
+  in the Helsinki Metropolitan area during period  between 
+  <%=format(price.data$queryDate[1]-365,"%d.%m.%Y")%> and
+  <%=format(price.data$queryDate[1],"%d.%m.%Y") %>.
+</p>
+
+  <p>
+    The following information is available for each appartment sales:
+    <ul id=data_cols>
+      <% for(cn in colnames(price.data)) cat(paste("<li>", cn,"</li>",  sep=" "))
+	 %>
+    </ul>
+  </p>
+
