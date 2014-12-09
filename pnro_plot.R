@@ -15,3 +15,11 @@ pnro.hinnat.sp <- merge(pnro.sp, pnro.hinnat)
 png("pnro_trendi1.png", width=2000, height=3000)
 spplot(pnro.hinnat.sp, zcol="trendi")
 dev.off()
+
+
+## Plot with alternative coordinates
+load("pnro_spatial_epsg2393.RData")
+pnro.hinnat.sp <- merge(pnro.sp.alt, pnro.hinnat)
+png("pnro_trendi2.png", width=2000, height=3000)
+spplot(pnro.hinnat.sp, zcol="trendi")
+dev.off()

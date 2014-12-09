@@ -31,7 +31,6 @@ png("pnro_temp.png", width=1000, height=1000)
 spplot(temp, zcol="rand")
 dev.off()
 
-# # Create another coordinate
-# epsg:2393
-
-
+# Save also in epsg:2393 coordinates (better for northern Finland)
+pnro.sp.alt <- spTransform(pnro.sp, CRS("+init=epsg:2393"))
+save(pnro.sp.alt, file="pnro_spatial_epsg2393.RData")
