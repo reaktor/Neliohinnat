@@ -19,6 +19,8 @@ ogrListLayers(filename)
 pnro.sp <- readOGR(dsn=filename, layer="postinumerot 20140217")
 # Clean the data (can remove everything else than the name)
 pnro.sp@data <- pnro.sp@data[1]
+names(pnro.sp@data) <- "pnro"
+pnro.sp@data$pnro <- as.character(pnro.sp@data$pnro)
 # Save
 save(pnro.sp, file="pnro_spatial_wgs84.RData")
 
@@ -28,4 +30,8 @@ pnro.sp@data$rand <- runif(nrow(pnro.sp@data))
 png("pnro_temp.png", width=1000, height=1000)
 spplot(temp, zcol="rand")
 dev.off()
+
+# # Create another coordinate
+# epsg:2393
+
 
