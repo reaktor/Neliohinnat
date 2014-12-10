@@ -21,7 +21,9 @@ s <- sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=800, warmup=300, thin=1, init=0, chains=1, refresh=1)
+              iter=500, warmup=200, thin=1, init="random", chains=1, refresh=1)
+
+saveRDS(s, "s.rds")
 
 # Note that it would be better to compute several chains.
 # You should monitor the convergence here somehow.
@@ -37,5 +39,9 @@ trendi <- beta[,1]
 hist(hintataso, n=100)
 hist(trendi, n=100)
 plot(beta[,2], trendi, pch=".")
+
+# For NA pnro's, look for upper level in the hierarchy and take beta1
+load("pnro_spatial_wgs84.RData")
+pnro.sp$pnro
 
 write.table(data.frame(pnro=levels(d$pnro), hintataso, trendi), "pnro-hinnat.txt", row.names=F, quote=F)
