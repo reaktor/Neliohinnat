@@ -10,7 +10,7 @@ transformed data {
     for (i in 1:N) { X[i, 1] <- yr[i]; X[i, 2] <- 1; }
 }
 parameters {
-    vector<lower=0>[2] mean_beta;
+    vector[2] mean_beta;
     corr_matrix[2] Omega; vector<lower=0>[2] tau;  // FIXME: could use Cholesky
     corr_matrix[2] Omega1; vector<lower=0>[2] tau1;
     corr_matrix[2] Omega2; vector<lower=0>[2] tau2;
@@ -39,7 +39,7 @@ model {
     Omega1 ~ lkj_corr(2); tau1 ~ cauchy(0,2.5);    
     Omega2 ~ lkj_corr(2); tau2 ~ cauchy(0,2.5);
     Omega3 ~ lkj_corr(2); tau3 ~ cauchy(0,2.5);
-    mean_beta ~ cauchy(0, 2);
+    mean_beta ~ normal(0, 5);
     for (i in 1:M) beta[i] ~ multi_normal(beta1[l1[i]], Sigma_beta); // FIXME: could be vectorized
     for (i in 1:M1) beta1[i] ~ multi_normal(beta2[l2[i]], Sigma_beta1);
     for (i in 1:M2) beta2[i] ~ multi_normal(beta3[l3[i]], Sigma_beta2);

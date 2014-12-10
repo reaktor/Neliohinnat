@@ -7,7 +7,7 @@ d <-
   mutate(level1 = as.factor(substr(pnro, 1, 3)),
          level2 = as.factor(substr(pnro, 1, 2)),
          level3 = as.factor(substr(pnro, 1, 1)), 
-         yr = (year-2013)/100,
+         yr = (year-2013)/10,
          lprice = log(price)-6)
 
 
@@ -21,7 +21,7 @@ s <- sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=1000, warmup=500, thin=1, init=0, chains=1, refresh=1)
+              iter=2000, warmup=1000, thin=5, init=0, chains=1, refresh=1)
 
 saveRDS(s, "s.rds")
 s <- readRDS("s.rds")
@@ -39,13 +39,13 @@ beta1 <- apply(extract(s, "beta1")[[1]], c(2, 3), mean)
 beta2 <- apply(extract(s, "beta2")[[1]], c(2, 3), mean)
 beta3 <- apply(extract(s, "beta3")[[1]], c(2, 3), mean)
 lhinta <- beta[,2]+6
-trendi <- beta[,1]
+trendi <- beta[,1]/10
 lhinta1 <- beta1[,2]+6
-trendi1 <- beta1[,1]
+trendi1 <- beta1[,1]/10
 lhinta2 <- beta2[,2]+6
-trendi2 <- beta2[,1]
-lhinta3 <- beta2[,2]+6
-trendi3 <- beta2[,1]
+trendi2 <- beta2[,1]/10
+lhinta3 <- beta3[,2]+6
+trendi3 <- beta3[,1]/10
 hist(hintataso, n=100)
 hist(trendi, n=100)
 plot(beta[,2], trendi)
@@ -67,6 +67,7 @@ res <- data.frame(pnro,
   left_join(pnro.pars, by="pnro") %>% 
   left_join(level1.pars, by="level1") %>% 
   left_join(level2.pars, by="level2") %>% 
+  left_join(level3.pars, by="level3") %>% 
   transmute(pnro=pnro, 
             lhinta=first.nna4(lhinta, lhinta1, lhinta2, lhinta3), 
             trendi=first.nna4(trendi, trendi1, trendi2, trendi3)) %>%
