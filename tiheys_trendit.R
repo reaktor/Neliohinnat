@@ -1,5 +1,9 @@
 # Script for analysing the relation between population density and price trends
 library("ggplot2")
+library("sorvi")
+
+postal.code.table <- get_postal_code_info()
+m2p <- municipality_to_province()
 
 load("pnro_spatial_epsg2393.RData")
 
@@ -14,14 +18,17 @@ pnro.hinnat$trendi <- as.numeric(pnro.hinnat$trendi)
 population$vakiluku = as.numeric(population$vakiluku)
 
 population$logtiheys = NaN
-
+population$maakunta = ""
 rows <- row.names(population)
 # add population density
 for (index in seq(length(pnro.sp.alt@data$pnro))) {
   if (pnro.sp.alt@data$pnro[index] %in% rows){
     if (population[pnro.sp.alt@data$pnro[index],]$vakiluku > 0) {
-    population[pnro.sp.alt@data$pnro[index],]$logtiheys = log(population[pnro.sp.alt@data$pnro[index],]$vakiluku / pnro.sp.alt@data$area.m2[index])
-}}}
+        population[pnro.sp.alt@data$pnro[index],]$logtiheys = log(population[pnro.sp.alt@data$pnro[index],]$vakiluku / pnro.sp.alt@data$area.m2[index])
+        temp = m2p[postal.code.table[postal.code.table$postal.code==pnro.sp.alt@data$pnro[index],]$municipality]
+        names(temp) = NULL
+        population[pnro.sp.alt@data$pnro[index],]$maakunta = temp
+      }}}
 
 population$trendi = NaN
 
