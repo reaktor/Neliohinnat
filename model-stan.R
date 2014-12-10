@@ -21,9 +21,10 @@ s <- sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=500, warmup=200, thin=1, init="random", chains=1, refresh=1)
+              iter=1000, warmup=500, thin=1, init=0, chains=1, refresh=1)
 
 saveRDS(s, "s.rds")
+s <- readRDS("s.rds")
 
 # Note that it would be better to compute several chains.
 # You should monitor the convergence here somehow.
@@ -34,14 +35,42 @@ traceplot(s, "tau1", inc_warmup=F)
 traceplot(s, "tau3", inc_warmup=F)
 
 beta <- apply(extract(s, "beta")[[1]], c(2, 3), mean)
-hintataso <- exp(beta[,2]+6)
+beta1 <- apply(extract(s, "beta1")[[1]], c(2, 3), mean)
+beta2 <- apply(extract(s, "beta2")[[1]], c(2, 3), mean)
+beta3 <- apply(extract(s, "beta3")[[1]], c(2, 3), mean)
+lhinta <- beta[,2]+6
 trendi <- beta[,1]
+lhinta1 <- beta1[,2]+6
+trendi1 <- beta1[,1]
+lhinta2 <- beta2[,2]+6
+trendi2 <- beta2[,1]
+lhinta3 <- beta2[,2]+6
+trendi3 <- beta2[,1]
 hist(hintataso, n=100)
 hist(trendi, n=100)
-plot(beta[,2], trendi, pch=".")
+plot(beta[,2], trendi)
+
+first.nna2 <- function (c1, c2)  ifelse(!is.na(c1), c1, c2)
+first.nna4 <- function (c1, c2, c3, c4) first.nna2(c1, first.nna2(c2, first.nna2(c3, c4)))
 
 # For NA pnro's, look for upper level in the hierarchy and take beta1
 load("pnro_spatial_wgs84.RData")
-pnro.sp$pnro
+pnro <- pnro.sp$pnro
+pnro.pars <- data.frame(pnro=levels(d$pnro), lhinta, trendi)
+level1.pars <- data.frame(level1=levels(d$level1), lhinta1, trendi1)
+level2.pars <- data.frame(level2=levels(d$level2), lhinta2, trendi2)
+level3.pars <- data.frame(level3=levels(d$level3), lhinta3, trendi3)
+res <- data.frame(pnro, 
+                  level1 = as.factor(substr(pnro, 1, 3)), 
+                  level2 = as.factor(substr(pnro, 1, 2)), 
+                  level3 = as.factor(substr(pnro, 1, 1))) %>% 
+  left_join(pnro.pars, by="pnro") %>% 
+  left_join(level1.pars, by="level1") %>% 
+  left_join(level2.pars, by="level2") %>% 
+  transmute(pnro=pnro, 
+            lhinta=first.nna4(lhinta, lhinta1, lhinta2, lhinta3), 
+            trendi=first.nna4(trendi, trendi1, trendi2, trendi3)) %>%
+  mutate(hintataso=exp(lhinta))
 
-write.table(data.frame(pnro=levels(d$pnro), hintataso, trendi), "pnro-hinnat.txt", row.names=F, quote=F)
+write.table(res,  "pnro-hinnat.txt", row.names=F, quote=F)
+
