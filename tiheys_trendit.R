@@ -19,6 +19,7 @@ population$vakiluku = as.numeric(population$vakiluku)
 
 population$logtiheys = NaN
 population$maakunta = ""
+population$alue =  iconv(population$alue, from="ISO-8859-1", to="UTF-8")
 rows <- row.names(population)
 # add population density
 for (index in seq(length(pnro.sp.alt@data$pnro))) {
@@ -27,7 +28,7 @@ for (index in seq(length(pnro.sp.alt@data$pnro))) {
         population[pnro.sp.alt@data$pnro[index],]$logtiheys = log(population[pnro.sp.alt@data$pnro[index],]$vakiluku / pnro.sp.alt@data$area.m2[index])
         temp = m2p[postal.code.table[postal.code.table$postal.code==pnro.sp.alt@data$pnro[index],]$municipality]
         names(temp) = NULL
-        population[pnro.sp.alt@data$pnro[index],]$maakunta = temp
+        population[pnro.sp.alt@data$pnro[index],]$maakunta = temp[1]
       }}}
 
 population$trendi = NaN
@@ -38,6 +39,6 @@ for (index in seq(length(pnro.sp.alt@data$pnro))) {
 }
 
 #png("trendi_tiheys.png", width=2000, height=3000)
-ggplot(population, aes(x=logtiheys,y=trendi)) + geom_point(shape=1) + geom_smooth(method="gam", formula = y ~ s(x))
+ggplot(population, aes(x=logtiheys,y=trendi,color=maakunta)) + geom_point(shape=1) + geom_smooth(method="gam", formula = y ~ s(x))
 ggsave("trendi_tiheys.png")
 dev.off()
