@@ -46,9 +46,8 @@ lhinta2 <- beta2[,2]+6
 trendi2 <- beta2[,1]/10
 lhinta3 <- beta3[,2]+6
 trendi3 <- beta3[,1]/10
-hist(hintataso, n=100)
-hist(trendi, n=100)
-plot(beta[,2], trendi)
+# hist(trendi, n=100)
+# plot(beta[,2], trendi)
 
 first.nna2 <- function (c1, c2)  ifelse(!is.na(c1), c1, c2)
 first.nna4 <- function (c1, c2, c3, c4) first.nna2(c1, first.nna2(c2, first.nna2(c3, c4)))
