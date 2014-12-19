@@ -3,6 +3,41 @@
 library("devtools")
 install_github("ropengov/pxweb")
 library("pxweb")
+
+## PRICES BY POSTAL CODE #######
+
+d <- interactive_pxweb(api = "statfi")
+# [004_ashi_tau_109.px]    Vanhojen vapaarahoitteisten asuntojen hinnat postinumeroalueittain ja rakennusvuosittain
+
+ashi.pnro.raw <- get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/asu/ashi/004_ashi_tau_109.px",
+                                dims = list(Vuosi = c('*'), Neljännes = c('0'), Talotyyppi = c('6'),
+                                            Rakennusvuosi = c('8'), Postinumero = c('*'), Tiedot = c('*')),
+                                clean = TRUE)
+saveRDS(ashi.pnro.raw, file="data/statfi_ashi_pnro_raw_2005-2014_20141219.rds")
+
+
+## Filter data
+
+library("dplyr")
+library("tidyr")
+ashi.pnro.raw <- readRDS("data/statfi_ashi_pnro_raw_2005-2014_20141219.rds")
+
+# Reformat into year, pnro, price, n
+ashi.pnro.dat <- ashi.pnro.raw %>%
+  select(Vuosi, Postinumero, Tiedot, values) %>%
+  spread(Tiedot, values) %>%
+  rename(year = Vuosi,
+         pnro = Postinumero,
+         price = Keskiarvo,
+         n = Lukumäärä)
+
+saveRDS(ashi.pnro.dat, file="data/statfi_ashi_pnro_processed_2005-2014_20141219.rds")
+
+
+
+
+## PRICES BY MUNICIPALITY (NOT NEEDED NOW) #######
+
 d <- interactive_pxweb(api = "statfi")
 
 # We want these
@@ -21,10 +56,13 @@ for (ti in seq(tables)) {
                            dims = list(Alue = c('*'), Talotyyppi = c('*'), Tiedot = c('*')), clean = TRUE)
   ashi.dat <- rbind(ashi.dat, cbind(ti.dat, vuosi=names(tables)[ti]))
 }
-save(ashi.dat, file="statfi_ashi_2008-2013.RData")
+save(ashi.dat, file="data/statfi_ashi_municipality_2008-2013.RData")
 
 # Write small example data
-write.csv(ashi.dat[1:1000,], file="statfi_ashi_example.csv")
+# write.csv(ashi.dat[1:1000,], file="data/statfi_ashi_municipality_example.csv")
 
 # And omakotitalot
 # [kihi] does not have the same data as [ashi] :(
+
+
+
