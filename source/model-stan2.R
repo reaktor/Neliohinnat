@@ -1,7 +1,6 @@
 library(dplyr)
 library(rstan)
 
-# FIXME: Reduce()
 first.nna2 <- function (c1, c2)  ifelse(!is.na(c1), c1, c2)
 first.nna <- function (...) Reduce(first.nna2, list(...))
   
@@ -25,13 +24,14 @@ wtf <- function (d, cl, cu) data.frame(l=as.numeric(d[[cl]]), u=as.numeric(d[[cu
 
 #m <- lmer(log(price) ~ yr  + (1|pnro) + (1+yr|level1) + (1+yr|level2) + (1|level3), data=d, weights=d$n)
 m <- stan_model(file="source/m2.stan")
+# Estimate: 5000 secs (real 8096.41s)
 s <- sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1), M2=nlevels(level2), M3=nlevels(level3),
                                    lprice=lprice, count=n, yr=yr, 
                                    pnro=as.numeric(pnro), 
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=2000, warmup=1000, thin=5, init=0, chains=1, refresh=1)
+              iter=6000, warmup=1000, thin=25, init=0, chains=1, refresh=1)
 
 saveRDS(s, "s.rds")
 s <- readRDS("s.rds")

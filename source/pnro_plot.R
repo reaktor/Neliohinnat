@@ -12,3 +12,9 @@ spplot(pnro.hinnat.sp, zcol="trendi", lwd=0.00, col="transparent", main="trend")
 spplot(pnro.hinnat.sp, zcol="quad", lwd=0.00, col="transparent", main="quadratic")
 dev.off()
 
+pk.sp <- pnro.hinnat.sp[substr(pnro.hinnat.sp$pnro, 1, 2) %in% c("00", "01", "02"),]
+pdf("figs/pk-pnro_prices.pdf")
+spplot(pk.sp, zcol="lhinta", lwd=0.00, col="transparent", main="log.price")
+spplot(pk.sp, zcol="trendi", lwd=0.00, col="transparent", main="trend")
+spplot(pk.sp, zcol="quad", lwd=0.00, col="transparent", main="quadratic")
+dev.off()
