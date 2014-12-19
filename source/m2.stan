@@ -17,8 +17,8 @@ parameters {
     corr_matrix[3] Omega3; vector<lower=0>[3] tau3;
     matrix[M, 3] beta; // pnro level
     matrix[M1, 3] beta1; // l1 level
-    matrix[M2, 3] beta2; 
-    matrix[M3, 3] beta3; 
+    matrix[M2, 3] beta2; // l2 level
+    matrix[M3, 3] beta3; // l3 level
     real<lower=0> sigma;
 }
 model {
