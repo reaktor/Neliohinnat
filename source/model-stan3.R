@@ -37,7 +37,7 @@ s <- sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=5000, warmup=1000, thin=1, init=0, chains=1, refresh=1, seed=4)
+              iter=6000, warmup=1000, thin=25, init=0, chains=1, refresh=1, seed=4)
 
 saveRDS(s, "s3.rds")
 s <- readRDS("s3.rds")
@@ -59,8 +59,8 @@ if (F) {
 
 # Low-level correlation matrix over price level, trend, etc.
 # Is of general interest
-LOmega <- apply(extract(s, "LOmega")[[1]], c(2, 3), median)
-Omega <- LOmega %*% t(LOmega)
+LOmega <- apply(extract(s, "LOmega")[[1]], c(2, 3), mean)
+Omega <- LOmega %*% t(LOmega) # Not quite, we'd need a tensor product
 saveRDS(Omega, "data/Omega.rds")
 beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean)
 # For debugging 
