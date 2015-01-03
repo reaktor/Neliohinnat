@@ -19,7 +19,7 @@ if (F) {
 # Low-level correlation matrix over price level, trend, etc.
 # Is of general interest
 LOmega <- apply(extract(s, "LOmega")[[1]], c(2, 3), mean)
-Omega <- LOmega %*% t(LOmega) # Not quite, we'd need a tensor product
+Omega <- LOmega %*% t(LOmega) # Not quite, we'd need a tensor product or a loop...
 saveRDS(Omega, "data/Omega.rds")
 beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean)
 # For debugging 
