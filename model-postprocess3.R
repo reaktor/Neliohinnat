@@ -18,9 +18,10 @@ if (F) {
 
 # Low-level correlation matrix over price level, trend, etc.
 # Is of general interest
-LOmega <- apply(extract(s, "LOmega")[[1]], c(2, 3), mean)
-Omega <- LOmega %*% t(LOmega) # Not quite, we'd need a tensor product or a loop...
+Omega <- matrix(apply(apply(extract(s, "LOmega")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
 saveRDS(Omega, "data/Omega.rds")
+Omega1 <- matrix(apply(apply(extract(s, "LOmega1")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
+saveRDS(Omega1, "data/Omega1.rds")
 beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean)
 # For debugging 
 if (F) {
