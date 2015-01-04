@@ -9,7 +9,7 @@ data {
 }
 transformed data {
     matrix[N, 6] X;
-    for (i in 1:N) { X[i, 1] <- 1; X[i, 2] <- yr[i]; X[i, 6] <- yr[i]*yr[i]; 
+    for (i in 1:N) { X[i, 1] <- 1; X[i, 2] <- yr[i]; X[i, 3] <- yr[i]*yr[i]; 
                      X[i, 4] <- z[i]; X[i, 5] <- yr[i]*z[i]; X[i, 6] <- yr[i]*yr[i]*z[i]; }
 }
 parameters {
@@ -35,9 +35,9 @@ model {
     matrix[6, 6] LSigma_beta2;
     matrix[6, 6] LSigma_beta3;
     LSigma_beta <- diag_pre_multiply(tau, LOmega);
-    LSigma_beta1 <- diag_pre_multiply(tau, LOmega1);
-    LSigma_beta2 <- diag_pre_multiply(tau, LOmega2);
-    LSigma_beta3 <- diag_pre_multiply(tau, LOmega3);
+    LSigma_beta1 <- diag_pre_multiply(tau1, LOmega1);
+    LSigma_beta2 <- diag_pre_multiply(tau2, LOmega2);
+    LSigma_beta3 <- diag_pre_multiply(tau3, LOmega3);
     LOmega ~ lkj_corr_cholesky(2);  tau ~ lognormal(-1., 3.);
     LOmega1 ~ lkj_corr_cholesky(2); tau1 ~ lognormal(-1., 3.);    
     LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-1., 3.);
