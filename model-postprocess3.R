@@ -1,8 +1,10 @@
 library(rstan)
 library(dplyr)
 
-s <- readRDS("s3.rds")
+source("common3.R")
 
+
+s <- readRDS("s3.rds")
 
 # Note that it would be better to compute several chains.
 # You should monitor the convergence here somehow.
@@ -11,7 +13,7 @@ if (F) {
   s
   traceplot(s, "LOmega", inc_warmup=F, ask=T)
   traceplot(s, "LOmega3", inc_warmup=F, ask=T)
-  traceplot(s, "tau1", inc_warmup=F)
+  traceplot(s, "tau", inc_warmup=F)
   traceplot(s, "tau3", inc_warmup=F)
   # etc.
 }
