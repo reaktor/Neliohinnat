@@ -9,8 +9,10 @@ data {
 }
 transformed data {
     matrix[N, 6] X;
+    vector[6] zero_beta;
     for (i in 1:N) { X[i, 1] <- 1; X[i, 2] <- yr[i]; X[i, 3] <- yr[i]*yr[i]; 
                      X[i, 4] <- z[i]; X[i, 5] <- yr[i]*z[i]; X[i, 6] <- yr[i]*yr[i]*z[i]; }
+    for (i in 1:6) zero_beta[i] <- 0;
 }
 parameters {
     vector[6] mean_beta;
@@ -46,8 +48,8 @@ model {
     for (i in 1:M) beta[i] ~ multi_normal_cholesky(beta1[l1[i]], LSigma_beta); 
     for (i in 1:M1) beta1[i] ~ multi_normal_cholesky(beta2[l2[i]], LSigma_beta1);
     for (i in 1:M2) beta2[i] ~ multi_normal_cholesky(beta3[l3[i]], LSigma_beta2);
-    for (i in 1:M3) beta3[i] ~ multi_normal_cholesky(mean_beta, LSigma_beta3);
-    for (i in 1:N) { imean[i] <- X[i] * beta[pnro[i]]'; isigma[i] <- sigma/sqrt(count[i]); }
+    for (i in 1:M3) beta3[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta3);
+    for (i in 1:N) { imean[i] <- X[i] * (mean_beta + beta[pnro[i]]'); isigma[i] <- sigma/sqrt(count[i]); }
     sigma ~ normal(0, 2);
     lprice ~ normal(imean, isigma);
 }
