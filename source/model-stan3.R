@@ -21,14 +21,14 @@ wtf <- function (d, cl, cu) data.frame(l=as.numeric(d[[cl]]), u=as.numeric(d[[cu
 
 m <- stan_model(file="source/m3.stan")
 s.f <- 
-  function (i)
+  function (i, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1), M2=nlevels(level2), M3=nlevels(level3),
                                    lprice=lprice, count=n, yr=yr, z=log.density,
                                    pnro=as.numeric(pnro), 
                                    l1=wtf(d, "pnro", "level1"), 
                                    l2=wtf(d, "level1", "level2"), 
                                    l3=wtf(d, "level2", "level3"))),
-              iter=2500, warmup=1000, thin=25, init=0, chains=1, refresh=-1, seed=4, chain_id=i)
+              iter=iter, warmup=warmup, thin=thin, init=0, chains=1, refresh=refresh, seed=4, chain_id=i)
 
 s.list <- mclapply(1:4, mc.cores = 4, s.f)
 s <- sflist2stanfit(s.list)          
