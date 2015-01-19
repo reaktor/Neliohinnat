@@ -5,7 +5,7 @@ source("common3.R")
 
 
 s <- readRDS("s3.rds")
-
+d <- readRDS("data/d.rds")
 # Note that it would be better to compute several chains.
 # You should monitor the convergence here somehow.
 # Those tau's are notoriously well autocorrelated.
@@ -15,6 +15,8 @@ if (F) {
   traceplot(s, "LOmega3", inc_warmup=F, ask=T)
   traceplot(s, "tau", inc_warmup=F)
   traceplot(s, "tau3", inc_warmup=F)
+  traceplot(s, "mean_beta", inc_warmup=F)
+  traceplot(s, "beta", inc_warmup=F)
   # etc.
 }
 
