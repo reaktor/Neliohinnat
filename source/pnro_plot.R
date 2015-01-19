@@ -21,3 +21,24 @@ spplot(pk.sp, zcol="trendi", lwd=0.00, col="transparent", main="trend")
 spplot(pk.sp, zcol="quad", lwd=0.00, col="transparent", main="quadratic")
 spplot(pk.sp, zcol="current.trend", lwd=0.00, col="transparent", main="Trend 2015")
 dev.off()
+
+d <- readRDS("data/d.rds")
+
+
+pnro.hinnat.sp.raw<- merge(pnro.sp.alt, 
+                           d %>% group_by(pnro) %>% 
+                             do(data.frame(lprice=mean(.$lprice), trend=coef(lm(lprice ~ year + 1, 
+                                                                                weights = .$n,
+                                                                                data=.))[["year"]])) %>%
+                             data.frame)
+pk.sp.raw <- pnro.hinnat.sp.raw[substr(pnro.hinnat.sp.raw$pnro, 1, 2) %in% c("00", "01", "02"),]
+
+pdf("figs/without-hierarhy.pdf")
+spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (raw)")
+spplot(pnro.hinnat.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
+spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (raw)")
+spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
+dev.off()
+
+
+
