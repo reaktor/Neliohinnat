@@ -2,7 +2,7 @@ library(dplyr)
 library(rstan)
 library(parallel)
 
-source("common3.R")
+source("source/common3.R")
 
 d <- readRDS("data/statfi_ashi_pnro_processed_2005-2014_20141219.rds") %>% 
   left_join(pnro.area, by="pnro") %>%
