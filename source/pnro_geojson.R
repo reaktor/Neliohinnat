@@ -7,6 +7,9 @@ pnro.hinnat <- readRDS("data/pnro-hinnat.rds")
 load("data/pnro_spatial_wgs84.RData") # pnro.sp.alt appears here
 pnro.hinnat.sp <- merge(pnro.sp, pnro.hinnat)
 
+# Take only Helsinki as an example
+
+
 # Write as GeoJSON (can not specify file type for some reason, rename afterwards)
 rgdal::writeOGR(obj=pnro.hinnat.sp, dsn="pnro_prices_geojson", layer="postinumerot 20140217", driver="GeoJSON")
 file.rename("pnro_prices_geojson", "pnro_prices.geojson")
