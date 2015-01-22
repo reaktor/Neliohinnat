@@ -30,6 +30,9 @@ model {
     // FIXME: should use multi-t instead of multinormals?
     // FIXME: should assume log-normal for prices of original transactions (that we don't have)?
     // (Impossible exactly, but see mean and std of lognormal)
+    // FIXME FIXME FIXME: 
+    // this model has replicates of covariates z at the unit level. Does not hurt but 
+    // they are not estimable. Covariates X[, (4, 5, 6)] should exist only at the l1 level.
     vector[N] imean;
     vector[N] isigma;
     matrix[6, 6] LSigma_beta;
