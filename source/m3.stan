@@ -27,12 +27,12 @@ parameters {
     real<lower=0> sigma;
 }
 model {
-    // FIXME: should use multi-t instead of multinormals?
-    // FIXME: should assume log-normal for prices of original transactions (that we don't have)?
-    // (Impossible exactly, but see mean and std of lognormal)
-    // FIXME FIXME FIXME: 
-    // this model has replicates of covariates z at the unit level. Does not hurt but 
-    // they are not estimable. Covariates X[, (4, 5, 6)] should exist only at the l1 level.
+    // FIXME:
+    // - This model has replicates of covariates z at the unit level. Does not hurt, but 
+    //   they are not estimable. Covariates X[, (4, 5, 6)] should exist only at the l1 level.
+    // - Convergence speed would probably be much faster, if the hierarchy was centralized.
+    //   That is, all levels would be at mean zero, and then at the level of pnro's
+    //   there would be sum of betas of all levels. 
     vector[N] imean;
     vector[N] isigma;
     matrix[6, 6] LSigma_beta;
@@ -52,6 +52,12 @@ model {
     for (i in 1:M1) beta1[i] ~ multi_normal_cholesky(beta2[l2[i]], LSigma_beta1);
     for (i in 1:M2) beta2[i] ~ multi_normal_cholesky(beta3[l3[i]], LSigma_beta2);
     for (i in 1:M3) beta3[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta3);
+    // FIXME: 
+    // - Should use multi-t instead of multinormals?
+    //   The log-normal prices are in the data averaged at the euro level, so the 
+    //   distribution of the averages is a bit skewed and long-tailed. 
+    // - Should or could the log-normal origin be taken into account analytically?
+    //   (Impossible exactly, but see mean and std of lognormal)
     for (i in 1:N) { imean[i] <- X[i] * (mean_beta + beta[pnro[i]]'); isigma[i] <- sigma/sqrt(count[i]); }
     sigma ~ normal(0, 2);
     lprice ~ normal(imean, isigma);
