@@ -83,13 +83,13 @@ saveRDS(res.shrinked, "data/pnro-hinnat.rds")
 library(ggplot2)
 
 ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5, size=3) + 
-  xlab("log.density") + ylab("log price - 6") + theme_minimal(15)
+  xlab("log.density") + ylab("log price - 6") + theme_minimal(15) + geom_smooth(method="gam", formula = y ~ s(x))
 ggsave("figs/density-lprice.png")
 ggplot(res, aes(x=-log.density, y=trendi, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend per year") + theme_minimal(15)
+  xlab("log.density") + ylab("trend per year") + theme_minimal(15) + geom_smooth(method="gam", formula = y ~ s(x))
 ggsave("figs/density-trend.png")
 ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend change per year") + theme_minimal(15)
+  xlab("log.density") + ylab("trend change per year") + theme_minimal(15) + geom_smooth(method="gam", formula = y ~ s(x))
 ggsave("figs/density-trendchange.png")
 
 ggplot(res, aes(x=lprice, fill=l3(pnro))) + geom_histogram(binwidth=.04) +
