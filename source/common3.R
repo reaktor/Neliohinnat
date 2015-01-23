@@ -17,3 +17,5 @@ pnro.area <- local({
   inner_join(population, by="pnro") %>% 
   mutate(log.density = (log.area - log.population)/10)
 
+# Center & scale for modeling 
+year2yr <- function (year) (year-2009.406)/10

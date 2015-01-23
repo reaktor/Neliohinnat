@@ -4,6 +4,8 @@ library(parallel)
 
 source("source/common3.R")
 
+# FIXME: log.density has wrong sign. 
+
 d <- readRDS("data/statfi_ashi_pnro_processed_2005-2014_20141219.rds") %>% 
   left_join(pnro.area, by="pnro") %>%
   filter(!is.na(log.density) & !is.na(price)) %>%
@@ -12,7 +14,7 @@ d <- readRDS("data/statfi_ashi_pnro_processed_2005-2014_20141219.rds") %>%
   mutate(level1 = l1(pnro),
          level2 = l2(pnro),
          level3 = l3(pnro), 
-         yr = (year-mean(year))/10,
+         yr = year2yr(year),
          lprice = log(price)-6)
 
 saveRDS(d, "data/d.rds")
