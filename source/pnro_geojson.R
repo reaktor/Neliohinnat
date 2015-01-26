@@ -9,8 +9,9 @@ pnro.hinnat.sp <- merge(pnro.sp, pnro.hinnat)
 
 
 # Remove -Inf values and NAs
-infs <- unique(unlist(lapply(pnro.hinnat.sp@data, function(x) which(x == -Inf | x == Inf))))
-pnro.hinnat.sp <- pnro.hinnat.sp[-infs, ]
+# Update: No more -Inf or Inf
+# infs <- unique(unlist(lapply(pnro.hinnat.sp@data, function(x) which(x == -Inf | x == Inf))))
+# pnro.hinnat.sp <- pnro.hinnat.sp[-infs, ]
 nas <-  unique(unlist(lapply(pnro.hinnat.sp@data, function(x) which(is.na(x)))))
 pnro.hinnat.sp <- pnro.hinnat.sp[-nas, ]
 
