@@ -55,4 +55,11 @@ pnro.nb.list <- spdep::poly2nb(pnro.sp, row.names=pnro.sp@data$pnro)
 attributes(pnro.nb.list)$region.id[pnro.nb.list[[1]]]
 # "00120" "00130" "00170" "00180" "00250" "00260" "00530"
 
+# Write as JSON
+pnro.nb.list2 <- lapply(pnro.nb.list, function(x) x = attributes(pnro.nb.list)$region.id[x])
+names(pnro.nb.list2) <- attributes(pnro.nb.list)$region.id
 
+library("rjson")
+pnro.nb.json <- toJSON(pnro.nb.list2)
+writeLines(pnro.nb.json, con="json/pnro_neighbors.json")
+# The tidy the format (i.e. add ends of lines) using http://jsonlint.com/
