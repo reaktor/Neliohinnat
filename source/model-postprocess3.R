@@ -90,7 +90,8 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
-           hinta2015=mean(hinta2015), trendi2015=mean(trendi2015), trendimuutos=mean(trendimuutos))
+           hinta2015=mean(hinta2015), trendi2015=mean(trendi2015), trendimuutos=mean(trendimuutos)) %>%
+  ungroup()
    
 write.table(res %>% select(-log.density),  "data/pnro-hinnat.txt", row.names=F, quote=F)
 saveRDS(res, "data/pnro-hinnat.rds")
@@ -112,6 +113,7 @@ predictions <-
                 hinta50 = quantile(.$hinta, .5), 
                 hinta75 = quantile(.$hinta, .75), 
                 hinta90 = quantile(.$hinta, .9))) %>%
+  ungroup() %>%
   left_join(d %>% select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
 saveRDS(predictions, "predictions.rds")
@@ -130,10 +132,11 @@ pnro.plot <- function (ipnro) {
     facet_wrap(~ pnro) 
 }
 
+library(ggplot2)
+
 pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "33100", "09120"))
 
 
-library(ggplot2)
 
 ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5, size=3) + 
   xlab("log.density") + ylab("log price - 6") + theme_minimal(15) + 
@@ -192,8 +195,21 @@ spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (r
 spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
 dev.off()
 
+library(RJSONIO)
 
+res %>% plyr::dlply("pnro", function (i) list(hinta2015=i$hinta2015, 
+                                              trendi2015=i$trendi2015, 
+                                              trendimuutos=i$trendimuutos)) %>% 
+  toJSON %>% writeLines("jsons/trends.json")
 
-
-
-
+predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
+  plyr::d_ply("pnro", function (i) list(year=i$year, 
+                                        hinta10=i$hinta10, 
+                                        hinta25=i$hinta25, 
+                                        hinta50=i$hinta50, 
+                                        hinta75=i$hinta75, 
+                                        hinta90=i$hinta90, 
+                                        obs_hinta=i$obs_hinta, 
+                                        n_kaupat=i$n_kaupat) %>% toJSON %>%
+                      writeLines(., paste("jsons/predictions/", i$pnro[[1]], ".json",  sep=""))
+              )
