@@ -54,8 +54,8 @@ model {
     for (i in 1:M3) beta3[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta3);
     // FIXME: 
     // - Centralize. 
-    // - Remove bottom-level covars 4..6, for there are no repeats.
-    // - Should allow extra variance?
+    // - Remove bottom-level covars 4..6, for there are no repeats?
+    // - pnro-level sigmas?
     // - Should use multi-t instead of multinormals?
     //   The log-normal prices are in the data averaged at the euro level, so the 
     //   distribution of the averages is a bit skewed and long-tailed. 
