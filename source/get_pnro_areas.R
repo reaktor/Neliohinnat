@@ -62,4 +62,17 @@ names(pnro.nb.list2) <- attributes(pnro.nb.list)$region.id
 library("rjson")
 pnro.nb.json <- toJSON(pnro.nb.list2)
 writeLines(pnro.nb.json, con="json/pnro_neighbors.json")
-# The tidy the format (i.e. add ends of lines) using http://jsonlint.com/
+message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
+
+# Get postal code info
+library("devtools")
+install_github("ropengov/sorvi")
+library("sorvi")
+postal.code.table <- get_postal_code_info()
+# Process into json
+pnros <- as.vector(pnro.sp@data$pnro)
+names(pnros) <- pnros
+pnro.info.list <- lapply(pnros, function(p) postal.code.table$municipality[match(p, postal.code.table$postal.code)])
+pnro.info.json <- toJSON(pnro.info.list)
+writeLines(pnro.info.json, con="json/pnro_info.json")
+message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
