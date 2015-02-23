@@ -62,4 +62,48 @@ names(pnro.nb.list2) <- attributes(pnro.nb.list)$region.id
 library("rjson")
 pnro.nb.json <- toJSON(pnro.nb.list2)
 writeLines(pnro.nb.json, con="json/pnro_neighbors.json")
-# The tidy the format (i.e. add ends of lines) using http://jsonlint.com/
+message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
+
+# # Get postal code info using sorvi
+# library("devtools")
+# install_github("ropengov/sorvi")
+# library("sorvi")
+# postal.code.table <- get_postal_code_info()
+# # Process into json
+# pnros <- as.vector(pnro.sp@data$pnro)
+# names(pnros) <- pnros
+# pnro.info.list <- lapply(pnros, function(p) postal.code.table$municipality[match(p, postal.code.table$postal.code)])
+# pnro.info.json <- toJSON(pnro.info.list)
+# writeLines(pnro.info.json, con="json/pnro_info.json")
+# message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
+
+# Alternatively from Paavo
+library("devtools")
+install_github("ropengov/pxweb")
+library("pxweb")
+d <- interactive_pxweb(api = "statfi")
+myDataSetName <- get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2015/paavo_9_koko_2015.px",
+                 dims = list(Postinumeroalue = c('*'), Tiedot = c('*')), clean = TRUE)
+# Extract names and municipalities for each pnro
+pnro.raw <- levels(myDataSetName$Postinumeroalue)
+# Remove 'KOKO MAA'
+pnro.raw <- pnro.raw[-grep("KOKO MAA", pnro.raw)]
+# Process a bit
+pnro.raw <- gsub("  \\(", "|", pnro.raw)
+pnro.raw <- gsub("\\)", "", pnro.raw)
+pnro.number <- sapply(strsplit(pnro.raw, split=" "), "[", 1)
+pnro.raw2 <- substr(pnro.raw, 7, 100)
+pnro.name <- sapply(strsplit(pnro.raw2, split="\\|"), "[", 1)
+pnro.municipality <- sapply(strsplit(pnro.raw2, split="\\|"), "[", 2)
+
+# Put into list
+pnro.info.list <- vector("list", length(pnro.number))
+names(pnro.info.list) <- pnro.number
+for (pi in seq(pnro.number))
+  pnro.info.list[[pi]] <- c("name"=pnro.name[pi], "municipality"=pnro.municipality[pi])
+
+# Write json
+library("rjson")
+pnro.info.json <- toJSON(pnro.info.list)
+writeLines(pnro.info.json, con="json/pnro_info.json")
+message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
