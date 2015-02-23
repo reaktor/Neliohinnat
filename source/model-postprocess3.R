@@ -4,7 +4,7 @@ library(dplyr)
 source("source/common3.R")
 
 
-s <- readRDS("s3.rds")
+s <- readRDS("s4.rds")
 d <- readRDS("data/d.rds")
 
 if (F) {
@@ -14,7 +14,7 @@ if (F) {
   traceplot(s, "tau", inc_warmup=F)
   traceplot(s, "tau3", inc_warmup=F)
   traceplot(s, "mean_beta", inc_warmup=F)
-  traceplot(s, "beta", inc_warmup=F)
+  #traceplot(s, "beta", inc_warmup=F)
   # etc.
 }
 
@@ -42,19 +42,29 @@ if (F) {
   hist(beta[,6], n=100)
 }
 
+beta.names <- c("lprice", "trend", "quad", "k.lprice", "k.trend", "k.quad")
+
 par.tbl <- function(d, v.name, b.name, name.postfix) 
   data.frame(levels(d[[v.name]]), beta.prm.mean(b.name)) %>% 
   setNames(c(v.name, 
-             paste(c("lprice", "trend", "quad", "k.lprice", "k.trend", "k.quad"), name.postfix, sep=""))) %>%
+             paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df()
 
 par.tbl.long <- function(d, v.name, b.name, name.postfix) {
-  samples <- beta.prm(b.name) 
+  samples <- beta.prm(b.name)
   data.frame(expand.grid(1:dim(samples)[[1]], levels(d[[v.name]])), 
              array(samples, c(dim(samples)[[1]]*dim(samples)[[2]], dim(samples)[[3]]))) %>% 
   setNames(c("sample", v.name, 
-             paste(c("lprice", "trend", "quad", "k.lprice", "k.trend", "k.quad"), name.postfix, sep=""))) %>%
+             paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() }
+
+mean.tbl.long <- function (name.postfix="4") 
+  extract(s, "mean_beta")[[1]] %>% { 
+    data.frame(sample=1:dim(.)[[1]], .) } %>% 
+  setNames(c("sample", 
+             paste(beta.names, name.postfix, sep=""))) %>%
+  tbl_df() 
+             
 
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
@@ -68,14 +78,15 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   left_join(par.tbl.long(d, "level1", "beta1", "1"), by=c("level1", "sample")) %>% 
   left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
   left_join(par.tbl.long(d, "level3", "beta3", "3"), by=c("level3", "sample")) %>% 
+  left_join(mean.tbl.long(                     "4"), by=c(          "sample")) %>% 
   mutate(pnro=pnro, 
             log.density = log.density,
-            lprice=first.nna(lprice, lprice1, lprice2, lprice3) + 
-              first.nna(k.lprice, k.lprice1, k.lprice2, k.lprice3) * log.density, 
-            trend=first.nna(trend, trend1, trend2, trend3) +
-              first.nna(k.trend, k.trend1, k.trend2, k.trend3) * log.density, 
-            quad=first.nna(quad, quad1, quad2, quad3) +
-              first.nna(k.quad, k.quad1, k.quad2, k.quad3) * log.density
+            lprice=sum.0na(lprice, lprice1, lprice2, lprice3, lprice4) + 
+              sum.0na(k.lprice, k.lprice1, k.lprice2, k.lprice3, k.lprice4) * log.density, 
+            trend=sum.0na(trend, trend1, trend2, trend3, trend4) +
+              sum.0na(k.trend, k.trend1, k.trend2, k.trend3, k.trend4) * log.density, 
+            quad=sum.0na(quad, quad1, quad2, quad3, quad4) +
+              sum.0na(k.quad, k.quad1, k.quad2, k.quad3, k.quad4) * log.density
   ) %>%
   # Original unit is decade, for vars below it is year. 
   # d/d.yr lprice = trend + 2*quad*yr
