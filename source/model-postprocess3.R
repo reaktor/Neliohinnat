@@ -1,5 +1,6 @@
 library(rstan)
 library(dplyr)
+#library(RJSONIO)
 
 source("source/common3.R")
 
@@ -65,7 +66,6 @@ mean.tbl.long <- function (name.postfix="4")
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
              
-
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
 # For NA pnro's in the model, look for upper level in the hierarchy and take beta1 etc.
@@ -79,6 +79,9 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
   left_join(par.tbl.long(d, "level3", "beta3", "3"), by=c("level3", "sample")) %>% 
   left_join(mean.tbl.long(                     "4"), by=c(          "sample")) %>% 
+  #filter(pnro=="00100") %>%
+  #mutate(lprice=sum.0na(lprice, lprice1, lprice2, lprice3, lprice4) + 
+  #         sum.0na(k.lprice, k.lprice1, k.lprice2, k.lprice3, k.lprice4) * log.density)
   mutate(pnro=pnro, 
             log.density = log.density,
             lprice=sum.0na(lprice, lprice1, lprice2, lprice3, lprice4) + 
@@ -206,12 +209,12 @@ spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (r
 spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
 dev.off()
 
-library(RJSONIO)
+# JSONs
 
 res %>% plyr::dlply("pnro", function (i) list(hinta2015=i$hinta2015, 
                                               trendi2015=i$trendi2015, 
                                               trendimuutos=i$trendimuutos)) %>% 
-  toJSON %>% writeLines("jsons/trends.json")
+  toJSON %>% writeLines("json/trends.json")
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
   plyr::d_ply("pnro", function (i) list(year=i$year, 
@@ -222,5 +225,5 @@ predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
                                         hinta90=i$hinta90, 
                                         obs_hinta=i$obs_hinta, 
                                         n_kaupat=i$n_kaupat) %>% toJSON %>%
-                      writeLines(., paste("jsons/predictions/", i$pnro[[1]], ".json",  sep=""))
+                      writeLines(., paste("json/predictions/", i$pnro[[1]], ".json",  sep=""))
               )
