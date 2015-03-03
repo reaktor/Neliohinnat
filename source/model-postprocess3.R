@@ -1,10 +1,11 @@
 library(rstan)
 library(dplyr)
+library(RJSONIO)
 
 source("source/common3.R")
 
 
-s <- readRDS("s4.rds")
+s <- sflist2stanfit(readRDS("s5list.rds")[c(2, 3)])
 d <- readRDS("data/d.rds")
 
 if (F) {
@@ -65,15 +66,12 @@ mean.tbl.long <- function (name.postfix="4")
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
              
-
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
 # For NA pnro's in the model, look for upper level in the hierarchy and take beta1 etc.
 res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 = l3(pnro)) %>% 
   merge(data.frame(sample=1:n.samples)) %>% 
-  mutate(log.density=ifelse(is.finite(log.density), 
-                            log.density, #### FIXME  #####
-                            mean(log.density[is.finite(log.density)]))) %>% # OBS! a bit dangerous
+  filter(is.finite(log.density)) %>%
   left_join(par.tbl.long(d, "pnro",   "beta",  ""),  by=c("pnro",   "sample")) %>%
   left_join(par.tbl.long(d, "level1", "beta1", "1"), by=c("level1", "sample")) %>% 
   left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
@@ -150,16 +148,16 @@ pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "3310
 
 
 ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5, size=3) + 
-  xlab("log.density") + ylab("log price - 6") + theme_minimal(15) + 
-  geom_smooth(method="gam", formula = y ~ s(x), se=F)
+  xlab("log.density") + ylab("log price - 6") + theme_minimal(15) #+ 
+  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
 ggsave("figs/density-lprice.png")
 ggplot(res, aes(x=-log.density, y=trendi2015, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend per year") + theme_minimal(15) + 
-  geom_smooth(method="gam", formula = y ~ s(x), se=F)
+  xlab("log.density") + ylab("trend per year") + theme_minimal(15) #+ 
+  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
 ggsave("figs/density-trend.png")
 ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend change per year") + theme_minimal(15) + 
-  geom_smooth(method="gam", formula = y ~ s(x), se=F)
+  xlab("log.density") + ylab("trend change per year") + theme_minimal(15) #+ 
+  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
 ggsave("figs/density-trendchange.png")
 
 ggplot(res, aes(x=lprice, fill=l3(pnro))) + geom_histogram(binwidth=.04) +
@@ -206,12 +204,12 @@ spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (r
 spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
 dev.off()
 
-library(RJSONIO)
+# JSONs
 
 res %>% plyr::dlply("pnro", function (i) list(hinta2015=i$hinta2015, 
                                               trendi2015=i$trendi2015, 
                                               trendimuutos=i$trendimuutos)) %>% 
-  toJSON %>% writeLines("jsons/trends.json")
+  toJSON %>% writeLines("json/trends.json")
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
   plyr::d_ply("pnro", function (i) list(year=i$year, 
@@ -222,5 +220,5 @@ predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
                                         hinta90=i$hinta90, 
                                         obs_hinta=i$obs_hinta, 
                                         n_kaupat=i$n_kaupat) %>% toJSON %>%
-                      writeLines(., paste("jsons/predictions/", i$pnro[[1]], ".json",  sep=""))
+                      writeLines(., paste("json/predictions/", i$pnro[[1]], ".json",  sep=""))
               )
