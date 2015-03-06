@@ -37,8 +37,8 @@ if (T) {
   s <- s.f(0, iter=100, warmup=50, thin=1, refresh=1)
 } else {
   s.list <- mclapply(1:4, mc.cores = 4, s.f, iter=500, warmup=250, thin=5)
-  s <- sflist2stanfit(s.list) 
+  if (F) s <- sflist2stanfit(s.list) 
 }
 
 
-saveRDS(s, "s89.rds")
+saveRDS(s.list, "s89list.rds")
