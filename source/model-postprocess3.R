@@ -24,7 +24,7 @@ if (F) {
 Omega <- matrix(apply(apply(extract(s, "LOmega")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
 saveRDS(Omega, "data/Omega.rds")
 Omega1 <- matrix(apply(apply(extract(s, "LOmega1")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
-saveRDS(Omega1, "data/Omega1.rds")
+if (F) saveRDS(Omega1, "data/Omega1.rds")
 
 beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean)
 beta.prm <- function (v) extract(s, v)[[1]]
@@ -144,8 +144,10 @@ pnro.plot <- function (ipnro) {
 library(ggplot2)
 
 pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "33100", "09120"))
-
-
+predictions$pnro %>% (function (i) i[grep("^50", i)]) %>% unique %>% pnro.plot(.)
+predictions$pnro %>% (function (i) i[grep("^56", i)]) %>% unique %>% pnro.plot(.)
+predictions$pnro %>% (function (i) i[grep("^59", i)]) %>% unique %>% pnro.plot(.)
+predictions$pnro %>% (function (i) i[grep("^90", i)]) %>% unique %>% pnro.plot(.)
 
 ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5, size=3) + 
   xlab("log.density") + ylab("log price - 6") + theme_minimal(15) #+ 

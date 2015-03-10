@@ -21,20 +21,20 @@ saveRDS(d, "data/d.rds")
 
 wtf <- function (d, cl, cu) data.frame(l=as.numeric(d[[cl]]), u=as.numeric(d[[cu]])) %>% unique %>% { .[order(.$l),]$u }
 
-m <- stan_model(file="source/m3i.stan")
+m <- stan_model(file="source/m4.stan")
 s.f <- 
   function (i, iter=2500, warmup=1000, thin=25, refresh=-1)
-  sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1), M2=nlevels(level2), M3=nlevels(level3),
+  sampling(m, data=with(d, list(N=nrow(d), M=nlevels(pnro), M1=nlevels(level1), M2=nlevels(level2), 
                                    lprice=lprice, count=n, yr=yr, z=log.density,
                                    pnro=as.numeric(pnro), 
-                                   l1=wtf(d, "pnro", "level1"), 
-                                   l2=wtf(d, "level1", "level2"), 
-                                   l3=wtf(d, "level2", "level3"))),
+                                   l1=as.numeric(level1),
+                                   l2=as.numeric(level2))), 
               iter=iter, warmup=warmup, thin=thin, init=0, chains=1, refresh=refresh, seed=4, chain_id=i)
 
 if (T) {
   message("No parallel long chains, only the debug chain.")
-  s <- s.f(0, iter=100, warmup=50, thin=1, refresh=1)
+  s <- s.f(0, iter=10, warmup=5, thin=1, refresh=1)
+  s <- s.f(0, iter=500, warmup=250, thin=1, refresh=1)
 } else {
   s.list <- mclapply(1:4, mc.cores = 4, s.f, iter=500, warmup=250, thin=5)
   if (F) s <- sflist2stanfit(s.list) 
