@@ -1,0 +1,81 @@
+---
+title: "Suomalaiset arvostavat nyt enemmän urbaaneja asuinympäristöjä kuin aiemmin"
+output: html_document
+---
+
+TL;DR: Tiheästi asuttujen alueiden asuntojen hinnat ovat muutamana viime vuotena nousseet harvemmin asuttujen alueiden hintoja nopeammin koko Suomessa ja erityisesti pääkaupunkiseudulla. Tämä on todennäköisesti seurausta siitä, että ihmiset arvostavat nykyään enemmän urbaaneja asuinympäristöjä.   
+
+Maailmalla on vallannut alaa uusi urbanismin aalto, jossa ihmiset haluavat muuttaa tiiviisiin kaupunkikeskustoihin omakotitalolähiöiden sijaan (viite). Korkeasta väestötiheydestä sanotaan olevan monia etuja: Se tarjoaa monipuoliset palvelut, työpaikkojen ja palveluiden hyvän saavutettavuuden, mahdollisuuden rakentaa viihtyisää kävely-ympäristöä ja tehokkaasti toimivan joukkoliikenteen. Lisäksi tiivis rakentaminen säästää viheralueita ja luo edellytykset talouskasvulle.
+
+Millainen kehitys on Suomessa? Asuntojen hintojen muutokset kuvastavat muutoksia siinä, mitä asukkaan arvostavat, eli millaisiin asuntoihin he haluaisivat sijoittaa. Reaktor Oy:n data scientistit [linkki reaktor/datascience], joihin itsekin kuulun, mallinsivat asuntojen hintojen kehitystä [linkki tekniseen blogautukseen] vuosina 2005-2014 ja tekivät niistä interaktiivisen kartan [linkki]. Malli antaa postinumerotasolla asuntojen hinnan kehityksen keskineliöhintana, lineaarisena trendinä ja trendin muutoksena. Näiden perusteella voidaan tutkia asukkaiden arvostusten muutoksia. 
+
+Asuinalueen urbaaniudelle on monia mittareita, joista yksinkertaisin on väestötiheys. Allaolevasta kuvaajasta nähdään, että koko Suomessa ei juurikaan ole yhteyttä asuntojen hinnan ja asuinalueen väestötiheyden välillä. Vaaka-akseli kuvaa väestötiheyttä asukkaina neliökilometrillä logaritmisella skaalalla ja pystyakseli hinnan muutosta prosentteina per vuosi.
+
+```{r, echo=FALSE, warning=FALSE}
+# Script for analysing the relation between population density and price trends
+library("ggplot2")
+library("sorvi")
+#library("mgcv")
+library("MASS")
+
+# FIXME: path to be relative; now knit2html() behaves differently from source()
+population <- read.csv("/Users/jaakkos/github.reaktor/Neliohinnat/data/pnro-full-stack.csv", sep=",", header=T, colClasses="character",row.names=1)
+population$vakiluku <- as.numeric(population$vakiluku)
+population$logtiheys <- as.numeric(population$logtiheys)
+population$hintataso <- as.numeric(population$hintataso)
+population$trendi <- 100*as.numeric(population$trendi)
+population$trendimuutos <- 100*as.numeric(population$trendimuutos)
+population$pinta_ala <- as.numeric(population$pinta_ala)
+
+ymin = -0.016
+ymax = 0.002
+xmin = 0
+xmax = 4.5
+
+
+isot = c("Pääkaupunkiseutu","Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","muu")
+pk = c("Helsinki")
+pks = c("Helsinki","Espoo","Vantaa","Kauniainen")
+pksiso = c("Helsinki","Espoo","Vantaa","Kauniainen","Kirkkonummi","Siuntio","Vihti","Nurmijärvi","Kerava","Sipoo","Pornainen","Mäntsälä","Tuusula","Järvenpää")
+
+for (ind in seq(length(population$kunta))) {
+    if (!(population$kunta[ind] %in% isot)) 
+    {
+            population$kunta[ind] = "muu" 
+    }
+}  
+
+library(scales)
+#log.vals = seq(-2, 4, 2)
+log.vals = c(-1,0,2,4)
+
+norm.vals <- 10**log.vals
+
+# koko Suomen trendi vs tiheys
+gg <- ggplot(population, aes(logtiheys,trendi)) + geom_point(shape=1) + geom_smooth(method="rlm") + 
+  xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log.vals, labels=norm.vals)
+print(gg)
+```
+
+Tilannetta voidaan tarkastella myös yksittäisten kuntien osalta. Alle on kuvattu yhteys väestötiheyden ja lineaarisen hintakehityksen välillä Suomen kymmenen suurimman kaupungin osalta. 
+
+```{r, echo=FALSE, warning=FALSE}
+
+
+# isojen kaupunkien trendi vs tiheys
+gg <- ggplot(transform(population, kunta=factor(kunta, levels=isot)), aes(logtiheys,trendi)) + geom_point(shape=1) + geom_smooth(method="rlm") + 
+  facet_wrap(~kunta, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log.vals, labels=norm.vals)
+print(gg)
+```
+
+Osassa kaupungeista, erityisesti suurimmissa, hintojen nousu vaikuttaisi korreloivan positiivisesti asuinalueen väestötiheyden kanssa, mutta toisissa kaupungeissa taas negatiivisesti. 
+
+Reaktorin tekemä malli sisältää myös neliöllisen termin [linkki tekkiblogautukseen], joten hintojen lineaarinen muutos myös muuttuu ajassa. Trendin muutoksen kuvaaminen kertoo, miten arvostukset ovat muuttuneet tarkastellulla ajanjaksolla. Allaoleva kuvaaja näyttää sen kymmenen suurimman kaupungin osalta.
+
+```{r, echo=FALSE, warning=FALSE}
+
+ggplot(transform(population, kunta=factor(kunta, levels=isot)), aes(logtiheys,trendimuutos)) + geom_point(shape=1) + geom_smooth(method="rlm") + 
+  facet_wrap(~kunta, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendin muutos (prosyks. / vuosi)") + scale_x_continuous(breaks = log.vals, labels=norm.vals)
+```
+
+Kuvaajasta huomataan, että kaikissa suurimmissa kaupungeissa, mutta myös koko muussa Suomessa, tiheästi asutut alueet ovat kasvattaneet suosiotaan. Ehkä pääkaupunkiseutu on toiminut suunnannäyttäjänä muulle Suomelle. 
