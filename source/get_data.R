@@ -3,7 +3,7 @@
 
 # Necessary data
 # - apartment house prices by postal code areas from statfi
-# - postal code area map data from statfi Paavo
+# - postal code area map data from Duukkis
 # - postal code area population from statfi Paavo
 
 ## Packages needed:
@@ -12,7 +12,7 @@
 library("pxweb")
 
 # gisfin from ropengov: https://github.com/ropengov/gisfin
-# Need to install the development version from GitHub:
+# Need to install the development version 0.9.22 from GitHub 
 # library("devtools")
 # install_github("ropengov/gisfin")
 library("gisfin")
@@ -32,43 +32,33 @@ library("tidyr")
 
 # This is the table we want:
 # [004_ashi_tau_109.px]    Vanhojen vapaarahoitteisten asuntojen hinnat postinumeroalueittain ja rakennusvuosittain
-pno.ashi.raw <- pxweb::get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/asu/ashi/004_ashi_tau_109.px",
+pnro.ashi.raw <- pxweb::get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/asu/ashi/004_ashi_tau_109.px",
                                       dims = list(Vuosi = c('*'), Neljännes = c('0'), Talotyyppi = c('6'),
                                                   Rakennusvuosi = c('8'), Postinumero = c('*'), Tiedot = c('*')),
                                       clean = TRUE)
-pno.ashi.raw <- tbl_df(pno.ashi.raw)
+pnro.ashi.raw <- tbl_df(pnro.ashi.raw)
 
 
-## Get postal code map data from Paavo ########
+## Get postal code map data from Duukkis ########
 
-# The data is described here: http://www.tilastokeskus.fi/tup/rajapintapalvelut/paavo_en.html
+# The data is described here: http://www.palomaki.info/apps/pnro/
 
-# Browse the available data sets
+pnro.sp.duukkis <- gisfin::get_postalcode_areas()
+
+
+## Get postal code area data from Paavo #####
+
+# This is used only to get accurate area values
+# Note! This data also contains polygons, but they are very detailed and hence too large for web visualization purposes.
+
 request <- gisfin::GeoStatFiWFSRequest$new()$getPostalCodeAreaLayers()
 client <- gisfin::GeoStatFiWFSClient$new(request)
 client$listLayers()
-
-# Retrieve the Latest Paavo Map Data
 pno.layer <- "postialue:pno"
 request$getPostalCodeArea(pno.layer)
 client <- gisfin::GeoStatFiWFSClient$new(request)
-pno.sp <- client$getLayer(pno.layer)
+pnro.sp.paavo <- client$getLayer(pno.layer)
 
-# Try with merialueet, it is smaller but looks ugly
-# pno.layer <- "postialue:pno_meri"
-# request$getPostalCodeArea(pno.layer)
-# client <- gisfin::GeoStatFiWFSClient$new(request)
-# pnom.sp <- client$getLayer(pno.layer)
-# 
-# pnom.sp <- pnom.sp[order(pnom.sp@data$posti_alue),]
-# pnom.sp@data$rand <- runif(nrow(pnom.sp@data))
-# 
-# pdf("temp/paavo_meri.pdf", width=10, height=10)
-# spplot(pnom.sp[1:200,], zcol="rand")
-# dev.off()
-# 
-# # Write geojson
-# rgdal::writeOGR(obj=pnom.sp, dsn="temp/geojson_paavo_meri", layer="pnro", driver="GeoJSON")
 
 ## Get postal code population data from Paavo #######
 
@@ -77,61 +67,112 @@ pno.sp <- client$getLayer(pno.layer)
 
 # Now we want this table from 
 # [paavo_1_he_2015.px]
-pno.population.raw <- get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2015/paavo_1_he_2015.px",
-                                 dims = list(Postinumeroalue = c('*'),
-                                             Tiedot = c('He_vakiy')),
-                                 clean = TRUE)
-pno.population.raw <- tbl_df(pno.population.raw)
+pnro.population.raw <- pxweb::get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2015/paavo_1_he_2015.px",
+                                             dims = list(Postinumeroalue = c('*'),
+                                                         Tiedot = c('He_vakiy')),
+                                             clean = TRUE)
+pnro.population.raw <- tbl_df(pnro.population.raw)
 
 
-## Process data #########
+## Process data sets #########
 
-# Process population data
-pno.population <- pno.population.raw %>%
+# Process population data (extract pnro, municipality and name from Postinumeroalue)
+pnro.population <- pnro.population.raw %>%
   filter(Postinumeroalue != "KOKO MAA") %>%
-  mutate(Postinumeroalue = as.character(Postinumeroalue),
-         pno = substr(Postinumeroalue, 1, 5),
-         municipality = gsub("\\)", "", sapply(strsplit(Postinumeroalue, split="\\("), "[", 2))) %>%
+  mutate(temp = gsub("  \\(", "|", as.character(Postinumeroalue)),
+         pnro = substr(temp, 1, 5),
+         name = sapply(strsplit(substr(temp, 7, 100), split="\\|"), "[", 1),
+         municipality = gsub("\\)", "", sapply(strsplit(temp, split="\\|"), "[", 2))) %>%
   rename(population = values) %>%
-  select(pno, municipality, population)
+  select(pnro, name, municipality, population)
 
-# Process pno.sp data and compute densities
-pno.sp@data <- pno.sp@data %>%
-  rename(pno = posti_alue,
-         name = nimi,
-         area = pinta_ala) %>%
-  inner_join(pno.population) %>%
-  select(pno, name, municipality, area, population) %>%
-  mutate(density = population / area)
+# Combine all necessary data together (results in 3028 rows)
+pnro.dat <- pnro.population %>%
+  inner_join(pnro.sp.duukkis@data) %>% # include only those pnro in the polygon data
+  select(-name) %>% # do NOT use name from Paavo PX-Web data
+  inner_join(pnro.sp.paavo@data %>%
+               rename(pnro = posti_alue,
+                      name = nimi) %>% # use name from Paavo map data
+               mutate(area_km2 = pinta_ala / 1e6)) %>%
+  select(pnro, name, municipality, population, area_km2) %>%  
+  mutate(density_per_km2 = round(population / area_km2, d=2),
+         area_km2 = round(area_km2, d=2))
+
+# Create a new spatial df with necessary data
+pnro.sp <- subset(pnro.sp.duukkis, pnro.sp.duukkis@data$pnro %in% pnro.dat$pnro)
+pnro.sp@data <- pnro.sp@data %>%
+  inner_join(pnro.dat) %>%
+  select(pnro, name, municipality, population, area_km2)
 
 # Process dwelling price data, include density
-pno.ashi.dat <- pno.ashi.raw %>%
+pnro.ashi.dat <- pnro.ashi.raw %>%
   mutate(Postinumero = as.character(Postinumero),
          Vuosi = as.numeric(as.character(Vuosi))) %>%
   select(Postinumero, Vuosi, Tiedot, values) %>%
   spread(Tiedot, values) %>%
-  rename(pno = Postinumero,
+  rename(pnro = Postinumero,
          year = Vuosi,
          price = Keskiarvo,
          n = Lukumäärä) %>%
-  inner_join(pno.sp@data %>%
-               select(pno, density))
+  inner_join(pnro.dat %>%
+               select(pnro, density_per_km2))
 
 # Save data
-save(pno.sp, pno.ashi.dat, file="data/pno_data_20150316.RData")
+save(pnro.dat, pnro.sp, pnro.ashi.dat, file="data/pnro_data_20150318.RData")
 
 
-## Write json files ######
-load("data/pno_data_20150316.RData")
+## Write spatial data for web plots ######
 
-# # Write only polygons as GeoJSON (can not specify file type for some reason, rename afterwards)
-# rgdal::writeOGR(obj=pno.sp, dsn="pno_geojson", layer="pnro", driver="GeoJSON")
-# file.rename("pno_geojson", "json/pno.geojson")
 
-# Reduce polygon size
-# - apply thinning to reduce number of points
-# - round values
-# - remove small extra polygons (mostly islands)
+load("data/pnro_data_20150318.RData")
 
-# change coords to wgs84, improved rounding!
-# round also ares, pop and density values!
+## Reduce polygon resoluti
+# Check
+head(pnro.sp@polygons[[1]]@Polygons[[1]]@coords)
+
+# Round (need to lapply to multi polygons!!!):
+pnro.sp.rounded <- pnro.sp
+pnro.sp.rounded@polygons <- lapply(pnro.sp.rounded@polygons, function(p) {res=p;
+                                                                          for (pi in 1:length(res@Polygons))
+                                                                            res@Polygons[[pi]]@coords=round(res@Polygons[[pi]]@coords, d=3);
+                                                                          res})
+lapply(pnro.sp.rounded@polygons[[4]]@Polygons, function(x) head(x@coords))
+
+# Write only polygons as GeoJSON (can not specify file type for some reason, rename afterwards)
+rgdal::writeOGR(obj=pnro.sp.rounded, dsn="json_new/pnro_geojson", layer="pnro", driver="GeoJSON")
+file.rename("json_new/pnro_geojson", "json_new/pnro.geojson")
+# FIXME: why does it write 5 decimals to population and area_km2???
+
+# Try writing to topojson
+# Following these: http://recology.info/2015/01/geojson-topojson-io/
+library("devtools")
+devtools::install_github("ropensci/geojsonio")
+library("geojsonio")
+
+# topojson requires input in shape file format
+writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
+topojson_write(shppath = "temp_pnro_shape", filename = "json_new/pnro_topojson")
+
+# the topojson does not include the data, so write it separately as json
+# Put into list
+pnro.info.list <- vector("list", length(pnro.sp@data$pnro))
+names(pnro.info.list) <- pnro.sp@data$pnro
+for (pi in seq(pnro.info.list))
+  pnro.info.list[[pi]] <- pnro.sp@data[pi,]
+
+# Write json
+library("jsonlite")
+
+# Write in non-pretty format
+pnro.info.list %>%
+  toJSON(pretty=FALSE) %>%
+  writeLines(con="json_new/pnro_info_nonpretty.json")
+
+# Write in pretty format
+pnro.info.list %>%
+  toJSON(pretty=TRUE) %>%
+  writeLines(con="json_new/pnro_info_pretty.json")
+
+# pnro.info.json <- jsonlite::toJSON(pnro.info.list, pretty=)
+# writeLines(pnro.info.json, con="json_new/pnro_info.json")
+# message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
