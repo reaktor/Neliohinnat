@@ -54,6 +54,21 @@ request$getPostalCodeArea(pno.layer)
 client <- gisfin::GeoStatFiWFSClient$new(request)
 pno.sp <- client$getLayer(pno.layer)
 
+# Try with merialueet, it is smaller but looks ugly
+# pno.layer <- "postialue:pno_meri"
+# request$getPostalCodeArea(pno.layer)
+# client <- gisfin::GeoStatFiWFSClient$new(request)
+# pnom.sp <- client$getLayer(pno.layer)
+# 
+# pnom.sp <- pnom.sp[order(pnom.sp@data$posti_alue),]
+# pnom.sp@data$rand <- runif(nrow(pnom.sp@data))
+# 
+# pdf("temp/paavo_meri.pdf", width=10, height=10)
+# spplot(pnom.sp[1:200,], zcol="rand")
+# dev.off()
+# 
+# # Write geojson
+# rgdal::writeOGR(obj=pnom.sp, dsn="temp/geojson_paavo_meri", layer="pnro", driver="GeoJSON")
 
 ## Get postal code population data from Paavo #######
 
@@ -107,11 +122,16 @@ save(pno.sp, pno.ashi.dat, file="data/pno_data_20150316.RData")
 
 
 ## Write json files ######
-
+load("data/pno_data_20150316.RData")
 
 # # Write only polygons as GeoJSON (can not specify file type for some reason, rename afterwards)
-# rgdal::writeOGR(obj=pnro.sp, dsn="pnro_areas_geojson", layer="pnro", driver="GeoJSON")
-# file.rename("pnro_areas_geojson", "json/pnro_areas.geojson")
+# rgdal::writeOGR(obj=pno.sp, dsn="pno_geojson", layer="pnro", driver="GeoJSON")
+# file.rename("pno_geojson", "json/pno.geojson")
 
-# library("rjson")
+# Reduce polygon size
+# - apply thinning to reduce number of points
+# - round values
+# - remove small extra polygons (mostly islands)
 
+# change coords to wgs84, improved rounding!
+# round also ares, pop and density values!
