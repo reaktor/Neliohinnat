@@ -10,10 +10,10 @@ Apartment price trends across Finland, on the level of zip codes, based on open 
 
 ## Data sources
 
-Apartment price data for the postal codes is from [Statistics Finland][statfi] open data [API][statfi-api] (see [Terms of Use][statfi-terms]). Postal code region names, municipalities and population data is from Statistics Finland [Paavo - Open data by postal code area][paavo]. These data sets are accessed with the [pxweb] package from [rOpenGov], see source code for details.
+Apartment price data for the postal codes is from [Statistics Finland][statfi] open data [API][statfi-api] (see [Terms of Use][statfi-terms]). 
+Postal code region names, municipalities and population data is from Statistics Finland [Paavo - Open data by postal code area][paavo]. Postal code area map is from [Duukkis] and licensed under CC BY 4.0.
 
-Postal code area map is from [Duukkis] and licensed under CC BY 4.0. The data is accessed with the [gisfin] package from [rOpenGov], see source code for details.
-
+The data sets are accessed with the [pxweb and [gisfin] package from [rOpenGov]. See the script `source/get_data.R` for details.
 
 [statfi]: http://tilastokeskus.fi/meta/til/ashi.html
 [statfi-api]: http://www.stat.fi/org/avoindata/api.html
@@ -26,7 +26,7 @@ Postal code area map is from [Duukkis] and licensed under CC BY 4.0. The data is
 
 ## Source code
 
-FIXME: UPDATE
+* `source/get_data.R` script for retrieving all data
 
 
 ## Statistical model
