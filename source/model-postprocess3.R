@@ -5,16 +5,19 @@ library(RJSONIO)
 source("source/common3.R")
 
 
-s <- sflist2stanfit(readRDS("s5list.rds")[c(2, 3)])
+s <- sflist2stanfit(readRDS("s89list.rds"))[c(2, 3)])
+# s <- readRDS("s89list.rds")[[1]]
 d <- readRDS("data/d.rds")
 
 if (F) {
   s
   traceplot(s, "LOmega", inc_warmup=F, ask=T)
-  traceplot(s, "LOmega3", inc_warmup=F, ask=T)
+  traceplot(s, "LOmega2", inc_warmup=F, ask=T)
   traceplot(s, "tau", inc_warmup=F)
-  traceplot(s, "tau3", inc_warmup=F)
+  traceplot(s, "tau1", inc_warmup=F)
+  traceplot(s, "tau2", inc_warmup=F)
   traceplot(s, "mean_beta", inc_warmup=F)
+  traceplot(s, "df", inc_warmup=F)
   #traceplot(s, "beta", inc_warmup=F)
   # etc.
 }
@@ -26,8 +29,14 @@ saveRDS(Omega, "data/Omega.rds")
 Omega1 <- matrix(apply(apply(extract(s, "LOmega1")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
 if (F) saveRDS(Omega1, "data/Omega1.rds")
 
-beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean)
-beta.prm <- function (v) extract(s, v)[[1]]
+raise6 <- function (a) {
+  dim.a <- dim(a); N <- length(dim.a)
+  apply(a, 1:(N-1), function (v) c(v, rep(0, 6-dim.a[N]))) %>%
+  aperm(c(2:N, 1))
+} 
+  
+beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean) %>% raise6
+beta.prm <- function (v) extract(s, v)[[1]] %>% raise6
 
 # For debugging 
 if (F) {
@@ -65,7 +74,9 @@ mean.tbl.long <- function (name.postfix="4")
   setNames(c("sample", 
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
-             
+
+load("data/pnro_data_20150318.RData")
+pnro.area <- pnro.dat %>% transmute(pnro=pnro, log.density = -log(density_per_km2)/10) # FIXME: this is in two places
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
 # For NA pnro's in the model, look for upper level in the hierarchy and take beta1 etc.
@@ -75,16 +86,15 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   left_join(par.tbl.long(d, "pnro",   "beta",  ""),  by=c("pnro",   "sample")) %>%
   left_join(par.tbl.long(d, "level1", "beta1", "1"), by=c("level1", "sample")) %>% 
   left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
-  left_join(par.tbl.long(d, "level3", "beta3", "3"), by=c("level3", "sample")) %>% 
   left_join(mean.tbl.long(                     "4"), by=c(          "sample")) %>% 
   mutate(pnro=pnro, 
             log.density = log.density,
-            lprice=sum.0na(lprice, lprice1, lprice2, lprice3, lprice4) + 
-              sum.0na(k.lprice, k.lprice1, k.lprice2, k.lprice3, k.lprice4) * log.density, 
-            trend=sum.0na(trend, trend1, trend2, trend3, trend4) +
-              sum.0na(k.trend, k.trend1, k.trend2, k.trend3, k.trend4) * log.density, 
-            quad=sum.0na(quad, quad1, quad2, quad3, quad4) +
-              sum.0na(k.quad, k.quad1, k.quad2, k.quad3, k.quad4) * log.density
+            lprice=sum.0na(lprice, lprice1, lprice2, lprice4) + 
+              sum.0na(k.lprice, k.lprice1, k.lprice2,  k.lprice4) * log.density, 
+            trend=sum.0na(trend, trend1, trend2,  trend4) +
+              sum.0na(k.trend, k.trend1, k.trend2,  k.trend4) * log.density, 
+            quad=sum.0na(quad, quad1, quad2,  quad4) +
+              sum.0na(k.quad, k.quad1, k.quad2,  k.quad4) * log.density
   ) %>%
   # Original unit is decade, for vars below it is year. 
   # d/d.yr lprice = trend + 2*quad*yr
@@ -93,22 +103,22 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   # trendi is as percentage / 100.
   # trendimuutos is as percentage units / 100 / year.
   mutate(hinta = exp(6 + lprice), trendi = trend/10, trendimuutos = 2*quad/100, 
-         hinta2015 = exp(6 + lprice + trend*year2yr(2015) + quad*year2yr(2015)**2),
-         trendi2015 = (trend + 2*quad*year2yr(2015))/10) %>%
+         hinta2016 = exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2),
+         trendi2016 = (trend + 2*quad*year2yr(2016))/10) %>%
   tbl_df()
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
-           hinta2015=mean(hinta2015), trendi2015=mean(trendi2015), trendimuutos=mean(trendimuutos)) %>%
+           hinta2016=mean(hinta2016), trendi2016=mean(trendi2016), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
    
 write.table(res %>% select(-log.density),  "data/pnro-hinnat.txt", row.names=F, quote=F)
 saveRDS(res, "data/pnro-hinnat.rds")
 
-# FIXME: exp(6 + lprice + trend*year2yr(2015) + quad*year2yr(2015)**2) in two places, 
+# FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
 
-years = 2005:2015
+years = 2005:2016
 predictions <- 
   expand.grid(sample=unique(res.long$sample), 
               year=years, 
@@ -135,7 +145,7 @@ pnro.plot <- function (ipnro) {
     geom_ribbon(aes(ymin=hinta10, ymax=hinta90), alpha=.2) 
   d2.pnro <- d.pnro %>% filter(!is.na(n_kaupat))
   if (nrow(d2.pnro)>0) p <- p + geom_point(data=d2.pnro, aes(x=year, y=obs_hinta, size=n_kaupat)) 
-  p + ggtitle("Neliöhintoja 2005-2015, 50% ja 80% luottamusvälit") + theme_bw(15) + 
+  p + ggtitle("Neliöhintoja 2005-2016, 50% ja 80% luottamusvälit") + theme_bw(15) + 
     scale_x_continuous(breaks=c(2006, 2010, 2014), labels=c("-06", "-10", "-14")) + 
     #scale_y_log10(breaks=c(200, 500, 700, 1000, 2000, 5000, 7000, 10000)) +
     facet_wrap(~ pnro) 
@@ -153,7 +163,7 @@ ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5
   xlab("log.density") + ylab("log price - 6") + theme_minimal(15) #+ 
   #geom_smooth(method="gam", formula = y ~ s(x), se=F)
 ggsave("figs/density-lprice.png")
-ggplot(res, aes(x=-log.density, y=trendi2015, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
+ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
   xlab("log.density") + ylab("trend per year") + theme_minimal(15) #+ 
   #geom_smooth(method="gam", formula = y ~ s(x), se=F)
 ggsave("figs/density-trend.png")
@@ -165,7 +175,7 @@ ggsave("figs/density-trendchange.png")
 ggplot(res, aes(x=lprice, fill=l3(pnro))) + geom_histogram(binwidth=.04) +
   xlab("log price - 6") + ylab("") + theme_minimal(15)
 ggsave("figs/lprice-histogram.png")
-ggplot(res, aes(x=trendi2015, fill=l3(pnro))) + geom_histogram(binwidth=.002) +
+ggplot(res, aes(x=trendi2016, fill=l3(pnro))) + geom_histogram(binwidth=.002) +
   xlab("trend") + ylab("") + theme_minimal(15)
 ggsave("figs/trendi-histogram.png")
 ggplot(res, aes(x=trendimuutos, fill=l3(pnro))) + geom_histogram(binwidth=.0004) +
@@ -179,14 +189,14 @@ load("data/pnro_spatial_epsg2393.RData") # pnro.sp.alt appears here
 pnro.hinnat.sp <- merge(pnro.sp.alt, data.frame(res))
 pdf("figs/pnro_prices.pdf")
 spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pnro.hinnat.sp, zcol="trendi2015", lwd=0.00, col="transparent", main="Trend 2015")
+spplot(pnro.hinnat.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
 spplot(pnro.hinnat.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
 dev.off()
 
 pk.sp <- pnro.hinnat.sp[substr(pnro.hinnat.sp$pnro, 1, 2) %in% c("00", "01", "02"),]
 pdf("figs/pk-pnro_prices.pdf")
 spplot(pk.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pk.sp, zcol="trendi2015", lwd=0.00, col="transparent", main="Trend 2015")
+spplot(pk.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
 spplot(pk.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
 dev.off()
 
@@ -208,8 +218,8 @@ dev.off()
 
 # JSONs
 
-res %>% plyr::dlply("pnro", function (i) list(hinta2015=i$hinta2015, 
-                                              trendi2015=i$trendi2015, 
+res %>% plyr::dlply("pnro", function (i) list(hinta2016=i$hinta2016, 
+                                              trendi2016=i$trendi2016, 
                                               trendimuutos=i$trendimuutos)) %>% 
   toJSON %>% writeLines("json/trends.json")
 

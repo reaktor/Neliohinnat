@@ -6,10 +6,13 @@ source("source/common3.R")
 
 # FIXME: log.density has wrong sign. 
 
-d <- readRDS("data/statfi_ashi_pnro_processed_2005-2014_20141219.rds") %>% 
-  left_join(pnro.area, by="pnro") %>%
+# New data 'd' by Juuso
+load("data/pnro_data_20150318.RData")
+d <- pnro.ashi.dat %>%
+  # Compute NEGATIVE log.density because Janne
+  mutate(log.density = -log(density_per_km2)/10) %>%
+  #  mutate(log.density = (log(density_per_km2)-14)/10) # This would be close to d$log.density
   filter(!is.na(log.density) & !is.na(price)) %>%
-  tbl_df() %>% 
   mutate(pnro=factor(pnro), year=as.numeric(as.character(year))) %>% # pnro has extra levels
   mutate(level1 = l1(pnro),
          level2 = l2(pnro),

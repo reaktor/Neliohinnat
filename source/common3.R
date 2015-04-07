@@ -15,11 +15,13 @@ population <- read.csv("data/vakiluku_posnro_2012_proper.csv",
   transmute(pnro=Postinumero, log.population=log(as.numeric(vakiluku)))
 
 # Span the space on pnro's form the spatial data.
-pnro.area <- local({
-  load("data/pnro_spatial_epsg2393.RData") # And pnro.sp magically appears (FIXME: rds...)
-  data.frame(pnro=pnro.sp.alt$pnro, log.area=log(pnro.sp.alt@data$area.m2)-18) }) %>%
-  inner_join(population, by="pnro") %>% 
-  mutate(log.density = (log.area - log.population)/10)
-
+# (Old version)
+if (F) {
+  pnro.area <- local({
+    load("data/pnro_spatial_epsg2393.RData") # And pnro.sp magically appears (FIXME: rds...)
+    data.frame(pnro=pnro.sp.alt$pnro, log.area=log(pnro.sp.alt@data$area.m2)-18) }) %>%
+    inner_join(population, by="pnro") %>% 
+    mutate(log.density = (log.area - log.population)/10)
+}
 # Center & scale for modeling 
 year2yr <- function (year) (year-2009.406)/10
