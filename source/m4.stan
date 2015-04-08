@@ -1,5 +1,4 @@
-// This is with a hierarchical covariate z.
-// Changes fro m3i: cutting off unnecessary parts. 
+// This is with a hierarchical covariate z, t(df) residuals, two sigmas.
 data {
     int N; int M; int M1; int M2;
     vector[N] lprice; 
@@ -36,9 +35,9 @@ model {
     LSigma_beta <- diag_pre_multiply(tau, LOmega);
     LSigma_beta1 <- diag_pre_multiply(tau1, LOmega1);
     LSigma_beta2 <- diag_pre_multiply(tau2, LOmega2);
-    LOmega ~ lkj_corr_cholesky(2);  tau ~ lognormal(-1., 3.);
-    LOmega1 ~ lkj_corr_cholesky(2); tau1 ~ lognormal(-1., 3.);    
-    LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-1., 3.);
+    LOmega ~ lkj_corr_cholesky(2);  tau ~ lognormal(-2., 1.);
+    LOmega1 ~ lkj_corr_cholesky(2); tau1 ~ lognormal(-2., 1.);    
+    LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-2., 1.);
     mean_beta ~ normal(0, 5);
     for (i in 1:M) beta[i] ~ multi_normal_cholesky(head(zero_beta, 3), LSigma_beta); 
     for (i in 1:M1) beta1[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta1);
@@ -51,6 +50,6 @@ model {
     sigma ~ normal(0, 2);
     ysigma ~ normal(0, 2);
     df ~ normal(0, 20);
-    lprice ~ student_t(df+1, obs_mean, obs_sigma); // Reparameterize as t(df, 0, 1) etc. or even scale mixture?
+    lprice ~ student_t(df+1, obs_mean, obs_sigma); // Reparameterize as a scale mixture?
     }
 

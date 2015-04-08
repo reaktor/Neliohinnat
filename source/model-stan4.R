@@ -34,14 +34,14 @@ s.f <-
                                    l2=as.numeric(level2))), 
               iter=iter, warmup=warmup, thin=thin, init=0, chains=1, refresh=refresh, seed=4, chain_id=i)
 
-if (T) {
+if (F) {
   message("No parallel long chains, only the debug chain.")
   s <- s.f(0, iter=10, warmup=5, thin=1, refresh=1)
   s <- s.f(0, iter=500, warmup=250, thin=1, refresh=1)
 } else {
-  s.list <- mclapply(1:4, mc.cores = 4, s.f, iter=500, warmup=250, thin=5)
+  s.list <- mclapply(1:8, mc.cores = 8, s.f, iter=2000, warmup=1000, thin=20)
   if (F) s <- sflist2stanfit(s.list) 
 }
 
 
-saveRDS(s.list, "s89list.rds")
+saveRDS(s.list, "s6list.rds")

@@ -5,8 +5,7 @@ library(RJSONIO)
 source("source/common3.R")
 
 
-s <- sflist2stanfit(readRDS("s89list.rds"))[c(2, 3)])
-# s <- readRDS("s89list.rds")[[1]]
+s <- sflist2stanfit(readRDS("s6list.rds")) #[c(2, 3)])
 d <- readRDS("data/d.rds")
 
 if (F) {
@@ -24,7 +23,7 @@ if (F) {
 
 # Low-level correlation matrix over price level, trend, etc.
 # Is of general interest
-Omega <- matrix(apply(apply(extract(s, "LOmega")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
+Omega <- matrix(apply(apply(extract(s, "LOmega")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(3, 3))
 saveRDS(Omega, "data/Omega.rds")
 Omega1 <- matrix(apply(apply(extract(s, "LOmega1")[[1]], 1, function (m) m %*% t(m)), 1, mean), c(6, 6))
 if (F) saveRDS(Omega1, "data/Omega1.rds")
