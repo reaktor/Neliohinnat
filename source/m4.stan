@@ -1,4 +1,5 @@
 // This is with a hierarchical covariate z, t(df) residuals, two sigmas.
+// FIXME: tau[,3] does not mix well; beta[,3] could be erased.
 data {
     int N; int M; int M1; int M2;
     vector[N] lprice; 

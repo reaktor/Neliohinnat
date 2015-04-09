@@ -233,3 +233,10 @@ predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
                                         n_kaupat=i$n_kaupat) %>% toJSON %>%
                       writeLines(., paste("json/predictions/", i$pnro[[1]], ".json",  sep=""))
               )
+
+d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=0) %>% tidyr::gather(year, n, -pnro) %>% { .[order(.$n),]} %>% mutate(i=row_number()) %>% ggplot(aes(x=i, y=n)) + geom_line() + scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
+
+d %>% select(pnro, year, n)  %>% group_by(pnro) %>% summarise(n=sum(n))  %>% { .[order(.$n),]} %>% mutate(i=row_number()) %>% ggplot(aes(x=i, y=n)) + geom_line() + scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
+
+d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(100) %>% tidyr::gather(year, n, -pnro) %>%
+   ggplot(aes(x=year, y=pnro, fill=n)) + geom_tile()
