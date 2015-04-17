@@ -5,7 +5,7 @@ library(RJSONIO)
 source("source/common3.R")
 
 
-s <- sflist2stanfit(readRDS("s6list.rds")) #[c(2, 3)])
+s <- sflist2stanfit(readRDS("s6list.rds")[1:8]); traceplot(s, "tau", inc_warmup=F)
 d <- readRDS("data/d.rds")
 
 if (F) {
@@ -17,6 +17,8 @@ if (F) {
   traceplot(s, "tau2", inc_warmup=F)
   traceplot(s, "mean_beta", inc_warmup=F)
   traceplot(s, "df", inc_warmup=F)
+  traceplot(s, "sigma", inc_warmup=F)
+  traceplot(s, "ysigma", inc_warmup=F)
   #traceplot(s, "beta", inc_warmup=F)
   # etc.
 }
@@ -153,7 +155,7 @@ pnro.plot <- function (ipnro) {
 library(ggplot2)
 
 pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "33100", "09120"))
-predictions$pnro %>% (function (i) i[grep("^50", i)]) %>% unique %>% pnro.plot(.)
+predictions$pnro %>% (function (i) i[grep("^02", i)]) %>% unique %>% pnro.plot(.)
 predictions$pnro %>% (function (i) i[grep("^56", i)]) %>% unique %>% pnro.plot(.)
 predictions$pnro %>% (function (i) i[grep("^59", i)]) %>% unique %>% pnro.plot(.)
 predictions$pnro %>% (function (i) i[grep("^90", i)]) %>% unique %>% pnro.plot(.)
@@ -215,6 +217,44 @@ spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (r
 spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
 dev.off()
 
+# Plots for blogs
+
+predictions$pnro %>% (function (i) i[grep("^02[01234]", i)]) %>% unique %>% pnro.plot(.)
+ggsave("figs/espoota.png", dpi=150)
+
+png("figs/raw-vs-model.png", width=1024, height=1024)
+p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="Log price, raw")
+p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price, model")
+print(p1, split=c(1, 1, 2, 1), more=T)
+print(p2, split=c(2, 1, 2, 1), more=F)
+dev.off()
+
+p1 <-
+d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(50) %>% 
+  tidyr::gather(year, n, -pnro) %>%
+  ggplot(aes(x=year, y=pnro, fill=n)) + 
+  geom_tile() + xlab("Vuodet") + ylab("Postinumero") + 
+  theme_minimal(18) +
+  scale_x_discrete(labels=NULL) +
+  theme(axis.text.y = element_text(size=10), axis.ticks.x=element_blank()) +
+  scale_fill_gradient(low = "#f7fcf5", high = "#005a32", na.value="red", trans="sqrt",
+                      breaks=c(6, 30, 100, 300, 1000), name="Kauppojen\nmäärä") 
+#ggsave("figs/raakadata.png", dpi=150)
+
+p2 <- 
+d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=0) %>% 
+  tidyr::gather(year, n, -pnro) %>% { .[order(.$n),]} %>% 
+  mutate(i=row_number()/n()*100) %>% 
+  ggplot(aes(x=i, y=n)) + geom_line() + 
+  scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 30, 100, 1000)) + 
+  scale_x_continuous(breaks=c(0, 17.5, 50, 100)) +
+  ylab("Kauppojen määrä") + xlab("Postinumero-vuosi-yhdistelmät (%)") +
+  theme_minimal(18)
+
+png("figs/harvuus.png", width=1024, height=512)
+gridExtra::grid.arrange(p1, p2, ncol=2, widths=c(.5, 1), heights=c(1, 1))
+dev.off()
+
 # JSONs
 
 res %>% plyr::dlply("pnro", function (i) list(hinta2016=i$hinta2016, 
@@ -238,5 +278,4 @@ d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=0) %>% tidyr::gathe
 
 d %>% select(pnro, year, n)  %>% group_by(pnro) %>% summarise(n=sum(n))  %>% { .[order(.$n),]} %>% mutate(i=row_number()) %>% ggplot(aes(x=i, y=n)) + geom_line() + scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
 
-d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(100) %>% tidyr::gather(year, n, -pnro) %>%
-   ggplot(aes(x=year, y=pnro, fill=n)) + geom_tile()
+
