@@ -145,11 +145,13 @@ pnro.plot <- function (ipnro) {
     geom_ribbon(aes(ymin=hinta25, ymax=hinta75), alpha=.2) +
     geom_ribbon(aes(ymin=hinta10, ymax=hinta90), alpha=.2) 
   d2.pnro <- d.pnro %>% filter(!is.na(n_kaupat))
-  if (nrow(d2.pnro)>0) p <- p + geom_point(data=d2.pnro, aes(x=year, y=obs_hinta, size=n_kaupat)) 
+  if (nrow(d2.pnro)>0) 
+    p <- p + geom_point(data=d2.pnro, aes(x=year, y=obs_hinta, size=n_kaupat)) +
+    scale_size_continuous(name="Kauppojen\nmäärä")
   p + ggtitle("Neliöhintoja 2005-2016, 50% ja 80% luottamusvälit") + theme_bw(15) + 
     scale_x_continuous(breaks=c(2006, 2010, 2014), labels=c("-06", "-10", "-14")) + 
     #scale_y_log10(breaks=c(200, 500, 700, 1000, 2000, 5000, 7000, 10000)) +
-    facet_wrap(~ pnro) 
+    facet_wrap(~ pnro) + xlab("Vuosi")
 }
 
 library(ggplot2)
@@ -223,19 +225,23 @@ predictions$pnro %>% (function (i) i[grep("^02[01234]", i)]) %>% unique %>% pnro
 ggsave("figs/espoota.png", dpi=150)
 
 png("figs/raw-vs-model.png", width=1024, height=1024)
-p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="Log price, raw")
-p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price, model")
+p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
+             col="transparent", main="Keskihinta raakana (log)")
+p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
+             col="transparent", main="Keskihinta mallista (log)")
 print(p1, split=c(1, 1, 2, 1), more=T)
 print(p2, split=c(2, 1, 2, 1), more=F)
 dev.off()
 
 p1 <-
-d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(50) %>% 
+d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(70) %>% 
   tidyr::gather(year, n, -pnro) %>%
   ggplot(aes(x=year, y=pnro, fill=n)) + 
   geom_tile() + xlab("Vuodet") + ylab("Postinumero") + 
   theme_minimal(18) +
   scale_x_discrete(labels=NULL) +
+  #theme(legend.justification=c(1,0), legend.position=c(1,0),
+  #      legend.background = element_rect(fill="#f0f0f0d0", size=0)) +
   theme(axis.text.y = element_text(size=10), axis.ticks.x=element_blank()) +
   scale_fill_gradient(low = "#f7fcf5", high = "#005a32", na.value="red", trans="sqrt",
                       breaks=c(6, 30, 100, 300, 1000), name="Kauppojen\nmäärä") 
@@ -256,18 +262,18 @@ gridExtra::grid.arrange(p1, p2, ncol=2, widths=c(.5, 1), heights=c(1, 1))
 dev.off()
 
 p1 <- 
-ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.7, size=2) + 
+ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) + 
   guides(color=F) + 
-  scale_color_brewer(palette="Set3") +
+  scale_color_hue(l=55) +
   xlab("Asukastiheys (log)") + ylab("Hinta (log) ") + theme_minimal(18) #+ 
 p2 <- 
-ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.7, size=2) +
+ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) +
   guides(color=F) +
-  scale_color_brewer(palette="Set3") +
+  scale_fill_hue(l=55) +
   xlab("") + ylab("Trendi") + theme_minimal(18) #+ 
 p3 <- 
-ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.7, size=2) +
-  scale_color_brewer(palette="Set3", name="Postinumeroalue\n(päätaso)") +
+ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) +
+  scale_color_hue(l=55, name="Alue\n(postinumeron\n1. numero)") +
   xlab("") + ylab("Trendin muutos") + theme_minimal(18) #+ 
 
 png("figs/tiheys-korrelaatiot.png", width=1024, height=1024/3.5)
