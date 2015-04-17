@@ -255,6 +255,27 @@ png("figs/harvuus.png", width=1024, height=512)
 gridExtra::grid.arrange(p1, p2, ncol=2, widths=c(.5, 1), heights=c(1, 1))
 dev.off()
 
+p1 <- 
+ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.7, size=2) + 
+  guides(color=F) + 
+  scale_color_brewer(palette="Set3") +
+  xlab("Asukastiheys (log)") + ylab("Hinta (log) ") + theme_minimal(18) #+ 
+p2 <- 
+ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.7, size=2) +
+  guides(color=F) +
+  scale_color_brewer(palette="Set3") +
+  xlab("") + ylab("Trendi") + theme_minimal(18) #+ 
+p3 <- 
+ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.7, size=2) +
+  scale_color_brewer(palette="Set3", name="Postinumeroalue\n(päätaso)") +
+  xlab("") + ylab("Trendin muutos") + theme_minimal(18) #+ 
+
+png("figs/tiheys-korrelaatiot.png", width=1024, height=1024/3.5)
+gridExtra::grid.arrange(p1, p2, p3, ncol=3, widths=c(1, 1, 1.5), heights=c(1, 1, 1))
+dev.off()
+
+
+
 # JSONs
 
 res %>% plyr::dlply("pnro", function (i) list(hinta2016=i$hinta2016, 

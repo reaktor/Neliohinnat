@@ -1,5 +1,5 @@
 ---
-output: pdf_document
+output: html_document
 ---
 ## WTF
 
@@ -34,7 +34,7 @@ Vielä alla näemme kuvan eräistä Espoon postinumeroalueista. Pisteet kuvaavat
 
 Hinta-arvioita on saatu vähistäkin kaupoista, ja etenkin vuosimuutokset ovat luotettavamman näköisiä kuin mitä melko paljon heittelevistä keskihinnoista suoraan laskien saisi. Hintojen mallintaminen siis kannattaa.
 
-Mallista saa ennusteen lähivuosille, mutta ennusteen kanssa kannattaa olla varovainen. Talouden kehitystä ja muita hintoihin ratkaisevasti vaikuttavia seikkoja on mahdoton ennustaa tarkasti muutamaa kuukautta pidemmälle. _Malli on parhaimmillaan kuvattaessa lähivuosien hintakehityksen pääpiirteitä, ei ennustettaessa tulevaisuutta._ 
+Mallista saa ennusteen lähivuosille, mutta ennusteen kanssa kannattaa olla varovainen. Talouden kehitystä ja muita hintoihin ratkaisevasti vaikuttavia seikkoja on mahdoton ennustaa tarkasti muutamaa kuukautta pidemmälle. _Malli on parhaimmillaan kuvattaessa lähimenneisyyden hintakehityksen pääpiirteitä, ei ennustettaessa tulevaisuutta._ 
 
 Alla on yksityiskohtaisempaa tietoa datasta, mallista ja visualisoinnista. 
 
@@ -58,19 +58,19 @@ Malli tuottaa hinta-arvioita vaikkei postinumerossa olisi osakehuoneistoja, kaup
 
 Mallin asuntojen hinnoista pitää ottaa huomioon monta asiaa. Tärkein on tietenkin *toteutuneiden kauppojen hinnat* — joista tiedämme vain keskiarvon jos sitäkään. Tiedossa olevan kauppojen lukumäärä auttaa, koska keskinta kertoo tarkemmin hintatasosta kun kauppoja on enemmän.
 
-Koska kauppatietoa on etenkin maalta vähän, on hyvä ottaa malliin *postinumeroiden ominaisuuksia* jotka selittävät hintavaihtelua. Taajamissa asunnot ovat kalliimpia, joten asumistiheys on ilmeisen tärkeää. Postinumeroittainen asukastiheys ei ole sama asia kuin keskimääräinen asumistiheys, mutta korreloi siihen vahvasti ja otettiin siksi mukaan. 
+Koska kauppatietoa on etenkin maalta vähän, on hyvä ottaa malliin *postinumeroiden ominaisuuksia* jotka selittävät hintavaihtelua. Taajamissa asunnot ovat kalliimpia, joten asumistiheys on ilmeisen tärkeää. Postinumeroittainen asukastiheys ei ole sama asia kuin keskimääräinen asumistiheys, mutta korreloi siihen vahvasti.
 
-Asuntojen hintojen alueellinen vaihtelu tekee lähekkäisistä postinumeroista keskimäärin samankaltaisia. Tätä voi hyödyntää hinta-arvioissa: naapuripostinumeron kaupat kertovat ainakin karkealla tasolla omastakin alueesta, etenkin jos oman alueen kauppoja on vähän. Tietenkään emme voi tehdä riippuvuudesta vahvaa oletusta, mutta voimme antaa mallin havaita riippuvuus ja käyttää sitä, jos riippuvuutta on.
+Hintojen alueellinen vaihtelu tekee lähekkäisistä postinumeroista keskimäärin samankaltaisia. Tätä voi hyödyntää hinta-arvioissa: naapuripostinumeron kaupat kertovat ainakin karkealla tasolla omastakin alueesta, etenkin jos oman alueen kauppoja on vähän. Tietenkään emme voi tehdä riippuvuudesta vahvaa oletusta, mutta voimme antaa mallin havaita riippuvuuden ja käyttää sitä, jos riippuvuutta on.
 
-Päädyimme mallissa koodaamaan alueiden lähekkäisyyden hierarkiaksi, joka saadaan suoraan numerosta: Esim. 02940 on Uusimaata (0), Espoota (02) ja Pohjois-Espoota (029). Hierarkia antaa siis mahdollisuuden mallille pitää näiden ja muiden vastaavien sisäkkäisten alueiden postinumeroita samanlaisina ympäristöön verrattuna, jos ne sitä ovat. (Spatiaalinen lähekkäisyys olisi vaihtoehto, mutta se on monella tapaa teknisesti hankalampi ja kadottaa mahdollisen äititaajaman vaikutuksen.)
+Päädyimme mallissa koodaamaan alueiden lähekkäisyyden hierarkiaksi, joka saadaan suoraan numerosta: Esim. 02940 on Uusimaata (0), Espoota (02) ja Pohjois-Espoota (029). Hierarkia antaa mahdollisuuden mallille pitää näiden ja muiden vastaavien sisäkkäisten alueiden postinumeroita samanlaisina ympäristöön verrattuna, jos ne sitä ovat. (Spatiaalinen lähekkäisyys olisi vaihtoehto, mutta se on monella tapaa teknisesti hankalampi ja kadottaa mahdollisen äititaajaman vaikutuksen.)
 
-Hinnoissa kiinnostavinta on tason jälkeen ajallinen muutos. Niinpä hintatason ja vuoden keskinäinen suhde mallissa on oleellinen sen luonteen ja informatiivisuuden kannalta. Vuosille voisi kullekin antaa omat hintatasonsa, mutta hintatason muutokset  olisivat vapaiden vuositasojen mallissa huonommin määritelty, eikä ennustetta ensi vuodelle syntyisi. Ja koska hintatason muutokset ovat hintojen tapaan alueellisia, ja voivat riippua esim. väestötiheydestä, päädyimme malliin jossa hinnan ajallinen muutos eli trendi ja trendin muutos ovat eksplisiittisesti mukana. 
+Hinnoissa kiinnostavinta on tason jälkeen ajallinen muutos. Niinpä hintatason ja vuoden keskinäinen suhde mallissa on oleellinen sen luonteen ja informatiivisuuden kannalta. Vuosille voisi kullekin antaa omat hintatasonsa, mutta hintatason ajallinen muutos olisi vapaiden vuositasojen mallissa liiankin vapaasti määritelty, eikä ennustetta ensi vuodelle syntyisi. Ja koska hintatason muutokset ovat hintojen tapaan alueellisia ja voivat riippua esim. väestötiheydestä, päädyimme malliin jossa hinnan ajallinen muutos eli trendi ja trendin muutos ovat eksplisiittisesti mukana. 
 
-Vuoden vaikutus mallissa on siis kvadraattinen, ts. joka postinumerolla on mallissa oma trendinsä ja trendin muutosnopeus per vuosi. Lisäksi väestötiheys pääsee ennustamaan näitä muutoksia, ja näkyy jos kauppoja on vain vähän tai ei ollenkaan. 
+Vuoden vaikutus mallissa on siis kvadraattinen, ts. joka postinumerolla on mallissa oma trendinsä ja trendin muutosnopeus per vuosi. Lisäksi väestötiheys pääsee ennustamaan näitä muutoksia. Sen vaikutus näkyy etenkin jos kauppoja on vain vähän tai ei ollenkaan. 
 
-Postinumerokohtaisia hintaparametreja on siis yhteensä kuusi: hintataso, trendi, trendin muutos, ja väestötiheyden vaikutus näihin kaikkiin. Parametreilla on arvot ja varianssit myös postinumeroa isommille hierarkian alueille (Uusimaa, Espoo, jne.), josta ne pääsevät vaikuttamaan postinumerokohtaisiin arvioihin etenkin kun kauppoja on vähän. Parametreilla on myös eri hierarkiatasoilla kovarianssit, jolloin ne voivat auttaa toistensa estimointia tapauksissa joissa hintadata ei suoraan riitä. 
+Postinumerokohtaisia hintaparametreja kertyy yhteensä kuusi: hintataso, trendi, trendin muutos, ja väestötiheyden vaikutus näihin kaikkiin. Parametreilla on arvot ja varianssit myös postinumeroa isommille hierarkian alueille (Uusimaa, Espoo, jne.), josta ne pääsevät vaikuttamaan postinumerokohtaisiin arvioihin etenkin kun kauppoja on vähän. Parametreilla on myös eri hierarkiatasoilla kovarianssit, jolloin ne voivat auttaa toistensa estimointia tapauksissa joissa hintadata ei suoraan riitä. 
 
-Mallin alataso havaitulle keskihinnalle $y$ on siis
+Yhteenvetona kaavaksi, mallin alataso havaitulle keskihinnalle $y$ on 
 
 $$
 \log h_{it} = 
@@ -86,7 +86,8 @@ Vapausasteen $\nu$ estimaatti on luokkaa 6,5, eli hintojen residuaali on normaal
 
 Asukastiheys korreloi niin hintatasoon kuin sen muutoksiinkin:
 
-[Kuvat]
+![Asukastiheyden ja hinnan korrelaatiot](figs/tiheys-korrelaatiot.png)
+
 
 Malli on estimoitu Stan-kirjastolla ([http://mc-stan.org/](http://mc-stan.org/)). Stan on [todennäköisyysohjelmointikieli](https://louhos.wordpress.com/2014/01/29/stan-kj/), joka tuottaa generatiivisesta mallin kuvauksesta estimointialgoritmin. Vaihtoehdoista estimoinnin itse koodaaminen olisi huomattavan työlästä, kun taas valmiiden mallipakettien (lme4, mgcv, …) käyttäminen pakottaisi tyytymään rajoittuneempaan malliin, joka kuvaisi asuntojen hintoja ja niiden vaihtelua huonommin. 
 
