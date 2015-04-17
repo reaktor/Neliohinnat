@@ -1,5 +1,5 @@
 ---
-output: html_document
+output: pdf_document
 ---
 ## WTF
 
@@ -11,26 +11,36 @@ Tilastokeskuksen avaamat asuntojen hintatiedot ovat keskiarvoja per postinumero 
 
 Raakadatasta on useimmille postinumeroille vaikea suoraan arvioida hintoja ja etenkin niiden muutoksia.
 
-Alla on vasemmalla satunnaisten postinumeroiden vuosittaisia kauppamääriä. Sensuroidut tiedot on merkitty punaisella. Oikealla postinumero-vuosi-yhdistelmät on järjestetty kauppojen määrän mukaan. Kauppoja ei ole tehty tai tieto on sensuroitu siis n. 17,5% tapauksista, ja n. puolet keskihinnoista joko puuttuu, tai on laskettu alle 30 kaupan perusteella. 
+Alla on vasemmalla satunnaisten postinumeroiden vuosittaisia kauppamääriä. Sensuroidut tiedot on merkitty punaisella. Oikealla postinumero-vuosi-yhdistelmät on järjestetty kauppojen määrän mukaan. Kauppoja ei ole tehty tai tieto on sensuroitu siis n. 17,5% tapauksista, ja noin puolet keskihinnoista joko puuttuu, tai on laskettu alle 30 kaupan perusteella. 
 
 
 ![Data on harvaa](figs/harvuus.png)
 
-Paremman kuvan hinnoista saakin, kun aineistoon sovittaa tilastollisen mallin. Malli voi ottaa huomioon esim. alueellisen jatkuvuuden, ts. lähekkäisten postinumeroalueiden samankaltaisuuden. Se osaa painottaa trendi- ja keskihinta-arvioissa kauppojen määrän oikein, ja vielä paikata jäljelle jäävää epävarmuutta postinumeroalueen muilla ominaisuuksilla, kuten väestötiheydellä. Mallin hinta- ja trendiarvoille saadaan myös luottamusvälit. 
+Puuttuva tieto on puuttuvaa, mutta edes 6--30 kaupan keskiarvo _ei kuvaa luotettavasti alueen kaikkien osakkeiden hintatasoa_. Myydyt asunnot ovat satunnaisesti keskihintaa kalliimpia ja halvempia. Vielä huonompaa jälkeä syntyy kun näin vähistä kaupoista yritetään suoraan arvioida hintojen muutoksia. __Mediassa julkaistut listat parhaiten ja huonoiten menestyvistä alueista ovatkin lähes satunnaisia__, tiheimpiä taajamia lukuunottamatta. 
 
-[Kuva ja kuvateksti: raaka keskiarvo hinnoille alueittain, ja keskiarvot mallista.]
+
+Hinnoista saa paremman kuvan kun aineistoon sovittaa tilastollisen mallin. Tai jos ei saa, malli paljastaa lähtötietojen heikkouden --- hyvin tehdystä mallista saa epävarmuusarviot kiinnostaville asioille, kuten hintatasoille.
+
+
+Malli voi myös ottaa huomioon alueellisen jatkuvuuden, ts. lähekkäisten postinumeroalueiden samankaltaisuuden. Se osaa painottaa trendi- ja keskihinta-arvioissa kauppojen määrän oikein, ja vielä paikata jäljelle jäävää epävarmuutta postinumeroalueen muilla ominaisuuksilla, kuten väestötiheydellä. 
+
+Alla vasemmalla on kartta postinumeroiden keskihinnoista tarkastelujaksolla 2005--2014, logaritmisena huippuhintojen hajonnan vuoksi, oikeassa kuvassa samat logaritmiset hinnat mallista. Vasemman kartan valkoisille alueille ei keskihintaa saatu, koska kauppoja ei ollut lainkaan. 
 
 ![Raakadataa ja mallin hintoja Espoosta](figs/raw-vs-model.png)
 
-[Kuva ja kuvateksti: pylpyröitä ja harmaa-alueita: keskimääräisiä kauppahintoja (pallot) ja mallin ennusteita luottamusväleineen (viivat ja harmaat alueet) Espoon postinumeroille.]
+Vielä alla näemme kuvan eräistä Espoon postinumeroalueista. Pisteet kuvaavat Tilastokeskuksen ilmoittamia vuosihintoja, pisteiden koko kauppojen määrää. Viivat ovat mallin arvioita hintatasosta, harmaat alueet arvion epävarmuuksia, mallin itsensä mielestä.
 
 ![Raakadataa ja mallin hintoja Espoosta](figs/espoota.png)
 
-Asuntojen hinnoista muutaman viime vuoden aikana  ja juuri nyt saa siis paremman kuvan mallintamalla kuin katsomalla alkuperäisiä hintatietoja. 
+Hinta-arvioita on saatu vähistäkin kaupoista, ja etenkin vuosimuutokset ovat luotettavamman näköisiä kuin mitä melko paljon heittelevistä keskihinnoista suoraan laskien saisi. Hintojen mallintaminen siis kannattaa.
 
-Mallista saa tietenkin myös ennusteen lähivuosille, mutta ennusteen kanssa kannattaa olla varovainen. Talouden kehitystä ja muita hintoihin ratkaisevasti vaikuttavia seikkoja on mahdoton ennustaa tarkasti muutamaa kuukautta pidemmälle. 
+Mallista saa ennusteen lähivuosille, mutta ennusteen kanssa kannattaa olla varovainen. Talouden kehitystä ja muita hintoihin ratkaisevasti vaikuttavia seikkoja on mahdoton ennustaa tarkasti muutamaa kuukautta pidemmälle. _Malli on parhaimmillaan kuvattaessa lähivuosien hintakehityksen pääpiirteitä, ei ennustettaessa tulevaisuutta._ 
 
-Alla on yksityiskohtaisempaa tietoa datasta, mallista ja visualisoinnista. Mallinnus tehtiin [R-ympäristössä](http://www.r-project.org), itse malli [Stan-kirjastolla](http://mc-stan.org), ja kaikki lähdekoodi on saatavilla [GitHubista](https://github.com/reaktor/Neliohinnat).
+Alla on yksityiskohtaisempaa tietoa datasta, mallista ja visualisoinnista. 
+
+## Ympäristö
+
+Mallinnus tehtiin [R-ympäristössä](http://www.r-project.org), itse malli [Stan-kirjastolla](http://mc-stan.org), ja kaikki lähdekoodi on saatavilla [GitHubista](https://github.com/reaktor/Neliohinnat).
 
 ## Data
 
@@ -70,7 +80,13 @@ $$
 \log y_{it} \sim 
 \textrm{t}\,\left(\log h_{it}, \, \sqrt{\sigma^2_y + \frac{\sigma^2_w}{n_{it}}}, \, \nu\right)
 $$
-jossa $i$ on postinumeroalue, $t$ vuosi, $\beta$ ovat postinumerokohtaisia hintakertoimia, $i’$ on postinumeron alin hierarkiataso (väestötiheysparametrit ovat yhteisiä kullekin $i’$-alueelle), $t()$ on t-jakauma, $\sigma_y$ vuosikohtainen hajonta, $\sigma_w$ kauppahintojen hajonta mittausyksikön (vuosi$\times$postinumero) sisällä, ja $\nu$ t-jakautuneen residuaalin vapausaste. Hinnat käsitellään mallissa logaritmisena, jolloin absoluuttisella hintaskaalalla malli on multiplikatiivinen. Hajonnat ja $\nu$ estimoidaan kaiken muun ohella. Yksityiskohdat tätä tarkemmin selviävät parhaiten [mallikoodista](https://github.com/reaktor/Neliohinnat/blob/master/source/m4.stan). Vapausasteen $\nu$ estimaatti on luokkaa 6,5, eli hintojen residuaali on normaalijakaumaa selvästi pitkähäntäisempi. 
+jossa $i$ on postinumeroalue, $t$ vuosi, $\beta$ ovat postinumerokohtaisia hintakertoimia, $i’$ on postinumeron alin hierarkiataso (väestötiheysparametrit ovat yhteisiä kullekin $i’$-alueelle), $t()$ on t-jakauma, $\sigma_y$ vuosikohtainen hajonta, $\sigma_w$ kauppahintojen hajonta mittausyksikön (vuosi$\times$postinumero) sisällä, ja $\nu$ t-jakautuneen residuaalin vapausaste. Hinnat käsitellään mallissa logaritmisena, jolloin absoluuttisella hintaskaalalla malli on multiplikatiivinen. Hajonnat ja $\nu$ estimoidaan kaiken muun ohella. Yksityiskohdat tätä tarkemmin selviävät parhaiten [mallikoodista](https://github.com/reaktor/Neliohinnat/blob/master/source/m4.stan). 
 
-Malli on estimoitu Stan-kirjastolla ([http://mc-stan.org/](http://mc-stan.org/)). Stan on [todennäköisyysohjelmointikieli](https://louhos.wordpress.com/2014/01/29/stan-kj/), joka tuottaa generatiivisesta mallin kuvauksesta estimointialgoritmin. Vaihtoehdoista estimoinnin itse koodaaminen olisi huomattavan työlästä, kun taas valmiiden mallipakettien (lme4, mgcv, …) käyttäminen pakottaisi tyytymään yleisempään malliin joka kuvaisi asuntojen hintoja ja niiden vaihtelua huonommin. 
+Vapausasteen $\nu$ estimaatti on luokkaa 6,5, eli hintojen residuaali on normaalijakaumaa selvästi pitkähäntäisempi. Hintataso ja trendi korreloivat yli postinumeroalueiden ($r$=0,28), samoin trendin muutos ja hintataso ($r$=0,43). Halvat alueet ovat siis viimeisen n. kymmenen vuoden aikana halventuneet edelleen, ja kalliit kallistuneet. Tämä liittynee asutuksen keskittymiseen. 
+
+Asukastiheys korreloi niin hintatasoon kuin sen muutoksiinkin:
+
+[Kuvat]
+
+Malli on estimoitu Stan-kirjastolla ([http://mc-stan.org/](http://mc-stan.org/)). Stan on [todennäköisyysohjelmointikieli](https://louhos.wordpress.com/2014/01/29/stan-kj/), joka tuottaa generatiivisesta mallin kuvauksesta estimointialgoritmin. Vaihtoehdoista estimoinnin itse koodaaminen olisi huomattavan työlästä, kun taas valmiiden mallipakettien (lme4, mgcv, …) käyttäminen pakottaisi tyytymään rajoittuneempaan malliin, joka kuvaisi asuntojen hintoja ja niiden vaihtelua huonommin. 
 
