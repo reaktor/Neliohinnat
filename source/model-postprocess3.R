@@ -113,7 +113,9 @@ res <- res.long %>% group_by(pnro, log.density) %>%
            hinta2016=mean(hinta2016), trendi2016=mean(trendi2016), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
    
-write.table(res %>% select(-log.density),  "data/pnro-hinnat.txt", row.names=F, quote=F)
+# was:
+# write.table(res %>% select(-log.density),  "data/pnro-hinnat.txt", row.names=F, quote=F)
+write.table(res,  "data/pnro-hinnat.txt", row.names=F, quote=F)
 saveRDS(res, "data/pnro-hinnat.rds")
 
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
