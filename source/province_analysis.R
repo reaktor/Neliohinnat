@@ -31,14 +31,15 @@ pnro.province <- pnro.hinnat %>%
          kunta = municipality,
          maakunta = province)
 
-pnro.province %>%
-  filter(province == "Uusimaa") %>%
-  arrange(desc(hinta2016)) %>%
-  head(10) %>%
-  write.csv("province_analysis/Uusimaa_top10_temp.csv")
+# pnro.province %>%
+#   filter(province == "Uusimaa") %>%
+#   arrange(desc(hinta2016)) %>%
+#   head(10) %>%
+#   write.csv("province_analysis/Uusimaa_top10_temp.csv")
 
 pnro.province %>%
 #  filter(province == "Uusimaa") %>%
   arrange(maakunta, desc(hinta2016)) %>%
-  write.csv("province_analysis/koko_suomi_20150414.csv")
+  write.table("data/asuntohinnat_2016_kokoSuomi_20150420.xls", sep="\t", quote=F, row.names=F, fileEncoding="ISO-8859-1")
+#  write.csv("province_analysis/koko_suomi_20150414.csv")
   

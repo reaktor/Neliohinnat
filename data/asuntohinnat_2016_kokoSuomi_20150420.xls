@@ -1,0 +1,3015 @@
+pnro	nimi	kunta	maakunta	hinta2016	trendi2016
+22100	Maarianhamina	Maarianhamina	Ahvenanmaan maakunta	1402	-1.7
+22410	Godby	Finström	Ahvenanmaan maakunta	1165	-2.9
+22150	Jomala Centrum	Jomala	Ahvenanmaan maakunta	1140	-3.1
+22320	Ödkarby	Saltvik	Ahvenanmaan maakunta	1090	-3.4
+22610	Lemland	Lemland	Ahvenanmaan maakunta	1086	-3.4
+22130	Gottby	Jomala	Ahvenanmaan maakunta	1079	-3.5
+22910	Torsholma	Brändö	Ahvenanmaan maakunta	1076	-3.5
+22310	Pålsböle	Finström	Ahvenanmaan maakunta	1075	-3.5
+22240	Hammarland	Hammarland	Ahvenanmaan maakunta	1063	-3.6
+22220	Emkarby	Finström	Ahvenanmaan maakunta	1060	-3.6
+22630	Lumparland	Lumparland	Ahvenanmaan maakunta	1059	-3.6
+22520	Tosarby	Sund	Ahvenanmaan maakunta	1055	-3.6
+22330	Tjudö	Finström	Ahvenanmaan maakunta	1049	-3.6
+22530	Sund	Sund	Ahvenanmaan maakunta	1048	-3.7
+22270	Storby	Eckerö	Ahvenanmaan maakunta	1047	-3.7
+22430	Saltvik	Saltvik	Ahvenanmaan maakunta	1036	-3.7
+22940	Åva	Brändö	Ahvenanmaan maakunta	1035	-3.7
+22920	Brändö-Åland	Brändö	Ahvenanmaan maakunta	1034	-3.7
+22950	Jurmo	Brändö	Ahvenanmaan maakunta	1029	-3.8
+22730	Kökar	Kökar	Ahvenanmaan maakunta	1027	-3.8
+22720	Sottunga	Sottunga	Ahvenanmaan maakunta	1023	-3.8
+22830	Enklinge	Kumlinge	Ahvenanmaan maakunta	1020	-3.8
+22340	Geta	Geta	Ahvenanmaan maakunta	1014	-3.9
+22820	Kumlinge	Kumlinge	Ahvenanmaan maakunta	1011	-3.9
+22550	Vårdö	Vårdö	Ahvenanmaan maakunta	1008	-3.9
+22710	Ålands Degerby	Föglö	Ahvenanmaan maakunta	1008	-3.9
+22840	Lappo	Brändö	Ahvenanmaan maakunta	995	-4
+22930	Fiskö	Brändö	Ahvenanmaan maakunta	990	-4
+53100	Lappeenranta keskus	Lappeenranta	Etelä-Karjala	2371	0.7
+53600	Kesämäki	Lappeenranta	Etelä-Karjala	2369	1.5
+53900	Pallo-Tysterniemi-Leiri	Lappeenranta	Etelä-Karjala	2323	0.2
+53500	Parkkarila-Harapainen-Reijola	Lappeenranta	Etelä-Karjala	2028	0.6
+53130	Keskussairaala-alue-Kimpinen	Lappeenranta	Etelä-Karjala	1765	-0.6
+53550	Kourulanmäki	Lappeenranta	Etelä-Karjala	1630	-0.9
+54110	Lampikangas	Lappeenranta	Etelä-Karjala	1580	-0.9
+53200	Kaukas-Tirilä	Lappeenranta	Etelä-Karjala	1512	-1.9
+53300	Lauritsala-Mälkiä	Lappeenranta	Etelä-Karjala	1490	-1.2
+53850	Skinnarila	Lappeenranta	Etelä-Karjala	1488	-1.8
+54915	Saimaanharju-Kyläniemi	Taipalsaari	Etelä-Karjala	1488	-2.6
+54920	Taipalsaari	Taipalsaari	Etelä-Karjala	1459	-3.4
+55420	Karhumäki-Karhukallio	Imatra	Etelä-Karjala	1459	-0.1
+55100	Imatra Keskus	Imatra	Etelä-Karjala	1433	0.8
+53810	Kuusimäki-Lavola	Lappeenranta	Etelä-Karjala	1427	-1.3
+54120	Pulp	Lappeenranta	Etelä-Karjala	1344	-2.2
+53920	Voisalmi	Lappeenranta	Etelä-Karjala	1326	-2.6
+53650	Mattila-Kuusela	Lappeenranta	Etelä-Karjala	1318	-2.5
+54710	Lemi Keskus	Lemi	Etelä-Karjala	1299	-3.5
+53830	Rutola	Lappeenranta	Etelä-Karjala	1274	-2.5
+53950	Kivisalmi	Lappeenranta	Etelä-Karjala	1221	-2.9
+54850	Kuukanniemi	Lemi	Etelä-Karjala	1215	-3.5
+54960	Vehkataipale	Taipalsaari	Etelä-Karjala	1197	-4
+56100	Ruokolahti Keskus	Ruokolahti	Etelä-Karjala	1193	-2.3
+54530	Luumäki	Luumäki	Etelä-Karjala	1186	-3.8
+54930	Levänen	Taipalsaari	Etelä-Karjala	1183	-4.1
+54100	Joutseno Keskus	Lappeenranta	Etelä-Karjala	1181	-2.8
+54260	Hanhijärvi	Lappeenranta	Etelä-Karjala	1161	-3.7
+54720	Laksiainen	Lemi	Etelä-Karjala	1160	-4
+54800	Savitaipale Keskus	Savitaipale	Etelä-Karjala	1153	-3.4
+54310	Hytti	Lappeenranta	Etelä-Karjala	1147	-3.8
+53400	Laihia	Lappeenranta	Etelä-Karjala	1144	-3.4
+54300	Vilkjärvi	Lappeenranta	Etelä-Karjala	1132	-3.9
+54750	Välijoki	Savitaipale	Etelä-Karjala	1129	-4.2
+54230	Nuijamaa	Lappeenranta	Etelä-Karjala	1125	-3.9
+54330	Simola	Lappeenranta	Etelä-Karjala	1125	-3.9
+54950	Pettilä	Savitaipale	Etelä-Karjala	1118	-4.6
+54190	Konnunsuo	Lappeenranta	Etelä-Karjala	1113	-3.6
+54770	Heituinlahti	Savitaipale	Etelä-Karjala	1113	-4.3
+54270	Vainikkala	Lappeenranta	Etelä-Karjala	1109	-4
+54940	Solkei	Taipalsaari	Etelä-Karjala	1101	-4.7
+54820	Kotimäki	Lemi	Etelä-Karjala	1090	-4.2
+54250	Rapattila	Lappeenranta	Etelä-Karjala	1080	-4.2
+55700	Vintteri-Virasoja	Imatra	Etelä-Karjala	1073	-1.5
+54390	Pulsa	Lappeenranta	Etelä-Karjala	1056	-4.4
+54510	Uro	Luumäki	Etelä-Karjala	1052	-4.3
+59100	Parikkala Keskus	Parikkala	Etelä-Karjala	1041	-1.4
+55120	Mansikkala-Tuulikallio	Imatra	Etelä-Karjala	1035	-0.6
+56120	Salosaari	Ruokolahti	Etelä-Karjala	1028	-2.7
+55300	Rauha-Tiuruniemi	Lappeenranta	Etelä-Karjala	1017	-1.2
+55320	Rauha	Lappeenranta	Etelä-Karjala	1012	-1.2
+54550	Suo-Anttila	Luumäki	Etelä-Karjala	1001	-4.7
+54580	Somerharju	Luumäki	Etelä-Karjala	996	-4.7
+54590	Kaitjärvi	Luumäki	Etelä-Karjala	986	-4.8
+54430	Hujakkala	Lappeenranta	Etelä-Karjala	980	-4.5
+59510	Maironiemi	Parikkala	Etelä-Karjala	973	-1.9
+59310	Särkisalmi	Parikkala	Etelä-Karjala	959	-2
+54460	Ylijärvi	Lappeenranta	Etelä-Karjala	952	-4.7
+56510	Puntala	Ruokolahti	Etelä-Karjala	946	-3.3
+59130	Koitsanlahti	Parikkala	Etelä-Karjala	945	-2
+59410	Kirjavala	Parikkala	Etelä-Karjala	922	-2.2
+59610	Tarnala	Parikkala	Etelä-Karjala	921	-2.3
+59520	Saari	Parikkala	Etelä-Karjala	917	-2.3
+59530	Mikkolanniemi	Parikkala	Etelä-Karjala	909	-2.3
+59320	Haapaoja	Parikkala	Etelä-Karjala	908	-2.3
+59710	Kummunkylä	Parikkala	Etelä-Karjala	908	-2.3
+56610	Rautjärvi	Rautjärvi	Etelä-Karjala	903	-3.5
+59720	Niukkala	Parikkala	Etelä-Karjala	896	-2.4
+56550	Niska-Pietilä	Rautjärvi	Etelä-Karjala	895	-3.6
+59210	Melkoniemi	Parikkala	Etelä-Karjala	885	-2.5
+56140	Äitsaari	Ruokolahti	Etelä-Karjala	880	-3.8
+55330	Tiuruniemi	Lappeenranta	Etelä-Karjala	876	-2.2
+56710	Miettilä	Rautjärvi	Etelä-Karjala	875	-3.7
+54410	Ylämaa Keskus	Lappeenranta	Etelä-Karjala	874	-4.8
+56640	Purnujärvi	Rautjärvi	Etelä-Karjala	871	-3.7
+54500	Taavetti-Somerharju	Luumäki	Etelä-Karjala	867	-5.2
+59730	Uukuniemi	Parikkala	Etelä-Karjala	863	-2.6
+56410	Kaiturinpää	Ruokolahti	Etelä-Karjala	851	-3.9
+56730	Laikko	Rautjärvi	Etelä-Karjala	845	-3.9
+55610	Rajapatsas-Teppanala	Imatra	Etelä-Karjala	842	-2.2
+56210	Virmutjoki	Ruokolahti	Etelä-Karjala	839	-4
+53420	Mustola	Lappeenranta	Etelä-Karjala	838	-3.8
+55400	Tainionkoski-Mustalampi	Imatra	Etelä-Karjala	834	-1.7
+56330	Utula	Ruokolahti	Etelä-Karjala	811	-4.2
+56440	Pohja-Lankila	Ruokolahti	Etelä-Karjala	802	-4.2
+56310	Syyspohja	Ruokolahti	Etelä-Karjala	781	-4.4
+46530	Kannuskoski	Luumäki	Etelä-Karjala	756	-6.3
+55800	Vuoksenniska-Saarlampi	Imatra	Etelä-Karjala	753	-3.6
+56800	Simpele	Rautjärvi	Etelä-Karjala	738	-4.1
+56350	Kyläniemi	Taipalsaari	Etelä-Karjala	700	-5.1
+55910	Rautio-Kurkvuori	Imatra	Etelä-Karjala	685	-2.2
+55510	Sotkulampi-Linnasuo	Imatra	Etelä-Karjala	679	-2.8
+60100	Seinäjoki Keskus	Seinäjoki	Etelä-Pohjanmaa	2240	4.3
+60510	Hyllykallio	Seinäjoki	Etelä-Pohjanmaa	2191	2.9
+60560	Halkosaari	Seinäjoki	Etelä-Pohjanmaa	2104	2.3
+60200	Törnävä	Seinäjoki	Etelä-Pohjanmaa	2072	1.3
+60320	Alakylä-Jouppi	Seinäjoki	Etelä-Pohjanmaa	2057	2.2
+60220	Huhtala	Seinäjoki	Etelä-Pohjanmaa	2024	2.5
+60120	Pohja	Seinäjoki	Etelä-Pohjanmaa	1944	3.2
+61850	Kauhajoki Asemanseutu	Kauhajoki	Etelä-Pohjanmaa	1729	-0.4
+60150	Kasperi	Seinäjoki	Etelä-Pohjanmaa	1656	3.4
+60550	Nurmo Keskus	Seinäjoki	Etelä-Pohjanmaa	1647	1.7
+60420	Impivaara	Seinäjoki	Etelä-Pohjanmaa	1593	0.8
+60720	Tuomikylä	Ilmajoki	Etelä-Pohjanmaa	1591	1.3
+62100	Lapua Keskus	Lapua	Etelä-Pohjanmaa	1561	1.3
+60800	Ilmajoki Keskus	Ilmajoki	Etelä-Pohjanmaa	1545	0.5
+60760	Pohjanluoma	Ilmajoki	Etelä-Pohjanmaa	1469	0.2
+60450	Munakka	Ilmajoki	Etelä-Pohjanmaa	1444	0
+60640	Kurjenneva	Seinäjoki	Etelä-Pohjanmaa	1384	-0.4
+61800	Kauhajoki Keskus	Kauhajoki	Etelä-Pohjanmaa	1327	-0.6
+60280	Eskoon Keskuslaitosalue	Seinäjoki	Etelä-Pohjanmaa	1309	-1.2
+62900	Alajärvi Keskus	Alajärvi	Etelä-Pohjanmaa	1308	-0.2
+62370	Kangasto	Kauhava	Etelä-Pohjanmaa	1276	0.4
+61300	Kurikka Keskus	Kurikka	Etelä-Pohjanmaa	1271	-0.7
+63610	Tuuri	Alavus	Etelä-Pohjanmaa	1215	-2.7
+61860	Harja	Kauhajoki	Etelä-Pohjanmaa	1213	-1.7
+61820	Kainasto	Kauhajoki	Etelä-Pohjanmaa	1212	-1.7
+61810	Luomankylä	Kauhajoki	Etelä-Pohjanmaa	1202	-1.7
+61310	Panttila	Kurikka	Etelä-Pohjanmaa	1197	-1.3
+61330	Koskenkorva	Ilmajoki	Etelä-Pohjanmaa	1191	-1.3
+62150	Rintakangas	Kauhava	Etelä-Pohjanmaa	1169	-0.6
+61400	Ylistaro Keskus	Seinäjoki	Etelä-Pohjanmaa	1167	-1.5
+61100	Peräseinäjoki Keskus	Seinäjoki	Etelä-Pohjanmaa	1161	-2
+61840	Norinkylä	Teuva	Etelä-Pohjanmaa	1161	-2
+62730	Haukkala	Alajärvi	Etelä-Pohjanmaa	1147	-0.6
+62160	Karhunkylä	Lapua	Etelä-Pohjanmaa	1146	-0.7
+62165	Tiisteenjoki	Lapua	Etelä-Pohjanmaa	1146	-0.7
+62510	Kuoppa-aho	Evijärvi	Etelä-Pohjanmaa	1143	-0.6
+63300	Alavus Keskus	Alavus	Etelä-Pohjanmaa	1139	-1.7
+62190	Ruha	Lapua	Etelä-Pohjanmaa	1136	-0.7
+62740	Koskenvarsi	Alajärvi	Etelä-Pohjanmaa	1131	-0.6
+62940	Hoisko	Alajärvi	Etelä-Pohjanmaa	1130	-0.9
+61880	Ikkeläjärvi	Kauhajoki	Etelä-Pohjanmaa	1125	-2.3
+62200	Kauhava Keskus	Kauhava	Etelä-Pohjanmaa	1125	-0.2
+62600	Lappajärvi Keskus	Lappajärvi	Etelä-Pohjanmaa	1118	-1
+61110	Vuolle	Seinäjoki	Etelä-Pohjanmaa	1111	-2
+61120	Louko	Seinäjoki	Etelä-Pohjanmaa	1111	-2
+62130	Hellanmaa	Lapua	Etelä-Pohjanmaa	1111	-0.9
+66320	Niemenkylä	Kurikka	Etelä-Pohjanmaa	1111	-0.5
+61360	Mieto	Kurikka	Etelä-Pohjanmaa	1105	-1.9
+61470	Kitinoja	Seinäjoki	Etelä-Pohjanmaa	1094	-2.2
+62710	Kurejoki	Alajärvi	Etelä-Pohjanmaa	1082	-0.9
+61370	Lohiluoma	Kurikka	Etelä-Pohjanmaa	1081	-2
+61140	Pasto	Seinäjoki	Etelä-Pohjanmaa	1080	-2.2
+61160	Koura	Seinäjoki	Etelä-Pohjanmaa	1079	-2.2
+61350	Huissi	Ilmajoki	Etelä-Pohjanmaa	1077	-2
+61220	Myllysalo	Kurikka	Etelä-Pohjanmaa	1075	-2.2
+62950	Paalijärvi	Alajärvi	Etelä-Pohjanmaa	1075	-1.2
+61230	Luopa	Kurikka	Etelä-Pohjanmaa	1071	-2.2
+61710	Pentinmäki	Jalasjärvi	Etelä-Pohjanmaa	1068	-2.2
+61280	Jokipii	Jalasjärvi	Etelä-Pohjanmaa	1065	-2.3
+61410	Ylistaro Asemanseutu	Seinäjoki	Etelä-Pohjanmaa	1063	-2.4
+62170	Lakaluoma	Lapua	Etelä-Pohjanmaa	1062	-1.2
+62720	Sissala	Alajärvi	Etelä-Pohjanmaa	1060	-1.1
+61270	Luopajärvi	Jalasjärvi	Etelä-Pohjanmaa	1059	-2.3
+66370	Närvijoki	Kurikka	Etelä-Pohjanmaa	1053	-0.9
+61180	Haapaluoma	Seinäjoki	Etelä-Pohjanmaa	1052	-2.4
+62220	Pernaa	Kauhava	Etelä-Pohjanmaa	1051	-0.9
+61170	Sääskiniemi	Alavus	Etelä-Pohjanmaa	1050	-2.4
+61250	Jalasto	Jalasjärvi	Etelä-Pohjanmaa	1047	-2.4
+61430	Isorehto	Seinäjoki	Etelä-Pohjanmaa	1046	-2.5
+61340	Nopankylä	Ilmajoki	Etelä-Pohjanmaa	1045	-2.2
+62660	Itäkylä	Lappajärvi	Etelä-Pohjanmaa	1044	-1.3
+61460	Hanhikoski	Seinäjoki	Etelä-Pohjanmaa	1043	-2.5
+62230	Jylhä	Kauhava	Etelä-Pohjanmaa	1042	-1
+61450	Kylänpää	Seinäjoki	Etelä-Pohjanmaa	1039	-2.5
+66340	Sarvijoki	Kurikka	Etelä-Pohjanmaa	1033	-1
+62420	Kortesjärvi Keskus	Kauhava	Etelä-Pohjanmaa	1032	-1.2
+66360	Kesti	Kurikka	Etelä-Pohjanmaa	1030	-1
+61440	Untamala	Seinäjoki	Etelä-Pohjanmaa	1028	-2.6
+62620	Ala-Seppä	Lappajärvi	Etelä-Pohjanmaa	1026	-1.4
+61720	Koskue	Jalasjärvi	Etelä-Pohjanmaa	1021	-2.5
+62920	Levijoki	Alajärvi	Etelä-Pohjanmaa	1020	-1.5
+61940	Hyyppä	Kauhajoki	Etelä-Pohjanmaa	1017	-2.6
+62500	Evijärvi Keskus	Evijärvi	Etelä-Pohjanmaa	1016	-1.3
+62175	Ylikylä-Mäenpää	Lapua	Etelä-Pohjanmaa	1015	-1.4
+62410	Rintala	Kauhava	Etelä-Pohjanmaa	1013	-1.4
+62640	Savonkylä	Lappajärvi	Etelä-Pohjanmaa	1013	-1.5
+62430	Peltotupa	Kauhava	Etelä-Pohjanmaa	1008	-1.4
+62295	Kauhajärvi	Lapua	Etelä-Pohjanmaa	1006	-1.2
+61760	Ilvesjoki	Jalasjärvi	Etelä-Pohjanmaa	1005	-2.7
+62440	Perkiömäki	Kauhava	Etelä-Pohjanmaa	1005	-1.4
+61980	Päntäne	Kauhajoki	Etelä-Pohjanmaa	1003	-2.7
+62630	Karvala	Lappajärvi	Etelä-Pohjanmaa	1003	-1.5
+62185	Mäki-Paavola	Lapua	Etelä-Pohjanmaa	1002	-1.5
+62520	Kautiainen	Evijärvi	Etelä-Pohjanmaa	1002	-1.4
+66300	Jurva Keskus	Kurikka	Etelä-Pohjanmaa	1000	-1
+61290	Taivalmaa	Jalasjärvi	Etelä-Pohjanmaa	999	-2.7
+61380	Polvenkylä	Kurikka	Etelä-Pohjanmaa	999	-2.6
+62830	Luoma-Aho	Alajärvi	Etelä-Pohjanmaa	998	-1.4
+62860	Sahi	Vimpeli	Etelä-Pohjanmaa	998	-1.4
+66330	Hakko	Kurikka	Etelä-Pohjanmaa	994	-1.3
+62350	Ekola	Kauhava	Etelä-Pohjanmaa	989	-1.3
+62540	Vasikka-aho	Evijärvi	Etelä-Pohjanmaa	987	-1.5
+62290	Hirvikylä	Lapua	Etelä-Pohjanmaa	985	-1.3
+62380	Kosolankylä	Kauhava	Etelä-Pohjanmaa	985	-1.3
+62300	Härmä	Kauhava	Etelä-Pohjanmaa	983	-1
+61910	Nummijärvi	Kauhajoki	Etelä-Pohjanmaa	982	-2.8
+61950	Juonikylä	Kauhajoki	Etelä-Pohjanmaa	979	-2.8
+62610	Tarvola	Lappajärvi	Etelä-Pohjanmaa	976	-1.7
+62260	Hirvijoki	Kauhava	Etelä-Pohjanmaa	975	-1.4
+62470	Purmojärvi	Kauhava	Etelä-Pohjanmaa	975	-1.6
+62990	Möksy	Alajärvi	Etelä-Pohjanmaa	974	-1.9
+61150	Sydänmaa	Alavus	Etelä-Pohjanmaa	971	-3
+62435	Pirttinen	Kauhava	Etelä-Pohjanmaa	969	-1.6
+62750	Saukonkylä	Alajärvi	Etelä-Pohjanmaa	968	-1.6
+66350	Tainus	Kurikka	Etelä-Pohjanmaa	968	-1.4
+62570	Särkilä	Evijärvi	Etelä-Pohjanmaa	967	-1.7
+62240	Huhmarkoski	Kauhava	Etelä-Pohjanmaa	966	-1.5
+61730	Yli-Valli	Jalasjärvi	Etelä-Pohjanmaa	965	-2.9
+61920	Nummikoski	Kauhajoki	Etelä-Pohjanmaa	965	-2.9
+61680	Mantila	Jalasjärvi	Etelä-Pohjanmaa	962	-3
+61630	Hirvijärvi	Jalasjärvi	Etelä-Pohjanmaa	957	-3.1
+62340	Kuoppa-Vakkuri	Kauhava	Etelä-Pohjanmaa	956	-1.5
+62310	Voltti	Kauhava	Etelä-Pohjanmaa	955	-1.5
+63100	Kuortane Keskus	Kuortane	Etelä-Pohjanmaa	954	-2.8
+62760	Menkijärvi	Alajärvi	Etelä-Pohjanmaa	953	-1.7
+61600	Jalasjärvi Keskus	Jalasjärvi	Etelä-Pohjanmaa	948	-2.6
+64900	Isojoki Keskus	Isojoki	Etelä-Pohjanmaa	947	-1.6
+62280	Mustamaa	Lapua	Etelä-Pohjanmaa	945	-1.6
+63400	Alavus Asemanseutu	Alavus	Etelä-Pohjanmaa	943	-3.4
+63700	Ähtäri Keskus	Ähtäri	Etelä-Pohjanmaa	937	-4.9
+64760	Peltola	Teuva	Etelä-Pohjanmaa	935	-1.5
+62840	Lakaniemi-Pokela	Vimpeli	Etelä-Pohjanmaa	916	-1.9
+62375	Ylihärmä Keskus-Vesiluoma	Kauhava	Etelä-Pohjanmaa	915	-1.7
+61650	Kalakoski	Seinäjoki	Etelä-Pohjanmaa	914	-3.4
+64350	Karijoki Keskus	Karijoki	Etelä-Pohjanmaa	913	-2
+61640	Ala-Valli	Jalasjärvi	Etelä-Pohjanmaa	912	-3.4
+61960	Kyrönlatva	Kauhajoki	Etelä-Pohjanmaa	912	-3.3
+64720	Perälä	Teuva	Etelä-Pohjanmaa	911	-1.6
+62870	Vinni	Vimpeli	Etelä-Pohjanmaa	909	-2
+62880	Sääksvesi-Vinni	Vimpeli	Etelä-Pohjanmaa	908	-2
+64700	Teuva Keskus	Teuva	Etelä-Pohjanmaa	908	-1.2
+63410	Rantatöysä	Alavus	Etelä-Pohjanmaa	907	-3.6
+64770	Äystö	Teuva	Etelä-Pohjanmaa	902	-1.7
+64370	Myrkky	Karijoki	Etelä-Pohjanmaa	900	-2
+63250	Rantala	Kuortane	Etelä-Pohjanmaa	894	-3.7
+63330	Pahajoki	Alavus	Etelä-Pohjanmaa	893	-3.5
+63340	Sapsalampi	Alavus	Etelä-Pohjanmaa	891	-3.5
+63680	Hakojärvi	Alavus	Etelä-Pohjanmaa	888	-4
+63350	Sulkavankylä	Alavus	Etelä-Pohjanmaa	887	-3.6
+63360	Kuivaskylä	Alavus	Etelä-Pohjanmaa	886	-3.6
+63660	Ähtärinranta	Ähtäri	Etelä-Pohjanmaa	884	-4
+64830	Villamo	Isojoki	Etelä-Pohjanmaa	883	-2.1
+64930	Kodesjärvi	Isojoki	Etelä-Pohjanmaa	883	-2.1
+63370	Taipalus	Alavus	Etelä-Pohjanmaa	882	-3.6
+64810	Vanhakylä	Isojoki	Etelä-Pohjanmaa	878	-2.1
+64740	Horo	Teuva	Etelä-Pohjanmaa	876	-1.9
+63640	Ritola	Alavus	Etelä-Pohjanmaa	871	-4.1
+63160	Salmi	Kuortane	Etelä-Pohjanmaa	869	-3.7
+64840	Heikkilänjoki	Isojoki	Etelä-Pohjanmaa	868	-2.2
+62810	Savonjoki	Vimpeli	Etelä-Pohjanmaa	867	-2.2
+62800	Vimpeli Keskus	Vimpeli	Etelä-Pohjanmaa	864	-1.8
+63320	Kattelus	Alavus	Etelä-Pohjanmaa	860	-3.7
+64850	Möykky	Isojoki	Etelä-Pohjanmaa	860	-2.2
+63230	Lentilä	Kuortane	Etelä-Pohjanmaa	858	-4
+63910	Inhan Tehtaat	Ähtäri	Etelä-Pohjanmaa	854	-4
+63770	Peränne	Ähtäri	Etelä-Pohjanmaa	853	-4.7
+63130	Mäyry	Kuortane	Etelä-Pohjanmaa	851	-3.9
+63120	Leppälänkylä	Kuortane	Etelä-Pohjanmaa	850	-3.9
+63150	Ruona	Kuortane	Etelä-Pohjanmaa	847	-3.9
+64820	Kärjenkoski	Isojoki	Etelä-Pohjanmaa	845	-2.3
+63780	Alastaipale	Ähtäri	Etelä-Pohjanmaa	840	-4.8
+63430	Kätkänjoki	Alavus	Etelä-Pohjanmaa	829	-4.2
+63355	Seinäjärvi	Alavus	Etelä-Pohjanmaa	824	-4
+63450	Löyä	Kuortane	Etelä-Pohjanmaa	821	-4.3
+63920	Inha	Ähtäri	Etelä-Pohjanmaa	815	-4.3
+63600	Töysä Keskus	Alavus	Etelä-Pohjanmaa	814	-4.2
+63540	Hernesmaa	Alajärvi	Etelä-Pohjanmaa	810	-4.1
+63900	Myllymäki-Vehunkylä	Ähtäri	Etelä-Pohjanmaa	807	-4.4
+63880	Kukonkylä	Soini	Etelä-Pohjanmaa	806	-4.4
+63210	Niinimaa	Alavus	Etelä-Pohjanmaa	783	-4.6
+63890	Hautakylä	Soini	Etelä-Pohjanmaa	780	-4.6
+63830	Keisala	Soini	Etelä-Pohjanmaa	775	-4.6
+63950	Vehunkylä	Ähtäri	Etelä-Pohjanmaa	768	-4.7
+63510	Lehtimäki Kirkonkylä	Alajärvi	Etelä-Pohjanmaa	736	-4.6
+63800	Soini Keskus	Soini	Etelä-Pohjanmaa	725	-4.9
+63530	Länsikylä	Alajärvi	Etelä-Pohjanmaa	705	-4.8
+63500	Lehtimäki Keskus	Alajärvi	Etelä-Pohjanmaa	581	-5.5
+50970	Ihastjärvi	Mikkeli	Etelä-Savo	2287	-2.5
+50100	Mikkeli Keskus	Mikkeli	Etelä-Savo	2020	-1
+57130	Savonlinna Keskus	Savonlinna	Etelä-Savo	1884	0.4
+50130	Nuijamies	Mikkeli	Etelä-Savo	1772	-1.8
+50170	Peitsari	Mikkeli	Etelä-Savo	1722	-2.8
+57100	Heikinpohja-Piispanmäki	Savonlinna	Etelä-Savo	1716	-0.2
+50600	Karikko	Mikkeli	Etelä-Savo	1610	-2.6
+50190	Tuppurala	Mikkeli	Etelä-Savo	1600	-4.4
+50500	Tuukkala-Kaituenmäki	Mikkeli	Etelä-Savo	1573	-3.3
+50150	Karkialampi	Mikkeli	Etelä-Savo	1459	-3.7
+50180	Visulahti	Mikkeli	Etelä-Savo	1381	-4.2
+57600	Poukkusilta-Pihlajaniemi	Savonlinna	Etelä-Savo	1356	-1.1
+57120	Savonlinna	Savonlinna	Etelä-Savo	1351	-1.4
+50700	Syysjärvi	Mikkeli	Etelä-Savo	1322	-4.4
+50350	Norola	Mikkeli	Etelä-Savo	1317	-4.4
+57200	Miekonniemi-Venäjänniemi	Savonlinna	Etelä-Savo	1302	-0.6
+57710	Kellarpelto-Rantakoivikko	Savonlinna	Etelä-Savo	1299	-1.2
+50800	Annilanselkä	Mikkeli	Etelä-Savo	1294	-4.6
+57510	Laitaatsilta	Savonlinna	Etelä-Savo	1292	-1.1
+50200	Kovala	Mikkeli	Etelä-Savo	1276	-4.7
+57170	Sortteerinlahti-Talvisalo	Savonlinna	Etelä-Savo	1258	-1.3
+50300	Rämälä	Mikkeli	Etelä-Savo	1247	-4.9
+50120	Siekkilä	Mikkeli	Etelä-Savo	1245	-4.2
+57210	Nojanmaa	Savonlinna	Etelä-Savo	1239	-0.6
+50770	Korpikoski	Mikkeli	Etelä-Savo	1202	-5.2
+50520	Moision Sairaala-alue	Mikkeli	Etelä-Savo	1173	-3.9
+50670	Otava	Mikkeli	Etelä-Savo	1172	-5.1
+52100	Anttola	Mikkeli	Etelä-Savo	1145	-4
+50160	Kattilansilta	Mikkeli	Etelä-Savo	1135	-4.1
+52300	Ristiina Keskus	Mikkeli	Etelä-Savo	1125	-3.6
+52320	Vitsiälä	Mikkeli	Etelä-Savo	1079	-3.8
+52330	Heimari	Mikkeli	Etelä-Savo	1074	-3.8
+52110	Majavesi	Mikkeli	Etelä-Savo	1056	-4.2
+51200	Kangasniemi Keskus	Kangasniemi	Etelä-Savo	1049	-2.8
+57810	Aholahti	Savonlinna	Etelä-Savo	1038	-3
+51335	Kaihlamäki	Kangasniemi	Etelä-Savo	1023	-3.6
+57310	Rinkilä	Savonlinna	Etelä-Savo	1016	-3.2
+52150	Hauhala	Mikkeli	Etelä-Savo	1008	-4.5
+52550	Hirvensalmi Keskus	Hirvensalmi	Etelä-Savo	1008	-4.3
+51720	Rahula	Mikkeli	Etelä-Savo	1004	-3.7
+51900	Juva Keskus	Juva	Etelä-Savo	997	-4.3
+52520	Syväsmäki	Hirvensalmi	Etelä-Savo	991	-4.4
+52340	Hangastenmaa	Mikkeli	Etelä-Savo	989	-4.4
+51520	Hiirola	Mikkeli	Etelä-Savo	979	-3.9
+52510	Hietanen	Hirvensalmi	Etelä-Savo	975	-4.5
+51380	Synsiö	Kangasniemi	Etelä-Savo	971	-3.9
+51810	Maivala	Juva	Etelä-Savo	969	-4
+51740	Huuhanaho	Mikkeli	Etelä-Savo	967	-4
+52420	Pellosniemi	Mikkeli	Etelä-Savo	963	-4.5
+51820	Hatsola	Juva	Etelä-Savo	961	-4
+51600	Haukivuori Keskus-Piitkäaho	Mikkeli	Etelä-Savo	960	-3.9
+51420	Harjumaa-Pajulankylä	Mikkeli	Etelä-Savo	957	-4
+51860	Narila	Juva	Etelä-Savo	955	-4.1
+51260	Tahkomäki	Kangasniemi	Etelä-Savo	948	-3.8
+52360	Someenjärvi	Mikkeli	Etelä-Savo	947	-4.7
+52610	Tuukkalanlahti	Hirvensalmi	Etelä-Savo	947	-4.6
+51930	Paatela	Juva	Etelä-Savo	945	-4.4
+58200	Kerimäki Keskus	Savonlinna	Etelä-Savo	945	-3.8
+51620	Pitkäaho	Mikkeli	Etelä-Savo	943	-4.1
+51760	Nuutilanmäki	Juva	Etelä-Savo	942	-4.1
+51270	Kutemajärvi	Kangasniemi	Etelä-Savo	939	-3.8
+51450	Pajulankylä	Mikkeli	Etelä-Savo	939	-4.2
+52830	Suomenniemi	Mikkeli	Etelä-Savo	939	-4.7
+52780	Kuomiokoski	Mikkeli	Etelä-Savo	938	-4.5
+51940	Härkälä	Juva	Etelä-Savo	936	-4.5
+52760	Mynttilä	Mäntyharju	Etelä-Savo	936	-4.5
+51440	Vuojalahti	Kangasniemi	Etelä-Savo	935	-4.2
+51340	Hännilä-Särkiharju	Kangasniemi	Etelä-Savo	934	-4.2
+51880	Koikkala	Juva	Etelä-Savo	934	-4.2
+52720	Karankamäki-Koirakivi	Mäntyharju	Etelä-Savo	932	-4.6
+51850	Vuorenmaa	Juva	Etelä-Savo	931	-4.2
+51460	Luusniemi	Kangasniemi	Etelä-Savo	929	-4.2
+52960	Nurmaa	Mäntyharju	Etelä-Savo	928	-4.7
+51130	Vanhamäki	Mikkeli	Etelä-Savo	927	-4.2
+51540	Kalvitsa	Mikkeli	Etelä-Savo	927	-4.3
+51780	Kuosmala	Juva	Etelä-Savo	926	-4.3
+76130	Pappilanmäki	Pieksämäki	Etelä-Savo	924	-9.4
+52970	Pankalahti-Ahvenainen	Mäntyharju	Etelä-Savo	919	-4.8
+51980	Lauteala	Juva	Etelä-Savo	918	-4.6
+52740	Tuustaipale	Mäntyharju	Etelä-Savo	918	-4.7
+51430	Läsäkoski	Kangasniemi	Etelä-Savo	917	-4.3
+51670	Nykälä	Mikkeli	Etelä-Savo	912	-4.4
+57230	Inkerinkylä	Savonlinna	Etelä-Savo	912	-4.5
+52920	Voikoski	Mäntyharju	Etelä-Savo	902	-4.9
+51360	Koivula-Synsiö	Kangasniemi	Etelä-Savo	900	-4.4
+51310	Levä	Kangasniemi	Etelä-Savo	899	-4.5
+52850	Halmeniemi	Mäntyharju	Etelä-Savo	897	-5
+52730	Koirakivi	Mäntyharju	Etelä-Savo	896	-4.8
+51890	Risulahti	Juva	Etelä-Savo	883	-4.6
+52980	Ahvenainen	Mäntyharju	Etelä-Savo	882	-5.1
+52890	Käävänkylä	Mäntyharju	Etelä-Savo	876	-5.1
+52620	Kuitula	Hirvensalmi	Etelä-Savo	872	-5.2
+52700	Mäntyharju Keskus	Mäntyharju	Etelä-Savo	872	-4.5
+52270	Ryhälä	Puumala	Etelä-Savo	858	-5
+52230	Hurissalo	Puumala	Etelä-Savo	854	-5.1
+57220	Haka-alue-Viuhonmäki	Savonlinna	Etelä-Savo	850	-2.4
+58500	Punkasalmi	Savonlinna	Etelä-Savo	848	-4.9
+76940	Nenonpelto	Pieksämäki	Etelä-Savo	847	-9.3
+77350	Montola	Pieksämäki	Etelä-Savo	837	-5.3
+76850	Naarajärvi	Pieksämäki	Etelä-Savo	826	-10.2
+77240	Halkokumpu	Pieksämäki	Etelä-Savo	825	-5.4
+58410	Haapakallio	Savonlinna	Etelä-Savo	824	-4.4
+77460	Maavesi	Joroinen	Etelä-Savo	820	-5.5
+76620	Pyhitty	Pieksämäki	Etelä-Savo	817	-9.6
+77330	Virtasalmi Keskus	Pieksämäki	Etelä-Savo	813	-5.5
+58220	Louhi	Savonlinna	Etelä-Savo	812	-4.5
+77430	Siikamäki	Pieksämäki	Etelä-Savo	809	-5.5
+76280	Partaharju	Pieksämäki	Etelä-Savo	805	-9.7
+77320	Hurskaala	Pieksämäki	Etelä-Savo	803	-5.6
+77380	Kantala	Mikkeli	Etelä-Savo	803	-5.6
+52200	Puumala Keskus	Puumala	Etelä-Savo	799	-5.3
+78880	Kuvansi	Joroinen	Etelä-Savo	797	-3.5
+76780	Lamminmäki	Pieksämäki	Etelä-Savo	790	-9.9
+77220	Neuvola	Pieksämäki	Etelä-Savo	787	-5.7
+77120	Venetmäki	Pieksämäki	Etelä-Savo	777	-5.8
+58420	Silvola	Savonlinna	Etelä-Savo	776	-4.7
+58550	Putikko	Savonlinna	Etelä-Savo	775	-5
+58450	Punkaharju	Savonlinna	Etelä-Savo	771	-4.7
+77480	Savuniemi	Joroinen	Etelä-Savo	771	-5.8
+76150	Länsirinne	Pieksämäki	Etelä-Savo	770	-9.6
+58430	Kulennoinen	Savonlinna	Etelä-Savo	768	-4.8
+77140	Huumala	Pieksämäki	Etelä-Savo	767	-5.9
+77110	Paltanen	Pieksämäki	Etelä-Savo	765	-5.9
+58910	Rantasalmi Asemanseutu	Rantasalmi	Etelä-Savo	757	-4.8
+76120	Kotiopuisto	Pieksämäki	Etelä-Savo	752	-9.4
+76100	Pieksämäki Keskus	Pieksämäki	Etelä-Savo	748	-11.4
+58260	Kumpuranta	Savonlinna	Etelä-Savo	743	-5
+77580	Tihusniemi	Pieksämäki	Etelä-Savo	739	-5.9
+58810	Kallislahti	Savonlinna	Etelä-Savo	734	-5
+77520	Haapakoski-Partaharju	Pieksämäki	Etelä-Savo	733	-5.9
+79810	Karvion kanava	Heinävesi	Etelä-Savo	731	-4.4
+58830	Parkumäki	Rantasalmi	Etelä-Savo	729	-5
+79820	Varistaipale	Heinävesi	Etelä-Savo	729	-4.4
+58520	Hiukkajoki	Savonlinna	Etelä-Savo	727	-5.4
+19470	Lihavanpää-Hartosenpää	Pertunmaa	Etelä-Savo	725	-6.5
+58570	Ruhvana	Savonlinna	Etelä-Savo	724	-5.4
+58850	Hiltula	Rantasalmi	Etelä-Savo	724	-5.1
+19430	Pertunmaa Keskus	Pertunmaa	Etelä-Savo	723	-6.1
+79830	Palokki	Heinävesi	Etelä-Savo	723	-4.4
+79660	Kerisalo	Joroinen	Etelä-Savo	722	-4.1
+79630	Kolma	Joroinen	Etelä-Savo	721	-4.1
+79620	Huutokoski	Joroinen	Etelä-Savo	720	-4.1
+58580	Vuoriniemi	Savonlinna	Etelä-Savo	719	-5.4
+58920	Kolkontaipale	Rantasalmi	Etelä-Savo	719	-5.1
+58940	Tuusmäki	Rantasalmi	Etelä-Savo	717	-5.1
+19420	Mansikkamäki	Pertunmaa	Etelä-Savo	715	-6.6
+19480	Hartosenpää	Pertunmaa	Etelä-Savo	715	-6.6
+58160	Karvila	Enonkoski	Etelä-Savo	713	-5.1
+79940	Vihtari-Poikiinaho	Heinävesi	Etelä-Savo	712	-4.5
+58150	Makkola	Savonlinna	Etelä-Savo	711	-5.1
+79910	Kerma	Heinävesi	Etelä-Savo	711	-4.5
+79860	Suuraho - Uusi-Valamo	Heinävesi	Etelä-Savo	708	-4.5
+58610	Telakanava	Sulkava	Etelä-Savo	707	-5.2
+58900	Rantasalmi Keskus	Rantasalmi	Etelä-Savo	706	-5.2
+58170	Simanala	Enonkoski	Etelä-Savo	703	-5.2
+79895	Sarvikumpu	Heinävesi	Etelä-Savo	701	-4.6
+58620	Lohilahti	Sulkava	Etelä-Savo	695	-5.3
+77570	Jäppilä Keskus	Pieksämäki	Etelä-Savo	695	-5.9
+79700	Heinävesi Keskus	Heinävesi	Etelä-Savo	692	-5.3
+79885	Etelä-Petruma	Heinävesi	Etelä-Savo	690	-4.7
+19460	Ruorasmäki	Pertunmaa	Etelä-Savo	689	-6.8
+79680	Lahnalahti	Joroinen	Etelä-Savo	682	-4.4
+79690	Kaitainen	Joroinen	Etelä-Savo	682	-4.4
+58650	Kiviapaja	Savonlinna	Etelä-Savo	678	-5.4
+79600	Joroinen Keskus	Joroinen	Etelä-Savo	677	-3.8
+58130	Oravi	Savonlinna	Etelä-Savo	676	-5.4
+58175	Enonkoski Keskus	Enonkoski	Etelä-Savo	675	-5.2
+58770	Pihlajalahti	Savonlinna	Etelä-Savo	672	-5.6
+58690	Ala-Särkilahti-Piojärvi	Savonlinna	Etelä-Savo	671	-5.5
+58680	Piojärvi	Savonlinna	Etelä-Savo	665	-5.5
+58360	Säimen	Savonlinna	Etelä-Savo	664	-5.3
+58720	Kaartilankoski	Sulkava	Etelä-Savo	664	-5.6
+58320	Raikuu	Savonlinna	Etelä-Savo	659	-5.3
+58140	Ahvensalmi	Savonlinna	Etelä-Savo	649	-5.6
+19410	Kuortti	Pertunmaa	Etelä-Savo	648	-7
+58390	Rönkönvaara	Savonlinna	Etelä-Savo	646	-5.4
+58180	Ihamaniemi	Enonkoski	Etelä-Savo	639	-5.7
+58300	Savonranta Keskus	Savonlinna	Etelä-Savo	632	-5.4
+58700	Sulkava Keskus	Sulkava	Etelä-Savo	595	-6.1
+88610	Vuokatti	Sotkamo	Kainuu	1711	-3
+87100	Kajaani Keskus	Kajaani	Kainuu	1553	-1.8
+87250	Kättö-Kätönlahti	Kajaani	Kainuu	1540	-3.7
+87200	Teppana	Kajaani	Kainuu	1433	-3.6
+88600	Sotkamo Keskus	Sotkamo	Kainuu	1387	-4.4
+87700	Lohtaja-Kettu	Kajaani	Kainuu	1316	-2.9
+87150	Purola	Kajaani	Kainuu	1204	-2.9
+87830	Nakertaja	Kajaani	Kainuu	1204	-3.4
+87400	Petäisenniska	Kajaani	Kainuu	1149	-2.9
+88640	Ontojoki	Sotkamo	Kainuu	1139	-5.1
+88620	Korholanmäki	Sotkamo	Kainuu	1130	-5.2
+87300	Palokangas	Kajaani	Kainuu	1128	-2.2
+88670	Juurikkalahti-Maanselkä	Sotkamo	Kainuu	1113	-5.3
+87910	Linnantaus	Kajaani	Kainuu	1106	-4
+87500	Lehtikangas	Kajaani	Kainuu	1098	-4.2
+87850	Paltaniemi	Kajaani	Kainuu	1083	-4.2
+87950	Kuluntalahti	Kajaani	Kainuu	1054	-4.4
+87930	Salmijärvi	Kajaani	Kainuu	1043	-4.5
+88690	Maanselkä	Sotkamo	Kainuu	1022	-6.1
+87970	Jormua	Kajaani	Kainuu	1009	-4.7
+88470	Kontiomäki	Paltamo	Kainuu	1005	-4.9
+91710	Jylhämä	Vaala	Kainuu	966	-3
+88440	Jokikylä	Ristijärvi	Kainuu	959	-5.2
+88490	Pohjavaara	Sotkamo	Kainuu	945	-5.3
+87800	Vuoreslahti	Kajaani	Kainuu	939	-5.2
+91790	Nuojua	Vaala	Kainuu	923	-3.2
+88900	Kuhmo Keskus	Kuhmo	Kainuu	919	-6.3
+88400	Ristijärvi Keskus-Hiisijärvi	Ristijärvi	Kainuu	904	-5.6
+88820	Katerma	Kuhmo	Kainuu	901	-5.7
+88530	Paakki	Sotkamo	Kainuu	891	-5.7
+87900	Karankalahti	Kajaani	Kainuu	889	-5.6
+88930	Lentiira-Kuumu	Kuhmo	Kainuu	878	-6.2
+91780	Neittävä	Vaala	Kainuu	862	-3.7
+88940	Kuumu	Kuhmo	Kainuu	852	-6.5
+88760	Iivantiira	Kuhmo	Kainuu	851	-6
+91730	Kankari	Vaala	Kainuu	839	-3.8
+88730	Ylä-Vieksi	Kuhmo	Kainuu	838	-6.1
+91760	Säräisniemi	Vaala	Kainuu	837	-3.8
+88740	Härmänkylä-Iivantiira	Kuhmo	Kainuu	830	-6.2
+88380	Mieslahti	Paltamo	Kainuu	824	-5.7
+88120	Tuhkakylä	Sotkamo	Kainuu	823	-6.3
+88460	Hiisijärvi	Ristijärvi	Kainuu	819	-6.3
+91740	Jaalanka-Liminpuro	Vaala	Kainuu	816	-4
+88310	Melalahti	Paltamo	Kainuu	811	-5.8
+88270	Vuolijoki Keskus	Kajaani	Kainuu	802	-5.9
+91700	Vaala Keskus-Oterma	Vaala	Kainuu	796	-3.8
+91750	Liminpuro	Vaala	Kainuu	783	-4.3
+89600	Ämmänsaari	Suomussalmi	Kainuu	766	-4.2
+91720	Oterma	Vaala	Kainuu	759	-4.5
+92810	Pelsonsuo	Vaala	Kainuu	759	-4.5
+88350	Kivesjärvi	Paltamo	Kainuu	757	-6.2
+92830	Veneheitto	Vaala	Kainuu	750	-4.6
+88340	Manamansalo	Vaala	Kainuu	709	-6.5
+89610	Jumaliskylä	Suomussalmi	Kainuu	708	-4.1
+89640	Pesiökylä	Suomussalmi	Kainuu	707	-4.1
+74390	Laakajärvi	Sotkamo	Kainuu	705	-8.1
+89400	Hyrynsalmi Keskus	Hyrynsalmi	Kainuu	669	-4.2
+88300	Paltamo Keskus	Paltamo	Kainuu	668	-6
+89670	Näljänkä	Suomussalmi	Kainuu	662	-4.5
+89680	Vaaranniva	Suomussalmi	Kainuu	659	-4.5
+89660	Takalo	Suomussalmi	Kainuu	657	-4.5
+88200	Otanmäki-Kytökoski	Kajaani	Kainuu	651	-6.3
+89440	Sakara	Suomussalmi	Kainuu	651	-4.3
+89140	Kotila-Törmänmäki	Puolanka	Kainuu	639	-4.4
+89430	Hoikka	Hyrynsalmi	Kainuu	639	-4.4
+89540	Moisiovaara	Hyrynsalmi	Kainuu	634	-4.4
+89320	Joukokylä	Puolanka	Kainuu	633	-4.5
+89740	Kianta	Suomussalmi	Kainuu	623	-4.5
+89560	Karhuvaara	Hyrynsalmi	Kainuu	616	-4.6
+89780	Kaikkonen	Suomussalmi	Kainuu	616	-4.6
+89920	Ruhtinansalmi	Suomussalmi	Kainuu	610	-4.6
+89330	Suolijärvi	Puolanka	Kainuu	604	-4.7
+89110	Törmänmäki	Puolanka	Kainuu	603	-4.7
+89730	Ahjola	Suomussalmi	Kainuu	602	-4.7
+89760	Piispajärvi-Peranka-Kaikkoinen	Suomussalmi	Kainuu	602	-4.7
+89770	Peranka	Suomussalmi	Kainuu	584	-4.8
+89830	Ala-Vuokki	Suomussalmi	Kainuu	582	-4.5
+89200	Puolanka Keskus	Puolanka	Kainuu	548	-4.6
+89210	Puokiovaara	Puolanka	Kainuu	538	-4.9
+89840	Ylä-Vuokki	Suomussalmi	Kainuu	519	-4.9
+89800	Suomussalmi Keskus	Suomussalmi	Kainuu	505	-4.9
+13200	Keinusaari	Hämeenlinna	Kanta-Häme	2456	1.2
+13100	Hämeenlinna Keskus	Hämeenlinna	Kanta-Häme	2359	1.2
+13220	Sairio	Hämeenlinna	Kanta-Häme	2353	0.8
+13130	Kauriala	Hämeenlinna	Kanta-Häme	2152	0.9
+13270	Ruununmylly	Hämeenlinna	Kanta-Häme	2152	-1
+13300	Käikälä	Hämeenlinna	Kanta-Häme	1900	-0.2
+13880	Rahkoila	Hattula	Kanta-Häme	1840	-1.2
+13210	Hätilä	Hämeenlinna	Kanta-Häme	1804	-1.8
+13720	Parola	Hattula	Kanta-Häme	1795	-0.1
+13500	Jukola	Hämeenlinna	Kanta-Häme	1790	-0.7
+11910	Lasi-Kumela	Riihimäki	Kanta-Häme	1785	-1.2
+13800	Katinala	Hattula	Kanta-Häme	1781	-0.8
+11710	Herajoki	Riihimäki	Kanta-Häme	1753	-1.9
+11100	Riihimäki Keskus	Riihimäki	Kanta-Häme	1737	-1.6
+11130	Peltosaari-Patastenmäki	Riihimäki	Kanta-Häme	1695	-0.3
+13700	Parolannummi	Hattula	Kanta-Häme	1654	-1
+13430	Hattelmala	Hämeenlinna	Kanta-Häme	1630	-1.9
+13600	Ojoinen	Hämeenlinna	Kanta-Häme	1570	-1.2
+13900	Pekola	Hattula	Kanta-Häme	1555	-1.8
+13330	Harviala	Janakkala	Kanta-Häme	1552	-1.8
+11120	Pohjois-Riihimäki	Riihimäki	Kanta-Häme	1520	-2.9
+30100	Forssa Keskus	Forssa	Kanta-Häme	1422	0.9
+11310	Taka-Kasarmi	Riihimäki	Kanta-Häme	1419	-2
+12700	Loppi kk	Loppi	Kanta-Häme	1408	-2.1
+14200	Turenki	Janakkala	Kanta-Häme	1353	-3.8
+14330	Kaloinen	Hämeenlinna	Kanta-Häme	1335	-3.5
+12540	Launonen	Loppi	Kanta-Häme	1296	-2.3
+13250	Katuma	Hämeenlinna	Kanta-Häme	1290	-1.5
+12310	Ryttylä	Hausjärvi	Kanta-Häme	1266	-2.8
+14610	Lepaa	Hattula	Kanta-Häme	1256	-3.9
+14500	Iittala	Hämeenlinna	Kanta-Häme	1237	-4.5
+12520	Kormu	Loppi	Kanta-Häme	1218	-2.5
+14820	Syrjäntaka	Hämeenlinna	Kanta-Häme	1218	-4.2
+14810	Pohjoinen	Hämeenlinna	Kanta-Häme	1215	-4.2
+14300	Renko kk	Hämeenlinna	Kanta-Häme	1210	-4.3
+31300	Tammela Keskus	Tammela	Kanta-Häme	1209	-3.3
+14530	Leteensuo	Hattula	Kanta-Häme	1208	-4.4
+14240	Väli-Janakkala	Janakkala	Kanta-Häme	1203	-4.5
+12100	Oitti	Hausjärvi	Kanta-Häme	1202	-2.2
+12240	Hikiä	Hausjärvi	Kanta-Häme	1195	-2
+14770	Eteläinen	Hämeenlinna	Kanta-Häme	1194	-4.1
+30420	Tölö	Forssa	Kanta-Häme	1192	-0.6
+14620	Tyrväntö	Hattula	Kanta-Häme	1191	-4.3
+13110	Kantola	Hämeenlinna	Kanta-Häme	1189	-2.2
+14840	Sairiala	Hämeenlinna	Kanta-Häme	1188	-4.4
+14370	Lukana	Hämeenlinna	Kanta-Häme	1187	-4.4
+14680	Alvettula	Hämeenlinna	Kanta-Häme	1171	-4.5
+14140	Jokimaa	Janakkala	Kanta-Häme	1161	-4.5
+12640	Joentaka	Loppi	Kanta-Häme	1150	-2.9
+14870	Juttila	Hämeenlinna	Kanta-Häme	1150	-4.6
+14700	Hauho kk	Hämeenlinna	Kanta-Häme	1138	-4.2
+12210	Hausjärvi kk	Hausjärvi	Kanta-Häme	1133	-2.8
+12400	Tervakoski	Janakkala	Kanta-Häme	1128	-2.5
+12380	Leppäkoski	Janakkala	Kanta-Häme	1120	-3.4
+14690	Torvoila	Hämeenlinna	Kanta-Häme	1105	-4.9
+12630	Sajaniemi	Loppi	Kanta-Häme	1100	-3.2
+12130	Mommila	Hausjärvi	Kanta-Häme	1095	-3.1
+12750	Pilpala	Loppi	Kanta-Häme	1089	-3.5
+12350	Turkhauta	Hausjärvi	Kanta-Häme	1087	-3.6
+12450	Vähikkälä	Janakkala	Kanta-Häme	1087	-3
+14930	Sappee	Hämeenlinna	Kanta-Häme	1087	-5
+31600	Jokioinen Keskus	Jokioinen	Kanta-Häme	1082	-3.8
+12170	Hietoinen	Hausjärvi	Kanta-Häme	1063	-3.3
+14430	Vuohiniemi	Hattula	Kanta-Häme	1060	-5.2
+14450	Rimmilä	Hämeenlinna	Kanta-Häme	1058	-5.2
+12920	Topeno	Loppi	Kanta-Häme	1055	-3.5
+12950	Vojakkala-Eerolankulma	Loppi	Kanta-Häme	1033	-3.6
+12820	Räyskälä	Loppi	Kanta-Häme	1003	-3.8
+31310	Mustiala	Tammela	Kanta-Häme	1001	-4.2
+12600	Läyliäinen	Loppi	Kanta-Häme	997	-3.6
+16900	Lammi kk	Hämeenlinna	Kanta-Häme	965	-4.3
+16980	Ronni	Hämeenlinna	Kanta-Häme	963	-4.1
+31340	Porras	Tammela	Kanta-Häme	957	-4.4
+32100	Ypäjä Keskus	Ypäjä	Kanta-Häme	957	-1.5
+16960	Iso-Evo	Hämeenlinna	Kanta-Häme	944	-4.2
+31380	Letku-Torro	Tammela	Kanta-Häme	935	-4.6
+31370	Eerikkilän Urheiluopisto	Tammela	Kanta-Häme	921	-4.7
+31350	Vistinkoski	Tammela	Kanta-Häme	899	-4.8
+31110	Matku	Forssa	Kanta-Häme	889	-5
+31610	Vaulammi	Jokioinen	Kanta-Häme	883	-4.8
+31620	Latovainio	Jokioinen	Kanta-Häme	883	-4.8
+31650	Venäjänkangas	Humppila	Kanta-Häme	879	-4.8
+31130	Koijärvi	Forssa	Kanta-Häme	872	-5.1
+31630	Minkiö	Jokioinen	Kanta-Häme	871	-4.9
+32140	Ypäjä Asemanseutu	Ypäjä	Kanta-Häme	868	-2.1
+31170	Savijoki	Forssa	Kanta-Häme	844	-5.3
+16970	Evo	Hämeenlinna	Kanta-Häme	839	-5
+31250	Teuro	Tammela	Kanta-Häme	839	-5.3
+31230	Susikas	Tammela	Kanta-Häme	825	-5.4
+30300	Viksberg	Forssa	Kanta-Häme	765	-2.3
+31640	Humppila Keskus	Humppila	Kanta-Häme	692	-5.8
+67100	Kokkola Keskus	Kokkola	Keski-Pohjanmaa	2158	2
+67300	Halkokari	Kokkola	Keski-Pohjanmaa	1987	0.5
+67400	Rytimäki	Kokkola	Keski-Pohjanmaa	1904	0.4
+67200	Kiviniitty-Tullimäki	Kokkola	Keski-Pohjanmaa	1854	3.3
+67700	Kirkonmäki-Isokylä	Kokkola	Keski-Pohjanmaa	1757	1.2
+67900	Ykspihjala	Kokkola	Keski-Pohjanmaa	1590	0
+67600	Linnusperä-Kaustari	Kokkola	Keski-Pohjanmaa	1581	0
+67410	Vitsari	Kokkola	Keski-Pohjanmaa	1489	-0.9
+67500	Sokoja	Kokkola	Keski-Pohjanmaa	1308	-1.6
+67800	Koivuhaka	Kokkola	Keski-Pohjanmaa	1187	-1.3
+69600	Kaustinen Keskus	Kaustinen	Keski-Pohjanmaa	1125	-1.6
+68300	Kälviä Keskus	Kokkola	Keski-Pohjanmaa	1082	-2.7
+68550	Öja	Kokkola	Keski-Pohjanmaa	1054	-3
+69730	Tunkkari	Veteli	Keski-Pohjanmaa	1009	-1.7
+68210	Marinkainen	Kokkola	Keski-Pohjanmaa	998	-3.3
+68320	Ruotsalo	Kokkola	Keski-Pohjanmaa	993	-3.4
+68390	Rahkonen	Kokkola	Keski-Pohjanmaa	991	-3.4
+69100	Kannus Keskus	Kannus	Keski-Pohjanmaa	981	-2.1
+68230	Lohtaja Keskus	Kokkola	Keski-Pohjanmaa	976	-3.4
+68220	Karhi	Kokkola	Keski-Pohjanmaa	973	-3.4
+68240	Ala-Viirre	Kokkola	Keski-Pohjanmaa	958	-3.5
+69950	Perho Keskus-Salamajärvi	Perho	Keski-Pohjanmaa	922	-2.4
+69660	Köyhäjoki	Kaustinen	Keski-Pohjanmaa	915	-2.4
+69980	Möttönen	Perho	Keski-Pohjanmaa	906	-2.4
+68999	Rita	Kokkola	Keski-Pohjanmaa	900	-3.9
+69170	Yli-Kannus	Kannus	Keski-Pohjanmaa	895	-2.6
+69150	Eskola	Kannus	Keski-Pohjanmaa	893	-2.6
+68370	Ullava Keskus	Kokkola	Keski-Pohjanmaa	888	-4
+69920	Oksakoski-Kivikangas	Perho	Keski-Pohjanmaa	880	-2.6
+69820	Räyrinki	Veteli	Keski-Pohjanmaa	879	-2.5
+68380	Yli-Ullava	Kokkola	Keski-Pohjanmaa	873	-4.1
+69850	Patana	Veteli	Keski-Pohjanmaa	866	-2.6
+69510	Halsua Keskus-Marjusaari	Halsua	Keski-Pohjanmaa	863	-2.6
+69830	Pulkkinen	Veteli	Keski-Pohjanmaa	847	-2.7
+69410	Sykäräinen	Toholampi	Keski-Pohjanmaa	844	-2.8
+69300	Toholampi Keskus	Toholampi	Keski-Pohjanmaa	838	-2.1
+69330	Määttälä	Toholampi	Keski-Pohjanmaa	838	-2.5
+69440	Lestijärvi Keskus	Lestijärvi	Keski-Pohjanmaa	836	-2.8
+69570	Karvonen	Halsua	Keski-Pohjanmaa	834	-2.8
+69310	Laitala	Toholampi	Keski-Pohjanmaa	831	-2.6
+69910	Kivikangas	Perho	Keski-Pohjanmaa	824	-3
+69340	Purontaka	Toholampi	Keski-Pohjanmaa	820	-2.6
+69450	Yli-Lesti	Lestijärvi	Keski-Pohjanmaa	807	-3
+69420	Syri	Lestijärvi	Keski-Pohjanmaa	798	-3.1
+69750	Sillanpää	Veteli	Keski-Pohjanmaa	780	-3
+69550	Kanala	Halsua	Keski-Pohjanmaa	775	-3.3
+69970	Salamajärvi	Perho	Keski-Pohjanmaa	747	-3.6
+69700	Veteli Keskus	Veteli	Keski-Pohjanmaa	717	-2.9
+40100	Jyväskylä Keskus	Jyväskylä	Keski-Suomi	2912	2.9
+40700	Mäki-Matti	Jyväskylä	Keski-Suomi	2523	3.1
+40200	Mannila-Taulumäki	Jyväskylä	Keski-Suomi	2520	2.1
+40720	Nisula	Jyväskylä	Keski-Suomi	2411	2
+40520	Kuokkala-Ristikivi	Jyväskylä	Keski-Suomi	2261	0
+40500	Keljo-Ristonmaa	Jyväskylä	Keski-Suomi	2150	-0.6
+40600	Mattilanpelto	Jyväskylä	Keski-Suomi	2128	0.6
+40530	Keljonkangas	Jyväskylä	Keski-Suomi	2078	-0.4
+40250	Ritoniemi-Lohikoski	Jyväskylä	Keski-Suomi	1919	0.8
+40270	Pappilanrinne-Pappilanvuori	Jyväskylä	Keski-Suomi	1909	-0.3
+40620	Keskussairaala-alue-Kukkumäki	Jyväskylä	Keski-Suomi	1859	0.2
+40400	Halssila	Jyväskylä	Keski-Suomi	1796	-0.4
+41310	Leppävesi	Laukaa	Keski-Suomi	1751	-2
+40630	Kypärämäki	Jyväskylä	Keski-Suomi	1721	0
+40740	Kortepohja	Jyväskylä	Keski-Suomi	1719	0.9
+40420	Jyskä	Jyväskylä	Keski-Suomi	1718	-1.9
+40320	Seppälän Teollisuusalue	Jyväskylä	Keski-Suomi	1684	-0.7
+40950	Muurame Keskus	Muurame	Keski-Suomi	1586	-1
+40800	Vaajakoski	Jyväskylä	Keski-Suomi	1543	-0.7
+41340	Laukaa Keskus	Laukaa	Keski-Suomi	1514	-1.4
+40930	Kinkomaa	Muurame	Keski-Suomi	1443	-0.8
+40660	Länsi-Palokka	Jyväskylä	Keski-Suomi	1414	-1.8
+41160	Tikkakoski	Jyväskylä	Keski-Suomi	1359	-3.2
+40640	Keltinmäki	Jyväskylä	Keski-Suomi	1341	-1.2
+40900	Säynätsalo	Jyväskylä	Keski-Suomi	1341	-2.1
+40820	Vuoritsalo	Jyväskylä	Keski-Suomi	1248	-1.4
+44100	Äänekoski Keskus	Äänekoski	Keski-Suomi	1217	-0.4
+40340	Huhtasuo	Jyväskylä	Keski-Suomi	1200	-2.6
+44120	Mämmensalmi-Mustaniemi	Äänekoski	Keski-Suomi	1200	-0.6
+41330	Vihtavuori	Laukaa	Keski-Suomi	1173	-3.7
+41350	Laukaa Asemanseutu	Laukaa	Keski-Suomi	1145	-3.8
+41800	Korpilahti Keskus	Jyväskylä	Keski-Suomi	1125	-4.7
+41120	Puuppola	Jyväskylä	Keski-Suomi	1111	-4.2
+41900	Petäjävesi Keskus	Petäjävesi	Keski-Suomi	1110	-4.5
+41360	Valkola	Laukaa	Keski-Suomi	1104	-4
+44500	Viitasaari Keskus	Viitasaari	Keski-Suomi	1093	-1.5
+41390	Äijälä	Laukaa	Keski-Suomi	1091	-4.1
+42100	Jämsä Keskus	Jämsä	Keski-Suomi	1074	-6.8
+41930	Kuohu	Jyväskylä	Keski-Suomi	1070	-4.4
+41370	Kuusa	Laukaa	Keski-Suomi	1063	-4.3
+41325	Laukkavirta	Laukaa	Keski-Suomi	1061	-4.3
+41400	Lievestuore	Laukaa	Keski-Suomi	1056	-5.2
+41940	Vesanka	Jyväskylä	Keski-Suomi	1043	-4.5
+43100	Saarijärvi Keskus	Saarijärvi	Keski-Suomi	1035	-1.9
+41140	Kuikka	Jyväskylä	Keski-Suomi	1024	-4.7
+41450	Leppälahti	Jyväskylä	Keski-Suomi	1023	-4.8
+41920	Kintaus	Petäjävesi	Keski-Suomi	1023	-4.7
+41860	Rannila	Jyväskylä	Keski-Suomi	1019	-4.9
+43500	Karstula Keskus	Karstula	Keski-Suomi	1008	-1.2
+44160	Huutomäki	Äänekoski	Keski-Suomi	1005	-1.6
+41490	Niemisjärvi	Hankasalmi	Keski-Suomi	1004	-4.9
+44150	Likolahti-Karhunlähde	Äänekoski	Keski-Suomi	996	-1.4
+41925	Ylä-Kintaus	Petäjävesi	Keski-Suomi	995	-4.9
+41290	Kangashäkki	Uurainen	Keski-Suomi	993	-4.7
+43130	Tarvaala	Saarijärvi	Keski-Suomi	993	-2.1
+41820	Saakoski	Jyväskylä	Keski-Suomi	990	-5.1
+41440	Ruuhimäki	Toivakka	Keski-Suomi	988	-5.1
+41230	Uurainen Keskus	Uurainen	Keski-Suomi	972	-4.5
+41210	Jokihaara	Uurainen	Keski-Suomi	971	-4.8
+41660	Toivakka Keskus	Toivakka	Keski-Suomi	969	-4.1
+44170	Hietama	Äänekoski	Keski-Suomi	962	-1.9
+41410	Kankainen	Toivakka	Keski-Suomi	960	-5.3
+44800	Pihtipudas Keskus	Pihtipudas	Keski-Suomi	960	-1.8
+44190	Parantala	Äänekoski	Keski-Suomi	958	-1.9
+41180	Vehniä	Laukaa	Keski-Suomi	949	-5
+44300	Konnevesi Keskus	Konnevesi	Keski-Suomi	949	-2.5
+41270	Lannevesi	Saarijärvi	Keski-Suomi	946	-5
+41980	Kuivasmäki	Petäjävesi	Keski-Suomi	938	-5.3
+41840	Moksi	Jyväskylä	Keski-Suomi	936	-5.5
+43250	Kolkanlahti	Saarijärvi	Keski-Suomi	934	-2.3
+43700	Kyyjärvi Keskus	Kyyjärvi	Keski-Suomi	932	-1.9
+41220	Höytiä	Uurainen	Keski-Suomi	926	-5.1
+17780	Harmoinen	Kuhmoinen	Keski-Suomi	919	-3.9
+41630	Oravasaari	Jyväskylä	Keski-Suomi	919	-5
+43540	Rantakylä-Pirttilahti	Karstula	Keski-Suomi	919	-2.1
+17840	Harjunsalmi	Kuhmoinen	Keski-Suomi	909	-4.2
+41880	Oittila	Jyväskylä	Keski-Suomi	909	-5.7
+41260	Hoikankylä	Saarijärvi	Keski-Suomi	908	-5.2
+44400	Konginkangas Keskus	Äänekoski	Keski-Suomi	906	-2.5
+41870	Putkilahti	Jyväskylä	Keski-Suomi	904	-5.7
+43900	Kinnula Keskus	Kinnula	Keski-Suomi	904	-2.7
+44420	Liimattala	Äänekoski	Keski-Suomi	902	-2.6
+43270	Kalmari	Saarijärvi	Keski-Suomi	901	-2.5
+43640	Humppi	Karstula	Keski-Suomi	899	-2.5
+41970	Huttula	Keuruu	Keski-Suomi	898	-5.6
+43240	Lehtola	Saarijärvi	Keski-Suomi	894	-2.6
+43480	Pääjärvi	Saarijärvi	Keski-Suomi	894	-2.6
+44220	Sörkänmäki	Äänekoski	Keski-Suomi	893	-2.7
+44330	Hytölä	Konnevesi	Keski-Suomi	892	-2.7
+42700	Keuruu Keskus	Keuruu	Keski-Suomi	891	-6.2
+41240	Kyynämöinen	Uurainen	Keski-Suomi	889	-5.4
+43440	Pylkönmäki Keskus	Saarijärvi	Keski-Suomi	887	-2.6
+17800	Kuhmoinen Keskus	Kuhmoinen	Keski-Suomi	885	-4.4
+17970	Puukkoinen	Kuhmoinen	Keski-Suomi	884	-4.1
+43520	Kiminki	Karstula	Keski-Suomi	883	-2.3
+17930	Päijälä	Kuhmoinen	Keski-Suomi	882	-4.1
+42720	Valkealahti	Keuruu	Keski-Suomi	882	-6.1
+44880	Muurasjärvi	Pihtipudas	Keski-Suomi	882	-2.5
+43940	Muhola-Saarensalmi	Kinnula	Keski-Suomi	880	-2.7
+43220	Mahlu	Saarijärvi	Keski-Suomi	878	-2.7
+43800	Kivijärvi Keskus-Sompala	Kivijärvi	Keski-Suomi	877	-2.7
+44350	Istunmäki	Konnevesi	Keski-Suomi	870	-2.9
+17870	Ruolahti	Kuhmoinen	Keski-Suomi	867	-4.5
+42140	Juokslahti	Jämsä	Keski-Suomi	866	-6.8
+43610	Aho	Karstula	Keski-Suomi	866	-2.8
+17850	Pihlajakoski	Kuhmoinen	Keski-Suomi	864	-4.5
+44580	Huopanankoski	Viitasaari	Keski-Suomi	863	-3
+43660	Vastinki	Karstula	Keski-Suomi	859	-2.8
+44640	Kymönkoski	Viitasaari	Keski-Suomi	857	-2.9
+44920	Peninki	Pihtipudas	Keski-Suomi	851	-2.9
+44910	Elämäjärvi	Pihtipudas	Keski-Suomi	850	-2.9
+17950	Kylämä	Kuhmoinen	Keski-Suomi	849	-4.4
+44860	Alvajärvi	Pihtipudas	Keski-Suomi	848	-2.7
+44250	Äänekoivisto	Äänekoski	Keski-Suomi	847	-3
+44950	Kärväsjärvi	Pihtipudas	Keski-Suomi	847	-2.9
+44530	Ilmolahti	Viitasaari	Keski-Suomi	844	-3.1
+43560	Vahanka	Karstula	Keski-Suomi	843	-2.6
+44320	Sirkkamäki	Konnevesi	Keski-Suomi	843	-3.1
+41530	Veneranta	Hankasalmi	Keski-Suomi	842	-5.5
+44790	Kotvala	Viitasaari	Keski-Suomi	842	-3
+43840	Sompala	Kivijärvi	Keski-Suomi	840	-2.9
+43170	Häkkilä	Saarijärvi	Keski-Suomi	837	-3.1
+44730	Löytänä	Viitasaari	Keski-Suomi	837	-3
+44610	Kärnä	Viitasaari	Keski-Suomi	836	-3
+44740	Keitelepohja-Kotvala	Viitasaari	Keski-Suomi	836	-3
+44480	Niinilahti	Viitasaari	Keski-Suomi	834	-3
+44370	Mäntymäki	Konnevesi	Keski-Suomi	833	-3.2
+41550	Hannula	Hankasalmi	Keski-Suomi	831	-5.6
+43490	Kangasaho	Karstula	Keski-Suomi	831	-3
+44760	Keihärinkoski	Viitasaari	Keski-Suomi	831	-3
+44770	Valkeisjärvi	Viitasaari	Keski-Suomi	831	-3
+43720	Kumpulainen	Kyyjärvi	Keski-Suomi	828	-3
+43340	Kannonjärvi	Kannonkoski	Keski-Suomi	826	-3.1
+44630	Kumpumäki	Viitasaari	Keski-Suomi	826	-3.1
+44440	Räihä	Äänekoski	Keski-Suomi	825	-3.1
+41520	Hankasalmi Keskus	Hankasalmi	Keski-Suomi	821	-6.2
+41580	Sauvamäki	Hankasalmi	Keski-Suomi	818	-5.7
+44460	Kalaniemi	Äänekoski	Keski-Suomi	818	-3.1
+44590	Vuorilahti	Viitasaari	Keski-Suomi	817	-3.3
+44670	Suovanlahti	Viitasaari	Keski-Suomi	815	-3.1
+43390	Lokakylä	Kivijärvi	Keski-Suomi	813	-3.2
+19650	Joutsa Keskus	Joutsa	Keski-Suomi	812	-7.2
+41540	Ristimäki	Hankasalmi	Keski-Suomi	812	-5.7
+43420	Kukko	Saarijärvi	Keski-Suomi	811	-3.2
+43960	Saarensalmi	Kinnula	Keski-Suomi	808	-3.3
+44680	Lahnanen	Viitasaari	Keski-Suomi	807	-3.2
+35400	Länkipohja	Jämsä	Keski-Suomi	805	-4.6
+41560	Säkinmäki	Hankasalmi	Keski-Suomi	805	-5.8
+43300	Kannonkoski Keskus	Kannonkoski	Keski-Suomi	805	-3.1
+42800	Haapamäki	Keuruu	Keski-Suomi	797	-6.4
+44260	Vihijärvi	Äänekoski	Keski-Suomi	796	-3.4
+44970	Korppinen	Pihtipudas	Keski-Suomi	796	-3.3
+19910	Tammijärvi	Luhanka	Keski-Suomi	789	-6.4
+44280	Sumiainen Keskus	Äänekoski	Keski-Suomi	782	-3.4
+43430	Väätäiskylä	Multia	Keski-Suomi	781	-3.4
+19920	Pappinen	Joutsa	Keski-Suomi	779	-6.5
+19670	Mieskonmäki	Joutsa	Keski-Suomi	775	-7.4
+41710	Rutalahti-Kivisuo	Joutsa	Keski-Suomi	768	-5.8
+19950	Luhanka	Luhanka	Keski-Suomi	762	-6.6
+42330	Haavisto	Jämsä	Keski-Suomi	759	-6.8
+42440	Koskenpää	Jämsä	Keski-Suomi	742	-6.9
+42520	Asunta	Keuruu	Keski-Suomi	738	-6.9
+42820	Riiho	Keuruu	Keski-Suomi	736	-6.9
+41750	Havumäki	Joutsa	Keski-Suomi	733	-6.1
+42560	Pohjoisjärvi	Keuruu	Keski-Suomi	732	-7
+42300	Jämsänkoski Keskus	Jämsä	Keski-Suomi	726	-6.7
+42910	Pihlajavesi	Keuruu	Keski-Suomi	723	-7
+35630	Suinula-Valkamanperä	Jämsä	Keski-Suomi	714	-5
+42930	Katajamäki	Keuruu	Keski-Suomi	708	-7.2
+42600	Multia Keskus-Väätäiskylä	Multia	Keski-Suomi	703	-6.7
+35610	Pihlaisto	Jämsä	Keski-Suomi	699	-5.1
+41730	Kivisuo	Joutsa	Keski-Suomi	696	-6.3
+42660	Sahrajärvi	Multia	Keski-Suomi	696	-7.1
+44200	Suolahti Keskus	Äänekoski	Keski-Suomi	695	-4.4
+35820	Asemakulma-Mustalahti	Jämsä	Keski-Suomi	681	-5.5
+41500	Hankasalmi Asemanseutu	Hankasalmi	Keski-Suomi	657	-6.2
+35600	Halli	Jämsä	Keski-Suomi	644	-5.2
+41770	Leivonmäki	Joutsa	Keski-Suomi	626	-6.3
+42220	Kaipola	Jämsä	Keski-Suomi	594	-7
+48310	Mussalo	Kotka	Kymenlaakso	1704	-4.9
+45100	Kouvola Keskus	Kouvola	Kymenlaakso	1465	-2.4
+48100	Kotkansaari	Kotka	Kymenlaakso	1443	-6
+48710	Koivula	Kotka	Kymenlaakso	1442	-5.5
+45120	Kotkankallio-Vahteranmäki	Kouvola	Kymenlaakso	1439	-2.4
+48800	Otsola-Mäntykangas	Kotka	Kymenlaakso	1332	-5.6
+49220	Siltakylä	Pyhtää	Kymenlaakso	1251	-7.8
+45130	Korjala-Kaunisnurmi	Kouvola	Kymenlaakso	1232	-3.1
+45360	Kukkuramäki	Kouvola	Kymenlaakso	1228	-4.3
+45720	Kotiharju-Ruhjonmäki	Kouvola	Kymenlaakso	1218	-3.2
+48410	Kaukola	Kotka	Kymenlaakso	1204	-5.7
+45370	Valkeala kk	Kouvola	Kymenlaakso	1187	-4.1
+45750	Kuusankosken Sairaala-alue	Kouvola	Kymenlaakso	1154	-2.8
+48400	Sutela	Kotka	Kymenlaakso	1137	-6.7
+48600	Karhula	Kotka	Kymenlaakso	1125	-5.7
+45610	Koria	Kouvola	Kymenlaakso	1097	-4
+48300	Ruonala	Kotka	Kymenlaakso	1095	-6.5
+49210	Huutjärvi	Pyhtää	Kymenlaakso	1086	-8.2
+45200	Tornionmäki	Kouvola	Kymenlaakso	1080	-3.6
+47400	Kausala	Iitti	Kymenlaakso	1077	-3.1
+48130	Katariina	Kotka	Kymenlaakso	1068	-6.6
+48810	Rantahaka	Kotka	Kymenlaakso	1067	-6.6
+49400	Hamina Keskus	Hamina	Kymenlaakso	1066	-9.7
+45330	Harju	Kouvola	Kymenlaakso	1051	-4.4
+45160	Lehtomäki	Kouvola	Kymenlaakso	1021	-4.8
+45740	Maunuksela	Kouvola	Kymenlaakso	1018	-3.9
+45700	Kuusankoski Keskus	Kouvola	Kymenlaakso	1017	-3
+48770	Ristinkallio	Kotka	Kymenlaakso	1016	-6.9
+45810	Pilkanmaa	Kouvola	Kymenlaakso	1004	-4.2
+48720	Kymi	Kotka	Kymenlaakso	999	-6.9
+47460	Hiisiö	Iitti	Kymenlaakso	978	-3.7
+48750	Nikeli	Kotka	Kymenlaakso	976	-7.1
+45150	Kankaronmäki-Eskolanmäki	Kouvola	Kymenlaakso	975	-4.4
+48930	Tiutinen	Kotka	Kymenlaakso	967	-7.2
+48210	Toukolan Sairaala-Alue	Kotka	Kymenlaakso	958	-6.6
+49200	Heinlahti	Pyhtää	Kymenlaakso	954	-8.9
+54490	Ahomäki	Miehikkälä	Kymenlaakso	947	-4.8
+45410	Utti	Kouvola	Kymenlaakso	942	-4.5
+48700	Kyminlinna	Kotka	Kymenlaakso	928	-6.6
+49240	Purolanlahti	Pyhtää	Kymenlaakso	924	-9.2
+48910	Suulisniemi	Kotka	Kymenlaakso	922	-7.3
+49270	Pyhtää kk	Pyhtää	Kymenlaakso	922	-9.2
+46910	Anjala	Kouvola	Kymenlaakso	919	-4.9
+48200	Hovinsaari	Kotka	Kymenlaakso	917	-6.8
+45460	Savero	Kouvola	Kymenlaakso	904	-4.8
+49490	Neuvoton	Hamina	Kymenlaakso	903	-9.9
+47110	Löytty	Kouvola	Kymenlaakso	902	-3.9
+47450	Erottaja	Iitti	Kymenlaakso	897	-4.2
+47520	Iitti kk	Iitti	Kymenlaakso	896	-4
+46860	Anjalankoski Keskus	Kouvola	Kymenlaakso	895	-5.5
+49610	Sivatti	Hamina	Kymenlaakso	890	-9.1
+47830	Hasula	Kouvola	Kymenlaakso	886	-4
+49290	Vastila	Pyhtää	Kymenlaakso	886	-9.5
+47440	Sääskjärvi	Iitti	Kymenlaakso	884	-4.3
+46810	Ummeljoki	Kouvola	Kymenlaakso	883	-6.2
+49420	Uusi-Summa	Hamina	Kymenlaakso	883	-9.4
+49300	Tavastila	Kotka	Kymenlaakso	875	-9.2
+49410	Poitsila	Hamina	Kymenlaakso	875	-9.8
+48220	Metsola	Kotka	Kymenlaakso	868	-6.5
+47150	Raussila	Kouvola	Kymenlaakso	867	-4.2
+47490	Mankala-Hiisiö	Iitti	Kymenlaakso	856	-4.5
+47900	Vuohijärvi	Kouvola	Kymenlaakso	855	-4.3
+49630	Vehkajoki	Hamina	Kymenlaakso	855	-9.4
+47310	Haapa-Kimola	Iitti	Kymenlaakso	853	-4.3
+47540	Löyttilä	Iitti	Kymenlaakso	851	-4.3
+47260	Ratula	Kouvola	Kymenlaakso	850	-4.2
+47810	Selänpää	Kouvola	Kymenlaakso	847	-4.3
+47650	Kimola	Kouvola	Kymenlaakso	846	-4.3
+45940	Oravala	Kouvola	Kymenlaakso	844	-4.8
+48900	Sunila	Kotka	Kymenlaakso	834	-7.1
+49480	Vanha-Summa	Hamina	Kymenlaakso	833	-10.2
+46750	Liikkala	Kouvola	Kymenlaakso	830	-5.8
+49700	Miehikkälä Kirkonkylä	Miehikkälä	Kymenlaakso	830	-9.6
+47610	Kymentaka	Iitti	Kymenlaakso	829	-4.4
+47850	Verla	Kouvola	Kymenlaakso	828	-4.4
+49860	Klamila	Virolahti	Kymenlaakso	826	-9.6
+49840	Mäntlahti	Hamina	Kymenlaakso	809	-9.8
+46800	Myllykoski	Kouvola	Kymenlaakso	808	-6.2
+49640	Paijärvi	Hamina	Kymenlaakso	808	-9.8
+49340	Juurikorpi	Kotka	Kymenlaakso	807	-9.8
+46730	Ruotila	Kouvola	Kymenlaakso	806	-5.9
+49760	Suur-Miehikkälä	Miehikkälä	Kymenlaakso	806	-9.8
+49770	Salo-Miehikkälä	Miehikkälä	Kymenlaakso	805	-9.8
+49730	Muurikkala	Miehikkälä	Kymenlaakso	804	-9.8
+49750	Kalliokoski	Miehikkälä	Kymenlaakso	803	-9.8
+49930	Vaalimaa	Virolahti	Kymenlaakso	803	-10
+48230	Korela-Jylppy	Kotka	Kymenlaakso	800	-7.3
+46710	Sippola	Kouvola	Kymenlaakso	797	-6
+19160	Huutotöyry	Iitti	Kymenlaakso	796	-6.4
+46140	Vekaranjärvi	Kouvola	Kymenlaakso	794	-6
+46400	Kaipiainen	Kouvola	Kymenlaakso	790	-6
+49660	Pyhältö	Hamina	Kymenlaakso	789	-9.9
+47710	Jaala kk	Kouvola	Kymenlaakso	788	-4.4
+49960	Ala-Pihlaja	Virolahti	Kymenlaakso	787	-10.2
+46450	Enäjärvi	Kouvola	Kymenlaakso	786	-6.1
+46230	Aro	Kouvola	Kymenlaakso	785	-6.1
+49980	Ravijoki	Virolahti	Kymenlaakso	781	-10.2
+46430	Tirva-Inkerilä	Kouvola	Kymenlaakso	779	-6.1
+46110	Tuohikotti	Kouvola	Kymenlaakso	775	-6.2
+49780	Onkamaa	Hamina	Kymenlaakso	770	-10.1
+46930	Huruksela	Kotka	Kymenlaakso	764	-6.2
+49720	Hurttala	Miehikkälä	Kymenlaakso	764	-10.1
+46960	Muhniemi	Kouvola	Kymenlaakso	762	-6.2
+46950	Ahvio	Kouvola	Kymenlaakso	758	-6.2
+47910	Hillosensalmi	Kouvola	Kymenlaakso	757	-5
+49540	Metsäkylä	Hamina	Kymenlaakso	757	-10
+46900	Inkeroinen	Kouvola	Kymenlaakso	756	-6.1
+49520	Reitkalli	Hamina	Kymenlaakso	756	-10
+47760	Huhdasjärvi	Kouvola	Kymenlaakso	753	-5
+49570	Kannusjärvi	Hamina	Kymenlaakso	743	-10.2
+47200	Elimäki kk	Kouvola	Kymenlaakso	740	-5
+46570	Saaramaa	Kouvola	Kymenlaakso	735	-6.5
+45910	Voikkaa	Kouvola	Kymenlaakso	707	-4.7
+49900	Virolahti Keskus	Virolahti	Kymenlaakso	701	-11.1
+49460	Hillo	Hamina	Kymenlaakso	684	-10.6
+48350	Karhuvuori	Kotka	Kymenlaakso	666	-7.9
+49510	Husula	Hamina	Kymenlaakso	617	-10.5
+99130	Sirkka-Rauhala	Kittilä	Lappi	2178	-4.5
+95970	Äkäslompolo	Kolari	Lappi	2026	-1.9
+99830	Saariselkä	Inari	Lappi	1982	-4.8
+96100	Rovaniemi Keskus	Rovaniemi	Lappi	1939	0.2
+96900	Saarenkylä	Rovaniemi	Lappi	1836	-3.4
+96200	Sahanperä-Ratantaus	Rovaniemi	Lappi	1749	-1.8
+96300	Niemelänkangas-Korvanniemi	Rovaniemi	Lappi	1708	-2.5
+95400	Tornio Keskus	Tornio	Lappi	1659	-1.1
+96460	Pöykkölä	Rovaniemi	Lappi	1592	-2.3
+96400	Pullinranta-Kiiruna	Rovaniemi	Lappi	1584	-2.6
+96190	Lapinrinne-Ahokangas	Rovaniemi	Lappi	1554	-1.4
+99180	Rautusjärvi	Kittilä	Lappi	1419	-6.4
+95450	Kirkonmäki	Tornio	Lappi	1413	-2.8
+96800	Ylikylä-Patosaari	Rovaniemi	Lappi	1412	-2.6
+99140	Köngäs-Hanhivaara	Kittilä	Lappi	1412	-6.5
+99110	Kaukonen	Kittilä	Lappi	1391	-6.6
+95920	Saaripudas	Kolari	Lappi	1385	-3.2
+99135	Rauhala	Kittilä	Lappi	1351	-7
+95980	Ylläsjärvi	Kolari	Lappi	1350	-3.4
+96930	Napapiiri Rovaniemi	Rovaniemi	Lappi	1339	-4
+99160	Lompolo-Pulju	Kittilä	Lappi	1337	-7.1
+96910	Syväsenvaara	Rovaniemi	Lappi	1335	-3
+99100	Kittilä Keskus	Kittilä	Lappi	1329	-6.8
+99150	Tepasto	Kittilä	Lappi	1325	-7.2
+99120	Kallo	Kittilä	Lappi	1319	-7.3
+99740	Syväjärvi	Sodankylä	Lappi	1310	-5.7
+99870	Inari Keskus-Lemmenjoki	Inari	Lappi	1310	-6.3
+96960	Someroharju	Rovaniemi	Lappi	1307	-4
+95350	Peura	Tervola	Lappi	1287	-3
+99300	Muonio Keskus	Muonio	Lappi	1287	-5.8
+95420	Miukki-Palosaari-Luotomäki	Tornio	Lappi	1286	-2.8
+99560	Orakylä	Sodankylä	Lappi	1266	-5.9
+95900	Kolari Keskus	Kolari	Lappi	1260	-4.2
+95930	Äkäsjoensuu	Kolari	Lappi	1258	-4.2
+99710	Vaalajärvi	Sodankylä	Lappi	1258	-6
+99400	Enontekiö Keskus	Enontekiö	Lappi	1255	-6
+99190	Hanhimaa	Kittilä	Lappi	1240	-8
+99320	Kätkäsuvanto	Muonio	Lappi	1226	-6.2
+99310	Yli-Muonio	Muonio	Lappi	1224	-6.2
+99170	Pulju	Kittilä	Lappi	1223	-8.2
+95990	Kurtakko	Kolari	Lappi	1222	-4.5
+96700	Niskanperä	Rovaniemi	Lappi	1222	-3.9
+96320	Teollisuuskylä	Rovaniemi	Lappi	1218	-4.5
+99760	Uimaniemi	Sodankylä	Lappi	1218	-6.3
+99885	Lemmenjoki	Inari	Lappi	1218	-7.1
+95410	Kiviranta	Tornio	Lappi	1216	-3.2
+95220	Simoniemi	Simo	Lappi	1213	-3.4
+95470	Pirkkiö-Röyttä	Tornio	Lappi	1210	-3.5
+99860	Nellim	Inari	Lappi	1210	-7.2
+95940	Tapojärvi	Muonio	Lappi	1208	-4.6
+99750	Sassali	Sodankylä	Lappi	1207	-6.4
+99550	Aska-Orakylä	Sodankylä	Lappi	1204	-6.4
+99650	Sattanen	Sodankylä	Lappi	1204	-5.5
+99540	Torvinen	Sodankylä	Lappi	1195	-6.4
+99770	Jeesiö	Sodankylä	Lappi	1194	-6.4
+95310	Liedakkala	Keminmaa	Lappi	1189	-3.5
+99555	Luosto	Sodankylä	Lappi	1186	-6.5
+99530	Vuojärvi	Sodankylä	Lappi	1184	-6.5
+99520	Seipäjärvi	Sodankylä	Lappi	1181	-6.5
+99720	Riipi	Sodankylä	Lappi	1181	-6.5
+99450	Palojoensuu-Kuttanen	Enontekiö	Lappi	1179	-6.6
+95500	Vojakkala-Yli-Liakka	Tornio	Lappi	1178	-3.6
+99280	Tepsa	Kittilä	Lappi	1178	-6.6
+95950	Kihlanki-Tapojärvi	Muonio	Lappi	1172	-5
+99410	Vuontisjärvi	Enontekiö	Lappi	1172	-6.6
+99340	Raattama-Pallastunturi	Kittilä	Lappi	1170	-6.6
+99195	Pokka	Kittilä	Lappi	1162	-8.8
+96600	Koskenkylä	Rovaniemi	Lappi	1161	-3.9
+99270	Hormakumpu	Kittilä	Lappi	1160	-6.7
+99230	Jeesiöjärvi	Kittilä	Lappi	1158	-6.7
+99360	Kangosjärvi	Muonio	Lappi	1158	-6.7
+95440	Kyläjoki	Tornio	Lappi	1153	-3.9
+95520	Kukkola	Tornio	Lappi	1153	-3.7
+95230	Maksniemi	Simo	Lappi	1148	-3.8
+99990	Nuorgam	Utsjoki	Lappi	1144	-6.8
+99510	Raudanjoki-Seipäjärvi	Sodankylä	Lappi	1141	-6.8
+95700	Pello Keskus	Pello	Lappi	1140	-3.8
+95210	Filpus	Simo	Lappi	1136	-3.8
+99290	Kelontekemä	Kittilä	Lappi	1135	-6.9
+99980	Utsjoki Keskus	Utsjoki	Lappi	1135	-6.9
+99240	Kuivasalmi	Kittilä	Lappi	1129	-6.9
+99420	Peltovuoma	Enontekiö	Lappi	1123	-7
+95460	Kantojärvi	Tornio	Lappi	1122	-4.1
+99950	Karigasniemi	Utsjoki	Lappi	1112	-7.1
+95430	Suensaari	Tornio	Lappi	1109	-3.3
+99460	Kuttanen	Enontekiö	Lappi	1108	-7.1
+95200	Simo Keskus	Simo	Lappi	1096	-4.1
+95560	Aapajoki	Tornio	Lappi	1096	-4.1
+95375	Yli-Paakkola	Tervola	Lappi	1092	-4.2
+94450	Lassila-Jokisuu	Keminmaa	Lappi	1090	-3.4
+95365	Maula	Keminmaa	Lappi	1090	-4.2
+95530	Karunki	Tornio	Lappi	1085	-4.2
+99470	Karesuvanto	Enontekiö	Lappi	1083	-7.3
+99600	Sodankylä Keskus	Sodankylä	Lappi	1082	-4.4
+95300	Tervola Keskus	Tervola	Lappi	1079	-4.2
+95315	Törmä	Keminmaa	Lappi	1077	-4.3
+95340	Loue	Tervola	Lappi	1077	-4.3
+99440	Leppäjärvi	Enontekiö	Lappi	1071	-7.4
+99490	Kilpisjärvi	Enontekiö	Lappi	1071	-7.4
+99610	Siurunmaa	Sodankylä	Lappi	1071	-6.2
+99660	Kersilö	Sodankylä	Lappi	1071	-6.2
+99910	Kaamanen-Partakko	Inari	Lappi	1071	-7.4
+94720	Peurasaari	Kemi	Lappi	1065	-4
+99430	Nunnanen	Enontekiö	Lappi	1063	-7.5
+95590	Arpela	Tornio	Lappi	1059	-4.4
+95370	Itäkoski	Keminmaa	Lappi	1058	-4.4
+99250	Kiistala-Jeesiöjärvi	Kittilä	Lappi	1055	-7.5
+99930	Sevettijärvi-Näätämö	Inari	Lappi	1055	-7.5
+95720	Jarhoinen	Pello	Lappi	1050	-4.4
+95225	Viantie	Simo	Lappi	1044	-4.5
+95325	Paakkola	Tervola	Lappi	1041	-4.5
+99940	Näätämö	Inari	Lappi	1036	-7.7
+95770	Lankojärvi	Pello	Lappi	1028	-4.6
+94600	Ristikangas-Kivikko	Kemi	Lappi	1026	-3.8
+95830	Vaattojärvi	Kolari	Lappi	1026	-4.6
+96440	Ounasrinne	Rovaniemi	Lappi	1026	-4.4
+99620	Kelujärvi	Sodankylä	Lappi	1022	-6.5
+95540	Korpikylä	Tornio	Lappi	1021	-4.7
+95620	Aavasaksa	Ylitornio	Lappi	1020	-4.2
+95330	Tervola	Tervola	Lappi	1016	-4.7
+96500	Korkalovaara	Rovaniemi	Lappi	1016	-3.6
+95780	Sirkkakoski	Pello	Lappi	1009	-4.7
+95800	Sieppijärvi-Taapajärvi	Kolari	Lappi	1009	-4.7
+95630	Kuivakangas	Ylitornio	Lappi	1004	-4.4
+95710	Naamijoki	Pello	Lappi	1001	-4.8
+95655	Etelä-Portimojärvi	Ylitornio	Lappi	994	-4.4
+95270	Yli-Kärppä-Tainionjoki	Simo	Lappi	993	-4.9
+95255	Alaniemi	Simo	Lappi	992	-4.9
+95760	Konttajärvi	Pello	Lappi	992	-4.9
+99800	Ivalo	Inari	Lappi	985	-7.3
+95355	Koivu-Peura	Tervola	Lappi	979	-5
+95615	Pekanpää	Ylitornio	Lappi	979	-4.5
+94100	Kemi Keskus	Kemi	Lappi	978	-3.9
+95790	Lampsijärvi	Pello	Lappi	972	-5
+95750	Orajärvi	Pello	Lappi	969	-5
+95610	Kainuunkylä	Ylitornio	Lappi	968	-4.6
+95635	Kaulinranta	Ylitornio	Lappi	964	-4.6
+95840	Venejärvenkylä	Kolari	Lappi	960	-5.1
+95860	Pasmajärvi	Kolari	Lappi	950	-5.2
+95850	Ruokojärvi	Kolari	Lappi	918	-5.5
+95645	Turtola	Pello	Lappi	914	-5
+95680	Lohijärvi	Ylitornio	Lappi	914	-5
+99670	Petkula	Sodankylä	Lappi	911	-7.2
+95260	Tainionjoki	Simo	Lappi	901	-5.6
+97160	Petäjäinen	Rovaniemi	Lappi	895	-1.3
+99655	Sattasvaara	Sodankylä	Lappi	894	-7.4
+95660	Kantomaanpää	Ylitornio	Lappi	893	-5.1
+97220	Sinettä	Rovaniemi	Lappi	893	-1.3
+95640	Juoksenki	Pello	Lappi	892	-5.1
+97130	Hirvas	Rovaniemi	Lappi	892	-1.3
+99640	Tanhua	Savukoski	Lappi	874	-7.5
+99695	Tankavaara	Sodankylä	Lappi	868	-7.6
+95675	Meltosjärvi	Ylitornio	Lappi	864	-5.4
+99690	Vuotso	Sodankylä	Lappi	862	-7.6
+95670	Pessalompolo	Ylitornio	Lappi	858	-5.4
+97170	Jaatila	Rovaniemi	Lappi	850	-1.6
+95690	Mellakoski	Ylitornio	Lappi	846	-5.5
+97110	Rautionsaari	Rovaniemi	Lappi	842	-1.6
+99645	Lokka	Sodankylä	Lappi	838	-7.8
+97770	Petäjäjärvi	Ranua	Lappi	832	-1.4
+98440	Kallaanvaara	Kemijärvi	Lappi	827	-3.2
+97635	Juuniemi	Rovaniemi	Lappi	825	-1.8
+97700	Ranua Keskus	Ranua	Lappi	825	-0.6
+99665	Moskuvaara	Sodankylä	Lappi	816	-8
+94400	Keminmaa Keskus	Keminmaa	Lappi	815	-4.8
+97610	Oikarainen	Rovaniemi	Lappi	808	-1.9
+97140	Muurola	Rovaniemi	Lappi	807	-1.9
+97780	Kuukasjärvi-Petäjäjärvi	Ranua	Lappi	806	-1.5
+97615	Tennirova	Rovaniemi	Lappi	800	-1.9
+94430	Kaakamo	Tornio	Lappi	798	-5
+97655	Autti	Rovaniemi	Lappi	797	-1.9
+94900	Ajos	Kemi	Lappi	796	-4.8
+97380	Kukasranta	Sodankylä	Lappi	795	-1.9
+97920	Suonnankylä	Posio	Lappi	794	-1.8
+97720	Yli-Simo-Raiskio	Ranua	Lappi	787	-1.6
+97890	Karjalaisenniemi	Posio	Lappi	786	-2
+97280	Tapio	Rovaniemi	Lappi	785	-2
+97650	Juotas	Rovaniemi	Lappi	785	-2
+97670	Kivitaipale	Rovaniemi	Lappi	784	-2
+97840	Lehtiniemi	Posio	Lappi	783	-2
+97940	Lohiranta	Posio	Lappi	783	-1.9
+97950	Säikkä	Posio	Lappi	783	-1.9
+97290	Marraskoski	Rovaniemi	Lappi	782	-2
+97620	Viiri-Tennirova	Rovaniemi	Lappi	782	-2
+97970	Sirniö	Posio	Lappi	781	-1.9
+97625	Vanttauskoski	Rovaniemi	Lappi	780	-2
+97765	Kuha-Impiö-Itäranua	Ranua	Lappi	778	-1.7
+97630	Pekkala	Rovaniemi	Lappi	777	-2.1
+94500	Lautiosaari	Keminmaa	Lappi	774	-5
+94300	Pajusaari	Kemi	Lappi	772	-5
+98100	Kemijärvi Keskus	Kemijärvi	Lappi	772	-4.2
+97960	Kuloharju-Säikkä	Posio	Lappi	771	-1.9
+97880	Nolimo-Jumisko	Posio	Lappi	769	-2.1
+97250	Raanujärvi	Ylitornio	Lappi	766	-2.1
+97925	Tolva	Posio	Lappi	766	-2
+97240	Sonka	Rovaniemi	Lappi	764	-2.2
+97760	Saariharju	Ranua	Lappi	764	-1.8
+97820	Perä-Posio	Posio	Lappi	764	-2.2
+97895	Mourujärvi	Posio	Lappi	764	-2.2
+97965	Kynsilä	Posio	Lappi	764	-2
+97980	Anetjärvi	Posio	Lappi	763	-2
+98310	Karvakko	Kemijärvi	Lappi	759	-3.6
+97310	Patokoski	Rovaniemi	Lappi	758	-2.2
+97470	Alakylä-Sailehto	Kittilä	Lappi	757	-2.2
+97675	Narkaus-Kämät	Rovaniemi	Lappi	757	-2.2
+97390	Kierinki	Sodankylä	Lappi	755	-2.2
+97510	Vikajärvi	Rovaniemi	Lappi	749	-2.3
+97690	Sulaoja	Rovaniemi	Lappi	747	-2.3
+95600	Ylitornio Keskus	Ylitornio	Lappi	746	-5.5
+97420	Lohiniva	Kittilä	Lappi	744	-2.3
+97715	Raiskio	Ranua	Lappi	744	-1.9
+97580	Misi	Rovaniemi	Lappi	741	-2.3
+97665	Pohjasperä	Ranua	Lappi	741	-2.3
+97340	Meltaus-Jääskö-Perttaus	Rovaniemi	Lappi	740	-2.3
+97685	Siika-Kämä	Rovaniemi	Lappi	736	-2.4
+94460	Ruottala	Tornio	Lappi	734	-5.4
+97370	Unarin-Luusua	Sodankylä	Lappi	734	-2.4
+97520	Nampa	Rovaniemi	Lappi	733	-2.4
+97645	Juujärvi	Kemijärvi	Lappi	731	-2.4
+97850	Ristilä	Posio	Lappi	731	-2.4
+97785	Kelankylä	Ranua	Lappi	730	-2
+97330	Rattosjärvi	Pello	Lappi	729	-2.4
+97530	Nampa-Yli-Nampa	Rovaniemi	Lappi	729	-2.4
+97680	Saari-Kämä	Rovaniemi	Lappi	729	-2.4
+97870	Jumisko	Posio	Lappi	723	-2.4
+98400	Isokylä-Ryti-Lehtola	Kemijärvi	Lappi	720	-3.9
+97335	Ruuhivaara	Pello	Lappi	715	-2.5
+97590	Raajärvi	Kemijärvi	Lappi	715	-2.5
+98510	Saunavaara	Pelkosenniemi	Lappi	710	-4
+97900	Posio Keskus	Posio	Lappi	709	-2.4
+97815	Pernu-Suorsa	Posio	Lappi	707	-2.6
+94200	Torvinen-Vainio	Kemi	Lappi	705	-4.8
+97320	Marrasjärvi	Rovaniemi	Lappi	702	-2.6
+97810	Suorsa	Posio	Lappi	700	-2.6
+97540	Tiainen	Rovaniemi	Lappi	697	-2.6
+98360	Vuostimo	Kemijärvi	Lappi	697	-4.1
+98560	Kairala-Luiro	Pelkosenniemi	Lappi	692	-4.2
+98800	Savukoski Keskus-Värriö	Savukoski	Lappi	684	-4.2
+98500	Pelkosenniemi Keskus	Pelkosenniemi	Lappi	682	-4.2
+98660	Salmivaara	Salla	Lappi	678	-4.3
+98230	Luusua-Karsimus	Kemijärvi	Lappi	674	-4.3
+98620	Pahkakumpu	Salla	Lappi	674	-4.3
+98780	Maaninkavaara	Posio	Lappi	671	-4.3
+98450	Kostamo	Kemijärvi	Lappi	670	-4.3
+98710	Joutsijärvi	Kemijärvi	Lappi	670	-4.3
+98920	Kelloselkä	Salla	Lappi	669	-4.2
+98930	Kotalankylä	Salla	Lappi	669	-4.2
+98350	Tapionniemi	Kemijärvi	Lappi	667	-4.4
+98900	Salla Keskus	Salla	Lappi	665	-4.2
+98530	Pyhätunturi	Pelkosenniemi	Lappi	664	-4.4
+98995	Hautajärvi	Salla	Lappi	664	-4.3
+98420	Ryti-Lehtola	Kemijärvi	Lappi	663	-4.4
+98850	Kuosku	Savukoski	Lappi	662	-4.4
+98600	Kursu	Salla	Lappi	658	-4.4
+98950	Saija	Salla	Lappi	653	-4.4
+98970	Onkamojärvi	Salla	Lappi	652	-4.4
+98760	Hirvasvaara-Paloperä	Salla	Lappi	650	-4.5
+98770	Aholanvaara	Salla	Lappi	643	-4.6
+98720	Suomutunturi	Kemijärvi	Lappi	642	-4.6
+97430	Taapajärvi	Kolari	Lappi	641	-3.1
+98580	Luiro	Pelkosenniemi	Lappi	638	-4.6
+98630	Ahvenselkä	Salla	Lappi	638	-4.6
+98790	Paloperä	Salla	Lappi	631	-4.7
+94700	Takajärvi-Haukkari	Kemi	Lappi	629	-6.2
+98550	Suvanto	Pelkosenniemi	Lappi	628	-4.7
+98810	Lunkkaus	Savukoski	Lappi	621	-4.8
+98980	Kallunki-Niemelä	Salla	Lappi	613	-4.7
+98570	Aapajärvi	Pelkosenniemi	Lappi	612	-4.9
+98820	Värriö	Savukoski	Lappi	607	-4.9
+98840	Ruuvaoja	Savukoski	Lappi	600	-5
+98120	Särkikangas	Kemijärvi	Lappi	599	-4.2
+98830	Martti-Ruuvaoja	Savukoski	Lappi	587	-5.1
+94830	Pikku Berliini-Hepola	Kemi	Lappi	570	-5.9
+98960	Naruska	Salla	Lappi	563	-5.3
+33180	Lapinniemi-Käpylä	Tampere	Pirkanmaa	3705	0.2
+33200	Tampere Keskus Läntinen	Tampere	Pirkanmaa	3356	1.7
+33100	Tampere Keskus	Tampere	Pirkanmaa	3353	1.9
+33210	Itä-Amuri-Tammerkoski	Tampere	Pirkanmaa	3267	1.6
+33230	Länsi-Amuri	Tampere	Pirkanmaa	3035	0.3
+33540	Kaleva	Tampere	Pirkanmaa	3009	2.7
+33500	Osmonmäki-Petsamo	Tampere	Pirkanmaa	3001	1.7
+33240	Tahmela	Tampere	Pirkanmaa	2801	0.7
+33250	Pispala	Tampere	Pirkanmaa	2645	0
+33700	Messukylä	Tampere	Pirkanmaa	2567	-1
+33900	Härmälä-Rantaperkiö	Tampere	Pirkanmaa	2489	0.7
+33270	Epilä	Tampere	Pirkanmaa	2485	-0.1
+33530	Kissanmaa	Tampere	Pirkanmaa	2475	1.3
+33920	Toivio	Pirkkala	Pirkanmaa	2445	0.2
+33560	Takahuhti	Tampere	Pirkanmaa	2338	0.4
+33960	Suuppa	Pirkkala	Pirkanmaa	2337	0.8
+33580	Atala-Linnainmaa	Tampere	Pirkanmaa	2336	-0.5
+36100	Kangasala Asemanseutu	Kangasala	Pirkanmaa	2282	-2.2
+33950	Killo	Pirkkala	Pirkanmaa	2255	1
+37560	Kulju	Lempäälä	Pirkanmaa	2235	-0.3
+33820	Koivistonkylä	Tampere	Pirkanmaa	2220	-0.5
+33800	Nekala	Tampere	Pirkanmaa	2205	1.7
+33610	Olkahinen-Tasanne	Tampere	Pirkanmaa	2203	-1.4
+33520	Keskussairaala-alue-Kauppi	Tampere	Pirkanmaa	2148	0.4
+33400	Luoteis-Tampere	Tampere	Pirkanmaa	2092	-1.4
+39160	Julkujärvi	Ylöjärvi	Pirkanmaa	2088	1.2
+33300	Rahola	Tampere	Pirkanmaa	2075	-0.2
+33710	Kaukajärvi	Tampere	Pirkanmaa	2039	-0.6
+33340	Haukiluoma-Ikuri	Tampere	Pirkanmaa	2011	-1.2
+33730	Leinola-Vehmainen	Tampere	Pirkanmaa	1986	-2.2
+37550	Kuivaspää	Lempäälä	Pirkanmaa	1955	-1.1
+33480	Manninmäki-Haavisto	Ylöjärvi	Pirkanmaa	1921	-1.9
+37140	Harjuniitty	Nokia	Pirkanmaa	1882	-1.8
+33450	Siivikkala	Ylöjärvi	Pirkanmaa	1869	-2.8
+36110	Ruutana	Kangasala	Pirkanmaa	1861	-3
+33430	Vuorentausta	Ylöjärvi	Pirkanmaa	1859	-2.2
+37500	Lempäälä Keskus	Lempäälä	Pirkanmaa	1857	-1.5
+33420	Lamminpää	Tampere	Pirkanmaa	1830	-1.6
+37120	Koskenmäki	Nokia	Pirkanmaa	1798	-1.7
+33330	Myllypuro-Kalkku	Tampere	Pirkanmaa	1797	0.1
+33470	Ylöjärvi Keskus	Ylöjärvi	Pirkanmaa	1794	-2
+36200	Kangasala Keskus	Kangasala	Pirkanmaa	1790	-4
+33720	Hervanta	Tampere	Pirkanmaa	1782	-1.2
+36240	Nattari	Kangasala	Pirkanmaa	1778	-2.6
+33980	Pirkkala kk	Pirkkala	Pirkanmaa	1749	-1.9
+37100	Nokia Keskus	Nokia	Pirkanmaa	1717	-1.8
+38200	Vammala Keskus	Sastamala	Pirkanmaa	1712	1.6
+36280	Pikonlinna	Kangasala	Pirkanmaa	1709	-3.2
+37150	Kankaantaka	Nokia	Pirkanmaa	1655	-2.2
+36220	Suorama	Kangasala	Pirkanmaa	1620	-2.6
+36270	Huutijärvi	Kangasala	Pirkanmaa	1586	-4.6
+33880	Höytämö	Lempäälä	Pirkanmaa	1582	-1.4
+33680	Aitolahti	Tampere	Pirkanmaa	1581	-3.4
+37130	Alhoniitty	Nokia	Pirkanmaa	1581	-3
+33840	Peltolammi	Tampere	Pirkanmaa	1572	-2
+33870	Vuores	Tampere	Pirkanmaa	1568	-2.4
+37470	Vesilahti Keskus	Vesilahti	Pirkanmaa	1556	-2
+36120	Suinula-Haviseva	Kangasala	Pirkanmaa	1550	-4.2
+33410	Lentävänniemi	Tampere	Pirkanmaa	1495	-2.9
+33310	Tesoma	Tampere	Pirkanmaa	1476	-1.4
+37570	Koivuniemi	Lempäälä	Pirkanmaa	1463	-2.8
+39100	Hämeenkyrö Keskus	Hämeenkyrö	Pirkanmaa	1458	-0.6
+33380	Pitkäniemi	Nokia	Pirkanmaa	1444	-3.4
+36600	Pälkäne Keskus	Pälkäne	Pirkanmaa	1418	-4
+37530	Säijä	Lempäälä	Pirkanmaa	1410	-3
+36520	Raikku	Kangasala	Pirkanmaa	1335	-5
+36640	Iltasmäki	Pälkäne	Pirkanmaa	1324	-5
+36810	Kuhmalahti Keskus	Kangasala	Pirkanmaa	1323	-5.1
+36570	Kaivanto	Kangasala	Pirkanmaa	1320	-5.1
+36340	Tohkala	Kangasala	Pirkanmaa	1310	-5.1
+36430	Pakkala	Kangasala	Pirkanmaa	1297	-5.4
+36910	Rautajärvi	Pälkäne	Pirkanmaa	1291	-5.3
+36660	Laitikkala	Pälkäne	Pirkanmaa	1281	-5.2
+36720	Aitoo	Pälkäne	Pirkanmaa	1278	-5.2
+36840	Kuhmajärvi	Kangasala	Pirkanmaa	1277	-5.3
+39130	Sasi	Hämeenkyrö	Pirkanmaa	1272	-1.1
+35300	Orivesi Keskus	Orivesi	Pirkanmaa	1266	-1.6
+39150	Pinsiö	Hämeenkyrö	Pirkanmaa	1262	-1.1
+39110	Simuna	Hämeenkyrö	Pirkanmaa	1258	-1.1
+34130	Ylinen	Ylöjärvi	Pirkanmaa	1255	-2.1
+37700	Sääksmäki	Valkeakoski	Pirkanmaa	1236	-3.7
+36450	Salmentaka	Pälkäne	Pirkanmaa	1235	-5.8
+33850	Multisilta	Tampere	Pirkanmaa	1234	-3
+37420	Valkkinen	Vesilahti	Pirkanmaa	1234	-3.6
+36930	Kyynärö	Pälkäne	Pirkanmaa	1233	-5.6
+39170	Jumesniemi	Hämeenkyrö	Pirkanmaa	1233	-1.2
+37960	Sotkia	Akaa	Pirkanmaa	1226	-3.7
+37180	Sarkola	Nokia	Pirkanmaa	1222	-4.2
+39180	Herttuala	Hämeenkyrö	Pirkanmaa	1210	-1.3
+37310	Tottijärvi	Nokia	Pirkanmaa	1206	-3.9
+36880	Vehkajärvi	Kangasala	Pirkanmaa	1202	-5.8
+37370	Narva	Vesilahti	Pirkanmaa	1197	-4.1
+35100	Orivesi Asemanseutu	Orivesi	Pirkanmaa	1189	-2.8
+36760	Luopioinen Keskus	Pälkäne	Pirkanmaa	1188	-5.1
+37800	Toijala keskus	Akaa	Pirkanmaa	1181	-3.3
+37860	Kärjenniemi	Valkeakoski	Pirkanmaa	1175	-3.6
+36420	Sahalahti Keskus	Kangasala	Pirkanmaa	1174	-6
+39195	Kaipio	Hämeenkyrö	Pirkanmaa	1169	-1.5
+37630	Vääräkoivu	Valkeakoski	Pirkanmaa	1168	-4.7
+37740	Haukila	Valkeakoski	Pirkanmaa	1161	-4.1
+37770	Tarttila	Valkeakoski	Pirkanmaa	1159	-4.1
+34110	Lakiala	Ylöjärvi	Pirkanmaa	1149	-2.1
+38460	Mouhijärvi Keskus	Sastamala	Pirkanmaa	1145	-0.6
+37380	Krääkkiö	Vesilahti	Pirkanmaa	1143	-4.3
+38210	Vammala Asemanseutu	Sastamala	Pirkanmaa	1138	-0.5
+37350	Rämsöö	Vesilahti	Pirkanmaa	1131	-4.4
+37850	Metsäkansa	Valkeakoski	Pirkanmaa	1131	-3.9
+37900	Kylmäkoski Asemanseutu	Akaa	Pirkanmaa	1130	-4.2
+37600	Valkeakoski Keskus	Valkeakoski	Pirkanmaa	1125	-4.2
+39500	Ikaalinen Keskus	Ikaalinen	Pirkanmaa	1123	-2.4
+14960	Puutikkala	Pälkäne	Pirkanmaa	1114	-4.8
+37720	Ritvala	Valkeakoski	Pirkanmaa	1090	-4.6
+39310	Viljakkala Keskus	Ylöjärvi	Pirkanmaa	1086	-2.3
+14980	Kuohijoki	Pälkäne	Pirkanmaa	1081	-5.1
+37200	Siuro	Nokia	Pirkanmaa	1075	-5
+39700	Parkano Keskus	Parkano	Pirkanmaa	1070	-1
+39380	Lavajärvi	Hämeenkyrö	Pirkanmaa	1069	-2.2
+37910	Kylmäkoski Keskus	Akaa	Pirkanmaa	1068	-4.2
+37210	Kulovesi	Nokia	Pirkanmaa	1067	-4.5
+39200	Kyröskoski	Hämeenkyrö	Pirkanmaa	1066	-2.5
+38250	Roismala	Sastamala	Pirkanmaa	1064	-1.1
+34240	Kämmenteisko	Tampere	Pirkanmaa	1062	-2.9
+34140	Mutala	Ylöjärvi	Pirkanmaa	1057	-2.7
+34260	Terälahti	Tampere	Pirkanmaa	1051	-3.1
+34300	Kuru Keskus	Ylöjärvi	Pirkanmaa	1049	-2.4
+37830	Viiala Keskus	Akaa	Pirkanmaa	1048	-3.9
+39230	Osara	Hämeenkyrö	Pirkanmaa	1024	-2.6
+34150	Kyrönlahti	Ylöjärvi	Pirkanmaa	1021	-2.9
+39530	Kilvakkala	Ikaalinen	Pirkanmaa	1021	-2.5
+39340	Karhe	Ylöjärvi	Pirkanmaa	1020	-2.5
+39360	Komi	Ylöjärvi	Pirkanmaa	1016	-2.5
+39780	Alaskylä	Parkano	Pirkanmaa	1013	-2.2
+39590	Tevaniemi	Ikaalinen	Pirkanmaa	1009	-2.6
+38280	Illo	Sastamala	Pirkanmaa	1006	-1.4
+31760	Urjala Keskus	Urjala	Pirkanmaa	1001	-5.1
+38420	Häijää	Sastamala	Pirkanmaa	1001	-1.6
+38220	Stormi	Sastamala	Pirkanmaa	998	-1.5
+39580	Riitiala	Ikaalinen	Pirkanmaa	988	-2.7
+34180	Länsi-Teisko	Ylöjärvi	Pirkanmaa	985	-3.2
+38300	Kiikka	Sastamala	Pirkanmaa	972	-1.9
+39660	Lapinneva	Parkano	Pirkanmaa	971	-2.7
+38270	Sammaljoki	Sastamala	Pirkanmaa	970	-1.6
+34330	Poikelus	Ylöjärvi	Pirkanmaa	955	-3.4
+39610	Kovelahti	Ikaalinen	Pirkanmaa	953	-2.8
+39410	Luhalahti	Ikaalinen	Pirkanmaa	951	-2.8
+34970	Toisvesi	Virrat	Pirkanmaa	946	-3.5
+34410	Murole	Ruovesi	Pirkanmaa	943	-3.5
+34980	Killinkoski	Virrat	Pirkanmaa	942	-3.5
+38100	Karkku	Sastamala	Pirkanmaa	940	-2
+39430	Röyhiö	Ikaalinen	Pirkanmaa	939	-2.9
+34270	Velaatta	Tampere	Pirkanmaa	938	-3.7
+38470	Hyynilä	Sastamala	Pirkanmaa	937	-1.9
+34320	Parkkuu	Ylöjärvi	Pirkanmaa	936	-3.5
+34930	Liedenpohja	Virrat	Pirkanmaa	936	-3.5
+39290	Vesajärvi	Hämeenkyrö	Pirkanmaa	936	-3.1
+38130	Ellivuori	Sastamala	Pirkanmaa	935	-2.1
+35320	Hirsilä	Orivesi	Pirkanmaa	932	-3.3
+34710	Vaskivesi	Virrat	Pirkanmaa	927	-3.6
+34740	Koro	Virrat	Pirkanmaa	926	-3.6
+34450	Jäminkipohja	Ruovesi	Pirkanmaa	923	-3.6
+38490	Haukijärvi	Hämeenkyrö	Pirkanmaa	921	-2
+34430	Kekkonen	Ruovesi	Pirkanmaa	915	-3.7
+34800	Virrat Keskus	Virrat	Pirkanmaa	915	-3.4
+37240	Linnavuori	Nokia	Pirkanmaa	913	-3.2
+38120	Kutala	Sastamala	Pirkanmaa	913	-2.2
+32730	Keikyä	Sastamala	Pirkanmaa	912	-1.3
+34870	Visuvesi	Ruovesi	Pirkanmaa	903	-3.8
+34950	Ohtola	Virrat	Pirkanmaa	903	-3.8
+35220	Eräjärvi	Orivesi	Pirkanmaa	899	-4.1
+38140	Kärppälä	Sastamala	Pirkanmaa	899	-2.3
+39750	Vatajanjärvi	Parkano	Pirkanmaa	898	-2.8
+31160	Nuutajärvi	Urjala	Pirkanmaa	893	-4.9
+31720	Urjalankylä-Kehro	Urjala	Pirkanmaa	890	-5.1
+34420	Muroleen Kanava	Ruovesi	Pirkanmaa	890	-3.9
+34770	Kurjenkylä	Virrat	Pirkanmaa	889	-3.9
+39620	Kovesjoki	Parkano	Pirkanmaa	889	-3.2
+34530	Länsi-Aure	Ylöjärvi	Pirkanmaa	887	-3.9
+34910	Äijänneva	Virrat	Pirkanmaa	885	-3.9
+34510	Luode	Ylöjärvi	Pirkanmaa	878	-3.9
+31810	Oriniemi	Punkalaidun	Pirkanmaa	872	-5.1
+31850	Koskioinen	Punkalaidun	Pirkanmaa	869	-5.1
+39450	Sisättö	Ikaalinen	Pirkanmaa	869	-3.3
+39810	Linnankylä	Kihniö	Pirkanmaa	867	-2.9
+34640	Mustajärvi	Ruovesi	Pirkanmaa	866	-4.1
+35500	Korkeakoski	Juupajoki	Pirkanmaa	864	-4.3
+31830	Halkivaha	Urjala	Pirkanmaa	861	-5.1
+34730	Vaskuu	Virrat	Pirkanmaa	860	-4.1
+31860	Tursa	Urjala	Pirkanmaa	859	-5.2
+31140	Menonen	Urjala	Pirkanmaa	855	-5.2
+39770	Aureskoski	Parkano	Pirkanmaa	855	-3.1
+34550	Itä-Aure	Ylöjärvi	Pirkanmaa	849	-4.2
+38370	Tervahauta	Sastamala	Pirkanmaa	843	-2.6
+39880	Kihniö Asemanseutu	Kihniö	Pirkanmaa	835	-3.1
+31730	Honkola	Urjala	Pirkanmaa	830	-5.6
+31750	Kehro	Urjala	Pirkanmaa	827	-5.6
+31970	Kanteenmaa	Punkalaidun	Pirkanmaa	823	-5
+31900	Punkalaidun Keskus	Punkalaidun	Pirkanmaa	819	-4
+31950	Sadonmaa	Punkalaidun	Pirkanmaa	819	-5
+35550	Salokunta	Juupajoki	Pirkanmaa	815	-4.5
+31700	Urjala Asemanseutu-Hanhisuo	Urjala	Pirkanmaa	814	-5.3
+38360	Kiikoinen	Sastamala	Pirkanmaa	810	-2.7
+35240	Ristakallio	Orivesi	Pirkanmaa	807	-4.6
+35260	Leväslahti	Orivesi	Pirkanmaa	806	-4.6
+31930	Vanttila	Punkalaidun	Pirkanmaa	800	-5.2
+35540	Juupajoki	Juupajoki	Pirkanmaa	800	-4.6
+35520	Pirttikangas	Juupajoki	Pirkanmaa	788	-4.7
+35270	Västilä	Orivesi	Pirkanmaa	786	-4.8
+35700	Vilppula Keskus	Mänttä-Vilppula	Pirkanmaa	782	-5.1
+35530	Lyly	Juupajoki	Pirkanmaa	778	-4.7
+34600	Ruovesi Keskus-Nenonen	Ruovesi	Pirkanmaa	772	-4.6
+35480	Längelmäki	Orivesi	Pirkanmaa	771	-4.8
+32740	Äetsä Keskus	Sastamala	Pirkanmaa	760	-1.6
+35420	Talviainen	Orivesi	Pirkanmaa	754	-4.9
+42870	Kotala	Virrat	Pirkanmaa	749	-6.8
+38510	Suodenniemi	Sastamala	Pirkanmaa	738	-3.1
+42840	Kolkki	Mänttä-Vilppula	Pirkanmaa	738	-6.9
+35750	Väärinmaja	Ruovesi	Pirkanmaa	732	-5.5
+42850	Pohjaslahti	Mänttä-Vilppula	Pirkanmaa	732	-7
+42830	Ylä-Kolkki	Mänttä-Vilppula	Pirkanmaa	724	-7
+35740	Ylä-Vääri	Ruovesi	Pirkanmaa	710	-5.6
+39820	Kihniö Keskus	Kihniö	Pirkanmaa	696	-3.5
+35800	Mänttä	Mänttä-Vilppula	Pirkanmaa	679	-6
+35990	Kolho	Mänttä-Vilppula	Pirkanmaa	611	-5.3
+65100	Vaasa Keskus	Vaasa	Pohjanmaa	2468	1.9
+65200	Palosaari	Vaasa	Pohjanmaa	2003	0.8
+65300	Asevelikylä	Vaasa	Pohjanmaa	1981	0.2
+65610	Mustasaari Keskus	Mustasaari	Pohjanmaa	1939	2
+65630	Karperö	Mustasaari	Pohjanmaa	1922	0.3
+65280	Gerby	Vaasa	Pohjanmaa	1916	-0.8
+68580	Furuholmen	Luoto	Pohjanmaa	1792	-0.7
+65450	Sulva	Mustasaari	Pohjanmaa	1757	-1.2
+65170	Vaskiluoto	Vaasa	Pohjanmaa	1755	-0.5
+65520	Helsingby	Mustasaari	Pohjanmaa	1676	-1.5
+65230	Vetokannas	Vaasa	Pohjanmaa	1634	0
+65710	Singsby	Mustasaari	Pohjanmaa	1601	-1.2
+65320	Huutoniemi	Vaasa	Pohjanmaa	1591	-1.6
+65410	Sundom	Vaasa	Pohjanmaa	1557	-1.7
+65480	Vikby	Mustasaari	Pohjanmaa	1546	-1.7
+65460	Tölby-Rimal	Mustasaari	Pohjanmaa	1525	-1.9
+65130	Hietalahti	Vaasa	Pohjanmaa	1522	-1.6
+65650	Koskö	Mustasaari	Pohjanmaa	1486	-1.4
+66100	Maalahti	Maalahti	Pohjanmaa	1470	1.1
+65350	Suvilahti	Vaasa	Pohjanmaa	1454	-0.9
+65730	Jungsund	Mustasaari	Pohjanmaa	1437	-2.1
+65800	Raippaluoto	Mustasaari	Pohjanmaa	1435	-2.1
+66400	Laihia Keskus	Laihia	Pohjanmaa	1428	1.3
+65920	Norra Vallgrund-Söderudden	Mustasaari	Pohjanmaa	1365	-2.5
+65760	Iskmo	Mustasaari	Pohjanmaa	1360	-2.5
+65930	Södra Vallgrund	Mustasaari	Pohjanmaa	1355	-2.6
+65380	Vanha Vaasa	Vaasa	Pohjanmaa	1345	-3.2
+65470	Rimal	Mustasaari	Pohjanmaa	1338	-3
+65870	Björköby	Mustasaari	Pohjanmaa	1315	-2.8
+65970	Söderudden	Mustasaari	Pohjanmaa	1294	-2.9
+66900	Uusikaarlepyy Keskus	Uusikaarlepyy	Pohjanmaa	1274	-0.5
+68600	Pietarsaari Keskus	Pietarsaari	Pohjanmaa	1267	-1.6
+68630	Kyrkostrand	Pietarsaari	Pohjanmaa	1239	-2
+64230	Närpiön Asemanseutu	Närpiö	Pohjanmaa	1226	-0.7
+66430	Vedenoja	Laihia	Pohjanmaa	1207	-0.1
+66200	Korsnäs Keskus	Korsnäs	Pohjanmaa	1201	-0.3
+66910	Soklot	Uusikaarlepyy	Pohjanmaa	1193	-0.5
+66510	Merikaarto	Vaasa	Pohjanmaa	1191	0
+66830	Oravaisten Tehdas	Vöyri	Pohjanmaa	1180	-0.3
+66140	Övermalax	Maalahti	Pohjanmaa	1178	-0.3
+66530	Koivulahti	Mustasaari	Pohjanmaa	1166	0
+66800	Oravainen Keskus	Vöyri	Pohjanmaa	1158	-0.4
+68555	Bosund	Luoto	Pohjanmaa	1149	-2.5
+66220	Bergö	Maalahti	Pohjanmaa	1148	-0.6
+66210	Moikipää	Korsnäs	Pohjanmaa	1147	-0.6
+66950	Munsala	Uusikaarlepyy	Pohjanmaa	1142	-0.8
+65370	Ristinummi	Vaasa	Pohjanmaa	1140	-2.4
+66290	Harrström	Korsnäs	Pohjanmaa	1140	-0.6
+66440	Tervajoki	Isokyrö	Pohjanmaa	1136	-0.2
+66970	Hirvlax	Uusikaarlepyy	Pohjanmaa	1136	-0.9
+68620	Skutnäs-Västermalm	Pietarsaari	Pohjanmaa	1136	-2.3
+66600	Vöyri Keskus	Vöyri	Pohjanmaa	1130	-0.6
+66980	Monå	Uusikaarlepyy	Pohjanmaa	1130	-0.9
+66240	Petolahti	Maalahti	Pohjanmaa	1127	-0.7
+64200	Närpiö Keskus	Närpiö	Pohjanmaa	1125	-1
+66930	Kovjoki	Uusikaarlepyy	Pohjanmaa	1119	-1
+66550	Västerhankmo	Mustasaari	Pohjanmaa	1116	-0.4
+66460	Haapala	Laihia	Pohjanmaa	1113	-0.6
+66160	Långåminne	Maalahti	Pohjanmaa	1105	-0.7
+66295	Töjby	Närpiö	Pohjanmaa	1103	-0.8
+66280	Taklax	Korsnäs	Pohjanmaa	1101	-0.8
+66710	Kaitsor	Vöyri	Pohjanmaa	1101	-0.8
+66420	Ruto	Laihia	Pohjanmaa	1098	-0.7
+66540	Petsmo	Mustasaari	Pohjanmaa	1095	-0.5
+68560	Eugmo	Luoto	Pohjanmaa	1095	-2.8
+66270	Pirttikylä-Sorvari	Närpiö	Pohjanmaa	1094	-0.9
+66520	Veikkaala	Mustasaari	Pohjanmaa	1094	-0.5
+66450	Jakkula	Laihia	Pohjanmaa	1090	-0.7
+66640	Maksamaa	Vöyri	Pohjanmaa	1090	-0.8
+66840	Pensala	Uusikaarlepyy	Pohjanmaa	1090	-0.8
+66580	Kuni	Mustasaari	Pohjanmaa	1082	-0.6
+68530	Lepplax	Pedersören kunta	Pohjanmaa	1082	-2.9
+66230	Korsbäck	Korsnäs	Pohjanmaa	1081	-1
+66850	Jepua	Uusikaarlepyy	Pohjanmaa	1081	-0.9
+66590	Vassor	Mustasaari	Pohjanmaa	1078	-0.6
+66660	Bertby	Vöyri	Pohjanmaa	1071	-1
+66810	Kimo	Vöyri	Pohjanmaa	1069	-1
+68810	Ytteresse	Pedersören kunta	Pohjanmaa	1069	-2.9
+68570	Luoto	Luoto	Pohjanmaa	1063	-2.9
+66560	Österhankmo	Mustasaari	Pohjanmaa	1062	-0.7
+68870	Edsevö	Pedersören kunta	Pohjanmaa	1061	-2.9
+66999	Kaukaluoto	Mustasaari	Pohjanmaa	1054	-1.4
+68800	Kolppi	Pedersören kunta	Pohjanmaa	1054	-3
+66500	Vähäkyrö Keskus	Vaasa	Pohjanmaa	1045	-0.4
+66260	Svarvar	Maalahti	Pohjanmaa	1038	-1.2
+66680	Kaurajärvi	Vöyri	Pohjanmaa	1037	-1.2
+68910	Pännäinen	Pedersören kunta	Pohjanmaa	1036	-3.1
+66820	Komossa	Vöyri	Pohjanmaa	1031	-1.2
+66730	Oxkangar	Vöyri	Pohjanmaa	1026	-1.2
+68500	Kruunupyy Keskus	Kruunupyy	Pohjanmaa	1012	-3.2
+66470	Jukaja-Jokisalo	Laihia	Pohjanmaa	999	-1.3
+68820	Ähtävä	Pedersören kunta	Pohjanmaa	985	-3.4
+61550	Orismala	Isokyrö	Pohjanmaa	977	-2.5
+64300	Lapväärtti	Kristiinankaupunki	Pohjanmaa	962	-1.6
+68690	Sundby	Pedersören kunta	Pohjanmaa	962	-3.3
+68750	Småbönders	Kruunupyy	Pohjanmaa	962	-3.6
+68930	Purmo	Pedersören kunta	Pohjanmaa	962	-3.5
+68920	Forsby	Pedersören kunta	Pohjanmaa	961	-3.5
+68410	Alaveteli	Kruunupyy	Pohjanmaa	956	-3.5
+68940	Lillby	Pedersören kunta	Pohjanmaa	937	-3.7
+68830	Bäckby	Pedersören kunta	Pohjanmaa	933	-3.7
+62395	Petterinmäki	Vöyri	Pohjanmaa	931	-1.7
+64220	Yttermark	Närpiö	Pohjanmaa	931	-1.8
+64210	Kalax	Närpiö	Pohjanmaa	929	-1.8
+68700	Teerijärvi	Kruunupyy	Pohjanmaa	923	-3.8
+64510	Nämpnäs	Närpiö	Pohjanmaa	918	-1.8
+68840	Nederlappfors	Pedersören kunta	Pohjanmaa	917	-3.8
+64250	Pjelax	Närpiö	Pohjanmaa	915	-1.9
+64240	Böle	Närpiö	Pohjanmaa	914	-1.9
+64320	Dagsmark	Kristiinankaupunki	Pohjanmaa	914	-1.9
+64460	Härkmeri	Kristiinankaupunki	Pohjanmaa	907	-1.9
+64480	Skaftung	Kristiinankaupunki	Pohjanmaa	907	-1.9
+64550	Rangsby	Närpiö	Pohjanmaa	903	-1.9
+64610	Övermark	Närpiö	Pohjanmaa	902	-1.9
+61520	Lehmäjoki	Isokyrö	Pohjanmaa	895	-3.1
+64530	Norrnäs	Närpiö	Pohjanmaa	890	-2
+64260	Kaskinen	Kaskinen	Pohjanmaa	889	-0.8
+68970	Överpurmo	Pedersören kunta	Pohjanmaa	889	-4
+64140	Tiukka	Kristiinankaupunki	Pohjanmaa	884	-1.8
+64450	Kallträsk	Kristiinankaupunki	Pohjanmaa	860	-2.2
+64440	Metsälä-Kallträsk	Kristiinankaupunki	Pohjanmaa	853	-2.3
+64490	Siipyy	Kristiinankaupunki	Pohjanmaa	849	-2.3
+64100	Kristiinankaupunki Keskus	Kristiinankaupunki	Pohjanmaa	841	-1.9
+61560	Orisberg	Isokyrö	Pohjanmaa	827	-3.6
+61500	Isokyrö Keskus	Isokyrö	Pohjanmaa	805	-3
+68660	Östermalm-Björnholmen	Pietarsaari	Pohjanmaa	776	-3.9
+80110	Joensuu Keskus Eteläinen	Joensuu	Pohjois-Karjala	2560	2.1
+80100	Joensuu Keskus, Pohjoinen	Joensuu	Pohjois-Karjala	2520	2.2
+80200	Niinivaara	Joensuu	Pohjois-Karjala	2449	2.3
+80220	Penttilä	Joensuu	Pohjois-Karjala	2419	3.3
+80780	Kontioniemi	Kontiolahti	Pohjois-Karjala	2130	0.4
+80710	Lehmo	Kontiolahti	Pohjois-Karjala	2082	0.6
+80140	Noljakka	Joensuu	Pohjois-Karjala	2063	0.7
+80330	Reijola	Joensuu	Pohjois-Karjala	2004	2.4
+80230	Hukanhauta	Joensuu	Pohjois-Karjala	1963	1.8
+80170	Utra	Joensuu	Pohjois-Karjala	1905	1.5
+80260	Kettuvaara	Joensuu	Pohjois-Karjala	1754	0.4
+80400	Ylämylly	Liperi	Pohjois-Karjala	1708	0.7
+80160	Rantakylä-Latola	Joensuu	Pohjois-Karjala	1702	1.1
+80130	Kanervala	Joensuu	Pohjois-Karjala	1698	0.5
+81100	Kontiolahti	Kontiolahti	Pohjois-Karjala	1564	-1.5
+80770	Kontiolahti as	Kontiolahti	Pohjois-Karjala	1560	-0.4
+80850	Paihola	Kontiolahti	Pohjois-Karjala	1500	-0.6
+80910	Kulho	Kontiolahti	Pohjois-Karjala	1458	-0.8
+80510	Onttola-Kunnasniemi	Kontiolahti	Pohjois-Karjala	1340	-1.1
+75530	Porokylä	Nurmes	Pohjois-Karjala	1086	1.8
+81120	Katajaranta	Kontiolahti	Pohjois-Karjala	1012	-3.2
+83100	Liperi Keskus	Liperi	Pohjois-Karjala	957	-3.3
+83130	Salokylä	Liperi	Pohjois-Karjala	947	-3
+81160	Romppala-Riihikangas	Kontiolahti	Pohjois-Karjala	921	-3.9
+82500	Kitee Keskus	Kitee	Pohjois-Karjala	915	-4.1
+81210	Louhioja	Joensuu	Pohjois-Karjala	908	-3.5
+83140	Puromäki	Liperi	Pohjois-Karjala	906	-3.3
+82200	Hammaslahti	Joensuu	Pohjois-Karjala	903	-3.5
+81200	Eno Keskus	Joensuu	Pohjois-Karjala	901	-4.1
+83915	Vihtasuo	Juuka	Pohjois-Karjala	901	-3
+83985	Tuopanjoki	Juuka	Pohjois-Karjala	893	-3
+83320	Risti-Juojärvi	Liperi	Pohjois-Karjala	889	-3.3
+83150	Roukalahti	Liperi	Pohjois-Karjala	879	-3.5
+83630	Kuusjärvi	Outokumpu	Pohjois-Karjala	879	-3.4
+83460	Harinjärvi	Liperi	Pohjois-Karjala	877	-3.5
+81700	Lieksa Keskus	Lieksa	Pohjois-Karjala	869	-3
+83340	Kaarnalampi	Liperi	Pohjois-Karjala	869	-3.5
+83700	Polvijärvi Keskus	Polvijärvi	Pohjois-Karjala	869	-3.7
+83720	Kuorevaara	Polvijärvi	Pohjois-Karjala	866	-3.6
+83750	Sotkuma	Polvijärvi	Pohjois-Karjala	863	-3.6
+83760	Sola	Polvijärvi	Pohjois-Karjala	862	-3.6
+83430	Käsämä	Liperi	Pohjois-Karjala	861	-3.6
+59820	Purujärvi-Rajavaara	Kitee	Pohjois-Karjala	860	-2.2
+81810	Jamali	Lieksa	Pohjois-Karjala	858	-3.8
+59810	Suurikylä	Kitee	Pohjois-Karjala	854	-2.3
+82220	Niittylahti	Joensuu	Pohjois-Karjala	854	-3.4
+83450	Vaivio	Liperi	Pohjois-Karjala	854	-3.6
+82210	Suhmura	Joensuu	Pohjois-Karjala	853	-3.4
+83780	Horsmanaho	Polvijärvi	Pohjois-Karjala	848	-3.7
+75970	Kohtavaara	Nurmes	Pohjois-Karjala	846	-1
+75500	Nurmes Keskus	Nurmes	Pohjois-Karjala	840	-0.3
+83500	Outokumpu Keskus	Outokumpu	Pohjois-Karjala	840	-2.9
+80790	Kontioranta-Kontioniemi	Kontiolahti	Pohjois-Karjala	839	-3.3
+59800	Kesälahti Keskus	Kitee	Pohjois-Karjala	838	-1.9
+83480	Ahonkylä	Liperi	Pohjois-Karjala	830	-3.8
+83835	Ruvaslahti	Polvijärvi	Pohjois-Karjala	828	-3.8
+81560	Vuonisjärvi	Lieksa	Pohjois-Karjala	827	-4
+83900	Juuka Keskus	Juuka	Pohjois-Karjala	827	-3.1
+75650	Savikylä	Nurmes	Pohjois-Karjala	823	-1.1
+81220	Jakokoski	Kontiolahti	Pohjois-Karjala	822	-4
+83950	Ahmovaara	Juuka	Pohjois-Karjala	821	-3.5
+83660	Varislahti	Outokumpu	Pohjois-Karjala	819	-3.8
+83825	Kinahmo	Polvijärvi	Pohjois-Karjala	819	-3.8
+75840	Ylä-Valtimo	Valtimo	Pohjois-Karjala	816	-1.2
+82510	Kiteenlahti	Kitee	Pohjois-Karjala	814	-3.9
+83940	Nunnanlahti	Juuka	Pohjois-Karjala	811	-3.6
+83160	Tutjunniemi	Liperi	Pohjois-Karjala	810	-4
+81850	Mätäsvaara	Lieksa	Pohjois-Karjala	806	-4.2
+83330	Kaatamo	Liperi	Pohjois-Karjala	806	-3.9
+83840	Saarivaara	Polvijärvi	Pohjois-Karjala	805	-3.9
+81290	Ukkola	Joensuu	Pohjois-Karjala	798	-4.2
+81590	Vuonislahti	Lieksa	Pohjois-Karjala	798	-4.2
+81820	Kylänlahti	Lieksa	Pohjois-Karjala	796	-4.3
+83855	Martonvaara-Sammakkovaara	Polvijärvi	Pohjois-Karjala	796	-4
+83550	Kokonvaara	Outokumpu	Pohjois-Karjala	794	-3.9
+83830	Hukkala	Polvijärvi	Pohjois-Karjala	794	-4
+81270	Paukkaja	Joensuu	Pohjois-Karjala	791	-4.2
+81390	Revonkylä	Joensuu	Pohjois-Karjala	791	-4.3
+81950	Pankajärvi	Lieksa	Pohjois-Karjala	791	-4.3
+81320	Kuismavaara	Joensuu	Pohjois-Karjala	790	-4.3
+82580	Juurikka	Kitee	Pohjois-Karjala	790	-4
+75940	Mujejärvi	Nurmes	Pohjois-Karjala	788	-1.4
+83400	Viinijärvi	Liperi	Pohjois-Karjala	788	-4.1
+81360	Sarvinki	Joensuu	Pohjois-Karjala	787	-4.3
+81330	Luhtapohja	Joensuu	Pohjois-Karjala	785	-4.3
+83960	Koli	Lieksa	Pohjois-Karjala	784	-3.8
+75710	Karhunpää	Valtimo	Pohjois-Karjala	783	-1.3
+83870	Polvela-Timovaara	Juuka	Pohjois-Karjala	781	-4.1
+81570	Kelvä	Lieksa	Pohjois-Karjala	779	-4.4
+75990	Höljäkkä	Nurmes	Pohjois-Karjala	776	-1.5
+81860	Viekijärvi	Lieksa	Pohjois-Karjala	775	-4.4
+81350	Tokrajärvi	Ilomantsi	Pohjois-Karjala	774	-4.4
+83880	Kajoo	Juuka	Pohjois-Karjala	771	-4.2
+81660	Lehmikylä	Lieksa	Pohjois-Karjala	769	-4.5
+81450	Huhus-Käenkoski	Ilomantsi	Pohjois-Karjala	767	-4.5
+81420	Tyrjänsaari	Ilomantsi	Pohjois-Karjala	765	-4.5
+82300	Rääkkylä Keskus	Rääkkylä	Pohjois-Karjala	763	-3.9
+81230	Mönni	Kontiolahti	Pohjois-Karjala	762	-4.4
+82110	Heinävaara	Joensuu	Pohjois-Karjala	762	-3.9
+82290	Nieminen	Rääkkylä	Pohjois-Karjala	761	-4.1
+82730	Tuupovaara Keskus-Pirttiaho	Joensuu	Pohjois-Karjala	760	-4
+82900	Ilomantsi Keskus	Ilomantsi	Pohjois-Karjala	759	-2.6
+82590	Närsäkkälä	Kitee	Pohjois-Karjala	758	-4.3
+82675	Niirala-Jänisjoki	Tohmajärvi	Pohjois-Karjala	758	-4.2
+81235	Lehtoi	Kontiolahti	Pohjois-Karjala	757	-4.4
+83910	Paalasmaa	Juuka	Pohjois-Karjala	754	-4
+82350	Tikkala	Tohmajärvi	Pohjois-Karjala	748	-4
+75890	Saramo-Petäiskylä-Mujejärvi	Nurmes	Pohjois-Karjala	745	-1.7
+82660	Uusi-Värtsilä	Tohmajärvi	Pohjois-Karjala	745	-4.3
+82395	Haarajärvi	Kitee	Pohjois-Karjala	739	-4.1
+81750	Pankakoski	Lieksa	Pohjois-Karjala	735	-4.2
+82710	Kovero	Joensuu	Pohjois-Karjala	734	-4.1
+82335	Rasivaara	Rääkkylä	Pohjois-Karjala	733	-4.1
+82360	Onkamo	Tohmajärvi	Pohjois-Karjala	730	-4.2
+82380	Tolosenmäki	Kitee	Pohjois-Karjala	730	-4.2
+82655	Värtsilä Keskus	Tohmajärvi	Pohjois-Karjala	728	-4.4
+81430	Kivilahti	Ilomantsi	Pohjois-Karjala	725	-4.8
+81260	Ahveninen	Joensuu	Pohjois-Karjala	723	-4.7
+81970	Jongunjoki-Pankajärvi	Lieksa	Pohjois-Karjala	722	-4.8
+81295	Haapalahti	Joensuu	Pohjois-Karjala	720	-4.7
+82820	Maukkula	Ilomantsi	Pohjois-Karjala	717	-4.2
+82850	Kinnasniemi	Joensuu	Pohjois-Karjala	717	-4.2
+82815	Marjovaara	Joensuu	Pohjois-Karjala	716	-4.2
+75740	Pajukoski	Valtimo	Pohjois-Karjala	713	-1.8
+82830	Haukivaara	Ilomantsi	Pohjois-Karjala	711	-4.3
+81650	Hattuvaara	Lieksa	Pohjois-Karjala	701	-5
+82310	Oravisalo-Varpasalo	Rääkkylä	Pohjois-Karjala	701	-4.3
+75770	Puukari	Valtimo	Pohjois-Karjala	700	-1.9
+82670	Kaurila	Tohmajärvi	Pohjois-Karjala	700	-4.6
+81460	Käenkoski	Ilomantsi	Pohjois-Karjala	699	-5
+82685	Littilä	Tohmajärvi	Pohjois-Karjala	699	-4.6
+82760	Hoilola	Joensuu	Pohjois-Karjala	697	-4.4
+75790	Rumo	Valtimo	Pohjois-Karjala	695	-2
+82750	Öllölä	Joensuu	Pohjois-Karjala	694	-4.4
+82915	Sonkaja	Ilomantsi	Pohjois-Karjala	690	-4
+82180	Huhtilampi	Joensuu	Pohjois-Karjala	684	-4.4
+82600	Tohmajärvi Keskus	Tohmajärvi	Pohjois-Karjala	683	-4.8
+82460	Hummovaara	Kitee	Pohjois-Karjala	682	-4.3
+75930	Petäiskylä	Nurmes	Pohjois-Karjala	681	-2.2
+82120	Keskijärvi	Joensuu	Pohjois-Karjala	681	-4.4
+82865	Kokinvaara-Mannervaara	Joensuu	Pohjois-Karjala	678	-4.5
+58350	Villala	Kitee	Pohjois-Karjala	674	-5.2
+81470	Naarva	Ilomantsi	Pohjois-Karjala	674	-5.3
+82840	Pirttiaho	Joensuu	Pohjois-Karjala	673	-4.5
+82880	Mannervaara	Joensuu	Pohjois-Karjala	673	-4.5
+82870	Luutalahti	Joensuu	Pohjois-Karjala	672	-4.5
+75700	Valtimo Keskus	Valtimo	Pohjois-Karjala	670	-2.1
+82170	Uskali	Joensuu	Pohjois-Karjala	669	-4.4
+82770	Kaustajärvi	Tohmajärvi	Pohjois-Karjala	665	-4.6
+81720	Mähkö-Timitra	Lieksa	Pohjois-Karjala	653	-4.1
+82160	Oskola	Joensuu	Pohjois-Karjala	648	-4.6
+82140	Kiihtelysvaara Keskus	Joensuu	Pohjois-Karjala	644	-4.5
+82490	Heinoniemi	Kitee	Pohjois-Karjala	643	-4.5
+82980	Möhkö	Ilomantsi	Pohjois-Karjala	630	-4.4
+82960	Lehtovaara-Kuikkalampi	Ilomantsi	Pohjois-Karjala	623	-4.4
+82967	Hattu	Ilomantsi	Pohjois-Karjala	602	-4.6
+82430	Puhos-Leinovaara	Kitee	Pohjois-Karjala	574	-4.9
+81280	Uimaharju	Joensuu	Pohjois-Karjala	563	-5.2
+90400	Äimärautio	Oulu	Pohjois-Pohjanmaa	2845	3.1
+90100	Oulu Keskus	Oulu	Pohjois-Pohjanmaa	2643	4.9
+90230	Värttö-Maikkula	Oulu	Pohjois-Pohjanmaa	2348	2.9
+90120	Heinäpää	Oulu	Pohjois-Pohjanmaa	2326	4.4
+90140	Karjasilta	Oulu	Pohjois-Pohjanmaa	2153	5.1
+90130	Raksila	Oulu	Pohjois-Pohjanmaa	2085	3.3
+90420	Metsokangas	Oulu	Pohjois-Pohjanmaa	2002	2.5
+90530	Välivainio	Oulu	Pohjois-Pohjanmaa	1992	5.6
+90410	Kaakkuri	Oulu	Pohjois-Pohjanmaa	1892	2
+90540	Kuivasjärvi	Oulu	Pohjois-Pohjanmaa	1812	1.9
+90500	Tuira	Oulu	Pohjois-Pohjanmaa	1811	2.4
+90310	Madekoski	Oulu	Pohjois-Pohjanmaa	1807	0.2
+90220	Kontinkangas	Oulu	Pohjois-Pohjanmaa	1716	1.4
+90630	Korvensuora	Oulu	Pohjois-Pohjanmaa	1715	0.4
+90240	Iinatti	Oulu	Pohjois-Pohjanmaa	1707	0.8
+90650	Haapalehto	Oulu	Pohjois-Pohjanmaa	1694	0.8
+93825	Rukatunturi	Kuusamo	Pohjois-Pohjanmaa	1666	-1.5
+90440	Kempele Keskus	Kempele	Pohjois-Pohjanmaa	1656	2.3
+90450	Honkanen	Kempele	Pohjois-Pohjanmaa	1647	0.6
+90470	Varjakka	Oulu	Pohjois-Pohjanmaa	1603	0.6
+90460	Oulunsalo Keskus	Oulu	Pohjois-Pohjanmaa	1602	0.9
+91910	Tupos	Liminka	Pohjois-Pohjanmaa	1580	-0.3
+90150	Höyhtyä	Oulu	Pohjois-Pohjanmaa	1558	0.8
+90520	Taskila-Toppila	Oulu	Pohjois-Pohjanmaa	1554	0.3
+90510	Hietasaari	Oulu	Pohjois-Pohjanmaa	1519	1
+90830	Haukipudas Keskus	Oulu	Pohjois-Pohjanmaa	1518	0.1
+90570	Kaijonharju-Linnanmaa	Oulu	Pohjois-Pohjanmaa	1490	1
+90800	Pateniemi	Oulu	Pohjois-Pohjanmaa	1489	-0.7
+93600	Kuusamo Keskus	Kuusamo	Pohjois-Pohjanmaa	1442	-1.9
+90620	Rusko-Heikinharju	Oulu	Pohjois-Pohjanmaa	1419	-0.7
+90550	Pyykkösjärvi-Puolivälikangas	Oulu	Pohjois-Pohjanmaa	1405	1.4
+84100	Ylivieska Keskus	Ylivieska	Pohjois-Pohjanmaa	1394	-3.2
+90480	Hailuoto	Hailuoto	Pohjois-Pohjanmaa	1388	-0.7
+90900	Kiiminki Keskus	Oulu	Pohjois-Pohjanmaa	1374	0.1
+90250	Kaukovainio	Oulu	Pohjois-Pohjanmaa	1373	1.3
+90840	Haukipudas Asemanseutu	Oulu	Pohjois-Pohjanmaa	1371	-1.3
+85100	Kalajoki Keskus	Kalajoki	Pohjois-Pohjanmaa	1360	-1.2
+90560	Koskela-Oulu	Oulu	Pohjois-Pohjanmaa	1360	0.6
+90580	Rajakylä	Oulu	Pohjois-Pohjanmaa	1357	0.3
+90910	Kontio	Oulu	Pohjois-Pohjanmaa	1342	-0.5
+90810	Kiviniemi	Oulu	Pohjois-Pohjanmaa	1321	-0.3
+90940	Jääli	Oulu	Pohjois-Pohjanmaa	1321	-0.7
+90820	Kello	Oulu	Pohjois-Pohjanmaa	1314	-1
+90670	Hiukkavaara	Oulu	Pohjois-Pohjanmaa	1311	-1.4
+92100	Raahe Keskus	Raahe	Pohjois-Pohjanmaa	1311	-1.1
+86600	Haapavesi Keskus	Haapavesi	Pohjois-Pohjanmaa	1287	1.5
+91900	Liminka Keskus	Liminka	Pohjois-Pohjanmaa	1260	-1.8
+92140	Pattijoki Keskus	Raahe	Pohjois-Pohjanmaa	1259	-2.4
+90660	Sanginsuu	Oulu	Pohjois-Pohjanmaa	1246	-1.8
+90860	Halosenniemi	Oulu	Pohjois-Pohjanmaa	1239	-1.6
+85500	Nivala Keskus	Nivala	Pohjois-Pohjanmaa	1236	-2
+84770	Isokoski	Ylivieska	Pohjois-Pohjanmaa	1229	-3.8
+93820	Aikkila-Rukatunturi	Kuusamo	Pohjois-Pohjanmaa	1204	-2.7
+84540	Vähäkangas	Ylivieska	Pohjois-Pohjanmaa	1189	-4.1
+93840	Patoniemi	Kuusamo	Pohjois-Pohjanmaa	1181	-2.9
+86300	Oulainen Keskus	Oulainen	Pohjois-Pohjanmaa	1176	1.6
+91930	Ala-Temmes	Liminka	Pohjois-Pohjanmaa	1150	-2.2
+84880	Raudaskylä	Ylivieska	Pohjois-Pohjanmaa	1143	-4.4
+91410	Jokirinne	Muhos	Pohjois-Pohjanmaa	1138	-2.2
+91980	Lumijoki	Lumijoki	Pohjois-Pohjanmaa	1137	-2.3
+95110	Kuivaniemi kk	Ii	Pohjois-Pohjanmaa	1122	-3.9
+91430	Leppiniemi	Muhos	Pohjois-Pohjanmaa	1121	-2.3
+92130	Isoholmi-Antinkangas	Raahe	Pohjois-Pohjanmaa	1119	-2.1
+90850	Martinniemi	Oulu	Pohjois-Pohjanmaa	1116	-1.2
+91500	Muhos Keskus	Muhos	Pohjois-Pohjanmaa	1116	-2.4
+91100	Ii Keskus	Ii	Pohjois-Pohjanmaa	1104	-2.3
+86900	Pyhäkumpu	Pyhäjärvi	Pohjois-Pohjanmaa	1097	0.9
+91510	Rova	Muhos	Pohjois-Pohjanmaa	1095	-2.3
+84650	Kantokylä	Ylivieska	Pohjois-Pohjanmaa	1071	-4.8
+93730	Poussu	Kuusamo	Pohjois-Pohjanmaa	1070	-3
+95100	Kuivaniemi Keskus	Ii	Pohjois-Pohjanmaa	1069	-4.3
+91950	Temmes	Tyrnävä	Pohjois-Pohjanmaa	1064	-2.7
+86810	Pellikkaperä	Pyhäjärvi	Pohjois-Pohjanmaa	1060	1.1
+84460	Tuomiperä	Ylivieska	Pohjois-Pohjanmaa	1059	-4.9
+91110	Ii Asemanseutu	Ii	Pohjois-Pohjanmaa	1056	-2.5
+93850	Käylä-Patoniemi	Kuusamo	Pohjois-Pohjanmaa	1056	-3.7
+92120	Ollinsaari-Mestauskallio	Raahe	Pohjois-Pohjanmaa	1054	-2.6
+85180	Rahja	Kalajoki	Pohjois-Pohjanmaa	1047	-1.9
+86680	Vatjusjärvi	Haapavesi	Pohjois-Pohjanmaa	1046	0.5
+92180	Lapaluoto	Raahe	Pohjois-Pohjanmaa	1039	-2.7
+95130	Hyryoja	Ii	Pohjois-Pohjanmaa	1037	-4.5
+93920	Määttälänvaara	Kuusamo	Pohjois-Pohjanmaa	1034	-3.2
+85140	Tynkä	Kalajoki	Pohjois-Pohjanmaa	1032	-2
+91800	Tyrnävä	Tyrnävä	Pohjois-Pohjanmaa	1030	-4.1
+85800	Haapajärvi Keskus	Haapajärvi	Pohjois-Pohjanmaa	1029	-0.9
+93940	Vuotunki	Kuusamo	Pohjois-Pohjanmaa	1017	-3.3
+85630	Sarjanahde	Nivala	Pohjois-Pohjanmaa	1011	-1.9
+85410	Sievi Keskus	Sievi	Pohjois-Pohjanmaa	1010	-2.1
+85160	Rautio	Kalajoki	Pohjois-Pohjanmaa	1004	-2.2
+91210	Jakkukylä	Oulu	Pohjois-Pohjanmaa	1004	-3
+86650	Kytökylä-Joutenniva	Haapavesi	Pohjois-Pohjanmaa	1002	0.2
+85120	Metsä	Kalajoki	Pohjois-Pohjanmaa	997	-2.2
+93680	Vasaraperä	Kuusamo	Pohjois-Pohjanmaa	997	-3.8
+85150	Typpö	Kalajoki	Pohjois-Pohjanmaa	996	-2.2
+86360	Ilveskorpi	Raahe	Pohjois-Pohjanmaa	991	0.6
+92160	Saloinen	Raahe	Pohjois-Pohjanmaa	989	-3
+86110	Parhalahti	Pyhäjoki	Pohjois-Pohjanmaa	986	0.2
+86440	Lampinsaari	Raahe	Pohjois-Pohjanmaa	980	0.5
+85340	Jyrinki	Sievi	Pohjois-Pohjanmaa	979	-2.1
+86220	Merijärvi Keskus	Merijärvi	Pohjois-Pohjanmaa	979	0.3
+86800	Pyhäsalmi	Pyhäjärvi	Pohjois-Pohjanmaa	971	1.2
+86210	Petäjäskoski	Oulainen	Pohjois-Pohjanmaa	964	0.2
+86350	Kilpua	Oulainen	Pohjois-Pohjanmaa	963	0.5
+86550	Mieluskylä	Haapavesi	Pohjois-Pohjanmaa	962	0.2
+86160	Pirttikoski	Pyhäjoki	Pohjois-Pohjanmaa	959	0.1
+86170	Yppäri	Pyhäjoki	Pohjois-Pohjanmaa	956	0.1
+91200	Yli-Ii Keskus	Oulu	Pohjois-Pohjanmaa	956	-3.3
+93630	Kuoliovaara	Kuusamo	Pohjois-Pohjanmaa	956	-4
+85430	Koivisto	Sievi	Pohjois-Pohjanmaa	953	-2.4
+95160	Oijärvi-Lamminperä	Ii	Pohjois-Pohjanmaa	950	-5.2
+86100	Pyhäjoki Keskus	Pyhäjoki	Pohjois-Pohjanmaa	949	0
+86690	Karsikas	Haapavesi	Pohjois-Pohjanmaa	948	-0.1
+85640	Maliskylä	Nivala	Pohjois-Pohjanmaa	946	-2.3
+85820	Oksava	Haapajärvi	Pohjois-Pohjanmaa	944	-1.9
+92150	Kummatti-Junnilanmäki	Raahe	Pohjois-Pohjanmaa	944	-2.6
+91560	Kylmälänkylä	Muhos	Pohjois-Pohjanmaa	939	-3.4
+68150	Hillilä	Kalajoki	Pohjois-Pohjanmaa	938	-3.6
+85540	Mönkö	Nivala	Pohjois-Pohjanmaa	934	-2.6
+93195	Kokkokylä	Pudasjärvi	Pohjois-Pohjanmaa	927	-3.7
+93760	Kemilä-Murtovaara-Teeriranta	Kuusamo	Pohjois-Pohjanmaa	925	-3.9
+86240	Pyhänkoski	Merijärvi	Pohjois-Pohjanmaa	924	0
+85310	Sievi Asemanseutu	Sievi	Pohjois-Pohjanmaa	922	-2.5
+85320	Markkula	Sievi	Pohjois-Pohjanmaa	920	-2.5
+86510	Matkaniva	Oulainen	Pohjois-Pohjanmaa	913	-0.1
+92210	Arkkukari	Raahe	Pohjois-Pohjanmaa	911	-3.4
+91140	Olhava	Ii	Pohjois-Pohjanmaa	909	-3.5
+93540	Tyrövaara	Taivalkoski	Pohjois-Pohjanmaa	907	-4
+85660	Ruuskankylä	Nivala	Pohjois-Pohjanmaa	906	-2.5
+85900	Reisjärvi Keskus	Reisjärvi	Pohjois-Pohjanmaa	904	-1.5
+86530	Annonen	Oulainen	Pohjois-Pohjanmaa	901	-0.1
+86460	Alpua	Raahe	Pohjois-Pohjanmaa	900	0.1
+93999	Kuusamo	Kuusamo	Pohjois-Pohjanmaa	897	-4.1
+85450	Joenkylä	Sievi	Pohjois-Pohjanmaa	894	-2.7
+93990	Kärpänkylä	Kuusamo	Pohjois-Pohjanmaa	892	-4.1
+85580	Karvoskylä	Nivala	Pohjois-Pohjanmaa	888	-2.8
+86870	Vesikoski	Pyhäjärvi	Pohjois-Pohjanmaa	888	0.2
+93390	Puhoskylä	Pudasjärvi	Pohjois-Pohjanmaa	888	-4.1
+93140	Kipinä	Pudasjärvi	Pohjois-Pohjanmaa	887	-3.9
+68100	Himanka Keskus	Kalajoki	Pohjois-Pohjanmaa	883	-3.9
+93100	Pudasjärvi Keskus	Pudasjärvi	Pohjois-Pohjanmaa	883	-3.8
+93590	Vanhala	Taivalkoski	Pohjois-Pohjanmaa	883	-4.1
+85620	Sarja	Nivala	Pohjois-Pohjanmaa	882	-2.7
+86470	Lumimetsä	Raahe	Pohjois-Pohjanmaa	882	0
+91660	Ahmas	Utajärvi	Pohjois-Pohjanmaa	882	-3.4
+86230	Ylipää	Merijärvi	Pohjois-Pohjanmaa	881	-0.3
+91300	Ylikiiminki Keskus	Oulu	Pohjois-Pohjanmaa	876	-3.3
+91150	Yli-Olhava	Ii	Pohjois-Pohjanmaa	873	-3.7
+93350	Jaurakkajärvi	Pudasjärvi	Pohjois-Pohjanmaa	873	-4.2
+93270	Sotkajärvi	Pudasjärvi	Pohjois-Pohjanmaa	871	-3.9
+85210	Kähtävä	Alavieska	Pohjois-Pohjanmaa	869	-2.6
+85710	Parkkila	Haapajärvi	Pohjois-Pohjanmaa	866	-2.8
+85730	Tulppo	Haapajärvi	Pohjois-Pohjanmaa	865	-2.8
+93187	Ala-Siurua	Pudasjärvi	Pohjois-Pohjanmaa	865	-4.1
+91600	Utajärvi Keskus	Utajärvi	Pohjois-Pohjanmaa	864	-2.8
+91260	Pahkakoski-Räinä	Oulu	Pohjois-Pohjanmaa	862	-3.9
+91240	Tannila	Oulu	Pohjois-Pohjanmaa	861	-4
+85840	Kuona	Haapajärvi	Pohjois-Pohjanmaa	860	-2.4
+92240	Lasikangas	Raahe	Pohjois-Pohjanmaa	856	-3.8
+85200	Alavieska Keskus	Alavieska	Pohjois-Pohjanmaa	855	-2.2
+85230	Talus	Alavieska	Pohjois-Pohjanmaa	852	-2.7
+85470	Kiiskilampi	Sievi	Pohjois-Pohjanmaa	850	-3
+91310	Arkala	Oulu	Pohjois-Pohjanmaa	849	-3.9
+93170	Yli-Kollaja	Pudasjärvi	Pohjois-Pohjanmaa	848	-4.2
+93160	Hetejärvi	Pudasjärvi	Pohjois-Pohjanmaa	845	-4.2
+85980	Köyhänperä	Reisjärvi	Pohjois-Pohjanmaa	844	-2.7
+86850	Hiidenniemi	Pyhäjärvi	Pohjois-Pohjanmaa	843	-0.1
+92230	Mattilanperä	Raahe	Pohjois-Pohjanmaa	841	-3.9
+93420	Jurmu	Taivalkoski	Pohjois-Pohjanmaa	840	-3.9
+86980	Väliaho	Pyhäjärvi	Pohjois-Pohjanmaa	838	-0.5
+93780	Teeriranta	Kuusamo	Pohjois-Pohjanmaa	838	-4.5
+93225	Pärjänsuo	Pudasjärvi	Pohjois-Pohjanmaa	837	-4.1
+93400	Taivalkoski Keskus	Taivalkoski	Pohjois-Pohjanmaa	837	-3
+86790	Venetpalo	Kärsämäki	Pohjois-Pohjanmaa	836	-0.4
+92320	Siikajoki Keskus	Siikajoki	Pohjois-Pohjanmaa	836	-3.9
+92220	Piehinki	Raahe	Pohjois-Pohjanmaa	835	-3.9
+86480	Karhukangas	Haapavesi	Pohjois-Pohjanmaa	833	-0.4
+93180	Ikosenniemi	Pudasjärvi	Pohjois-Pohjanmaa	833	-4.3
+93240	Rytinki	Pudasjärvi	Pohjois-Pohjanmaa	831	-4.1
+93277	Iinattijärvi	Pudasjärvi	Pohjois-Pohjanmaa	825	-4.2
+93190	Yli-Siurua-Ikosenniemi	Pudasjärvi	Pohjois-Pohjanmaa	823	-4.4
+92930	Pyhäntä	Pyhäntä	Pohjois-Pohjanmaa	816	-4.2
+93290	Pintamo	Pudasjärvi	Pohjois-Pohjanmaa	816	-4.2
+92350	Revonlahti	Siikajoki	Pohjois-Pohjanmaa	813	-4.1
+86400	Vihanti Keskus	Raahe	Pohjois-Pohjanmaa	810	-0.4
+93470	Inget	Taivalkoski	Pohjois-Pohjanmaa	808	-4.1
+92530	Mankila	Siikalatva	Pohjois-Pohjanmaa	806	-4.3
+85940	Räisälänmäki	Reisjärvi	Pohjois-Pohjanmaa	803	-2.9
+93220	Livo	Pudasjärvi	Pohjois-Pohjanmaa	800	-4.3
+92400	Ruukki Keskus	Siikajoki	Pohjois-Pohjanmaa	790	-4.1
+86710	Kärsämäki Keskus	Kärsämäki	Pohjois-Pohjanmaa	788	-0.3
+93250	Sarajärvi	Pudasjärvi	Pohjois-Pohjanmaa	788	-4.4
+92330	Karinkanta	Siikajoki	Pohjois-Pohjanmaa	784	-4.3
+91620	Sanginkylä	Utajärvi	Pohjois-Pohjanmaa	781	-4.1
+92260	Kopsa	Raahe	Pohjois-Pohjanmaa	781	-4.4
+92500	Rantsila Keskus	Siikalatva	Pohjois-Pohjanmaa	777	-4.5
+91640	Särkijärvi	Utajärvi	Pohjois-Pohjanmaa	776	-4.1
+93440	Loukusa	Taivalkoski	Pohjois-Pohjanmaa	772	-4.3
+92700	Kestilä	Siikalatva	Pohjois-Pohjanmaa	770	-4.5
+85930	Kangaskylä-Tolpankangas	Reisjärvi	Pohjois-Pohjanmaa	768	-3.1
+92520	Sipola	Siikalatva	Pohjois-Pohjanmaa	756	-4.7
+92650	Laakkola	Siikalatva	Pohjois-Pohjanmaa	750	-4.3
+92620	Piippola Keskus	Siikalatva	Pohjois-Pohjanmaa	749	-4.3
+92640	Leskelä	Siikalatva	Pohjois-Pohjanmaa	747	-4.3
+91630	Juorkuna	Utajärvi	Pohjois-Pohjanmaa	745	-4.3
+92910	Tavastkenkä	Pyhäntä	Pohjois-Pohjanmaa	740	-4.8
+92610	Vorna	Siikalatva	Pohjois-Pohjanmaa	738	-4.4
+91670	Rokua	Utajärvi	Pohjois-Pohjanmaa	725	-4.5
+92440	Saarikoski	Siikajoki	Pohjois-Pohjanmaa	722	-4.5
+92450	Luohua	Siikajoki	Pohjois-Pohjanmaa	716	-4.6
+92470	Tuomioja	Siikajoki	Pohjois-Pohjanmaa	703	-4.7
+92920	Ahokylä	Pyhäntä	Pohjois-Pohjanmaa	703	-5.1
+92600	Pulkkila Keskus	Siikalatva	Pohjois-Pohjanmaa	699	-4.5
+93280	Syöte	Pudasjärvi	Pohjois-Pohjanmaa	698	-4.8
+85560	Ainastalo	Nivala	Pohjois-Pohjanmaa	644	-4.2
+92430	Paavola-Huumola	Siikajoki	Pohjois-Pohjanmaa	596	-5.3
+73310	Tahkovuori	Kuopio	Pohjois-Savo	3277	1.2
+70100	Kuopio Keskus	Kuopio	Pohjois-Savo	2760	2.5
+70840	Jynkänmäki	Kuopio	Pohjois-Savo	2695	1.3
+70110	Etu-Niirala	Kuopio	Pohjois-Savo	2671	3.1
+70300	Linnanpelto	Kuopio	Pohjois-Savo	2407	1.1
+70600	Niirala-Huuhanmäki	Kuopio	Pohjois-Savo	2308	1.3
+70820	Litmanen	Kuopio	Pohjois-Savo	2109	1.1
+70900	Toivala	Siilinjärvi	Pohjois-Savo	2028	-0.4
+70800	Pitkälahti	Kuopio	Pohjois-Savo	1999	-0.7
+70260	Julkula	Kuopio	Pohjois-Savo	1893	-0.7
+70150	Neulamäki	Kuopio	Pohjois-Savo	1886	0.7
+70620	Haapaniemi	Kuopio	Pohjois-Savo	1877	-0.3
+70700	Särkiniemi	Kuopio	Pohjois-Savo	1796	-0.6
+70200	Puijonlaakso	Kuopio	Pohjois-Savo	1788	0.1
+70780	Jynkkä	Kuopio	Pohjois-Savo	1783	-0.5
+70910	Vuorela	Siilinjärvi	Pohjois-Savo	1775	-0.9
+70500	Männistö	Kuopio	Pohjois-Savo	1697	-0.4
+70870	Hiltulanlahti	Kuopio	Pohjois-Savo	1694	-1.5
+70400	Kettulanlahti	Kuopio	Pohjois-Savo	1684	-0.5
+70240	Niuvaniemen Sairaala-alue	Kuopio	Pohjois-Savo	1681	-0.7
+70340	Inkilänmäki	Kuopio	Pohjois-Savo	1621	0.2
+70420	Päiväranta	Kuopio	Pohjois-Savo	1614	-0.8
+71800	Siilinjärvi Keskus	Siilinjärvi	Pohjois-Savo	1602	-2.1
+74100	Iisalmi Keskus, Eteläinen	Iisalmi	Pohjois-Savo	1563	-3.3
+71850	Leppäkaarre	Siilinjärvi	Pohjois-Savo	1531	-2.2
+70940	Jännevirta	Kuopio	Pohjois-Savo	1526	-2.2
+70280	Länsi-Puijo	Kuopio	Pohjois-Savo	1519	-0.5
+70460	Saarijärvi	Kuopio	Pohjois-Savo	1482	-0.6
+70210	Kuopion Keskussairaala-alue	Kuopio	Pohjois-Savo	1417	-2.6
+73360	Pajulahti	Kuopio	Pohjois-Savo	1354	-1.8
+73350	Haluna	Kuopio	Pohjois-Savo	1326	-2
+73320	Reittiö	Kuopio	Pohjois-Savo	1322	-2
+73300	Nilsiä Keskus	Kuopio	Pohjois-Savo	1285	-1.4
+74120	Iisalmi Keskus Pohjoinen	Iisalmi	Pohjois-Savo	1249	-4.9
+74130	Kihmula	Iisalmi	Pohjois-Savo	1242	-4.5
+71160	Riistavesi	Kuopio	Pohjois-Savo	1215	-3.4
+71310	Vehmersalmi Keskus	Kuopio	Pohjois-Savo	1215	-2.7
+71750	Maaninka Keskus	Maaninka	Pohjois-Savo	1121	-3.1
+71820	Pöljä	Siilinjärvi	Pohjois-Savo	1117	-3.3
+78310	Puurtila	Varkaus	Pohjois-Savo	1096	-2.4
+71890	Hamula	Siilinjärvi	Pohjois-Savo	1092	-3.4
+73100	Lapinlahti Keskus	Lapinlahti	Pohjois-Savo	1092	-2.5
+71840	Kuuslahti	Siilinjärvi	Pohjois-Savo	1082	-3.5
+71130	Kortejoki	Kuopio	Pohjois-Savo	1048	-3.7
+79100	Leppävirta Keskus	Leppävirta	Pohjois-Savo	1043	-3
+71150	Vartiala	Kuopio	Pohjois-Savo	1032	-3.8
+71170	Laukka-aho	Tuusniemi	Pohjois-Savo	1024	-3.8
+71610	Salonkulma	Kuopio	Pohjois-Savo	1011	-3.7
+71720	Käärmelahti	Maaninka	Pohjois-Savo	1009	-3.9
+73120	Nerkoo-Horsmanmäki	Lapinlahti	Pohjois-Savo	1001	-2.7
+71570	Syvänniemi	Kuopio	Pohjois-Savo	997	-3.8
+73110	Mäntylahti-Karvasalmi	Lapinlahti	Pohjois-Savo	994	-2.8
+71330	Räsälä	Kuopio	Pohjois-Savo	987	-3.8
+71910	Alapitkä	Lapinlahti	Pohjois-Savo	985	-3.8
+71870	Harjamäki	Siilinjärvi	Pohjois-Savo	982	-3
+74170	Soinlahti	Iisalmi	Pohjois-Savo	976	-6
+71730	Kinnulanlahti	Maaninka	Pohjois-Savo	973	-4.1
+71360	Litmaniemi	Kuopio	Pohjois-Savo	972	-3.9
+71380	Mustinlahti	Kuopio	Pohjois-Savo	961	-4
+74160	Koljonvirta	Iisalmi	Pohjois-Savo	960	-6.1
+71520	Kaislastenlahti	Kuopio	Pohjois-Savo	946	-4.1
+71920	Pajujärvi	Lapinlahti	Pohjois-Savo	944	-4.1
+71745	Haatala	Maaninka	Pohjois-Savo	943	-4.3
+78870	Kaura-Aho	Varkaus	Pohjois-Savo	939	-1.8
+71650	Hirvilahti-Salonkulma	Kuopio	Pohjois-Savo	933	-4.2
+74140	Ritoniemi	Iisalmi	Pohjois-Savo	929	-6.3
+71740	Tavinsalmi	Maaninka	Pohjois-Savo	926	-4.4
+77800	Iisvesi	Suonenjoki	Pohjois-Savo	924	-4.8
+71690	Varpasmaa	Maaninka	Pohjois-Savo	922	-4.2
+71680	Pulkonkoski-Saarinen	Maaninka	Pohjois-Savo	919	-4.3
+74150	Laidunmäki	Iisalmi	Pohjois-Savo	919	-6.3
+71960	Lukkarila	Lapinlahti	Pohjois-Savo	918	-4.3
+78850	Käpykangas	Varkaus	Pohjois-Savo	913	-2.8
+78400	Luttila	Varkaus	Pohjois-Savo	911	-2.9
+73770	Säyneinen-Ala-Siikajärvi	Juankoski	Pohjois-Savo	910	-3
+71775	Tuovilanlahti-Haatala	Maaninka	Pohjois-Savo	908	-4.5
+73830	Keski-Siikajärvi	Kuopio	Pohjois-Savo	908	-3
+73710	Viitaniemi	Juankoski	Pohjois-Savo	905	-3
+71660	Leinolanlahti	Maaninka	Pohjois-Savo	904	-4.4
+71950	Lammasaho	Kuopio	Pohjois-Savo	903	-4.4
+71760	Ahkionlahti-Vianta	Maaninka	Pohjois-Savo	899	-4.6
+71640	Talluskylä	Tervo	Pohjois-Savo	897	-4.4
+71670	Kurolanlahti	Maaninka	Pohjois-Savo	897	-4.4
+71480	Kurkimäki	Kuopio	Pohjois-Savo	896	-4.1
+74720	Niemiskylä	Kiuruvesi	Pohjois-Savo	888	-6.3
+78200	Varkaus Keskus	Varkaus	Pohjois-Savo	883	-2.8
+73810	Palonurmi-Aholansaari	Kuopio	Pohjois-Savo	881	-3.2
+77600	Suonenjoki Keskus	Suonenjoki	Pohjois-Savo	874	-5.8
+72100	Karttula Keskus	Kuopio	Pohjois-Savo	871	-3.9
+73500	Juankoski Keskus	Juankoski	Pohjois-Savo	870	-2.9
+78250	Päiviönsaari	Varkaus	Pohjois-Savo	870	-3.4
+74940	Remeskylä-Tihilänkangas	Kiuruvesi	Pohjois-Savo	867	-6.5
+77700	Rautalampi Keskus	Rautalampi	Pohjois-Savo	858	-4.9
+71460	Paukarlahti	Leppävirta	Pohjois-Savo	857	-4.3
+74630	Heinäkylä	Kiuruvesi	Pohjois-Savo	857	-6.5
+73230	Syvärinpää	Lapinlahti	Pohjois-Savo	854	-3.3
+72400	Pielavesi Keskus-Jylänki	Pielavesi	Pohjois-Savo	850	-4.1
+74420	Hernejärvi	Sonkajärvi	Pohjois-Savo	850	-6.6
+71210	Tuusjärvi	Tuusniemi	Pohjois-Savo	849	-4.4
+74610	Honkaranta	Kiuruvesi	Pohjois-Savo	848	-6.6
+74670	Rapakkojoki	Kiuruvesi	Pohjois-Savo	848	-6.6
+73600	Kaavi Keskus	Kaavi	Pohjois-Savo	847	-2.2
+73730	Losomäki	Juankoski	Pohjois-Savo	843	-3.5
+74680	Myllyniemi	Kiuruvesi	Pohjois-Savo	843	-6.6
+77630	Lempyy	Suonenjoki	Pohjois-Savo	842	-5.7
+73620	Kortteinen-Rasilampi	Kaavi	Pohjois-Savo	840	-2.9
+71240	Paakkila	Tuusniemi	Pohjois-Savo	837	-4.5
+73670	Luikonlahti	Kaavi	Pohjois-Savo	837	-3
+73850	Ala-Luosta-Riitasalo	Rautavaara	Pohjois-Savo	836	-3.5
+74520	Kirmanranta	Iisalmi	Pohjois-Savo	833	-6.6
+74770	Kalliokylä	Kiuruvesi	Pohjois-Savo	832	-6.8
+73470	Västinniemi	Juankoski	Pohjois-Savo	831	-3.2
+74230	Salahmi	Vieremä	Pohjois-Savo	830	-6.5
+78210	Kuoppakangas	Varkaus	Pohjois-Savo	828	-2.6
+74740	Aittojärvi	Kiuruvesi	Pohjois-Savo	826	-6.8
+77910	Vaajasalmi	Rautalampi	Pohjois-Savo	825	-5.4
+74640	Sulkavanjärvi	Kiuruvesi	Pohjois-Savo	823	-6.8
+77960	Pakarila	Rautalampi	Pohjois-Savo	822	-5.4
+74270	Kauppilanmäki	Vieremä	Pohjois-Savo	821	-6.6
+74510	Peltosalmi-Sourunsalo	Iisalmi	Pohjois-Savo	821	-6.1
+74840	Koppeloharju	Kiuruvesi	Pohjois-Savo	821	-6.8
+71490	Airaksela	Kuopio	Pohjois-Savo	820	-4.6
+77690	Suontee	Suonenjoki	Pohjois-Savo	820	-5.9
+78610	Kurola	Varkaus	Pohjois-Savo	820	-3.1
+72140	Itä-Karttula-Riuttasenpää	Kuopio	Pohjois-Savo	819	-4.2
+73250	Korpijärvi	Lapinlahti	Pohjois-Savo	819	-3.5
+73645	Niinivaara-Onnivaara	Kaavi	Pohjois-Savo	819	-3.1
+78480	Timola	Leppävirta	Pohjois-Savo	818	-3.3
+78900	Ruokokoski	Varkaus	Pohjois-Savo	816	-3.2
+74980	Tihilänkangas	Kiuruvesi	Pohjois-Savo	815	-6.9
+74470	Paloinen	Lapinlahti	Pohjois-Savo	814	-6.9
+71260	Juurikkamäki	Tuusniemi	Pohjois-Savo	813	-4.6
+74340	Sukeva-Kainuunmäki	Sonkajärvi	Pohjois-Savo	812	-7.1
+74360	Sonkakoski	Sonkajärvi	Pohjois-Savo	812	-7.1
+78500	Pitkälänniemi-Könönpelto	Varkaus	Pohjois-Savo	811	-2.9
+73640	Sivakkavaara	Kaavi	Pohjois-Savo	810	-3.1
+74595	Runni	Iisalmi	Pohjois-Savo	810	-6.8
+74700	Kiuruvesi Keskus	Kiuruvesi	Pohjois-Savo	810	-7
+72550	Säviä	Pielavesi	Pohjois-Savo	808	-4.2
+74300	Sonkajärvi Keskus	Sonkajärvi	Pohjois-Savo	807	-7.3
+74240	Marttisenjärvi	Vieremä	Pohjois-Savo	806	-6.7
+77930	Kerkonjoensuu	Rautalampi	Pohjois-Savo	803	-5.6
+74590	Kurenpolvi	Iisalmi	Pohjois-Savo	800	-6.9
+74540	Kotikylä	Iisalmi	Pohjois-Savo	793	-7
+78710	Akonlahti	Varkaus	Pohjois-Savo	792	-3.4
+74200	Vieremä Keskus	Vieremä	Pohjois-Savo	786	-6.8
+72210	Tervo Keskus-Eliaksela	Tervo	Pohjois-Savo	785	-4.3
+73990	Kangaslahti	Rautavaara	Pohjois-Savo	785	-3.4
+73410	Pieksänkoski	Kuopio	Pohjois-Savo	784	-3.5
+72710	Vaaraslahti	Pielavesi	Pohjois-Savo	780	-4.4
+74345	Kalliosuo	Sonkajärvi	Pohjois-Savo	780	-7.4
+73200	Varpaisjärvi Keskus	Lapinlahti	Pohjois-Savo	778	-3.4
+72600	Keitele Keskus	Keitele	Pohjois-Savo	772	-4.3
+74550	Pörsänmäki	Iisalmi	Pohjois-Savo	771	-7.1
+72430	Kumpula	Pielavesi	Pohjois-Savo	769	-4.6
+72530	Säviäntaipale	Pielavesi	Pohjois-Savo	768	-4.5
+71280	Kosula	Tuusniemi	Pohjois-Savo	767	-4.9
+72810	Jylhänkylä	Pielavesi	Pohjois-Savo	766	-4.5
+72570	Vuorikylä	Pielavesi	Pohjois-Savo	764	-4.6
+77770	Myhinpää	Rautalampi	Pohjois-Savo	762	-5.9
+72220	Eliaksela	Tervo	Pohjois-Savo	760	-4.5
+72630	Kuusela-Rajala	Keitele	Pohjois-Savo	760	-4.5
+72950	Porttila	Keitele	Pohjois-Savo	757	-4.6
+72930	Tossavanlahti	Keitele	Pohjois-Savo	749	-4.7
+74490	Koirakoski	Sonkajärvi	Pohjois-Savo	748	-7.4
+79480	Kangaslampi Keskus	Varkaus	Pohjois-Savo	744	-4.3
+79140	Kotalahti	Leppävirta	Pohjois-Savo	742	-4.3
+79150	Konnuslahti-Valkeamäki	Leppävirta	Pohjois-Savo	742	-4.3
+72510	Jokijärvi	Pielavesi	Pohjois-Savo	741	-4.7
+72840	Saarela	Pielavesi	Pohjois-Savo	741	-4.7
+72350	Pienola	Vesanto	Pohjois-Savo	739	-4.6
+72740	Laukkala	Pielavesi	Pohjois-Savo	739	-4.8
+74250	Nissilä	Vieremä	Pohjois-Savo	738	-7.3
+72310	Niinivesi	Vesanto	Pohjois-Savo	737	-4.6
+72330	Tiitilänkylä	Vesanto	Pohjois-Savo	737	-4.6
+72980	Petäjäkylä	Pielavesi	Pohjois-Savo	735	-4.8
+79180	Tuppurinmäki	Leppävirta	Pohjois-Savo	735	-4.3
+79255	Kurjala-Moninmäki	Leppävirta	Pohjois-Savo	732	-4.4
+79410	Niinimäki	Leppävirta	Pohjois-Savo	729	-4.4
+79265	Puponmäki	Leppävirta	Pohjois-Savo	727	-4.4
+72380	Horontaipale	Vesanto	Pohjois-Savo	726	-4.7
+79160	Saamaiskylä	Leppävirta	Pohjois-Savo	726	-4.4
+73970	Riitasalo	Rautavaara	Pohjois-Savo	723	-3.8
+72490	Saarinen	Maaninka	Pohjois-Savo	722	-5
+79330	Näädänmaa	Leppävirta	Pohjois-Savo	721	-4.4
+79230	Moninmäki	Leppävirta	Pohjois-Savo	720	-4.4
+74380	Jyrkkä	Sonkajärvi	Pohjois-Savo	715	-8
+75680	Ylä-Luosta	Rautavaara	Pohjois-Savo	714	-1.9
+72360	Närhilä	Vesanto	Pohjois-Savo	713	-4.8
+79190	Valkeamäki	Leppävirta	Pohjois-Savo	709	-4.5
+79520	Viljolahti	Varkaus	Pohjois-Savo	709	-4.5
+79350	Itä-Soisalo	Leppävirta	Pohjois-Savo	697	-4.6
+71200	Tuusniemi Keskus	Tuusniemi	Pohjois-Savo	692	-4.8
+73460	Muuruvesi	Juankoski	Pohjois-Savo	677	-3.6
+71470	Oravikoski	Leppävirta	Pohjois-Savo	670	-4.9
+78300	Kommila	Varkaus	Pohjois-Savo	664	-1.1
+72300	Vesanto Keskus	Vesanto	Pohjois-Savo	646	-5.1
+79130	Sorsakoski	Leppävirta	Pohjois-Savo	617	-4.6
+73900	Rautavaara Keskus	Rautavaara	Pohjois-Savo	597	-4.2
+15900	Jalkaranta	Lahti	Päijät-Häme	2761	1.4
+15140	Kartano-Paavola	Lahti	Päijät-Häme	2742	2.9
+15110	Keski-Lahti	Lahti	Päijät-Häme	2596	1.9
+15160	Kolava	Lahti	Päijät-Häme	2423	0.8
+15100	Lahti Asemanseutu	Lahti	Päijät-Häme	2355	2.4
+15850	Likolampi	Lahti	Päijät-Häme	2105	-0.8
+15610	Laune-Nikkilä	Lahti	Päijät-Häme	1924	-1.2
+15150	Möysä	Lahti	Päijät-Häme	1901	1.6
+15340	Kunnas-Hiekkanummi	Lahti	Päijät-Häme	1882	-1.8
+15270	Kukkila	Hollola	Päijät-Häme	1876	-1.1
+15800	Kärpänen	Lahti	Päijät-Häme	1725	-0.2
+15870	Salpakangas	Hollola	Päijät-Häme	1694	-1.2
+15700	Hennala-Jokimaa	Lahti	Päijät-Häme	1685	-0.6
+15950	Kiikkula	Lahti	Päijät-Häme	1683	-1.5
+15320	Ahtiala	Lahti	Päijät-Häme	1669	-3.1
+15680	Renkomäki-Ämmälä	Lahti	Päijät-Häme	1641	-1.9
+15540	Villähde	Nastola	Päijät-Häme	1631	-2.5
+15810	Kasakkamäki	Lahti	Päijät-Häme	1613	-1.5
+15300	Myllypohja-Koiskala	Lahti	Päijät-Häme	1513	-1.9
+15230	Kytölä	Lahti	Päijät-Häme	1510	-0.5
+15200	Kiveriö	Lahti	Päijät-Häme	1502	-0.1
+15520	Saksala	Lahti	Päijät-Häme	1496	-1.9
+15210	Kivistönmäki	Lahti	Päijät-Häme	1463	-0.6
+15820	Okeroinen	Hollola	Päijät-Häme	1424	-2.5
+16610	Kärkölä kk	Kärkölä	Päijät-Häme	1408	-1.8
+15880	Soramäki	Hollola	Päijät-Häme	1374	-2.9
+15840	Riihelä	Lahti	Päijät-Häme	1361	-2.1
+15460	Mäkelä	Nastola	Päijät-Häme	1353	-3
+16300	Orimattila Keskus	Orimattila	Päijät-Häme	1310	-3
+15170	Tenava-Tonttila	Lahti	Päijät-Häme	1303	-0.7
+18100	Heinola Keskus	Heinola	Päijät-Häme	1282	-4.1
+15240	Mukkula	Lahti	Päijät-Häme	1280	-1.8
+17200	Vääksy Keskus	Asikkala	Päijät-Häme	1279	-2.2
+15860	Kartano	Hollola	Päijät-Häme	1261	-2.6
+15830	Metsäkangas	Lahti	Päijät-Häme	1248	-1.9
+15580	Ruuhijärvi	Nastola	Päijät-Häme	1183	-4.5
+17110	Sipilä	Hollola	Päijät-Häme	1176	-2.3
+16600	Järvelä	Kärkölä	Päijät-Häme	1146	-2.2
+15550	Rakokivi	Nastola	Päijät-Häme	1142	-3.9
+15560	Nastola kk	Nastola	Päijät-Häme	1142	-4
+15500	Liipola	Lahti	Päijät-Häme	1102	-3.5
+16320	Pennala	Orimattila	Päijät-Häme	1080	-3.6
+18120	Reumasairaala-alue	Heinola	Päijät-Häme	1078	-5.6
+16670	Lappila	Kärkölä	Päijät-Häme	1073	-3
+16630	Tennilä	Hollola	Päijät-Häme	1072	-3
+17130	Vesivehmaa	Asikkala	Päijät-Häme	1059	-2.9
+16310	Virenoja	Orimattila	Päijät-Häme	1038	-3.9
+16800	Hämeenkoski	Hämeenkoski	Päijät-Häme	1035	-3.6
+17440	Vähimaa	Asikkala	Päijät-Häme	1033	-3.1
+17120	Paimela	Hollola	Päijät-Häme	1027	-3.1
+17430	Kurhila	Asikkala	Päijät-Häme	1004	-3.3
+17240	Kalkkinen	Asikkala	Päijät-Häme	1003	-3.4
+16330	Heinämaa	Orimattila	Päijät-Häme	988	-4.2
+17470	Maakeski	Padasjoki	Päijät-Häme	988	-3.4
+17220	Pietilä	Asikkala	Päijät-Häme	986	-3.6
+16350	Niinikoski	Orimattila	Päijät-Häme	983	-4.2
+17410	Viitaila	Asikkala	Päijät-Häme	972	-3.5
+16390	Pakaa	Orimattila	Päijät-Häme	971	-4.3
+17450	Iso-Äiniö-Vähimaa	Asikkala	Päijät-Häme	968	-3.5
+17150	Urajärvi	Asikkala	Päijät-Häme	966	-3.5
+17500	Padasjoki Keskus	Padasjoki	Päijät-Häme	962	-2.5
+17320	Asikkala	Asikkala	Päijät-Häme	960	-3.6
+17510	Nyystölä	Padasjoki	Päijät-Häme	957	-3.1
+17530	Arrakoski	Padasjoki	Päijät-Häme	952	-3.1
+16450	Mallusjoki	Orimattila	Päijät-Häme	951	-3.9
+16730	Kutajärvi	Hollola	Päijät-Häme	950	-3.8
+17610	Auttoinen	Padasjoki	Päijät-Häme	943	-3.7
+16270	Villikkala	Orimattila	Päijät-Häme	922	-4
+16280	Kuivanto	Orimattila	Päijät-Häme	922	-4
+17630	Vesijako	Padasjoki	Päijät-Häme	917	-3.9
+17710	Torittu	Padasjoki	Päijät-Häme	905	-4
+16710	Hollola kk	Hollola	Päijät-Häme	894	-3.9
+17740	Kasiniemi-Torittu	Padasjoki	Päijät-Häme	890	-4.1
+16260	Hietana	Orimattila	Päijät-Häme	889	-4.3
+16230	Artjärvi Kirkonkylä	Orimattila	Päijät-Häme	888	-4.3
+16200	Artjärvi Keskus	Orimattila	Päijät-Häme	876	-4.2
+16510	Luhtikylä	Orimattila	Päijät-Häme	876	-4.2
+16540	Mertie	Kärkölä	Päijät-Häme	871	-4.3
+16790	Manskivi	Hollola	Päijät-Häme	867	-4.4
+19110	Vierumäki taajama	Heinola	Päijät-Häme	861	-5.9
+19700	Sysmä Keskus	Sysmä	Päijät-Häme	858	-5.4
+19120	Vierumäki urheiluopisto	Heinola	Päijät-Häme	851	-5.9
+19730	Särkilampi	Sysmä	Päijät-Häme	839	-5.8
+16160	Okkeri	Nastola	Päijät-Häme	819	-4.4
+18300	Heinola kk	Heinola	Päijät-Häme	816	-5.2
+18600	Myllyoja	Heinola	Päijät-Häme	815	-6.1
+19770	Valittula	Sysmä	Päijät-Häme	812	-6
+19210	Lusi	Heinola	Päijät-Häme	802	-6.3
+19620	Pohela	Hartola	Päijät-Häme	799	-7.1
+19610	Murakka	Hartola	Päijät-Häme	798	-7.1
+19630	Kalhonkylä	Hartola	Päijät-Häme	795	-7.2
+19600	Hartola Keskus	Hartola	Päijät-Häme	792	-7.9
+19370	Nuoramoinen	Sysmä	Päijät-Häme	789	-6.4
+16500	Herrala	Hollola	Päijät-Häme	781	-4.5
+19260	Paaso-Syrjäkoski	Heinola	Päijät-Häme	771	-6.6
+18150	Jyränkö	Heinola	Päijät-Häme	769	-8.1
+19310	Karilanmaa	Sysmä	Päijät-Häme	768	-6.6
+19320	Nikkaroinen	Sysmä	Päijät-Häme	762	-6.6
+19740	Liikola	Sysmä	Päijät-Häme	760	-6.4
+19510	Lepsala	Hartola	Päijät-Häme	756	-6.7
+19250	Syrjäkoski	Heinola	Päijät-Häme	755	-6.7
+19540	Koitti-Lepsala	Hartola	Päijät-Häme	752	-6.7
+19230	Onkiniemi	Sysmä	Päijät-Häme	744	-6.8
+19850	Putkijärvi-Siltasuo	Hartola	Päijät-Häme	736	-6.8
+18130	Tommola-Sahanniemi	Heinola	Päijät-Häme	707	-6.9
+18200	Kaakonlampi-Pyhätön	Heinola	Päijät-Häme	687	-6.9
+16100	Uusikylä	Nastola	Päijät-Häme	658	-5.1
+28100	Pori Keskus	Pori	Satakunta	2120	2.4
+28540	Pinomäki	Pori	Satakunta	1969	1.5
+28300	Kalaholma-Väinölä	Pori	Satakunta	1815	1.6
+28220	Ruosniemi	Pori	Satakunta	1722	3
+26100	Rauma Keskus	Rauma	Satakunta	1650	0.3
+28430	Kartano-Harmaalinna	Pori	Satakunta	1626	1.7
+28130	Impola	Pori	Satakunta	1625	2.3
+28200	Toejoki	Pori	Satakunta	1611	2.3
+28660	Pietniemi-Leppäkorpi	Pori	Satakunta	1605	0.8
+28600	Vähärauma	Pori	Satakunta	1596	1.6
+28610	Musa-Tiiliruukki	Pori	Satakunta	1562	2
+26200	Merirauma-Kappelinluhta	Rauma	Satakunta	1509	-0.9
+28120	Käppärä-Isomäki	Pori	Satakunta	1464	1.9
+28360	Vanhakoivisto	Pori	Satakunta	1463	0.6
+26840	Kortela	Rauma	Satakunta	1451	-0.8
+28240	Isojoenranta	Pori	Satakunta	1434	1.1
+27100	Eurajoki Keskus	Eurajoki	Satakunta	1422	2.2
+28400	Ulvila Keskus	Ulvila	Satakunta	1414	0.3
+27800	Säkylä Keskus	Säkylä	Satakunta	1338	0.3
+28580	Niittymaa	Pori	Satakunta	1307	0
+26720	Monnanummi	Rauma	Satakunta	1286	-1.2
+27510	Eura Keskus	Eura	Satakunta	1284	0.8
+26660	Paroalho	Rauma	Satakunta	1280	-0.9
+38700	Kankaanpää Keskus	Kankaanpää	Satakunta	1277	-1.2
+28560	Lattomeri	Pori	Satakunta	1261	-0.3
+28260	Harjunpää	Ulvila	Satakunta	1252	0.1
+28500	Keskussairaala-alue-Tiilimäki	Pori	Satakunta	1235	0
+28450	Vanha-Ulvila	Ulvila	Satakunta	1223	-0.5
+26410	Kaaro	Rauma	Satakunta	1217	-1.6
+27150	Lapijoki	Eurajoki	Satakunta	1215	0.7
+26910	Unaja	Rauma	Satakunta	1205	-1.7
+28760	Kyläsaari	Pori	Satakunta	1190	-0.3
+28900	Tahkoluoto-Reposaari	Pori	Satakunta	1186	-0.5
+26740	Vasarainen	Rauma	Satakunta	1130	-2.1
+26820	Sampaanala	Rauma	Satakunta	1121	-1.2
+32700	Huittinen Keskus	Huittinen	Satakunta	1115	-0.6
+27500	Kauttua	Eura	Satakunta	1113	0.5
+26950	Voiluoto	Rauma	Satakunta	1108	-2.2
+27840	Kakkuri	Köyliö	Satakunta	1108	0.1
+26930	Vermuntila	Rauma	Satakunta	1097	-2.3
+29100	Luvia Keskus	Luvia	Satakunta	1096	-3.9
+26560	Kolla	Rauma	Satakunta	1087	-2.2
+26510	Uotila	Rauma	Satakunta	1079	-1.8
+27820	Iso-Vimma	Säkylä	Satakunta	1064	-0.1
+27110	Irjanne	Eurajoki	Satakunta	1054	0.2
+27130	Eurajoki asemanseutu	Eurajoki	Satakunta	1038	0.1
+28330	Koivistonluoto	Pori	Satakunta	1036	-1.6
+27170	Kuivalahti	Eurajoki	Satakunta	1033	0.1
+27230	Lappi	Rauma	Satakunta	997	-0.9
+27860	Vuori	Köyliö	Satakunta	996	-0.7
+27220	Ala-Kieri	Rauma	Satakunta	984	-0.5
+29600	Noormarkku Keskus	Pori	Satakunta	981	-4.2
+38770	Lohikko	Kankaanpää	Satakunta	980	-2.2
+39960	Sarvela	Karvia	Satakunta	980	-2.5
+28370	Sampola	Pori	Satakunta	977	1.6
+27250	Kodiksami	Rauma	Satakunta	973	-0.6
+28190	Pormestarinluoto	Pori	Satakunta	969	-1.2
+39930	Karvia Keskus	Karvia	Satakunta	969	-2.4
+38740	Hapuoja	Kankaanpää	Satakunta	964	-2.3
+27400	Kiukainen Keskus	Eura	Satakunta	955	-0.6
+39980	Sara	Karvia	Satakunta	955	-2.6
+29250	Nakkila Keskus	Nakkila	Satakunta	940	-4.9
+27420	Panelia Asemanseutu	Eura	Satakunta	935	-0.7
+32800	Kokemäki Keskus	Kokemäki	Satakunta	935	-1.8
+27260	Kuolimaa	Rauma	Satakunta	934	-0.9
+28880	Mäntyluoto	Pori	Satakunta	933	-2
+32810	Peipohja	Kokemäki	Satakunta	931	-1.2
+38800	Jämijärvi Keskus	Jämijärvi	Satakunta	929	-2.1
+39965	Karviankylä	Karvia	Satakunta	929	-2.8
+27640	Honkilahti kk	Eura	Satakunta	924	-1
+38760	Venesjärvi	Kankaanpää	Satakunta	924	-2.6
+38710	Myllymäki	Kankaanpää	Satakunta	920	-2.2
+29570	Söörmarkku	Pori	Satakunta	919	-4.6
+38750	Veneskoski	Kankaanpää	Satakunta	918	-2.6
+38720	Vihteljärvi	Kankaanpää	Satakunta	914	-2.7
+39940	Kantti	Karvia	Satakunta	913	-2.9
+38840	Niinisalo	Kankaanpää	Satakunta	909	-2.3
+27670	Mannila	Eura	Satakunta	904	-1.1
+27600	Hinnerjoki	Eura	Satakunta	894	-1.4
+27450	Harola	Eura	Satakunta	893	-1
+38860	Suurimaa	Jämijärvi	Satakunta	889	-2.4
+32710	Sampu	Huittinen	Satakunta	887	-1.5
+39920	Suomijärvi	Karvia	Satakunta	886	-3
+27730	Tuiskula	Köyliö	Satakunta	882	-1.1
+27650	Honkilahti	Eura	Satakunta	880	-1.3
+39990	Alkkia	Karvia	Satakunta	872	-3.1
+32770	Huhtamo	Huittinen	Satakunta	869	-1.6
+32830	Riste	Kokemäki	Satakunta	869	-2
+38600	Lavia Keskus	Lavia	Satakunta	869	-2.1
+32760	Suttila	Huittinen	Satakunta	865	-1.6
+32910	Kauvatsa Asemanseutu	Kokemäki	Satakunta	864	-2
+27310	Kodisjoki	Rauma	Satakunta	863	-0.9
+29180	Peränkylä	Luvia	Satakunta	860	-5.2
+29200	Harjavalta Keskus	Harjavalta	Satakunta	858	-4.4
+29750	Pohjansaha	Pori	Satakunta	856	-5
+27740	Voitoinen	Köyliö	Satakunta	847	-1.3
+29720	Lamppi	Pori	Satakunta	846	-5
+32620	Rutava	Huittinen	Satakunta	845	-2.3
+29700	Ahlainen	Pori	Satakunta	844	-5.1
+27430	Panelia	Eura	Satakunta	840	-1
+38670	Kalliala-Haunia	Lavia	Satakunta	837	-2.6
+29270	Hormisto	Nakkila	Satakunta	834	-5.2
+29310	Kaasmarkku	Ulvila	Satakunta	833	-4.9
+29280	Järvimaa	Nakkila	Satakunta	830	-5.2
+29640	Honkakoski	Pomarkku	Satakunta	830	-5
+29740	Etelämaa	Merikarvia	Satakunta	827	-5.2
+27750	Yttilä	Köyliö	Satakunta	825	-1.5
+38650	Yli-Putto	Lavia	Satakunta	825	-2.6
+29630	Pomarkku Keskus	Pomarkku	Satakunta	822	-4.9
+29860	Otamo	Siikainen	Satakunta	822	-5.2
+29900	Merikarvia Keskus-Rannikko	Merikarvia	Satakunta	822	-5.4
+38920	Vatajankoski	Honkajoki	Satakunta	822	-2.6
+29760	Köörtilä	Merikarvia	Satakunta	820	-5.2
+29830	Sammi	Siikainen	Satakunta	820	-5.2
+29790	Tuorila	Merikarvia	Satakunta	819	-5.2
+32860	Korkeaoja	Kokemäki	Satakunta	819	-2.3
+29680	Kairila	Pori	Satakunta	815	-5.1
+38680	Tuunajärvi	Pomarkku	Satakunta	814	-2.7
+29810	Siikainen Keskus	Siikainen	Satakunta	813	-5.3
+32920	Kauvatsa	Kokemäki	Satakunta	813	-2.4
+29350	Palus	Ulvila	Satakunta	805	-5.1
+38970	Lauhala	Honkajoki	Satakunta	802	-2.7
+29880	Leväsjoki-Saarineva	Siikainen	Satakunta	801	-5.4
+38910	Ala-Honkajoki	Kankaanpää	Satakunta	799	-2.7
+29940	Kuvaskangas	Merikarvia	Satakunta	787	-5.6
+29320	Leineperi	Ulvila	Satakunta	785	-5.3
+27920	Otajoki	Säkylä	Satakunta	783	-1.7
+28800	Pihlava	Pori	Satakunta	781	-3.3
+27710	Köyliö Keskus	Köyliö	Satakunta	766	-1.4
+32610	Vampula Keskus	Huittinen	Satakunta	759	-3.3
+38950	Honkajoki Keskus	Honkajoki	Satakunta	665	-3.5
+29340	Kullaa Keskus	Ulvila	Satakunta	644	-6.2
+27910	Huovinrinne	Säkylä	Satakunta	600	-2.1
+28840	Yyteri-Kaanaa	Pori	Satakunta	569	-3.5
+00130	Kaartinkaupunki	Helsinki	Uusimaa	7449	3
+00140	Kaivopuisto	Helsinki	Uusimaa	7283	2.5
+00160	Katajanokka	Helsinki	Uusimaa	7030	2.4
+00150	Eira	Helsinki	Uusimaa	6964	3.5
+00170	Kruununhaka	Helsinki	Uusimaa	6805	3
+00120	Punavuori	Helsinki	Uusimaa	6631	2.2
+00100	Helsinki Keskusta	Helsinki	Uusimaa	6508	2.9
+00180	Ruoholahti	Helsinki	Uusimaa	6477	2.8
+00260	Keski-Töölö	Helsinki	Uusimaa	6357	3.2
+00250	Taka-Töölö	Helsinki	Uusimaa	5918	2.6
+00270	Pohjois-Meilahti	Helsinki	Uusimaa	5885	3.3
+00530	Kallio	Helsinki	Uusimaa	5739	4.6
+00500	Sörnäinen	Helsinki	Uusimaa	5706	5
+00210	Vattuniemi	Helsinki	Uusimaa	5520	2.1
+00560	Toukola-Vanhakaupunki	Helsinki	Uusimaa	5478	3.9
+00510	Etu-Vallila	Helsinki	Uusimaa	5447	4.4
+00330	Munkkiniemi	Helsinki	Uusimaa	5336	2.5
+00200	Lauttasaari	Helsinki	Uusimaa	5317	2.3
+00300	Pikku Huopalahti	Helsinki	Uusimaa	5268	3.9
+00280	Ruskeasuo	Helsinki	Uusimaa	5123	2.3
+00240	Länsi-Pasila	Helsinki	Uusimaa	5113	2.2
+00550	Vallila	Helsinki	Uusimaa	5029	4.5
+00610	Käpylä	Helsinki	Uusimaa	4941	4.4
+00190	Suomenlinna	Helsinki	Uusimaa	4896	0.9
+00850	Jollas	Helsinki	Uusimaa	4894	1.5
+00220	Jätkäsaari	Helsinki	Uusimaa	4882	1.8
+00520	Itä-Pasila	Helsinki	Uusimaa	4863	4
+00320	Etelä-Haaga	Helsinki	Uusimaa	4715	3.7
+00580	Verkkosaari	Helsinki	Uusimaa	4663	2.3
+02110	Otsolahti	Espoo	Uusimaa	4631	2.8
+02160	Westend	Espoo	Uusimaa	4616	1.1
+00810	Herttoniemi	Helsinki	Uusimaa	4593	2.7
+00570	Kulosaari	Helsinki	Uusimaa	4526	1.8
+02100	Tapiola	Espoo	Uusimaa	4523	1.8
+00350	Munkkivuori-Niemenmäki	Helsinki	Uusimaa	4520	3.1
+00990	Aurinkolahti	Helsinki	Uusimaa	4416	1
+00380	Pitäjänmäen teollisuusalue	Helsinki	Uusimaa	4385	2.3
+02120	Länsikorkee-Hakalehto	Espoo	Uusimaa	4380	2.3
+00540	Kalasatama	Helsinki	Uusimaa	4360	2.2
+00800	Länsi-Herttoniemi	Helsinki	Uusimaa	4224	3.1
+00340	Kuusisaari-Lehtisaari	Helsinki	Uusimaa	4163	0.4
+00290	Meilahden sairaala-alue	Helsinki	Uusimaa	4122	0.5
+02600	Etelä-Leppävaara	Espoo	Uusimaa	4080	2.1
+00400	Pohjois-Haaga	Helsinki	Uusimaa	4072	3.9
+02170	Haukilahti	Espoo	Uusimaa	4052	0.5
+02130	Pohjois-Tapiola	Espoo	Uusimaa	4023	1.4
+02150	Otaniemi	Espoo	Uusimaa	4015	1.4
+00790	Viikki	Helsinki	Uusimaa	3998	0.8
+02610	Kilo	Espoo	Uusimaa	3994	1.2
+02200	Niittykumpu	Espoo	Uusimaa	3942	1
+02330	Kattilalaakso	Espoo	Uusimaa	3912	0.6
+01510	Kirkonkylä-Veromäki	Vantaa	Uusimaa	3851	1.1
+00310	Kivihaka	Helsinki	Uusimaa	3779	1
+02180	Mankkaa	Espoo	Uusimaa	3773	-0.1
+02230	Matinkylä	Espoo	Uusimaa	3769	1.4
+02650	Pohjois-Leppävaara	Espoo	Uusimaa	3763	2.3
+00830	Tammisalo	Helsinki	Uusimaa	3741	-0.1
+00440	Lassila	Helsinki	Uusimaa	3733	2.3
+01520	Tammisto	Vantaa	Uusimaa	3722	0.6
+02240	Friisilä	Espoo	Uusimaa	3710	0
+02660	Lintuvaara	Espoo	Uusimaa	3684	0.7
+00670	Paloheinä	Helsinki	Uusimaa	3659	0.5
+00660	Länsi-Pakila	Helsinki	Uusimaa	3658	0.6
+00650	Veräjämäki	Helsinki	Uusimaa	3628	1.7
+00620	Metsälä-Etelä-Oulunkylä	Helsinki	Uusimaa	3589	2.1
+00680	Itä-Pakila	Helsinki	Uusimaa	3586	0.9
+02700	Suur-Kauniainen	Kauniainen	Uusimaa	3558	-1.3
+02750	Sepänkylä	Espoo	Uusimaa	3530	-1
+02680	Uusmäki	Espoo	Uusimaa	3523	0.6
+00590	Kaitalahti	Helsinki	Uusimaa	3508	0.2
+00360	Pajamäki	Helsinki	Uusimaa	3453	1.4
+00370	Reimarla	Helsinki	Uusimaa	3434	0.3
+02300	Nöykkiö	Espoo	Uusimaa	3429	-0.6
+00730	Tapanila	Helsinki	Uusimaa	3428	0.6
+02270	Suomenoja	Espoo	Uusimaa	3427	-0.4
+01640	Hämevaara	Vantaa	Uusimaa	3421	0.4
+00640	Oulunkylä-Patola	Helsinki	Uusimaa	3413	1.5
+00950	Vartioharju	Helsinki	Uusimaa	3409	-0.1
+00600	Koskela-Helsinki	Helsinki	Uusimaa	3406	2.4
+00930	Itäkeskus-Marjaniemi	Helsinki	Uusimaa	3404	0.7
+00630	Maunula-Suursuo	Helsinki	Uusimaa	3400	2.7
+02630	Nihtisilta	Espoo	Uusimaa	3393	0.4
+02280	Puolarmetsä	Espoo	Uusimaa	3386	-0.5
+00430	Maununneva	Helsinki	Uusimaa	3383	0.9
+00910	Puotila	Helsinki	Uusimaa	3370	1.9
+01690	Ylästö	Vantaa	Uusimaa	3361	-0.2
+00840	Laajasalo	Helsinki	Uusimaa	3271	0.4
+00700	Malmi	Helsinki	Uusimaa	3250	0
+00690	Tuomarinkylä-Torpparinmäki	Helsinki	Uusimaa	3247	0.4
+00720	Pukinmäki-Savela	Helsinki	Uusimaa	3223	0.4
+02340	Latokaski	Espoo	Uusimaa	3198	-0.7
+02730	Laaksolahti	Espoo	Uusimaa	3170	-1.5
+00390	Konala	Helsinki	Uusimaa	3160	1.4
+02140	Laajalahti-Friisinmäki	Espoo	Uusimaa	3160	-0.6
+00780	Tapaninvainio	Helsinki	Uusimaa	3151	-0.7
+00420	Kannelmäki	Helsinki	Uusimaa	3128	1.8
+00880	Roihupellon teollisuusalue	Helsinki	Uusimaa	3120	-0.6
+00980	Etelä-Vuosaari	Helsinki	Uusimaa	3096	-0.1
+02740	Karvasmäki-Kunnarla	Espoo	Uusimaa	3087	-2.4
+01300	Tikkurila	Vantaa	Uusimaa	3078	0.1
+00870	Etelä-Laajasalo	Helsinki	Uusimaa	3074	0.4
+01390	Ruskeasanta-Ilola	Vantaa	Uusimaa	3065	0.1
+01380	Kuusikko-Hakkila	Vantaa	Uusimaa	3038	-0.4
+01630	Hämeenkylä	Vantaa	Uusimaa	3036	-0.5
+02320	Kivenlahti	Espoo	Uusimaa	3032	-0.3
+00820	Roihuvuori	Helsinki	Uusimaa	3027	1
+01700	Kivistö	Vantaa	Uusimaa	3026	0.1
+02940	Lippajärvi	Espoo	Uusimaa	3014	-1.5
+02620	Karakallio	Espoo	Uusimaa	3004	1.6
+02210	Olari-Kuitinmäki	Espoo	Uusimaa	2998	-0.8
+02450	Sundsberg	Kirkkonummi	Uusimaa	2970	-1.2
+02810	Kumpyöli-Karhusuo	Espoo	Uusimaa	2970	-1.4
+01400	Rekola	Vantaa	Uusimaa	2961	-1
+00900	Puotinharju	Helsinki	Uusimaa	2938	1.2
+01670	Vantaanlaakso	Vantaa	Uusimaa	2935	0
+02920	Niipperi	Espoo	Uusimaa	2914	-1.2
+01340	Leinelä	Vantaa	Uusimaa	2902	0.1
+01660	Varisto	Vantaa	Uusimaa	2898	0.5
+00760	Suurmetsä	Helsinki	Uusimaa	2850	-0.9
+02770	Espoon Keskus Läntinen	Espoo	Uusimaa	2843	-1.4
+01370	Jokiniemi	Vantaa	Uusimaa	2839	0
+01610	Kaivoksela	Vantaa	Uusimaa	2837	0.5
+02720	Laaksolahti-Lähderanta	Espoo	Uusimaa	2832	-0.9
+00960	Pohjois-Vuosaari	Helsinki	Uusimaa	2824	0.4
+00410	Malminkartano	Helsinki	Uusimaa	2808	1.2
+00890	Itäsalmi	Helsinki	Uusimaa	2808	-1.7
+01420	Päiväkumpu	Vantaa	Uusimaa	2800	-1.5
+02970	Kalajärvi	Espoo	Uusimaa	2798	-2.4
+06100	Porvoo Keskus	Porvoo	Uusimaa	2796	0.1
+00860	Santahamina	Helsinki	Uusimaa	2789	-1.8
+02780	Kauklahti	Espoo	Uusimaa	2766	-2
+01680	Askisto	Vantaa	Uusimaa	2743	-1
+02710	Viherlaakso	Espoo	Uusimaa	2742	-1.3
+01230	Vaarala	Vantaa	Uusimaa	2739	-1
+04310	Tuusula Keskus	Tuusula	Uusimaa	2731	-1.8
+02760	Espoon Keskus Itäinen	Espoo	Uusimaa	2719	-1
+02260	Iivisniemi	Espoo	Uusimaa	2717	-1.4
+00740	Siltamäki	Helsinki	Uusimaa	2715	-0.7
+00750	Puistola	Helsinki	Uusimaa	2708	-0.6
+01600	Myyrmäki	Vantaa	Uusimaa	2706	0.4
+04250	Alikerava	Kerava	Uusimaa	2694	-0.6
+00920	Myllypuro	Helsinki	Uusimaa	2693	1.2
+01260	Itä-Hakkila	Vantaa	Uusimaa	2668	-1.5
+01490	Nikinmäki	Vantaa	Uusimaa	2647	-1.7
+02290	Puolarmetsän sairaala	Espoo	Uusimaa	2638	-2.2
+01710	Pähkinärinne	Vantaa	Uusimaa	2632	-0.8
+04430	Kinnari-Mikonkorpi	Järvenpää	Uusimaa	2618	-1.3
+04420	Kyrölä	Järvenpää	Uusimaa	2610	-0.6
+00710	Pihlajamäki	Helsinki	Uusimaa	2607	-0.4
+00970	Mellunkylä	Helsinki	Uusimaa	2570	-0.8
+02360	Espoonlahti	Espoo	Uusimaa	2566	-1.4
+01280	Länsimäki	Vantaa	Uusimaa	2562	-0.9
+01350	Hiekkaharju	Vantaa	Uusimaa	2520	-0.5
+04400	Loutti	Järvenpää	Uusimaa	2512	-0.4
+04300	Hyrylä	Tuusula	Uusimaa	2503	-2.1
+01450	Korso	Vantaa	Uusimaa	2491	-2.4
+04220	Ahjo-Kaskela	Kerava	Uusimaa	2488	-1.9
+01840	Klaukkala	Nurmijärvi	Uusimaa	2483	-1
+04200	Kerava Keskus	Kerava	Uusimaa	2464	-1.3
+04330	Lahela	Tuusula	Uusimaa	2463	-2.6
+06750	Tolkkinen	Porvoo	Uusimaa	2462	-2.1
+01150	Söderkulla	Sipoo	Uusimaa	2461	-1.8
+02380	Suvisaaristo	Espoo	Uusimaa	2444	-2.8
+02480	Porkkala	Kirkkonummi	Uusimaa	2443	-2.5
+05810	Martti	Hyvinkää	Uusimaa	2430	0.4
+01620	Martinlaakso	Vantaa	Uusimaa	2429	-0.1
+04460	Nummenkylä	Järvenpää	Uusimaa	2409	-1.4
+04410	Järvenpää Keskus	Järvenpää	Uusimaa	2395	-1.3
+01720	Petikko	Vantaa	Uusimaa	2372	-2.8
+02430	Masala	Kirkkonummi	Uusimaa	2356	-2.5
+01800	Klaukkala Keskus	Nurmijärvi	Uusimaa	2337	-1.4
+02880	Veikkola	Kirkkonummi	Uusimaa	2336	-2.7
+02860	Siikajärvi	Espoo	Uusimaa	2320	-3.1
+00940	Kontula	Helsinki	Uusimaa	2305	-1.7
+01530	Veromiehenkylä	Vantaa	Uusimaa	2297	-2.4
+01820	Haikala	Nurmijärvi	Uusimaa	2289	-1.7
+01360	Koivukylä-Havukoski	Vantaa	Uusimaa	2282	-0.5
+04130	Nikkilä	Sipoo	Uusimaa	2279	-2
+06650	Hamari	Porvoo	Uusimaa	2223	-2.4
+05830	Kirjavatolppa-Kruununpuisto	Hyvinkää	Uusimaa	2220	0.4
+08100	Lohja Keskus	Lohja	Uusimaa	2212	-1.8
+01650	Vapaala	Vantaa	Uusimaa	2209	-1.4
+02400	Kirkkonummi Keskus	Kirkkonummi	Uusimaa	2208	-2.1
+05800	Hyvinkää Keskus	Hyvinkää	Uusimaa	2206	0.8
+01120	Västerskog	Sipoo	Uusimaa	2201	-2.6
+02820	Nupuri-Nuuksio	Espoo	Uusimaa	2194	-3.6
+01200	Hakunila	Vantaa	Uusimaa	2192	-2.1
+02980	Lakisto	Espoo	Uusimaa	2186	-4
+05400	Jokela	Tuusula	Uusimaa	2172	-1.2
+04260	Savio	Kerava	Uusimaa	2165	-1.3
+01760	Seutula	Vantaa	Uusimaa	2158	-2.7
+02440	Luoma	Kirkkonummi	Uusimaa	2158	-2.7
+04230	Pihkaniitty	Kerava	Uusimaa	2132	-2.7
+04320	Riihikallio	Tuusula	Uusimaa	2131	-2.6
+01190	Box	Sipoo	Uusimaa	2120	-2.9
+08150	Keskilohja	Lohja	Uusimaa	2116	-1.4
+01180	Kalkkiranta	Sipoo	Uusimaa	2113	-3
+02470	Upinniemi	Kirkkonummi	Uusimaa	2105	-3.1
+01810	Luhtajoki	Nurmijärvi	Uusimaa	2096	-2.5
+02490	Pikkala	Siuntio	Uusimaa	2093	-3.2
+04620	Kaunismäki	Mäntsälä	Uusimaa	2090	-1.9
+01480	Mikkola	Vantaa	Uusimaa	2089	-2.3
+01750	Keimola	Vantaa	Uusimaa	2088	-3.1
+03100	Nummela	Vihti	Uusimaa	2085	-1.8
+04150	Martinkylä	Sipoo	Uusimaa	2084	-2.2
+01940	Palojoki	Nurmijärvi	Uusimaa	2081	-2.4
+00770	Jakomäki	Helsinki	Uusimaa	2079	-1.6
+01900	Nurmijärvi Keskus	Nurmijärvi	Uusimaa	2076	-1.8
+02420	Jorvas	Kirkkonummi	Uusimaa	2070	-3.2
+10600	Tammisaari Keskus	Raasepori	Uusimaa	2054	-2.2
+04480	Haarajoki	Järvenpää	Uusimaa	2048	-2.4
+02520	Lapinkylä	Kirkkonummi	Uusimaa	2042	-3.6
+01740	Tuupakan teollisuusalue	Vantaa	Uusimaa	2037	-3.3
+01860	Perttula	Nurmijärvi	Uusimaa	2037	-2.8
+04340	Mattila	Tuusula	Uusimaa	2025	-1.8
+02540	Kylmälä	Kirkkonummi	Uusimaa	2023	-3.6
+06150	Kevätkumpu	Porvoo	Uusimaa	2017	-2.3
+04500	Kellokoski	Tuusula	Uusimaa	2012	-2.6
+05900	Vieremä	Hyvinkää	Uusimaa	2000	0.7
+01830	Lepsämä	Nurmijärvi	Uusimaa	1997	-2.5
+06400	Gammelbacka	Porvoo	Uusimaa	1989	-2.4
+02510	Oitmäki	Kirkkonummi	Uusimaa	1975	-3.8
+06530	Kerkkoo	Porvoo	Uusimaa	1971	-3.3
+04170	Paippinen	Sipoo	Uusimaa	1966	-2.7
+05100	Röykkä	Nurmijärvi	Uusimaa	1965	-1.5
+05460	Hakalanmäki-Hakala	Hyvinkää	Uusimaa	1957	-1.5
+05200	Rajamäki	Nurmijärvi	Uusimaa	1953	-1
+02550	Evitskog	Kirkkonummi	Uusimaa	1944	-4
+04360	Ruotsinkylä-Kiilinmäki	Tuusula	Uusimaa	1934	-3.5
+04370	Rusutjärvi	Tuusula	Uusimaa	1921	-3.6
+04600	Mäntsälä Keskus	Mäntsälä	Uusimaa	1911	-2.4
+04240	Talma	Sipoo	Uusimaa	1901	-3.4
+04440	Jamppa	Järvenpää	Uusimaa	1893	-2
+02580	Siuntio Asemanseutu	Siuntio	Uusimaa	1886	-4.2
+04380	Tuomala	Tuusula	Uusimaa	1884	-3.7
+04390	Jäniksenlinna	Tuusula	Uusimaa	1882	-3.8
+07170	Keski-Pornainen	Pornainen	Uusimaa	1874	-4.5
+02590	Lappers	Siuntio	Uusimaa	1869	-4.3
+05840	Hyvinkäänkylä-Vehkoja	Hyvinkää	Uusimaa	1861	-1.2
+04350	Nahkela	Tuusula	Uusimaa	1855	-3.9
+08500	Ventelä-Millola	Lohja	Uusimaa	1851	-3.4
+02460	Kantvik	Kirkkonummi	Uusimaa	1841	-1.3
+07230	Monninkylä	Askola	Uusimaa	1836	-4.8
+03250	Ojakkala	Vihti	Uusimaa	1815	-2.8
+07700	Koskenkylän saha-alue	Loviisa	Uusimaa	1813	-4.5
+03400	Vihti Kirkonkylä	Vihti	Uusimaa	1803	-2.4
+08680	Muijala	Lohja	Uusimaa	1803	-4.5
+01730	Vantaanpuisto	Vantaa	Uusimaa	1779	-3.4
+05820	Mustamännistö	Hyvinkää	Uusimaa	1779	-0.5
+06500	Saksala-Suomenkylä	Porvoo	Uusimaa	1779	-3.7
+04660	Numminen	Mäntsälä	Uusimaa	1777	-3.4
+10640	Dragsvik	Raasepori	Uusimaa	1761	-2.8
+04530	Ohkola	Mäntsälä	Uusimaa	1744	-3.9
+06450	Eestinmäki-Ernestas	Porvoo	Uusimaa	1742	-3.2
+04940	Levanto	Mäntsälä	Uusimaa	1726	-3.9
+04920	Saarentaus	Mäntsälä	Uusimaa	1721	-3.9
+04680	Hirvihaara	Mäntsälä	Uusimaa	1719	-3.7
+04630	Sääksjärvi	Mäntsälä	Uusimaa	1712	-3.7
+06830	Kulloonkylä	Porvoo	Uusimaa	1711	-3.9
+05430	Nuppulinna	Tuusula	Uusimaa	1702	-2.4
+04740	Sälinkää	Mäntsälä	Uusimaa	1700	-4
+04820	Kaukalampi	Mäntsälä	Uusimaa	1690	-4
+10940	Hangonkylä	Hanko	Uusimaa	1681	-2.1
+05620	Noppo	Nurmijärvi	Uusimaa	1645	-2
+04840	Hautjärvi	Mäntsälä	Uusimaa	1640	-4.3
+08700	Virkkala	Lohja	Uusimaa	1631	-2.5
+06200	Porvoo itäinen	Porvoo	Uusimaa	1629	-4.3
+04770	Sahakylä	Mäntsälä	Uusimaa	1627	-4.4
+07500	Askola Kirkonkylä	Askola	Uusimaa	1627	-4.4
+06880	Kärrby	Sipoo	Uusimaa	1623	-4.3
+05250	Kiljava	Nurmijärvi	Uusimaa	1622	-2.2
+05450	Nukari	Nurmijärvi	Uusimaa	1621	-2.8
+10210	Inkoo Keskus	Inkoo	Uusimaa	1617	-3
+02410	Gesterby	Kirkkonummi	Uusimaa	1616	-2.1
+05470	Palopuro	Hyvinkää	Uusimaa	1590	-2.9
+06950	Emäsalo	Porvoo	Uusimaa	1582	-4.5
+10650	Flyet	Raasepori	Uusimaa	1569	-2.5
+05510	Päivärinta	Hyvinkää	Uusimaa	1566	-2.4
+05860	Talvisilta	Hyvinkää	Uusimaa	1566	-0.9
+03150	Huhmari	Vihti	Uusimaa	1563	-3.5
+03220	Tervalampi	Vihti	Uusimaa	1538	-3.5
+07900	Loviisa Keskus	Loviisa	Uusimaa	1534	-4.4
+07110	Hinthaara	Porvoo	Uusimaa	1515	-4.9
+09430	Saukkola	Lohja	Uusimaa	1514	-2.5
+03300	Otalampi	Vihti	Uusimaa	1509	-3.4
+10620	Högbacka	Raasepori	Uusimaa	1498	-3
+07190	Halkia	Pornainen	Uusimaa	1491	-5
+10900	Hanko Keskus	Hanko	Uusimaa	1491	-2.3
+08200	Ojamo	Lohja	Uusimaa	1484	-3.4
+05950	Ridasjärvi	Hyvinkää	Uusimaa	1473	-2.7
+07130	Anttila	Porvoo	Uusimaa	1472	-5.1
+03430	Jokikunta	Vihti	Uusimaa	1471	-3.7
+08350	Routio	Lohja	Uusimaa	1466	-3.9
+08800	Kirkniemi	Lohja	Uusimaa	1462	-5
+08480	Karstu	Lohja	Uusimaa	1459	-4.5
+07150	Laukkoski	Pornainen	Uusimaa	1458	-5.2
+08450	Hormajärvi	Lohja	Uusimaa	1455	-4.5
+05880	Paavola-Vaivero	Hyvinkää	Uusimaa	1453	-2.5
+05720	Kytäjä	Hyvinkää	Uusimaa	1438	-3.1
+03320	Selki	Vihti	Uusimaa	1436	-3.8
+10960	Hanko Pohjoinen	Hanko	Uusimaa	1427	-2.9
+03600	Karkkila Keskus	Karkkila	Uusimaa	1423	-3.7
+09220	Sammatti	Lohja	Uusimaa	1420	-2.6
+07410	Kråkö	Porvoo	Uusimaa	1414	-5
+07280	Ilola	Porvoo	Uusimaa	1397	-5.7
+07220	Kaarenkylä	Porvoo	Uusimaa	1392	-5.7
+07510	Vakkola	Askola	Uusimaa	1386	-5.4
+03810	Ikkala	Lohja	Uusimaa	1385	-4
+06850	Kulloo	Porvoo	Uusimaa	1367	-5.7
+07590	Huuvari-Tiilää	Askola	Uusimaa	1367	-5.5
+03790	Vihtijärvi	Vihti	Uusimaa	1365	-4.2
+03870	Hyönölä	Lohja	Uusimaa	1364	-4.1
+07450	Voolahti	Porvoo	Uusimaa	1358	-5.3
+07560	Pukkila Keskus	Pukkila	Uusimaa	1358	-5.7
+07550	Torpinkylä	Pukkila	Uusimaa	1348	-5.6
+10300	Karjaa Keskus	Raasepori	Uusimaa	1347	-4.3
+02570	Siuntio Kirkonkylä	Siuntio	Uusimaa	1339	-5.4
+07350	Gäddrag	Porvoo	Uusimaa	1334	-5.4
+10330	Pinjainen	Raasepori	Uusimaa	1331	-4
+07310	Sannainen	Porvoo	Uusimaa	1326	-5.5
+07320	Jakari-Sannäs	Porvoo	Uusimaa	1303	-5.6
+07740	Gammelby	Loviisa	Uusimaa	1302	-5.9
+07530	Onkimaa	Askola	Uusimaa	1298	-5.9
+03710	Uusitalo	Karkkila	Uusimaa	1296	-4.6
+03850	Pusula	Lohja	Uusimaa	1294	-4
+07780	Härkäpää	Loviisa	Uusimaa	1292	-6
+07580	Tiilää	Askola	Uusimaa	1291	-5.9
+07565	Kantele	Pukkila	Uusimaa	1288	-5.9
+07390	Suurpellinki	Porvoo	Uusimaa	1277	-5.8
+10680	Skogby	Raasepori	Uusimaa	1277	-4.2
+07600	Myrskylä Keskus	Myrskylä	Uusimaa	1266	-5.8
+09630	Koisjärvi	Lohja	Uusimaa	1260	-3.3
+07720	Malmgård	Loviisa	Uusimaa	1259	-6.2
+07370	Pellinki	Porvoo	Uusimaa	1255	-5.9
+07680	Juornaankylä	Askola	Uusimaa	1255	-5.9
+10350	Meltolan sairaala-alue	Raasepori	Uusimaa	1245	-4.1
+03620	Polari	Karkkila	Uusimaa	1241	-4.5
+09810	Nummi-Oinola	Lohja	Uusimaa	1237	-3.5
+07360	Tirmo	Porvoo	Uusimaa	1236	-6
+07920	Etelä-Harju	Loviisa	Uusimaa	1218	-5.5
+07690	Kankkila	Myrskylä	Uusimaa	1209	-6.2
+09520	Millola	Lohja	Uusimaa	1208	-3.6
+10320	Bäljars	Raasepori	Uusimaa	1206	-3.6
+07750	Isnäs	Loviisa	Uusimaa	1189	-6.2
+07880	Liljendal Keskus	Loviisa	Uusimaa	1187	-6.1
+09930	Leppäkorpi	Lohja	Uusimaa	1182	-3.7
+09120	Karjalohja	Lohja	Uusimaa	1176	-3.6
+07870	Skinnarby	Loviisa	Uusimaa	1168	-6.2
+07820	Porlammi	Lapinjärvi	Uusimaa	1167	-6.2
+07850	Heikinkylä	Lapinjärvi	Uusimaa	1155	-6.3
+10230	Inkoo Asemanseutu	Inkoo	Uusimaa	1154	-4.9
+10360	Mustio	Raasepori	Uusimaa	1153	-4.7
+07830	Pukaro	Lapinjärvi	Uusimaa	1152	-6.3
+07810	Ingermaninkylä	Lapinjärvi	Uusimaa	1146	-6.3
+10520	Tenhola Kirkonkylä	Raasepori	Uusimaa	1146	-4.5
+07890	Mickelspiltom	Loviisa	Uusimaa	1140	-6.4
+07840	Lindkoski	Lapinjärvi	Uusimaa	1138	-6.4
+10140	Päivölä	Inkoo	Uusimaa	1123	-4.5
+10160	Degerby	Inkoo	Uusimaa	1112	-4.6
+10120	Tähtelä	Inkoo	Uusimaa	1104	-4.6
+10250	Fagervik	Inkoo	Uusimaa	1100	-5.2
+10380	Kaunislahti	Raasepori	Uusimaa	1098	-5.1
+10660	Trollböle	Raasepori	Uusimaa	1090	-4.9
+10270	Barösund	Inkoo	Uusimaa	1083	-5.3
+07930	Pernaja Kirkonkylä	Loviisa	Uusimaa	1076	-6.6
+07800	Lapinjärvi Keskus	Lapinjärvi	Uusimaa	1069	-6.2
+07970	Ruotsinpyhtää Keskus	Loviisa	Uusimaa	1069	-6.7
+10710	Snappertuna	Raasepori	Uusimaa	1064	-4.9
+07945	Kuggom	Loviisa	Uusimaa	1057	-6.8
+10570	Bromarv	Raasepori	Uusimaa	1054	-5.1
+07960	Ahvenkoski	Loviisa	Uusimaa	1020	-7
+07990	Ruotsinkylä-Koskisto	Loviisa	Uusimaa	1011	-7.1
+07940	Määrlahti	Loviisa	Uusimaa	1003	-6.7
+07980	Kuninkaankylä	Loviisa	Uusimaa	1002	-7.2
+07955	Tesjoki	Loviisa	Uusimaa	978	-7
+10440	Bollsta	Raasepori	Uusimaa	977	-5.1
+10470	Fiskari	Raasepori	Uusimaa	929	-5.4
+10420	Pohjankuru	Raasepori	Uusimaa	900	-5.9
+47350	Kimonkylä	Lapinjärvi	Uusimaa	861	-4.2
+10480	Antskog	Raasepori	Uusimaa	853	-5.9
+07910	Valko	Loviisa	Uusimaa	817	-7.1
+10820	Lappohja	Hanko	Uusimaa	703	-5.9
+10410	Åminnefors	Raasepori	Uusimaa	578	-6.8
+20100	Turku Keskus	Turku	Varsinais-Suomi	2975	1.9
+20500	Vesilinna	Turku	Varsinais-Suomi	2973	3.2
+20810	Martti-Korppolaismäki	Turku	Varsinais-Suomi	2682	0.7
+20520	Kupittaa	Turku	Varsinais-Suomi	2588	2.5
+20700	Vartiovuori-Samppalinna	Turku	Varsinais-Suomi	2573	0.5
+20900	Moikoinen-Pikisaari	Turku	Varsinais-Suomi	2482	0.1
+20660	Littoinen	Kaarina	Varsinais-Suomi	2184	-1.3
+20380	Räntämäki-Saramäki	Turku	Varsinais-Suomi	2146	-1.3
+20300	Pohjola-Kastu	Turku	Varsinais-Suomi	2137	0.3
+20200	Iso-Heikkilä	Turku	Varsinais-Suomi	2130	1.2
+21280	Kuloinen	Raisio	Varsinais-Suomi	2048	-3.3
+20720	Vasaramäki	Turku	Varsinais-Suomi	1944	-0.5
+21100	Naantali Keskus	Naantali	Varsinais-Suomi	1934	-3.1
+20400	Moisio	Turku	Varsinais-Suomi	1928	-1.5
+21620	Kuusisto	Kaarina	Varsinais-Suomi	1911	-3.1
+20540	Nummi-Ylioppilaskylä	Turku	Varsinais-Suomi	1903	1.1
+20760	Piispanristi	Kaarina	Varsinais-Suomi	1829	-1.5
+20780	Kaarina Keskus	Kaarina	Varsinais-Suomi	1802	-1.5
+20320	Kuninkoja-Mälikkälä	Turku	Varsinais-Suomi	1773	-0.9
+20880	Uittamo	Turku	Varsinais-Suomi	1767	-1.7
+21120	Viherjäinen	Raisio	Varsinais-Suomi	1746	-4.2
+21260	Ihala	Raisio	Varsinais-Suomi	1736	-3.8
+21420	Lieto Keskus	Lieto	Varsinais-Suomi	1708	-3
+20740	Ilpoinen-Harittu	Turku	Varsinais-Suomi	1699	-1.4
+21250	Masku	Masku	Varsinais-Suomi	1699	-3.8
+20960	Kakskerta	Turku	Varsinais-Suomi	1694	-1.7
+21160	Merimasku	Naantali	Varsinais-Suomi	1688	-4.3
+20250	Pitkämäki-Muhkuri	Turku	Varsinais-Suomi	1655	-1.3
+21290	Rusko	Rusko	Varsinais-Suomi	1645	-5.2
+21110	Taimo-Nuhjala-Lietsala	Naantali	Varsinais-Suomi	1644	-3.5
+21500	Piikkiö	Kaarina	Varsinais-Suomi	1573	-3.4
+21600	Parainen Keskus	Parainen	Varsinais-Suomi	1524	-2
+21360	Lieto Asemanseutu	Lieto	Varsinais-Suomi	1493	-3.7
+21200	Raisio Keskus	Raisio	Varsinais-Suomi	1476	-3.9
+21350	Ilmarinen	Lieto	Varsinais-Suomi	1468	-3.6
+21410	Vanhalinna	Lieto	Varsinais-Suomi	1463	-3.9
+20730	Skanssi	Turku	Varsinais-Suomi	1461	-2.8
+21610	Kirjala	Parainen	Varsinais-Suomi	1390	-4
+21310	Vahto	Rusko	Varsinais-Suomi	1387	-4
+21230	Lemu	Masku	Varsinais-Suomi	1375	-4.8
+21270	Nousiainen	Nousiainen	Varsinais-Suomi	1369	-4.7
+24280	Tupuri-Hähkänä	Salo	Varsinais-Suomi	1365	-5.2
+21520	Naskarla	Paimio	Varsinais-Suomi	1364	-4.2
+23100	Mynämäki Keskus	Mynämäki	Varsinais-Suomi	1356	-1.2
+21130	Poikko	Naantali	Varsinais-Suomi	1326	-4.9
+21210	Hakinmäki	Raisio	Varsinais-Suomi	1324	-5.8
+21220	Somersoja	Raisio	Varsinais-Suomi	1313	-5.2
+21330	Paattinen	Turku	Varsinais-Suomi	1308	-4.2
+20360	Kärsämäki-Urusvuori-Halinen	Turku	Varsinais-Suomi	1307	-2.1
+21540	Preitilä	Paimio	Varsinais-Suomi	1290	-4.5
+21530	Paimio Keskus	Paimio	Varsinais-Suomi	1282	-4.3
+21240	Askainen Keskus	Masku	Varsinais-Suomi	1279	-5.4
+32200	Loimaa Keskus	Loimaa	Varsinais-Suomi	1272	-0.1
+21370	Aura kk.	Aura	Varsinais-Suomi	1255	-4.5
+23120	Mietoinen Keskus	Mynämäki	Varsinais-Suomi	1253	-0.6
+21195	Velkua	Naantali	Varsinais-Suomi	1246	-5.2
+23880	Suontaka	Laitila	Varsinais-Suomi	1245	0
+24100	Salo Keskus	Salo	Varsinais-Suomi	1244	-6.1
+21630	Lielahti	Parainen	Varsinais-Suomi	1241	-4.6
+21380	Aura Keskus	Aura	Varsinais-Suomi	1240	-4.4
+20750	Huhkola-Lauste-Vaala	Turku	Varsinais-Suomi	1238	-2.3
+20610	Varissuo	Turku	Varsinais-Suomi	1234	-1.8
+21180	Livonsaari	Naantali	Varsinais-Suomi	1233	-5.3
+23140	Hietamäki	Mynämäki	Varsinais-Suomi	1230	-0.8
+21660	Nauvo Keskus	Parainen	Varsinais-Suomi	1229	-4.4
+21340	Tortinmäki	Turku	Varsinais-Suomi	1216	-4.7
+24240	Rappula	Salo	Varsinais-Suomi	1204	-5.6
+20210	Pahaniemi	Turku	Varsinais-Suomi	1198	-2.2
+21150	Röölä	Naantali	Varsinais-Suomi	1183	-5.5
+21670	Mattnäs-Nötö	Parainen	Varsinais-Suomi	1178	-4.9
+24130	Ylhäisi	Salo	Varsinais-Suomi	1178	-6.1
+23800	Laitila Keskus	Laitila	Varsinais-Suomi	1177	0.2
+23840	Soukainen	Laitila	Varsinais-Suomi	1176	-0.4
+21555	Taatila	Paimio	Varsinais-Suomi	1173	-5
+21510	Hevonpää	Paimio	Varsinais-Suomi	1167	-5.1
+21650	Lillandet	Parainen	Varsinais-Suomi	1165	-4.9
+21720	Korpoström	Parainen	Varsinais-Suomi	1163	-5.3
+21740	Utö	Parainen	Varsinais-Suomi	1162	-5.3
+21430	Yliskulma	Lieto	Varsinais-Suomi	1144	-5.2
+23500	Uusikaupunki Keskus	Uusikaupunki	Varsinais-Suomi	1137	-0.5
+20460	Jäkärlä	Turku	Varsinais-Suomi	1134	-3.5
+23310	Taivassalo	Taivassalo	Varsinais-Suomi	1130	-0.8
+20240	Pansio-Perno	Turku	Varsinais-Suomi	1124	-2.9
+21770	Mossala	Parainen	Varsinais-Suomi	1124	-5.5
+21590	Karuna	Sauvo	Varsinais-Suomi	1114	-5.3
+21710	Korppoo Keskus-Utö	Parainen	Varsinais-Suomi	1111	-5.5
+21560	Ollila	Marttila	Varsinais-Suomi	1105	-5.4
+24910	Halikko Asemanseutu	Salo	Varsinais-Suomi	1096	-6.5
+23960	Santtio	Pyhäranta	Varsinais-Suomi	1092	-1.2
+21480	Prunkila	Marttila	Varsinais-Suomi	1091	-5.5
+23950	Pyhäranta	Pyhäranta	Varsinais-Suomi	1088	-1.2
+21760	Houtskär Keskus	Parainen	Varsinais-Suomi	1087	-5.7
+21570	Sauvo Keskus	Sauvo	Varsinais-Suomi	1064	-5.4
+24800	Halikko Keskus	Salo	Varsinais-Suomi	1062	-7.5
+21750	Norrskata	Parainen	Varsinais-Suomi	1042	-5.9
+21860	Auvainen	Pöytyä	Varsinais-Suomi	1042	-5.9
+21840	Karinainen	Pöytyä	Varsinais-Suomi	1041	-5.9
+23930	Pyhämaa	Uusikaupunki	Varsinais-Suomi	1041	-1.5
+21870	Riihikoski	Pöytyä	Varsinais-Suomi	1034	-6.3
+23660	Kalanti Asemanseutu	Uusikaupunki	Varsinais-Suomi	1034	-1.3
+23360	Kustavi	Kustavi	Varsinais-Suomi	1031	-1.5
+23260	Rautila	Vehmaa	Varsinais-Suomi	1025	-1.4
+23450	Lokalahti	Uusikaupunki	Varsinais-Suomi	1022	-1.5
+21930	Uusikartano	Pöytyä	Varsinais-Suomi	1012	-5.6
+23210	Vehmaa	Vehmaa	Varsinais-Suomi	1003	-1.5
+23390	Iniö	Parainen	Varsinais-Suomi	1003	-1.6
+24260	Ollikkala	Salo	Varsinais-Suomi	1002	-7.4
+31400	Somero Keskus	Somero	Varsinais-Suomi	994	-5.4
+23200	Vinkkilä	Vehmaa	Varsinais-Suomi	989	-1.2
+21450	Tarvasjoki Keskus	Tarvasjoki	Varsinais-Suomi	986	-6.2
+23600	Kalanti Keskus	Uusikaupunki	Varsinais-Suomi	981	-1.4
+32500	Oripää Keskus	Oripää	Varsinais-Suomi	981	-1.5
+21680	Nötö	Parainen	Varsinais-Suomi	973	-5.9
+21890	Haveri	Pöytyä	Varsinais-Suomi	972	-6.3
+25700	Kemiö Keskus	Kemiönsaari	Varsinais-Suomi	971	-8.1
+21820	Kumila	Pöytyä	Varsinais-Suomi	969	-6.3
+25130	Muurla	Salo	Varsinais-Suomi	966	-8
+25360	Pertteli Keskus	Salo	Varsinais-Suomi	963	-7.3
+21140	Rymättylä Keskus	Naantali	Varsinais-Suomi	960	-6.2
+27320	Ihode	Pyhäranta	Varsinais-Suomi	949	-0.6
+27340	Reila	Pyhäranta	Varsinais-Suomi	934	-0.7
+21900	Yläne Keskus	Pöytyä	Varsinais-Suomi	930	-5.2
+31500	Koski Tl	Koski Tl	Varsinais-Suomi	923	-4.8
+21490	Marttila	Marttila	Varsinais-Suomi	918	-6.3
+25250	Märynummi	Salo	Varsinais-Suomi	915	-7.7
+25710	Vreta-Vestlax	Kemiönsaari	Varsinais-Suomi	902	-7.9
+21800	Kyrö	Pöytyä	Varsinais-Suomi	900	-6.6
+32250	Kojonkulma	Loimaa	Varsinais-Suomi	898	-1.9
+25210	Vartsala	Salo	Varsinais-Suomi	897	-7.7
+32520	Latva	Oripää	Varsinais-Suomi	896	-1.9
+32270	Metsämaa-Murto	Loimaa	Varsinais-Suomi	890	-1.9
+25900	Taalintehdas	Kemiönsaari	Varsinais-Suomi	889	-7.9
+32210	Loimaa kk	Loimaa	Varsinais-Suomi	884	-2
+31410	Ylöpirtti	Somero	Varsinais-Suomi	880	-5.5
+32560	Virttaa	Loimaa	Varsinais-Suomi	879	-2.1
+32280	Metsäkorpi	Loimaa	Varsinais-Suomi	877	-2
+31450	Häntälä	Somero	Varsinais-Suomi	874	-5.6
+31530	Pyöli	Somero	Varsinais-Suomi	873	-5.3
+25500	Perniö Keskus	Salo	Varsinais-Suomi	866	-9.1
+31490	Terttilä	Somero	Varsinais-Suomi	862	-5.7
+25570	Teijo-Mathildedal	Salo	Varsinais-Suomi	859	-8.4
+31520	Pitkäjärvi	Somero	Varsinais-Suomi	859	-5.4
+21880	Pöytyä	Pöytyä	Varsinais-Suomi	856	-6.7
+31460	Hirsjärvi	Somero	Varsinais-Suomi	856	-5.7
+25630	Finby	Salo	Varsinais-Suomi	854	-8
+25520	Perniö Asemanseutu	Salo	Varsinais-Suomi	851	-8.4
+25760	Kiila	Kemiönsaari	Varsinais-Suomi	851	-8.4
+32260	Kojonperä	Loimaa	Varsinais-Suomi	851	-2.2
+25230	Angelniemi	Salo	Varsinais-Suomi	843	-8
+31470	Somerniemi	Somero	Varsinais-Suomi	842	-5.8
+25870	Dragsfjärd	Kemiönsaari	Varsinais-Suomi	841	-8.1
+25660	Mathildedal	Salo	Varsinais-Suomi	837	-8.1
+25540	Knaapila	Salo	Varsinais-Suomi	828	-8.6
+25730	Mjösund	Kemiönsaari	Varsinais-Suomi	828	-8.6
+25820	Vestlax	Kemiönsaari	Varsinais-Suomi	827	-8.2
+25240	Hajala	Salo	Varsinais-Suomi	823	-8.2
+25550	Aijala	Salo	Varsinais-Suomi	822	-8.7
+25860	Björkboda	Kemiönsaari	Varsinais-Suomi	820	-8.2
+25930	Kasnäs	Kemiönsaari	Varsinais-Suomi	819	-8.3
+25560	Koski Asemanseutu	Salo	Varsinais-Suomi	818	-8.7
+25830	Västanfjärd Keskus	Kemiönsaari	Varsinais-Suomi	818	-8.3
+25650	Strömma	Kemiönsaari	Varsinais-Suomi	816	-8.3
+25840	Nivelax	Kemiönsaari	Varsinais-Suomi	815	-8.3
+25260	Vaskio	Salo	Varsinais-Suomi	814	-8.2
+25610	Ylönkylä	Salo	Varsinais-Suomi	812	-8.3
+32410	Niinijoki	Loimaa	Varsinais-Suomi	811	-2.2
+25640	Förby	Salo	Varsinais-Suomi	810	-8.3
+25410	Suomusjärvi Keskus	Salo	Varsinais-Suomi	807	-8.4
+25950	Rosala-Kasnäs-Hitis	Kemiönsaari	Varsinais-Suomi	806	-8.4
+25180	Romsila	Salo	Varsinais-Suomi	796	-8.7
+25420	Lahnajärvi	Salo	Varsinais-Suomi	796	-8.4
+25940	Hiittinen	Kemiönsaari	Varsinais-Suomi	796	-8.5
+25160	Tuohittu	Salo	Varsinais-Suomi	794	-8.7
+31960	Orisuo	Loimaa	Varsinais-Suomi	791	-5.2
+32430	Ylhäinen	Loimaa	Varsinais-Suomi	789	-2.3
+25810	Mark	Kemiönsaari	Varsinais-Suomi	784	-8.5
+25170	Kotalato	Salo	Varsinais-Suomi	783	-8.8
+32440	Alastaro Keskus	Loimaa	Varsinais-Suomi	782	-1.8
+25110	Kruusila	Salo	Varsinais-Suomi	778	-8.8
+25460	Toija	Salo	Varsinais-Suomi	777	-8.5
+32450	Tammiainen	Loimaa	Varsinais-Suomi	776	-2.4
+25960	Högsåra	Kemiönsaari	Varsinais-Suomi	775	-8.7
+25190	Inkere	Salo	Varsinais-Suomi	757	-8.3
+25470	Kisko kk	Salo	Varsinais-Suomi	754	-8.7
+25430	Kettula	Salo	Varsinais-Suomi	752	-8.7
+32300	Mellilä	Loimaa	Varsinais-Suomi	752	-2.5
+25910	Vänoxa	Kemiönsaari	Varsinais-Suomi	751	-8.9
+25330	Kuusjoki Keskus	Salo	Varsinais-Suomi	744	-8.3
+25320	Raatala	Salo	Varsinais-Suomi	729	-8.5
+25340	Kanunki	Salo	Varsinais-Suomi	729	-8.5
+25370	Hiisi	Salo	Varsinais-Suomi	725	-8.5
+25390	Kiikala Keskus	Salo	Varsinais-Suomi	600	-9
+25380	Rekijoki	Salo	Varsinais-Suomi	589	-9.2
