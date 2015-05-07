@@ -6,6 +6,8 @@ Neliohinnat
 
 Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus. See the interactive visualisation [Kannattaakokauppa](http://kannattaakokauppa.fi/#/) and related blog posts at [Reaktor](http://reaktor.com/blog/asuntojen-trendit-ja-miten-niista-tehdaan-luotettavia-ennusteita) and [Louhos](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). 
 
+Discussion on [Hacker News](https://news.ycombinator.com/item?id=9503580).
+
 Also news coverage at [HS](http://www.hs.fi/kotimaa/a1430886950224) and [Tivi](http://www.tivi.fi/Kaikki_uutiset/2015-05-07/Ryhtym%C3%A4ss%C3%A4-asuntokaupoille-Katso-miten-asuntosi-hinta-kehittyy-tulevaisuudessa-3221240.html).
 
 ## Data sources
