@@ -1,11 +1,9 @@
 Neliohinnat
 ===========
 
-TODO: UPDATE
 
 ## Introduction
 
-FIXME: UPDATE
 Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus.
 
 ## Data sources
@@ -26,13 +24,9 @@ The data sets are accessed with the [pxweb and [gisfin] package from [rOpenGov].
 
 ## Source code
 
-* `source/get_data.R` script for retrieving all data
+See the `source`-folder.
 
 
 ## Statistical model
 
-FIXME: UPDATE
-
-* Motivation: missing data, prediction
-* Assumptions
-* Equations (simplified?)
+See description in Finnish in [Louhos-blog](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). English description coming later.
