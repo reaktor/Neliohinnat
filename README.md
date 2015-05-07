@@ -8,7 +8,7 @@ Apartment price trends across Finland, on the level of zip codes, based on open 
 
 Discussion on [Hacker News](https://news.ycombinator.com/item?id=9503580).
 
-Also news coverage at [HS](http://www.hs.fi/kotimaa/a1430886950224) and [Tivi](http://www.tivi.fi/Kaikki_uutiset/2015-05-07/Ryhtym%C3%A4ss%C3%A4-asuntokaupoille-Katso-miten-asuntosi-hinta-kehittyy-tulevaisuudessa-3221240.html).
+Also news coverage at [HS](http://www.hs.fi/kotimaa/a1430886950224), [Tivi](http://www.tivi.fi/Kaikki_uutiset/2015-05-07/Ryhtym%C3%A4ss%C3%A4-asuntokaupoille-Katso-miten-asuntosi-hinta-kehittyy-tulevaisuudessa-3221240.html) and [Helsingin Uutiset](http://www.helsinginuutiset.fi/artikkeli/284968-nain-paljon-asuntosi-maksaa-vuonna-2016-koko-suomen-kattava-ennustepalvelu-aloitti).
 
 ## Data sources
 
