@@ -12,7 +12,7 @@ Millainen kehitys on Suomessa? Asuntojen hintojen muutokset kuvastavat muutoksia
 Asuinalueen urbaaniudelle on monia mittareita, joista yksinkertaisin on väestötiheys. Allaolevasta kuvaajasta nähdään, että koko Suomessa ei juurikaan ole yhteyttä asuntojen hinnan ja asuinalueen väestötiheyden välillä. Vaaka-akseli kuvaa väestötiheyttä asukkaina neliökilometrillä logaritmisella skaalalla, pystyakseli ennustettua hinnan muutosta vuonna 2016 prosentteina per vuosi ja jokaiselle postinumeroalueelle on erillinen pisteensä. 
 
 ```{r, echo=FALSE, warning=FALSE, results='hide', message=FALSE}
-# Script for analysing the relation between population density and price trends
+# Script for analysing the relation between trends density and price trends
 library("ggplot2")
 library("sorvi")
 #library("mgcv")
@@ -22,9 +22,9 @@ library("dplyr")
 # FIXME: path to be relative; now knit2html() behaves differently from source()
 population <- read.csv("/Users/jaakkos/github.reaktor/Neliohinnat/data/pnro-hinnat.txt", sep=" ", header=T, colClasses="character",row.names=1)
 population$logtiheys <- -10*as.numeric(population$log.density)
-population$hintataso <- as.numeric(population$hinta2016)
-population$trendi <- 100*as.numeric(population$trendi2016)
-population$trendimuutos <- 100*as.numeric(population$trendimuutos)
+#population$hintataso <- as.numeric(population$hinta2016)
+#population$trendi <- 100*as.numeric(population$trendi2016)
+#population$trendimuutos <- 100*as.numeric(population$trendimuutos)
 
 pc <- get_postal_code_info()
 
@@ -39,21 +39,39 @@ for (ind in seq(length(pc$postal.code))) {
   }
 }
 
+trends <- readRDS("/Users/jaakkos/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends.rds")
+trends$kunta = ''
+trends$logtiheys = 0
+
+for (ind in seq(length(trends$trend.y.mean))) {
+  if (ind%%1000==0){
+    print (ind)}
+  if (trends[ind,]$pnro %in% rownames(population)) {
+    trends[ind,]$logtiheys = population[trends[ind,]$pnro,]$logtiheys
+    trends[ind,]$kunta = population[trends[ind,]$pnro,]$kunta
+    }
+  else {
+    print (c("postinumeroa ",trends[ind,]$pnro," ei löytynyt"))
+  }
+}
+
+
 ymin = -0.016
 ymax = 0.002
 xmin = 0
 xmax = 4.5
 
 
-isot = c("Pääkaupunkiseutu","Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","muu")
+isot = c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","muu")
+#isot = c("Pääkaupunkiseutu","Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","muu")
 pk = c("Helsinki")
 pks = c("Helsinki","Espoo","Vantaa","Kauniainen")
 pksiso = c("Helsinki","Espoo","Vantaa","Kauniainen","Kirkkonummi","Siuntio","Vihti","Nurmijärvi","Kerava","Sipoo","Pornainen","Mäntsälä","Tuusula","Järvenpää")
 
-for (ind in seq(length(population$kunta))) {
-    if (!(population$kunta[ind] %in% isot)) 
+for (ind in seq(length(trends$kunta))) {
+    if (!(trends$kunta[ind] %in% isot)) 
     {
-            population$kunta[ind] = "muu" 
+            trends$kunta[ind] = "muu" 
     }
 }  
 
@@ -61,12 +79,19 @@ library(scales)
 #log.vals = seq(-2, 4, 2)
 log.vals = c(-1,0,2,4)
 
-norm.vals <- 10**log.vals
+norm.vals <- 10**(log.vals)
 
-# koko Suomen trendi vs tiheys
-gg <- ggplot(population, aes(logtiheys,trendi)) + geom_point(size=1,aes(color=trendi>0)) + geom_smooth(method="rlm") + 
-  xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log.vals, labels=norm.vals)
+# koko Suomen ajallinen trendi vs tiheys
+gg <- ggplot(transform(filter(trends,year<2015), year=factor(year)), aes(logtiheys,trend.y.mean),) + geom_point(size=1,aes(color=trend.y.mean>0)) + geom_smooth(method="rlm") + 
+  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals)
 print(gg)
+
+# Helsingin ajallinen trendi vs tiheys
+selkunta = "Helsinki"
+gg <- ggplot(transform(filter(trends,kunta==selkunta,year<2015), year=factor(year)), aes(logtiheys,trend.y.mean),) + geom_point(size=1,aes(color=trend.y.mean>0)) + geom_smooth(method="rlm") + 
+  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) 
+print(gg)
+
 ```
 
 Kuvaajasta nähdään selvästi, että tiheästi asuttujen alueiden hinnat laskevat hitaammin kuin muun Suomen hinnat tai jopa nousevat vielä.
@@ -77,9 +102,33 @@ Tilannetta voidaan tarkastella myös yksittäisten kuntien osalta. Alle on kuvat
 
 
 # isojen kaupunkien trendi vs tiheys
-gg <- ggplot(transform(population, kunta=factor(kunta, levels=isot)), aes(logtiheys,trendi),) + geom_point(size=1,aes(color=trendi>0)) + geom_smooth(method="rlm") + 
-  facet_wrap(~kunta, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log.vals, labels=norm.vals)
+coeff = c()
+year = c()
+kunta = c()
+years = seq(2005,2014)
+
+for (selkunta in isot){
+  for (selyear in years){
+    linear = rlm(trend.y.mean ~ logtiheys,filter(trends,year==selyear,kunta==selkunta))
+    coeff = c(coeff,linear$coefficients[2])
+    year = c(year,selyear)
+    kunta = c(kunta,selkunta)
+  }
+}
+
+lintrends = data.frame(kunta,year,coeff)
+gg <- ggplot(transform(lintrends, kunta=factor(kunta, levels=isot)), aes(year,coeff)) + geom_point(size=1,aes(color=coeff>0)) + 
+  geom_smooth(method="rlm") + facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") 
 print(gg)
 ```
 
 Kuvaajista huomataan, että 
+
+Seuraavaksi tutkitaan hintojen muutosten ja väestötiheyden korrelaatiota vuosi vuodelta. 
+1) kaikille isoille kaupungeille ja 'muu'lle lasketaan kunkin vuoden trendille lineaarinen malli väestötiheyden suhteen
+2) plotataan kaikki vuodet
+```{r, echo=FALSE, warning=FALSE}
+
+
+```
+
