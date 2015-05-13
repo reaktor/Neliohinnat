@@ -7,7 +7,7 @@ TL;DR: Tiheästi asuttujen alueiden asuntojen hinnat ovat muutamana viime vuoten
 
 Maailmalla on vallannut alaa uusi urbanismin aalto, jossa ihmiset haluavat muuttaa tiiviisiin kaupunkikeskustoihin omakotitalolähiöiden sijaan (ks esim. http://www.nytimes.com/2014/04/17/opinion/americas-urban-future.html). Korkeasta väestötiheydestä sanotaan olevan monia etuja: Se tarjoaa monipuoliset palvelut, työpaikkojen ja palveluiden hyvän saavutettavuuden, mahdollisuuden rakentaa viihtyisää kävely-ympäristöä ja tehokkaasti toimivan joukkoliikenteen. Lisäksi tiivis rakentaminen säästää viheralueita ja luo edellytykset talouskasvulle mm. sen tähden, että saman alan yritykset saavat lähekkäin sijaitsemisesta kasautumisetuja.
 
-Millainen kehitys on Suomessa? Asuntojen hintojen muutokset kuvastavat muutoksia siinä, mitä asukkaan arvostavat, eli millaisssa asunnoissa he haluaisivat asua. [Reaktor Oy:n data scientistit](http://reaktor.fi/datascience), joihin itsekin kuulun, [mallinsivat](http://louhos.github.io/...) asuntojen hintojen kehitystä vuosina 2005-2014 ja tekivät niistä [interaktiivisen kartan](http://kannattaakokauppa.fi). Malli antaa postinumerotasolla asuntojen hinnan kehityksen keskineliöhintana, lineaarisena trendinä ja trendin muutoksena. Näiden perusteella voidaan tutkia asukkaiden arvostusten muutoksia. 
+Millainen kehitys on Suomessa? Asuntojen hintojen muutokset kuvastavat muutoksia siinä, mitä asukkaan arvostavat, eli millaisssa asunnoissa he haluaisivat asua. [Reaktor Oy:n data scientistit](http://reaktor.fi/datascience), joihin itsekin kuulun, [mallinsivat](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/) asuntojen hintojen kehitystä vuosina 2005-2014 ja tekivät niistä [interaktiivisen kartan](http://kannattaakokauppa.fi). Malli antaa postinumerotasolla asuntojen hinnan kehityksen keskineliöhintana, lineaarisena trendinä ja trendin muutoksena. Näiden perusteella voidaan tutkia asukkaiden arvostusten muutoksia. 
 
 Asuinalueen urbaaniudelle on monia mittareita, joista yksinkertaisin on väestötiheys. Allaolevasta kuvaajasta nähdään, että koko Suomessa ei juurikaan ole yhteyttä asuntojen hinnan ja asuinalueen väestötiheyden välillä. Vaaka-akseli kuvaa väestötiheyttä asukkaina neliökilometrillä logaritmisella skaalalla, pystyakseli ennustettua hinnan muutosta vuonna 2016 prosentteina per vuosi ja jokaiselle postinumeroalueelle on erillinen pisteensä. 
 
@@ -27,40 +27,17 @@ population$logtiheys <- -10*as.numeric(population$log.density)
 #population$trendimuutos <- 100*as.numeric(population$trendimuutos)
 
 pc <- get_postal_code_info()
-
-population$kunta = ''
-
-for (ind in seq(length(pc$postal.code))) {
-  if (pc[ind,]$postal.code %in% rownames(population)) {
-    population[pc[ind,]$postal.code,]$kunta = pc$municipality[ind]
-    }
-  else {
-    print (c("postinumeroa ",pc[ind,]$postal.code," ei löytynyt"))
-  }
-}
+population <- left_join(mutate(population,pnro = rownames(population)),pc,by = c("pnro" = "postal.code"))
 
 trends <- readRDS("/Users/jaakkos/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends.rds")
-trends$kunta = ''
-trends$logtiheys = 0
 
-for (ind in seq(length(trends$trend.y.mean))) {
-  if (ind%%1000==0){
-    print (ind)}
-  if (trends[ind,]$pnro %in% rownames(population)) {
-    trends[ind,]$logtiheys = population[trends[ind,]$pnro,]$logtiheys
-    trends[ind,]$kunta = population[trends[ind,]$pnro,]$kunta
-    }
-  else {
-    print (c("postinumeroa ",trends[ind,]$pnro," ei löytynyt"))
-  }
-}
-
+trends <- left_join(trends,population,by = "pnro")
+trends <- rename(trends,kunta = municipality)
 
 ymin = -0.016
 ymax = 0.002
 xmin = 0
 xmax = 4.5
-
 
 isot = c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","muu")
 #isot = c("Pääkaupunkiseutu","Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","muu")
@@ -68,12 +45,7 @@ pk = c("Helsinki")
 pks = c("Helsinki","Espoo","Vantaa","Kauniainen")
 pksiso = c("Helsinki","Espoo","Vantaa","Kauniainen","Kirkkonummi","Siuntio","Vihti","Nurmijärvi","Kerava","Sipoo","Pornainen","Mäntsälä","Tuusula","Järvenpää")
 
-for (ind in seq(length(trends$kunta))) {
-    if (!(trends$kunta[ind] %in% isot)) 
-    {
-            trends$kunta[ind] = "muu" 
-    }
-}  
+trends[!trends$kunta %in% isot,]$kunta = 'muu'
 
 library(scales)
 #log.vals = seq(-2, 4, 2)
@@ -102,24 +74,29 @@ Tilannetta voidaan tarkastella myös yksittäisten kuntien osalta. Alle on kuvat
 
 
 # isojen kaupunkien trendi vs tiheys
-coeff = c()
-year = c()
-kunta = c()
-years = seq(2005,2014)
 
-for (selkunta in isot){
-  for (selyear in years){
-    linear = rlm(trend.y.mean ~ logtiheys,filter(trends,year==selyear,kunta==selkunta))
-    coeff = c(coeff,linear$coefficients[2])
-    year = c(year,selyear)
-    kunta = c(kunta,selkunta)
-  }
-}
+#fit <- group_by(filter(trends,year<2015),kunta,year) %>% do(mod = rlm(trend.y.mean ~ logtiheys,data = .))
 
-lintrends = data.frame(kunta,year,coeff)
-gg <- ggplot(transform(lintrends, kunta=factor(kunta, levels=isot)), aes(year,coeff)) + geom_point(size=1,aes(color=coeff>0)) + 
+fit <- group_by(filter(trends,year<2015),kunta,year) %>% do({ mod <- rlm(trend.y.mean ~ logtiheys,data = .); data.frame(k=coef(mod)[["logtiheys"]])}) 
+
+# for (selkunta in isot){
+#   for (selyear in years){
+#     linear = rlm(trend.y.mean ~ logtiheys,filter(trends,year==selyear,kunta==selkunta))
+#     coeff = c(coeff,linear$coefficients[2])
+#     year = c(year,selyear)
+#     kunta = c(kunta,selkunta)
+#   }
+# }
+
+# lintrends = data.frame(kunta,year,coeff)
+gg <- ggplot(fit, aes(year,k)) + geom_point(size=1,) +#aes(color=k>0)) + 
   geom_smooth(method="rlm") + facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") 
 print(gg)
+
+# gg <- ggplot(transform(lintrends, kunta=factor(kunta, levels=isot)), aes(year,coeff)) + geom_point(size=1,aes(color=coeff>0)) + 
+#   geom_smooth(method="rlm") + facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") 
+# print(gg)
+
 ```
 
 Kuvaajista huomataan, että 
