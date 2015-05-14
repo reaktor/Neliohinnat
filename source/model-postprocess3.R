@@ -112,11 +112,23 @@ res <- res.long %>% group_by(pnro, log.density) %>%
  summarise(lprice = mean(lprice), 
            hinta2016=mean(hinta2016), trendi2016=mean(trendi2016), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
-   
+
+res2080 <- res.long %>% group_by(pnro, log.density) %>% 
+  summarise(lprice = mean(lprice), 
+            hinta2016.20 = quantile(hinta2016, .2), 
+            trendi2016.20 = quantile(trendi2016, .2), 
+            trendimuutos.20 = quantile(trendimuutos, .2), 
+            hinta2016.80 = quantile(hinta2016, .8), 
+            trendi2016.80 = quantile(trendi2016, .8), 
+            trendimuutos.80 = quantile(trendimuutos, .8) 
+            ) %>%
+  ungroup()
+
+
 # was:
 # write.table(res %>% select(-log.density),  "data/pnro-hinnat.txt", row.names=F, quote=F)
-write.table(res,  "data/pnro-hinnat.txt", row.names=F, quote=F)
-saveRDS(res, "data/pnro-hinnat.rds")
+write.table(res2080,  "data/pnro-hinnat2080.txt", row.names=F, quote=F)
+saveRDS(res2080, "data/pnro-hinnat2080.rds")
 
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
@@ -139,6 +151,25 @@ predictions <-
   left_join(d %>% select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
 saveRDS(predictions, "predictions.rds")
+
+# For Jaakko
+res.long.narrow <- res.long %>% select(pnro, lprice, trend, quad, sample) #%>% head(10)
+yearly.trends <- 
+  res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
+            mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
+            group_by(pnro, year) %>%
+            summarise(trend.y.mean=mean(trend.y), trend.y.median=median(trend.y))
+saveRDS(yearly.trends, "yearly-trends.rds")
+
+yearly.trends.long <- 
+  res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
+  mutate(trend.y = (trend + 2*quad*year2yr(year))/10) 
+
+yearly.trends.long %>% filter(substr(pnro, 1, 3)=="021") %>% 
+  group_by(sample, year) %>% 
+  summarise(trend.y=mean(trend.y)) %>% 
+  ggplot(aes(x=year, group=sample, y=trend.y)) + geom_line(alpha=0.02, size=4)
+
 
 pnro.plot <- function (ipnro) {
   d.pnro <- predictions %>% filter(pnro %in% ipnro) 
