@@ -8,3 +8,6 @@ pnro-choropleth
 json/predictions
 temp
 temp_pnro_shape
+
+*.xls
+*.html
