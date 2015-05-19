@@ -153,7 +153,10 @@ predictions <-
 saveRDS(predictions, "predictions.rds")
 
 # For Jaakko
+
 res.long.narrow <- res.long %>% select(pnro, lprice, trend, quad, sample) #%>% head(10)
+saveRDS(res.long.narrow, file="res-long-narrow.rds")
+
 yearly.trends <- 
   res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
             mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
@@ -164,12 +167,7 @@ saveRDS(yearly.trends, "yearly-trends.rds")
 yearly.trends.long <- 
   res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
   mutate(trend.y = (trend + 2*quad*year2yr(year))/10) 
-
-yearly.trends.long %>% filter(substr(pnro, 1, 3)=="021") %>% 
-  group_by(sample, year) %>% 
-  summarise(trend.y=mean(trend.y)) %>% 
-  ggplot(aes(x=year, group=sample, y=trend.y)) + geom_line(alpha=0.02, size=4)
-
+saveRDS(yearly.trends.long, file="yearly-trends-long.rds")
 
 pnro.plot <- function (ipnro) {
   d.pnro <- predictions %>% filter(pnro %in% ipnro) 
