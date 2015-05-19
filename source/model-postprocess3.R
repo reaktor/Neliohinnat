@@ -1,4 +1,6 @@
 library(rstan)
+library("MASS")
+
 library(dplyr)
 library(RJSONIO)
 
@@ -152,22 +154,59 @@ predictions <-
 
 saveRDS(predictions, "predictions.rds")
 
-# For Jaakko
+
+
+
+
+
+## Process for urbanisation blog post #############
 
 res.long.narrow <- res.long %>% select(pnro, lprice, trend, quad, sample) #%>% head(10)
-saveRDS(res.long.narrow, file="res-long-narrow.rds")
+#saveRDS(res.long.narrow, file="res-long-narrow.rds")
 
 yearly.trends <- 
   res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
             mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
             group_by(pnro, year) %>%
             summarise(trend.y.mean=mean(trend.y), trend.y.median=median(trend.y))
-saveRDS(yearly.trends, "yearly-trends.rds")
+saveRDS(yearly.trends, "data/yearly-trends.rds")
 
 yearly.trends.long <- 
   res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
   mutate(trend.y = (trend + 2*quad*year2yr(year))/10) 
-saveRDS(yearly.trends.long, file="yearly-trends-long.rds")
+# saveRDS(yearly.trends.long, file="yearly-trends-long.rds")
+# yearly.trends.long <- readRDS("/Users/Ouzor/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends-long.rds") 
+
+# Get population data
+pop.dat <- readRDS("data/pnro-hinnat.rds")
+load("data/pnro_data_20150318.RData")
+population <- pop.dat %>%
+  inner_join(pnro.dat %>% select(pnro, municipality)) %>%
+  mutate(logtiheys = -10*as.numeric(log.density))
+
+# Combine and process
+trendspost <- left_join(yearly.trends.long, population, by = "pnro") %>%
+  select(pnro,year,trend.y,logtiheys,municipality,sample) %>%
+  rename(kunta = municipality)
+isot <- c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","Pori","muu")
+trendspost[!trendspost$kunta %in% isot,]$kunta = 'muu'
+
+# Fit models
+fit <- group_by(filter(trendspost,year<2015),kunta,year,sample) %>%
+  do({ mod <- rlm(trend.y ~ logtiheys,data = .,maxit = 50);
+       data.frame(k=coef(mod)[["logtiheys"]])})
+fit2 <- group_by(fit,kunta,year) %>%
+  do({std = sqrt(var(.$k));
+      k = mean(.$k);
+      data.frame(er = std,k = k)}) 
+trend.fit <- transform(fit2, kunta=factor(kunta, levels=isot))
+
+# Save for the blog post
+save(trend.fit, file="data/yearly-trends-fit.rds")
+
+
+
+#### plots #########
 
 pnro.plot <- function (ipnro) {
   d.pnro <- predictions %>% filter(pnro %in% ipnro) 
