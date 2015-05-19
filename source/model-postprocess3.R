@@ -202,7 +202,7 @@ fit2 <- group_by(fit,kunta,year) %>%
 trend.fit <- transform(fit2, kunta=factor(kunta, levels=isot))
 
 # Save for the blog post
-save(trend.fit, file="data/yearly-trends-fit.rds")
+save(trend.fit, file="data/yearly-trends-fit.RData")
 
 
 
