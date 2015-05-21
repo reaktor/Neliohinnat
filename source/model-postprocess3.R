@@ -1,8 +1,10 @@
 library(rstan)
-library("MASS")
-
+library(MASS)
 library(dplyr)
 library(RJSONIO)
+library(ggplot2)
+theme_set(theme_bw())
+library(sp)
 
 source("source/common3.R")
 
@@ -224,7 +226,6 @@ pnro.plot <- function (ipnro) {
     facet_wrap(~ pnro) + xlab("Vuosi")
 }
 
-library(ggplot2)
 
 pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "33100", "09120"))
 predictions$pnro %>% (function (i) i[grep("^02", i)]) %>% unique %>% pnro.plot(.)
@@ -260,20 +261,9 @@ ggsave("figs/trendimuutos-histogram.png")
 ## Plot with alternative coordinates
 load("data/pnro_spatial_epsg2393.RData") # pnro.sp.alt appears here
 pnro.hinnat.sp <- merge(pnro.sp.alt, data.frame(res))
-pdf("figs/pnro_prices.pdf")
-spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pnro.hinnat.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
-spplot(pnro.hinnat.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
-dev.off()
+
 
 pk.sp <- pnro.hinnat.sp[substr(pnro.hinnat.sp$pnro, 1, 2) %in% c("00", "01", "02"),]
-pdf("figs/pk-pnro_prices.pdf")
-spplot(pk.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pk.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
-spplot(pk.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
-dev.off()
-
-
 pnro.hinnat.sp.raw<- merge(pnro.sp.alt, 
                            d %>% group_by(pnro) %>% 
                              do(data.frame(lprice=mean(.$lprice), trend=coef(lm(lprice ~ year + 1, 
@@ -281,6 +271,21 @@ pnro.hinnat.sp.raw<- merge(pnro.sp.alt,
                                                                                 data=.))[["year"]])) %>%
                              data.frame)
 pk.sp.raw <- pnro.hinnat.sp.raw[substr(pnro.hinnat.sp.raw$pnro, 1, 2) %in% c("00", "01", "02"),]
+
+
+pdf("figs/pnro_prices.pdf")
+spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
+spplot(pnro.hinnat.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
+spplot(pnro.hinnat.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
+dev.off()
+
+pdf("figs/pk-pnro_prices.pdf")
+spplot(pk.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
+spplot(pk.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
+spplot(pk.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
+dev.off()
+
+
 
 pdf("figs/without-hierarhy.pdf")
 spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (raw)")
@@ -302,6 +307,53 @@ p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
 print(p1, split=c(1, 1, 2, 1), more=T)
 print(p2, split=c(2, 1, 2, 1), more=F)
 dev.off()
+
+## Plots for ICCSS 2015 presentation #######
+
+p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
+             col="transparent", colorkey=FALSE, main=list(label="Raw apartment prices in Finland",cex=2.5))
+p1b <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
+             col="transparent", colorkey=FALSE, main=list(label="Raw prices",cex=2.5))
+p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
+             col="transparent", colorkey=FALSE,  main=list(label="Modelled prices",cex=2.5))
+
+png("figs/raw-only-en.png", width=512, height=850)
+print(p1)
+dev.off()
+
+png("figs/raw-vs-model-en.png", width=1024, height=850)
+print(p1b, split=c(1, 1, 2, 1), more=T)
+print(p2, split=c(2, 1, 2, 1), more=F)
+dev.off()
+
+# trend vs population
+load("data/pnro_data_20150318.RData")
+pop.dat <- readRDS("data/pnro-hinnat.rds")
+yearly.trends <- readRDS("data/yearly-trends.rds")
+population <- pop.dat %>%
+  inner_join(pnro.dat %>% select(pnro, municipality)) %>%
+  mutate(logtiheys = -10*as.numeric(log.density))
+trends <- yearly.trends %>%
+  left_join(population) %>%
+  rename(kunta = municipality)
+
+log.vals = c(-1,0,2,4)
+norm.vals <- 10**(log.vals)
+
+# koko Suomen ajallinen trendi vs tiheys
+trends %>%
+  filter(year == 2014) %>%
+  transform(year = factor(year)) %>%
+  ggplot(data = ., aes(x=logtiheys, y=100*trend.y.mean)) +
+  geom_point(size=2, alpha=0.2) + 
+  geom_smooth(method="rlm", size=1.5, colour="red") + 
+  xlab('Density (population / km^2)') + ylab("Price trend (% / year)") + 
+  scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) + 
+  geom_hline(y=0, linetype="dashed") +
+  ggsave(width=7, height=5, file="figs/trend-population-2015.png")
+
+## MOre plots ########
+
 
 p1 <-
 d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(70) %>% 
