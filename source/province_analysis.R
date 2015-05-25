@@ -68,3 +68,18 @@ pnro.province %>%
   arrange(maakunta, desc(hinta2016min)) %>%
   mutate(pnro = as.character(pnro)) %>%
   write.csv("data/asuntohinnat_kvantiilit_2016_kokoSuomi_20150507.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+
+# Write top 100 and bottom 100
+pnro.province %>%
+  mutate(pnro = as.character(pnro)) %>%
+  arrange(desc(trendi2016keski)) %>%
+  head(100) %>%
+  write.csv("data/asuntohinnat_kvantiilit_2016_top100_20150518.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+
+# Write top 100 and bottom 100
+pnro.province %>%
+  mutate(pnro = as.character(pnro)) %>%
+  arrange((trendi2016keski)) %>%
+  head(100) %>%
+  write.csv("data/asuntohinnat_kvantiilit_2016_bottom100_20150518.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+

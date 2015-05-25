@@ -9,7 +9,9 @@ Maailmalla on vallannut alaa uusi urbanismin aalto, jossa ihmiset haluavat muutt
 
 Millainen kehitys on Suomessa? Asuntojen hintojen muutokset kuvastavat muutoksia siinä, mitä asukkaan arvostavat, eli millaisssa asunnoissa he haluaisivat asua. [Reaktor Oy:n data scientistit](http://reaktor.fi/datascience), joihin itsekin kuulun, [mallinsivat](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/) asuntojen hintojen kehitystä vuosina 2005-2014 ja tekivät niistä [interaktiivisen kartan](http://kannattaakokauppa.fi). Malli antaa postinumerotasolla asuntojen hinnan kehityksen keskineliöhintana, lineaarisena trendinä ja trendin muutoksena. Näiden perusteella voidaan tutkia asukkaiden arvostusten muutoksia. 
 
-Asuinalueen urbaaniudelle on monia mittareita, joista yksinkertaisin on väestötiheys. Allaolevasta kuvaajasta nähdään, että koko Suomessa ei juurikaan ole yhteyttä asuntojen hinnan ja asuinalueen väestötiheyden välillä. Vaaka-akseli kuvaa väestötiheyttä asukkaina neliökilometrillä logaritmisella skaalalla, pystyakseli ennustettua hinnan muutosta vuonna 2016 prosentteina per vuosi ja jokaiselle postinumeroalueelle on erillinen pisteensä. 
+
+Asuinalueen urbaaniudelle on monia mittareita, joista yksinkertaisin on väestötiheys. Alla kuvataan asuntojen hintojen muutosten ja väestötiheyden yhteyttä kunakin tarkasteluvuonna. Vaaka-akseli kuvaa väestötiheyttä asukkaina neliökilometrillä logaritmisella skaalalla, pystyakseli ennustettua hinnan muutosta prosentteina per vuosi ja jokaiselle postinumeroalueelle on erillinen pisteensä. 
+Kuvaajasta nähdään, että tarkastelujakson alkupuolella (2005-2009) harvemmin asuttujen alueiden hinnat ovat nousseet keskimäärin nopeammin kuin tiheämmin asuttujen alueiden. Sen sijaan kohti tarkastelujakson loppua muutos on kääntynyt päinvastaiseksi: keskimäärin enemmän nousevat niiden asuntojen hinnat, jotka sijaitsevat tiheämmin asutuilla alueilla.
 
 ```{r, echo=FALSE, warning=FALSE, results='hide', message=FALSE}
 # Script for analysing the relation between trends density and price trends
@@ -22,14 +24,13 @@ library("dplyr")
 # FIXME: path to be relative; now knit2html() behaves differently from source()
 population <- read.csv("/Users/jaakkos/github.reaktor/Neliohinnat/data/pnro-hinnat.txt", sep=" ", header=T, colClasses="character",row.names=1)
 population$logtiheys <- -10*as.numeric(population$log.density)
-#population$hintataso <- as.numeric(population$hinta2016)
-#population$trendi <- 100*as.numeric(population$trendi2016)
-#population$trendimuutos <- 100*as.numeric(population$trendimuutos)
 
 pc <- get_postal_code_info()
 population <- left_join(mutate(population,pnro = rownames(population)),pc,by = c("pnro" = "postal.code"))
 
 trends <- readRDS("/Users/jaakkos/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends.rds")
+
+
 
 trends <- left_join(trends,population,by = "pnro")
 trends <- rename(trends,kunta = municipality)
@@ -39,7 +40,8 @@ ymax = 0.002
 xmin = 0
 xmax = 4.5
 
-isot = c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","muu")
+#isot = c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","Pori","Joensuu","Lappeenranta","Hämeenlinna","Vaasa","Rovaniemi","Seinäjoki","Mikkeli","Kotka","Salo","muu")
+isot = c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","Pori","muu")
 #isot = c("Pääkaupunkiseutu","Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","muu")
 pk = c("Helsinki")
 pks = c("Helsinki","Espoo","Vantaa","Kauniainen")
@@ -55,57 +57,52 @@ norm.vals <- 10**(log.vals)
 
 # koko Suomen ajallinen trendi vs tiheys
 gg <- ggplot(transform(filter(trends,year<2015), year=factor(year)), aes(logtiheys,trend.y.mean),) + geom_point(size=1,aes(color=trend.y.mean>0)) + geom_smooth(method="rlm") + 
-  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals)
+  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) + scale_colour_discrete(name = "Hinta" ,labels= c("laskee","nousee")) 
 print(gg)
+```
+
+Suomen tiheimmin asutut alueet sijaitsevat Helsingissä, joten kannattaa tarkastella myös erikseen tilannetta Helsingissä. Alla vastaava kehitys Helsingistä. Kuvaajasta näkee, että koko tarkastelujakson ajan tiheämmin asuttujen alueiden asuntojen hinnat ovat nousseet harvemmin asuttujen alueiden asuntojen hintoja nopeammin.
+
+
+```{r, echo=FALSE, warning=FALSE, results='hide', message=FALSE}
 
 # Helsingin ajallinen trendi vs tiheys
 selkunta = "Helsinki"
 gg <- ggplot(transform(filter(trends,kunta==selkunta,year<2015), year=factor(year)), aes(logtiheys,trend.y.mean),) + geom_point(size=1,aes(color=trend.y.mean>0)) + geom_smooth(method="rlm") + 
-  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) 
+  facet_wrap(~year, ncol=3) + xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) + scale_colour_discrete(name = "Hinta" ,labels= c("laskee","nousee"))
 print(gg)
 
 ```
 
-Kuvaajasta nähdään selvästi, että tiheästi asuttujen alueiden hinnat laskevat hitaammin kuin muun Suomen hinnat tai jopa nousevat vielä.
-
-Tilannetta voidaan tarkastella myös yksittäisten kuntien osalta. Alle on kuvattu yhteys väestötiheyden ja lineaarisen hintakehityksen välillä Suomen kymmenen suurimman kaupungin osalta. 
+Tilannetta voidaan tarkastella myös yksittäisten kuntien osalta. Alle on kuvattu yhteys väestötiheyden ja lineaarisen hintakehityksen välillä Suomen yhdentoista suurimman kaupungin osalta. Jos suora saa tietyn vuoden kohdalla positiivisen arvon, se tarkoittaa sitä, että kyseisessä kaupungissa tiheämmin asuttujen alueiden asuntojen hinnat nousivat enemmän kuin harvempaan asuttujen alueiden asuntojen hinnat. Vastaavasti päinvastoin negatiiviset arvot tarkoittavat harvemmin asuttujen alueiden asuntojen hintojen nopeampaa nousua. Suorien luottamusvälit on saatu [mallin posteriorinäytteistä](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/).
 
 ```{r, echo=FALSE, warning=FALSE}
 
+trendspost <- readRDS("/Users/jaakkos/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends-long.rds") 
+trendspost <- left_join(trendspost,population,by = "pnro") %>% select(pnro,year,trend.y,logtiheys,municipality,sample) %>% rename(kunta = municipality)
+trendspost[!trendspost$kunta %in% isot,]$kunta = 'muu'
 
 # isojen kaupunkien trendi vs tiheys
 
-#fit <- group_by(filter(trends,year<2015),kunta,year) %>% do(mod = rlm(trend.y.mean ~ logtiheys,data = .))
+fit <- group_by(filter(trendspost,year<2015),kunta,year,sample) %>% do({ mod <- rlm(trend.y ~ logtiheys,data = .,maxit = 50); data.frame(k=coef(mod)[["logtiheys"]])})
+fit2 <- group_by(fit,kunta,year) %>% do({std = sqrt(var(.$k)); k = mean(.$k); data.frame(er = std,k = k)}) 
 
-fit <- group_by(filter(trends,year<2015),kunta,year) %>% do({ mod <- rlm(trend.y.mean ~ logtiheys,data = .); data.frame(k=coef(mod)[["logtiheys"]])}) 
 
-# for (selkunta in isot){
-#   for (selyear in years){
-#     linear = rlm(trend.y.mean ~ logtiheys,filter(trends,year==selyear,kunta==selkunta))
-#     coeff = c(coeff,linear$coefficients[2])
-#     year = c(year,selyear)
-#     kunta = c(kunta,selkunta)
-#   }
-# }
+xticks = seq(2005,2014)
 
-# lintrends = data.frame(kunta,year,coeff)
-gg <- ggplot(fit, aes(year,k)) + geom_point(size=1,) +#aes(color=k>0)) + 
-  geom_smooth(method="rlm") + facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") 
+gg <- ggplot(transform(fit2, kunta=factor(kunta, levels=isot)), aes(year,k)) + #geom_point(size=1,) + 
+  geom_smooth(method="rlm") + theme(axis.text.x = element_text(angle = 45)) + 
+  geom_ribbon(aes(ymin=k-er, ymax=k+er),alpha=0.3) +
+  geom_ribbon(aes(ymin=k-2*er, ymax=k+2*er),alpha=0.1) +
+  facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") + scale_x_continuous(breaks = xticks)
 print(gg)
 
-# gg <- ggplot(transform(lintrends, kunta=factor(kunta, levels=isot)), aes(year,coeff)) + geom_point(size=1,aes(color=coeff>0)) + 
-#   geom_smooth(method="rlm") + facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") 
+# gg <- ggplot(transform(fit, kunta=factor(kunta, levels=isot)), aes(year,k)) + #geom_point(size=1,) + 
+#   geom_smooth(method="rlm") + theme(axis.text.x = element_text(angle = 45)) + 
+#   geom_errorbar(aes(ymin=k-fit2$er, ymax=k+fit2$er),width=.1) +
+#   facet_wrap(~kunta, ncol=3) + xlab('Vuosi') + ylab("Lin. kerroin") + scale_x_continuous(breaks = xticks)
 # print(gg)
-
 ```
 
-Kuvaajista huomataan, että 
-
-Seuraavaksi tutkitaan hintojen muutosten ja väestötiheyden korrelaatiota vuosi vuodelta. 
-1) kaikille isoille kaupungeille ja 'muu'lle lasketaan kunkin vuoden trendille lineaarinen malli väestötiheyden suhteen
-2) plotataan kaikki vuodet
-```{r, echo=FALSE, warning=FALSE}
-
-
-```
+Kuvaajista nähdään, että kaikissa Suomen 11 suurimmassa kaupungissa urbaanit asuinalueet ovat kasvattaneet suosiotaan. Tämä kehitys on ollut erityisen vahvaa pääkaupunkiseudulla. 
 
