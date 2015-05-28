@@ -1,42 +1,46 @@
 ---
-output: html_document
+title:  "A hierarchical model of Finnish apartment prices"
+date:   2015-05-07 00:00:00
+layout: news
+category : news
+tags : [news,R,stan]
+language: fi
+author: Janne Sinkkonen
+comments: true
 ---
-## WTF
 
-Mallinsimme osakeasuntojen hintoja ja niiden muutoksia, postinumerotasolla, koko Suomessa, vuosina 2005–2014, perustuen Tilastokeskuksen jakamiin kauppa- ja asukasmäärätietoihin. Mallin arvioita hinnoista voi tarkastella interaktiivisesta karttavisualisoinnista (FIXME). Tuloksista on myöskin lisätietoa muissa blogeissa (FIXME).
+Basing on open data from [Statistics Finland](http://www.stat.fi/index_en.html), we at [Reaktor](http://reaktor.com/datascience) modelled Finnish apartment prices and their trends, on the zip-code level, during 2005--2014.  Estimates from the model are available as an [interactive visualization](http://kannattaakokauppa.fi/).
 
-## Mallinsimme?
+## Why model 
 
-Tilastokeskuksen avaamat asuntojen hintatiedot ovat keskiarvoja per postinumero ja vuosi. Jos kauppoja on alle kuusi, keskiarvokin on sensuroitu. Hinnan ohella ilmoitetaan kauppojen määrä. 
+The original price data consists of local (geometric) mean sales prices per year. The number of sales is available as well. If there are less than six sales, the mean price is censored. 
 
-Raakadatasta on useimmille postinumeroille vaikea suoraan arvioida hintoja ja etenkin niiden muutoksia.
+Holes in the data and noise from low number of transactions make it hard to evaluate local price levels, let alone their changes, except at the most urban areas.  
 
-Alla on vasemmalla satunnaisten postinumeroiden vuosittaisia kauppamääriä. Sensuroidut tiedot on merkitty punaisella. Oikealla postinumero-vuosi-yhdistelmät on järjestetty kauppojen määrän mukaan. Kauppoja ei ole tehty tai tieto on sensuroitu siis n. 17,5% tapauksista, ja noin puolet keskihinnoista joko puuttuu tai on laskettu alle 30 kaupan perusteella. 
+Yearly numbers of transactions for a few random zip codes are depicted on the left below. Censored slots are with red. On the right, all year-zip slots are ordered on the x-axis by their available number of sales data. We see that 17.5% of slots are censored, and about half of the mean prices are either missing or based on less than 30 transactions. 
 
+![Data are sparse](../figs/harvuus.png)
 
-![Data on harvaa](figs/harvuus.png)
+Price from 6--30 sales _is not a reliable estimate of the local mean_, and deriving trends from so few sales is not going to be successful. (Still, it is repeatedly tried: There have been several top and bottom lists of apartment prices and their development published in the Finnish media lately. They are based on this raw data.) 
 
-Puuttuva tieto on puuttuvaa, mutta edes 6--30 kaupan keskiarvo _ei kuvaa luotettavasti alueen kaikkien osakkeiden hintatasoa_. Myydyt asunnot ovat satunnaisesti keskihintaa kalliimpia ja halvempia. Vielä huonompaa jälkeä syntyy, kun näin vähistä kaupoista yritetään suoraan arvioida hintojen muutoksia. __Mediassa julkaistut listat parhaiten ja huonoiten menestyvistä alueista ovatkin lähes satunnaisia__, tiheimpiä taajamia lukuunottamatta. 
+A statistical model has a concept of a _price level behind individual sales_. 
+It can then make a distinction between variation of the underlying price level, systematically over time and place, from _random_ variation that is not explainable within the model. This is in contrast to looking at raw data, where all variation is taken at face value. 
 
+When the model is _estimated_, it produces the underlying price level as its output. Of course, because the model cannot explain all variation in data, the price level estimates will also have a random component: Instead of a fixed value, we get a probability distribution. Means, trends, confidence intervals, etc., can be computed from these distributions. Provided the model is sensible, these estimates of underlying price trends can be much more informative than the raw data. Uncertainty of the estimates also reveals when nothing can be said. 
 
-Hinnoista saa paremman kuvan, kun aineistoon sovittaa tilastollisen mallin. Tai jos ei saa, malli paljastaa lähtötietojen heikkouden --- hyvin tehdystä mallista saa epävarmuusarviot kiinnostaville asioille, kuten hintatasoille.
+Some properties of zip code areas, like population density, will correlate strongly with apartment prices. Such properties, if known and included in the model, and adjacency or  hierarchy of the zip code areas, allows us to _generalize_ spatially: estimates of price level become available even on places where the data is sparse or there is no data at all. Of course, uncertainty will then be higher, and the model will tell us that.
 
+Below, the map on the left shows raw mean prices over the whole period 2005--2014. White areas are without any available data. Map on the right shows the (mean) price level estimates from a model. 
 
-Malli voi myös ottaa huomioon alueellisen jatkuvuuden, ts. lähekkäisten postinumeroalueiden samankaltaisuuden. Se osaa painottaa trendi- ja keskihinta-arvioissa kauppojen määrän oikein, ja vielä paikata jäljelle jäävää epävarmuutta postinumeroalueen muilla ominaisuuksilla, kuten väestötiheydellä. 
+![Mean prices and model estimates from Espoo](../figs/raw-vs-model.png)
 
-Alla vasemmalla on kartta postinumeroiden keskihinnoista tarkastelujaksolla 2005--2014, logaritmisena huippuhintojen hajonnan vuoksi, oikeassa kuvassa samat logaritmiset hinnat mallista. Vasemman kartan valkoisille alueille ei keskihintaa saatu, koska kauppoja ei ollut lainkaan. 
+Below yearly mean prices and estimates of the underlying price level are depicted, for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even on this relatively urban area, there are subareas with few enough sales to introduce considerable random variation to the raw prices: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all, maybe even no apartments. 
 
-![Raakadataa ja mallin hintoja Espoosta](figs/raw-vs-model.png)
+![Espoo curves](../figs/espoota.png)
 
-Vielä alla näemme kuvan eräistä Espoon postinumeroalueista. Pisteet kuvaavat Tilastokeskuksen ilmoittamia vuosihintoja, pisteiden koko kauppojen määrää. Viivat ovat mallin arvioita hintatasosta, harmaat alueet arvion epävarmuuksia, mallin itsensä mielestä.
+The model can be used for forecasting, but future prices or trends will have large uncertainty, even larger than indicated by the model. The quadratic shape of the temporal dependency, currently in the model, was chosen to fir the data of the last decade, and give an idea of past price development that is easy to summarise. There is no reason why future changes in economy and policy would follow the same pattern.  Relative development of areas is more accurately predicted than absolute price levels or trends. Anyway, _the model is at its best at describing past development of apartment prices, especially their spatial differences. There is no guarantee future will follow the same pattern_. 
 
-![Raakadataa ja mallin hintoja Espoosta](figs/espoota.png)
-
-Hinta-arvioita on saatu vähistäkin kaupoista, ja etenkin vuosimuutokset ovat luotettavamman näköisiä kuin mitä melko paljon heittelevistä keskihinnoista suoraan laskien saisi. Hintojen mallintaminen siis kannattaa.
-
-Mallista saa ennusteen lähivuosille, mutta ennusteen kanssa kannattaa olla varovainen. Talouden kehitystä ja muita hintoihin ratkaisevasti vaikuttavia seikkoja on mahdoton ennustaa tarkasti muutamaa kuukautta pidemmälle. _Malli on parhaimmillaan kuvattaessa lähimenneisyyden hintakehityksen pääpiirteitä, ei ennustettaessa tulevaisuutta._ 
-
-Alla on yksityiskohtaisempaa tietoa datasta, mallista ja visualisoinnista. 
+The model, data and environment are described in more detail below.
 
 ## Ympäristö
 
@@ -86,8 +90,9 @@ Vapausasteen $\nu$ estimaatti on luokkaa 6,5, eli hintojen residuaali on normaal
 
 Postinumerokohtaisista estimaateista nähdään, että asukastiheys korreloi niin hintatasoon kuin sen muutoksiinkin:
 
-![Asukastiheyden ja hinnan korrelaatiot](figs/tiheys-korrelaatiot.png)
+![Asukastiheyden ja hinnan korrelaatiot](../figs/tiheys-korrelaatiot.png)
 
 
 Malli on estimoitu Stan-kirjastolla ([http://mc-stan.org/](http://mc-stan.org/)). Stan on [todennäköisyysohjelmointikieli](https://louhos.wordpress.com/2014/01/29/stan-kj/), joka tuottaa generatiivisesta mallin kuvauksesta estimointialgoritmin. Vaihtoehdoista estimoinnin itse koodaaminen olisi huomattavan työlästä, kun taas valmiiden mallipakettien (lme4, mgcv, …) käyttäminen pakottaisi tyytymään rajoittuneempaan malliin, joka kuvaisi asuntojen hintoja ja niiden vaihtelua huonommin. 
+
 
