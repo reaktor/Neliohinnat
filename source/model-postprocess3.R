@@ -257,6 +257,7 @@ ggplot(res, aes(x=trendimuutos, fill=l3(pnro))) + geom_histogram(binwidth=.0004)
 ggsave("figs/trendimuutos-histogram.png")
 
 
+## Spatial data and plots ######
 
 ## Plot with alternative coordinates
 load("data/pnro_spatial_epsg2393.RData") # pnro.sp.alt appears here
