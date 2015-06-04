@@ -297,14 +297,27 @@ dev.off()
 
 # Plots for blogs
 
-predictions$pnro %>% (function (i) i[grep("^02[01234]", i)]) %>% unique %>% pnro.plot(.)
+p1 <- predictions$pnro %>% (function (i) i[grep("^02[01234]", i)]) %>% unique %>% pnro.plot(.)
+p1 
 ggsave("figs/espoota.png", dpi=150)
+p1 + ggtitle("Prices (per m^2) 2005—2016, with 50% and 80% confidence intervals") + 
+  xlab("year") + ylab("price / eur") + scale_size_continuous(name="# of sales")
+ggsave("figs/espoota-en.png", dpi=150)
 
 png("figs/raw-vs-model.png", width=1024, height=1024)
 p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
              col="transparent", main="Keskihinta raakana (log)")
 p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
              col="transparent", main="Keskihinta mallista (log)")
+print(p1, split=c(1, 1, 2, 1), more=T)
+print(p2, split=c(2, 1, 2, 1), more=F)
+dev.off()
+
+png("figs/raw-vs-model-en.png", width=1024, height=1024)
+p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
+             col="transparent", main="Mean log-price, raw")
+p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
+             col="transparent", main="Mean log-price, model")
 print(p1, split=c(1, 1, 2, 1), more=T)
 print(p2, split=c(2, 1, 2, 1), more=F)
 dev.off()
@@ -384,6 +397,14 @@ png("figs/harvuus.png", width=1024, height=512)
 gridExtra::grid.arrange(p1, p2, ncol=2, widths=c(.5, 1), heights=c(1, 1))
 dev.off()
 
+png("figs/harvuus-en.png", width=1024, height=512)
+gridExtra::grid.arrange(p1 + xlab("year") + ylab("zip code") + 
+                          scale_fill_gradient(low = "#f7fcf5", high = "#005a32", na.value="red", trans="sqrt",
+                                              breaks=c(6, 30, 100, 300, 1000), name="# of sales") , 
+                        p2  + xlab("zip-year slots (%)") + ylab("# of sales"), 
+                        ncol=2, widths=c(.5, 1), heights=c(1, 1))
+dev.off()
+
 p1 <- 
 ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) + 
   guides(color=F) + 
@@ -403,7 +424,13 @@ png("figs/tiheys-korrelaatiot.png", width=1024, height=1024/3.5)
 gridExtra::grid.arrange(p1, p2, p3, ncol=3, widths=c(1, 1, 1.5), heights=c(1, 1, 1))
 dev.off()
 
-
+png("figs/tiheys-korrelaatiot-en.png", width=1024, height=1024/3.5)
+gridExtra::grid.arrange(p1 + xlab("pop. density (log)") + ylab("price (log)"), 
+                        p2 + ylab("trend"), 
+                        p3 + ylab("trend change") + 
+                          scale_color_hue(l=55, name="Zip district"), 
+                        ncol=3, widths=c(1, 1, 1.5), heights=c(1, 1, 1))
+dev.off()
 
 # JSONs
 

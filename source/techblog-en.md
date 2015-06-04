@@ -19,7 +19,7 @@ Holes in the data and noise from low number of transactions make it hard to eval
 
 Yearly numbers of transactions for a few random zip codes are depicted on the left below. Censored slots are with red. On the right, all year-zip slots are ordered on the x-axis by their available number of sales data. We see that 17.5% of slots are censored, and about half of the mean prices are either missing or based on less than 30 transactions. 
 
-![Data are sparse](../figs/harvuus.png)
+![Data are sparse](../figs/harvuus-en.png)
 
 Price from 6--30 sales _is not a reliable estimate of the local mean_, and deriving trends from so few sales is not going to be successful. (Still, it is repeatedly tried: There have been several top and bottom lists of apartment prices and their development published in the Finnish media lately. They are based on this raw data.) 
 
@@ -32,11 +32,11 @@ Some properties of zip code areas, like population density, will correlate stron
 
 Below, the map on the left shows raw mean prices over the whole period 2005--2014. White areas are without any available data. Map on the right shows the (mean) price level estimates from a model. 
 
-![Mean prices and model estimates from Espoo](../figs/raw-vs-model.png)
+![Mean prices and model estimates from Espoo](../figs/raw-vs-model-en.png)
 
 Below, yearly mean prices and estimates of the underlying price level are depicted for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even within this relatively urban region, there are areas with few enough sales to introduce considerable random variation to the raw prices: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all, maybe even no apartments. 
 
-![Espoo curves](../figs/espoota.png)
+![Espoo curves](../figs/espoota-en.png)
 
 The model can be used for forecasting, but future prices or trends will have large uncertainty, even larger than indicated by the model. The quadratic shape of the temporal dependency, currently in the model, was chosen to fir the data of the last decade, and give an idea of past price development that is easy to summarise. There is no reason why future changes in economy and policy would follow the same pattern.  Relative development of areas is more accurately predicted than absolute price levels or trends. Anyway, _the model is at its best at describing past development of apartment prices, especially their spatial differences. There is no guarantee future will follow the same pattern_. 
 
@@ -89,7 +89,7 @@ Estimate for $\nu$ is around 6.5, that is, residuals are with a bit heavier tail
 
 Plotting area-wise prices and its changes against population density, one sees the expected correlation:
 
-![Asukastiheyden ja hinnan korrelaatiot](../figs/tiheys-korrelaatiot.png)
+![Asukastiheyden ja hinnan korrelaatiot](../figs/tiheys-korrelaatiot-en.png)
 
 The model has been written and estimated with the probabilistic programming language Stan ([http://mc-stan.org/](http://mc-stan.org/)). Stan produces a Monte Carlo estimation algorithm from a generative model description.
 
