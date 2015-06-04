@@ -34,48 +34,47 @@ Below, the map on the left shows raw mean prices over the whole period 2005--201
 
 ![Mean prices and model estimates from Espoo](../figs/raw-vs-model.png)
 
-Below yearly mean prices and estimates of the underlying price level are depicted, for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even on this relatively urban area, there are subareas with few enough sales to introduce considerable random variation to the raw prices: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all, maybe even no apartments. 
+Below, yearly mean prices and estimates of the underlying price level are depicted for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even within this relatively urban region, there are areas with few enough sales to introduce considerable random variation to the raw prices: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all, maybe even no apartments. 
 
 ![Espoo curves](../figs/espoota.png)
 
 The model can be used for forecasting, but future prices or trends will have large uncertainty, even larger than indicated by the model. The quadratic shape of the temporal dependency, currently in the model, was chosen to fir the data of the last decade, and give an idea of past price development that is easy to summarise. There is no reason why future changes in economy and policy would follow the same pattern.  Relative development of areas is more accurately predicted than absolute price levels or trends. Anyway, _the model is at its best at describing past development of apartment prices, especially their spatial differences. There is no guarantee future will follow the same pattern_. 
 
-The model, data and environment are described in more detail below.
+The model, data, and environment are described in more detail below.
 
-## Ympäristö
+## Environment
 
-Mallinnus tehtiin [R-ympäristössä](http://www.r-project.org), itse malli [Stan-kirjastolla](http://mc-stan.org), ja kaikki lähdekoodi on saatavilla [GitHubista](https://github.com/reaktor/Neliohinnat).
+We used [R](http://www.r-project.org) for almost all data manipulation, modeling and visualizations. Model itself was estimated with [Stan](http://mc-stan.org). Source code for the project, except for the web site, is available in our [GitHub repo](https://github.com/reaktor/Neliohinnat).
 
 ## Data
 
-[Asuntojen hintatiedot](http://www.stat.fi/til/ashi/index.html) saa Tilastokeskukselta kätevästi R:ään [Louhos](http://louhos.github.io/)- ja [Ropengov](http://ropengov.github.io/)-projektien kirjastoilla [pxweb](http://cran.r-project.org/web/packages/pxweb/index.html) (hinnat) ja [gisfin](https://github.com/ropengov/gisfin) (muut). Postinumeroalueiden karttapohja haettiin [Duukkikselta](http://www.palomaki.info/apps/pnro/). Skriptit datojen hakemiseen, käsittelyyn ja yhdistelyyn ovat [GitHub-repossa](https://github.com/reaktor/Neliohinnat).
+The libraries [pxweb](http://cran.r-project.org/web/packages/pxweb/index.html) and [gisfin](https://github.com/ropengov/gisfin) make it easy to get [apartment prices](http://www.stat.fi/til/ashi/index.html) and other data from the public API's. The libraries are developed in the  [Louhos](http://louhos.github.io/) and [Ropengov](http://ropengov.github.io/) projects. Zip code areas are from [Duukkis](http://www.palomaki.info/apps/pnro/). Scripts used for downloading data and manipulating it are available in our [repo](https://github.com/reaktor/Neliohinnat).
 
-## Karttavisualisointi
+## Map
 
-Karttapohjia postinumeroalueittaiselle aineistolle saa ainakin Tilastokeskuksen [Paavo-rajapinnasta](http://www.stat.fi/tup/rajapintapalvelut/paavo.html) ja [Duukkikselta](http://www.palomaki.info/apps/pnro/). Paavo tarjoaa kartasta kahta versiota. Merialueet sisältävä kartta ei sovi visualisointiin ilman erillistä rantaviivaa. Rantaviivaan rajattu näytti hyvältä, mutta tarkkuudesta maksettaisiin GeoJSON-objektin koolla: yli 20 megatavua. Päädyimme käyttämään Duukkiksen pohjaa, jossa karkea rantaviiva tuottaa meille hyvän kompromissin koon ja ulkonäön välillä. 
+Zip code polygons are available at least through the [Paavo API](http://www.stat.fi/tup/rajapintapalvelut/paavo.html) and from [Duukkis](http://www.palomaki.info/apps/pnro/). Finland's archipelago is extensive and complex, so zip codes extend well onto the Baltic sea.  Paavo offers two versions of the polygons, with or without the sea area. The zip code areas with sea can be intersected with the sea shore line, giving us quite beautiful Finnish zip code map. The problem is its size: over 20MB in the GeoJSON format. We ended up using the polygons from Duukkis: They are a good compromise between size and accuracy.
 
-Pieniä eroja postinumeroissa oli, joten muutama alue on saattanut karttapohjan valinnan takia kadota. 
+The set of zip codes was not constant over the data sources, so some zip codes areas may be missing from the visualizations. A few small areas have no population, or the information about population is missing. These polygons are without a price estimate, and appear as grey on the maps.  
 
-Malli tuottaa hinta-arvioita vaikkei postinumerossa olisi osakehuoneistoja, kaupoista puhumattakaan: pelkkä sijainti ja väestötiheys riittävät. Muutamilta pieniltä, teollisuus- ja sairaala-alueiden näköisiltä postinumeroilta puuttuu väestötietokin, ehkä koska niissä ei virallisesti asu ketään. Nämä pienet postinumeroalueet näkyvät kartassa harmaana ja ilman ennustetta. 
+Our model, described in more detail below, produces price and trend estimates even for areas with no apartments: just the relative position of the zip code and the local population density are enough for computing the estimate. 
 
-## Malli
+## Model
 
-Mallin asuntojen hinnoista pitää ottaa huomioon monta asiaa. Tärkein on tietenkin *toteutuneiden kauppojen hinnat* — joista tiedämme vain keskiarvon jos sitäkään. Tiedossa olevan kauppojen lukumäärä auttaa, koska keskinta kertoo tarkemmin hintatasosta kun kauppoja on enemmän.
+Of the past sales, the model has yearly (geometric) average per location, and the associated number of sales, if these are not censored ($n<6$). The latter scales the variance of the mean, as an estimator of the population mean. Population mean is here the hypothetical mean of all potential *apartment sales* on the areas. Of course all apartments are not sold at the same rate, so mean is biased towards prices of the apartments that are sold more often. 
 
-Koska kauppatietoa on etenkin maalta vähän, on hyvä ottaa malliin *postinumeroiden ominaisuuksia*, jotka selittävät hintavaihtelua. Taajamissa asunnot ovat kalliimpia, joten asumistiheys on ilmeisen tärkeää. Postinumeroittainen asukastiheys ei ole sama asia kuin keskimääräinen asumistiheys, mutta korreloi siihen vahvasti.
+Sparseness of the data is a problem especially for estimates of temporal price changes, and also for comparison of areas. Properties of the zip code areas that would predict prices are therefore valuable. A quite extensive set of demographic variables is available in the [Paavo data](http://www.stat.fi/tup/rajapintapalvelut/paavo.html), but of these we have so far included only the population density in the model. Although not necessarily causal from the economics point of view, population density is the main demographic correlate of apartment prices. 
 
-Hintojen alueellinen vaihtelu tekee lähekkäisistä postinumeroista keskimäärin samankaltaisia. Tätä voi hyödyntää hinta-arvioissa: naapuripostinumeron kaupat kertovat ainakin karkealla tasolla omastakin alueesta, etenkin jos oman alueen kauppoja on vähän. Tietenkään emme voi tehdä riippuvuudesta vahvaa oletusta, mutta voimme antaa mallin havaita riippuvuuden ja käyttää sitä, jos riippuvuutta on.
+Spatial continuity of prices and trends also helps to estimate prices where data is sparse. As with demogrpahic covariates, no strict assumptions about dependency are coded into the model. Rather, including these auxiliary parts allows the model to use dependency where it exists. 
 
-Päädyimme mallissa koodaamaan alueiden lähekkäisyyden hierarkiaksi, joka saadaan suoraan numerosta: Esim. 02940 on Uusimaata (0), Espoota (02) ja Pohjois-Espoota (029). Hierarkia antaa mahdollisuuden mallille pitää näiden ja muiden vastaavien sisäkkäisten alueiden postinumeroita samanlaisina ympäristöön verrattuna, jos ne sitä ovat. (Spatiaalinen lähekkäisyys olisi vaihtoehto, mutta se on monella tapaa teknisesti hankalampi ja kadottaa mahdollisen äititaajaman vaikutuksen.)
+We ended up coding the spatial structure into a zip code prefix hierarchy. For example 02940 is within the Uusima district (0), city of Espoo (02), and northern Espoo (029). The hierarchy allows the model to see similarity within these and other equivalent nested areas. Real spatial continuity in the form of a Markov field or a latent gaussian field would be an alternative, but it would be much harder to estimate with the chosen tools, and would not be obviously better on modelling administrative areas that *are* nested, after all. 
 
-Hinnoissa kiinnostavinta on tason jälkeen ajallinen muutos. Niinpä hintatason ja vuoden keskinäinen suhde mallissa on oleellinen sen luonteen ja informatiivisuuden kannalta. Vuosille voisi kullekin antaa omat hintatasonsa, mutta hintatason ajallinen muutos olisi vapaiden vuositasojen mallissa liiankin vapaasti määritelty, eikä ennustetta ensi vuodelle syntyisi. Ja koska hintatason muutokset ovat hintojen tapaan alueellisia ja voivat riippua esim. väestötiheydestä, päädyimme malliin, jossa hinnan ajallinen muutos eli trendi ja trendin muutos ovat eksplisiittisesti mukana. 
+Because temporal change of prices is as interesting as their overall level, informativeness of the results depends radically on how depedendency of the prices on the year is represented in the model. An option is to have a separate price level for each year, but continuity over time would then be lost and there would be no predictions. Also the relationship between price trends and covariates (population density), and between trends and spatial or hierarchical structure would be hard to define, for there would be no unique trend. These reasons and simplicity favor the current solution, a quadratic temporal parameterization. Combining hierarchy and covariates with a more flexible temporal model, like a gaussian process, is an interesting research question. 
 
-Vuoden vaikutus mallissa on siis kvadraattinen, ts. joka postinumerolla on mallissa oma trendinsä ja trendin muutosnopeus per vuosi. Lisäksi väestötiheys pääsee ennustamaan näitä muutoksia. Sen vaikutus näkyy etenkin jos kauppoja on vain vähän tai ei ollenkaan. 
+That is, in the model each zip code has its own temporal trend, and a constant change of trend over time (the quadratic coefficient). In addition, population density influences these parameters, especially where there are only few sales or no sales available. 
 
-Postinumerokohtaisia hintaparametreja kertyy yhteensä kuusi: hintataso, trendi, trendin muutos, ja väestötiheyden vaikutus näihin kaikkiin. Parametreilla on arvot ja varianssit myös postinumeroa isommille hierarkian alueille (Uusimaa, Espoo, jne.), josta ne pääsevät vaikuttamaan postinumerokohtaisiin arvioihin etenkin kun kauppoja on vähän. Parametreilla on myös eri hierarkiatasoilla kovarianssit, jolloin ne voivat auttaa toistensa estimointia tapauksissa joissa hintadata ei suoraan riitä. 
+In total, there are three parameters on the zip code level: price level, its trend, and change of trend, affecting log-scale prices. On the next geographic hierarchy level three other parameters appear: the influences of (logarithmic) population density on the above three temporal parameters. These six parameters appear also on upper hierarchy levels. On each hierarchy level, the model has multinormal priors for the sets of three or six parameters, and hyperpriors for the variance and covariance of the multinormal distribution. The covariances bind different parameters together, so that for example price level helps the estimation of price trend, or the influence of population density. 
 
-Yhteenvetona kaavaksi, mallin alataso havaitulle keskihinnalle $y$ on 
-
+In summary, the lowest level of the model for the log prices is
 $$
 \log h_{it} = 
        \beta_{i1} + \beta_{i2} t + \beta_{i3} t^2 + \beta_{i’4}d_i + \beta_{i’5}d_i\,t + \beta_{i’6}d_i\,t^2, 
@@ -84,15 +83,16 @@ $$
 \log y_{it} \sim 
 \textrm{t}\,\left(\log h_{it}, \, \sqrt{\sigma^2_y + \frac{\sigma^2_w}{n_{it}}}, \, \nu\right)\,,
 $$
-jossa $i$ on postinumeroalue, $t$ vuosi, $\beta$ ovat postinumerokohtaisia hintakertoimia, $i’$ on postinumeron alin hierarkiataso (väestötiheysparametrit ovat yhteisiä kullekin $i’$-alueelle), $t()$ on t-jakauma, $\sigma_y$ vuosikohtainen hajonta, $\sigma_w$ kauppahintojen hajonta mittausyksikön (vuosi$\times$postinumero) sisällä, ja $\nu$ t-jakautuneen residuaalin vapausaste. Hinnat käsitellään mallissa logaritmisena, jolloin absoluuttisella hintaskaalalla malli on multiplikatiivinen. Hajonnat ja $\nu$ estimoidaan kaiken muun ohella. Kertoimille $\beta$ on multinormaali priori kovarianssimatriiseineen, ja lisäksi ylemmille hierarkiatasoille eli postinumeroa suuremmille alueille omat vastaavat rakenteensa ($\beta$ ja sen priorit). Yksityiskohdat tätä tarkemmin selviävät parhaiten [mallikoodista](https://github.com/reaktor/Neliohinnat/blob/master/source/m4.stan). 
+where $i$ refers to the zip code area, $t$ is time, $\beta$ are coefficients specific to the zip code $i$, $i’$ is the first prefix hierarchy level of the zip code (population density parameters are constant within each $i’$-area), $t()$ is the t-distribution, $\sigma_y$ is standard deviation of the underlying (log) price levels over years, $\sigma_w$ standar deviation of the prices within the measurement unit (year$\times$zip), and $\nu$ the degrees of freedom of the residual t-distribution. Note that the linear model is for log-scale prices. The complete model is best described  by the [source code](https://github.com/reaktor/Neliohinnat/blob/master/source/m4.stan). 
 
-Vapausasteen $\nu$ estimaatti on luokkaa 6,5, eli hintojen residuaali on normaalijakaumaa selvästi pitkähäntäisempi. Suoraan mallin parametreista (koodissa matriisi "Omega") nähdään, että hintataso ja trendi korreloivat yli postinumeroalueiden ($r$=0,28), samoin trendin muutos ja hintataso ($r$=0,43). Halvat alueet ovat siis viimeisen n. kymmenen vuoden aikana halventuneet edelleen, ja kalliit kallistuneet. Tämä liittynee asutuksen keskittymiseen. 
+Estimate for $\nu$ is around 6.5, that is, residuals are with a bit heavier tails than normal. From the covariance parameters (*Omega* in the source) one sees that price level and trend correlate at the lowest level ($r$=0,28), as well as trend change and price level ($r$=0,43). So price differences have been deepening during the last ten years, probably due to urbanisation, a global trend. 
 
-Postinumerokohtaisista estimaateista nähdään, että asukastiheys korreloi niin hintatasoon kuin sen muutoksiinkin:
+Plotting area-wise prices and its changes against population density, one sees the expected correlation:
 
 ![Asukastiheyden ja hinnan korrelaatiot](../figs/tiheys-korrelaatiot.png)
 
+The model has been written and estimated with the probabilistic programming language Stan ([http://mc-stan.org/](http://mc-stan.org/)). Stan produces a Monte Carlo estimation algorithm from a generative model description.
 
-Malli on estimoitu Stan-kirjastolla ([http://mc-stan.org/](http://mc-stan.org/)). Stan on [todennäköisyysohjelmointikieli](https://louhos.wordpress.com/2014/01/29/stan-kj/), joka tuottaa generatiivisesta mallin kuvauksesta estimointialgoritmin. Vaihtoehdoista estimoinnin itse koodaaminen olisi huomattavan työlästä, kun taas valmiiden mallipakettien (lme4, mgcv, …) käyttäminen pakottaisi tyytymään rajoittuneempaan malliin, joka kuvaisi asuntojen hintoja ja niiden vaihtelua huonommin. 
+## What is missing, and future steps
 
-
+At least this chapter is missing. 
