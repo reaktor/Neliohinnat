@@ -38,7 +38,7 @@ Below, the map on the left shows raw mean prices over the whole period 2005--201
 
 ![Mean prices and model estimates from Espoo](../figs/raw-vs-model-en.png)
 
-Below, yearly mean prices and estimates of the underlying price level are depicted for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even within this relatively urban region, some areas have few enough sales to make raw prices quite noisy: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all. (But they may not have apartments either. The model does not know whether apartments exist.)
+Below, yearly mean prices and estimates of the underlying price level are depicted for some zip codes at Espoo, part of the capital area of Finland. Shading around the lines indicate uncertainty of the estimates. Even within this relatively urban region, estimates from some areas are quite noisy: 02150 or Otaniemi, 02240 or Friisilä, 02330 or Kattilalaakso, etc. Some areas have no sales at all. (But they may not have apartments either. The model does not know whether apartments exist.)
 
 ![Espoo curves](../figs/espoota-en.png)
 
@@ -68,7 +68,7 @@ Sparseness of the data is a problem especially for estimates of temporal price c
 
 Spatial structure is included as a zip code prefix hierarchy. For example 02940 is within the Uusima district (0), city of Espoo (02), and northern Espoo (029). The hierarchy allows the model to see similarity within these and other equivalent nested areas. Real spatial continuity in the form of a Markov field or a latent gaussian field would be an alternative, but it would be much harder to estimate with the chosen tools, and may not be better on modelling administrative areas that *are* nested, after all. 
 
-Temporal change of prices is as interesting as their overall level. The model could have a separate price level for each year, but continuity over time would then be lost, and there would be no predictions. Also the relationships between price trends and covariates (population density) and between trends and spatial or hierarchical structure would be hard to define, for there would have no unique trend. These reasons and simplicity favor a simple temporal parameterization, as the current quadratic one. Combining hierarchy and covariates with a more flexible temporal model, like a gaussian process, is an interesting research question. 
+Temporal change of prices is as interesting as their overall level. The model could have a separate price level for each year, but continuity over time would then be lost, and there would be no predictions. Also the relationships between price trends and covariates (population density) and between trends and spatial or hierarchical structure would be hard to define, for there would be no unique trend. These reasons and simplicity favor a simple temporal parameterization, as the current quadratic model. Combining hierarchy and covariates with a more flexible temporal model, like a gaussian process, is an interesting research question. 
 
 In total, there are three parameters on the zip code level affecting log-scale prices: price level, its trend, and change of trend. On the next geographic hierarchy level three other parameters appear: the influences of (logarithmic) population density on price, trend and its change. These six parameters, three plus their interactions with population density, appear also on upper hierarchy levels. On each hierarchy level, the model has multinormal priors for the three or six parameters, and hyperpriors for the variance and covariance of the multinormal distribution. The covariances bind different parameters together, so that for example price level helps the estimation of price trend, or the influence of population density. 
 
@@ -83,7 +83,7 @@ $$
 $$
 where $i$ refers to the zip code area, $t$ is time, $\beta$ are coefficients specific to the zip code $i$, $i’$ is the first prefix hierarchy level of the zip code (population density parameters are constant within each $i’$-area), $t()$ is the t-distribution, $\sigma_y$ is standard deviation of the underlying (log) price levels over years, $\sigma_w$ standar deviation of the prices within the measurement unit (year $\times$ zip), and $\nu$ the degrees of freedom of the residual t-distribution. Note that the linear model is for log-scale prices. The complete model is best described  by the [source code](https://github.com/reaktor/Neliohinnat/blob/master/source/m4.stan). 
 
-Estimate for $\nu$ is around 6.5, that is, residuals are with a bit heavier tails than normal. From the covariance parameters (*Omega* in the source) one sees that price level and trend correlate at the lowest level ($r$=0,28), as do trend change and price level ($r$=0,43). So price differences between areas have been deepening during the last ten years, probably due to urbanisation, a global trend. 
+Estimate for $\nu$ is around 6.5, that is, residuals are with a bit heavier tails than normal. From the covariance parameters (*Omega* in the source) one sees that price level and trend correlate at the lowest level ($r$=0,28), as do trend change and price level ($r$=0,43). So price differences between areas have been growing during the last ten years, probably due to urbanisation, a global trend. 
 
 Plotting area-wise prices and its changes against population density, one sees the expected correlation: remote areas are loosing in the sense of price, trend *and* trend change. 
 
@@ -91,10 +91,10 @@ Plotting area-wise prices and its changes against population density, one sees t
 
 The model has been written and estimated with the probabilistic programming language Stan ([http://mc-stan.org/](http://mc-stan.org/)). Stan produces a Monte Carlo estimation algorithm from a generative model description.
 
-## What is missing, and future steps
+## Possible improvements
 
 The model could have more demographic covariates. Dealers have reminded us about the predictivity of the sales volume. Obviously, the number of sales is not in a predictive role in the current model.
 
-Apartments are heterogeneous, but heterogeneity is not taken into account. Trends are biased towards apartments that are sold more often. Some public data is available where sales are separated by size and age of the condos, but these data are even more sparse than the aggregate data used here. 
+Apartment vary by their size, age, etc., but this heterogeneity is not taken into account. Trends are biased towards apartments that are sold more often. Some public data is available where sales are separated by size and age of the condos, but these data are even more sparse than the aggregate data used here. 
 
 On the Finnish equivalent of this blog, Herra Huu suggested whitened parameterization, which may help with estimation. 
