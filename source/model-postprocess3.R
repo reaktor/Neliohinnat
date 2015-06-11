@@ -331,11 +331,11 @@ p1b <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
 p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
              col="transparent", colorkey=FALSE,  main=list(label="Modelled prices",cex=2.5))
 
-png("figs/raw-only-en.png", width=512, height=850)
+png("figs/raw-only-en2.png", width=512, height=850)
 print(p1)
 dev.off()
 
-png("figs/raw-vs-model-en.png", width=1024, height=850)
+png("figs/raw-vs-model-en2.png", width=1024, height=850)
 print(p1b, split=c(1, 1, 2, 1), more=T)
 print(p2, split=c(2, 1, 2, 1), more=F)
 dev.off()
