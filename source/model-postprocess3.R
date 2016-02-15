@@ -9,7 +9,7 @@ library(sp)
 source("source/common3.R")
 
 
-s <- sflist2stanfit(readRDS("s6list.rds")[1:8]); traceplot(s, "tau", inc_warmup=F)
+s <- sflist2stanfit(readRDS("data/s6list.rds")[1:8]); traceplot(s, "tau", inc_warmup=F)
 d <- readRDS("data/d.rds")
 
 if (F) {
@@ -154,7 +154,7 @@ predictions <-
   ungroup() %>%
   left_join(d %>% select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
-saveRDS(predictions, "predictions.rds")
+saveRDS(predictions, "data/predictions.rds")
 
 
 
