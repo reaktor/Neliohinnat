@@ -1,0 +1,101 @@
+"pnro","nimi","kunta","maakunta","hinta2016keski","hinta2016min","hinta2016max","trendi2016keski","trendi2016min","trendi2016max"
+"90530","Välivainio","Oulu","Pohjois-Pohjanmaa",1990,1920,2060,5.6,4.6,6.5
+"90140","Karjasilta","Oulu","Pohjois-Pohjanmaa",2150,2080,2240,5.1,4.1,6.1
+"00500","Sörnäinen","Helsinki","Uusimaa",5710,5570,5840,5,4.3,5.7
+"90100","Oulu Keskus","Oulu","Pohjois-Pohjanmaa",2640,2560,2730,4.9,4,5.8
+"00530","Kallio","Helsinki","Uusimaa",5740,5600,5870,4.6,3.9,5.3
+"00550","Vallila","Helsinki","Uusimaa",5030,4910,5150,4.5,3.7,5.3
+"00510","Etu-Vallila","Helsinki","Uusimaa",5450,5320,5570,4.4,3.8,5.1
+"00610","Käpylä","Helsinki","Uusimaa",4940,4790,5070,4.4,3.6,5.1
+"90120","Heinäpää","Oulu","Pohjois-Pohjanmaa",2330,2260,2390,4.4,3.6,5.3
+"60100","Seinäjoki Keskus","Seinäjoki","Etelä-Pohjanmaa",2240,2180,2300,4.3,3.4,5.2
+"00520","Itä-Pasila","Helsinki","Uusimaa",4860,4750,4980,4,3.3,4.8
+"00300","Pikku Huopalahti","Helsinki","Uusimaa",5270,5060,5490,3.9,3,4.9
+"00400","Pohjois-Haaga","Helsinki","Uusimaa",4070,3960,4170,3.9,3.1,4.7
+"00560","Toukola-Vanhakaupunki","Helsinki","Uusimaa",5480,5310,5640,3.9,3.1,4.8
+"00320","Etelä-Haaga","Helsinki","Uusimaa",4720,4610,4820,3.7,3,4.4
+"00150","Eira","Helsinki","Uusimaa",6960,6780,7160,3.5,2.7,4.3
+"60150","Kasperi","Seinäjoki","Etelä-Pohjanmaa",1660,1600,1720,3.4,2.4,4.5
+"00270","Pohjois-Meilahti","Helsinki","Uusimaa",5890,5730,6060,3.3,2.5,4.2
+"67200","Kiviniitty-Tullimäki","Kokkola","Keski-Pohjanmaa",1850,1760,1950,3.3,2,4.8
+"80220","Penttilä","Joensuu","Pohjois-Karjala",2420,2320,2510,3.3,2.2,4.4
+"90130","Raksila","Oulu","Pohjois-Pohjanmaa",2090,1930,2230,3.3,2.6,4.1
+"00260","Keski-Töölö","Helsinki","Uusimaa",6360,6190,6520,3.2,2.5,3.9
+"20500","Vesilinna","Turku","Varsinais-Suomi",2970,2870,3070,3.2,2.2,4.2
+"60120","Pohja","Seinäjoki","Etelä-Pohjanmaa",1940,1870,2010,3.2,2.2,4.2
+"00350","Munkkivuori-Niemenmäki","Helsinki","Uusimaa",4520,4400,4630,3.1,2.3,4
+"00800","Länsi-Herttoniemi","Helsinki","Uusimaa",4220,4100,4350,3.1,2.2,3.9
+"40700","Mäki-Matti","Jyväskylä","Keski-Suomi",2520,2440,2610,3.1,2,4.1
+"70110","Etu-Niirala","Kuopio","Pohjois-Savo",2670,2590,2740,3.1,2.3,4
+"90400","Äimärautio","Oulu","Pohjois-Pohjanmaa",2850,2700,2980,3.1,1.9,4.4
+"00130","Kaartinkaupunki","Helsinki","Uusimaa",7450,7180,7710,3,2.1,3.9
+"00170","Kruununhaka","Helsinki","Uusimaa",6800,6620,6990,3,2.1,3.8
+"28220","Ruosniemi","Pori","Satakunta",1720,1650,1790,3,1.9,4.3
+"00100","Helsinki Keskusta","Helsinki","Uusimaa",6510,6350,6670,2.9,2.1,3.7
+"15140","Kartano-Paavola","Lahti","Päijät-Häme",2740,2680,2810,2.9,2.1,3.7
+"40100","Jyväskylä Keskus","Jyväskylä","Keski-Suomi",2910,2830,2990,2.9,2,3.7
+"60510","Hyllykallio","Seinäjoki","Etelä-Pohjanmaa",2190,2130,2250,2.9,2.1,3.8
+"90230","Värttö-Maikkula","Oulu","Pohjois-Pohjanmaa",2350,2280,2420,2.9,1.9,3.8
+"00180","Ruoholahti","Helsinki","Uusimaa",6480,6300,6620,2.8,2,3.5
+"02110","Otsolahti","Espoo","Uusimaa",4630,4490,4780,2.8,2,3.7
+"00630","Maunula-Suursuo","Helsinki","Uusimaa",3400,3290,3500,2.7,1.8,3.6
+"00810","Herttoniemi","Helsinki","Uusimaa",4590,4480,4710,2.7,1.9,3.5
+"33540","Kaleva","Tampere","Pirkanmaa",3010,2930,3080,2.7,1.9,3.5
+"00250","Taka-Töölö","Helsinki","Uusimaa",5920,5750,6070,2.6,1.9,3.4
+"00140","Kaivopuisto","Helsinki","Uusimaa",7280,7080,7470,2.5,1.7,3.4
+"00330","Munkkiniemi","Helsinki","Uusimaa",5340,5200,5470,2.5,1.7,3.3
+"20520","Kupittaa","Turku","Varsinais-Suomi",2590,2490,2690,2.5,1.5,3.5
+"60220","Huhtala","Seinäjoki","Etelä-Pohjanmaa",2020,1940,2100,2.5,1.4,3.6
+"70100","Kuopio Keskus","Kuopio","Pohjois-Savo",2760,2670,2850,2.5,1.5,3.5
+"90420","Metsokangas","Oulu","Pohjois-Pohjanmaa",2000,1940,2060,2.5,1.4,3.3
+"00160","Katajanokka","Helsinki","Uusimaa",7030,6790,7280,2.4,1.5,3.3
+"00600","Koskela-Helsinki","Helsinki","Uusimaa",3410,3280,3530,2.4,1.5,3.3
+"15100","Lahti Asemanseutu","Lahti","Päijät-Häme",2350,2280,2430,2.4,1.6,3.2
+"28100","Pori Keskus","Pori","Satakunta",2120,2050,2180,2.4,1.5,3.3
+"80330","Reijola","Joensuu","Pohjois-Karjala",2000,1910,2100,2.4,1,3.6
+"90500","Tuira","Oulu","Pohjois-Pohjanmaa",1810,1760,1860,2.4,1.6,3.3
+"00200","Lauttasaari","Helsinki","Uusimaa",5320,5170,5450,2.3,1.5,3
+"00280","Ruskeasuo","Helsinki","Uusimaa",5120,4980,5270,2.3,1.5,3.1
+"00380","Pitäjänmäen teollisuusalue","Helsinki","Uusimaa",4380,4050,4660,2.3,1.3,3.3
+"00440","Lassila","Helsinki","Uusimaa",3730,3630,3830,2.3,1.4,3.1
+"00580","Verkkosaari","Helsinki","Uusimaa",4660,4430,4880,2.3,1.2,3.3
+"02120","Länsikorkee-Hakalehto","Espoo","Uusimaa",4380,4260,4510,2.3,1.5,3.2
+"02650","Pohjois-Leppävaara","Espoo","Uusimaa",3760,3660,3870,2.3,1.5,3.2
+"28130","Impola","Pori","Satakunta",1620,1570,1670,2.3,1.4,3.2
+"28200","Toejoki","Pori","Satakunta",1610,1540,1680,2.3,1.3,3.4
+"60560","Halkosaari","Seinäjoki","Etelä-Pohjanmaa",2100,1900,2280,2.3,0.9,3.6
+"80200","Niinivaara","Joensuu","Pohjois-Karjala",2450,2370,2530,2.3,1.2,3.3
+"90440","Kempele Keskus","Kempele","Pohjois-Pohjanmaa",1660,1600,1710,2.3,1.3,3.2
+"00120","Punavuori","Helsinki","Uusimaa",6630,6450,6820,2.2,1.4,3
+"00240","Länsi-Pasila","Helsinki","Uusimaa",5110,4900,5330,2.2,1.2,3.3
+"00540","Kalasatama","Helsinki","Uusimaa",4360,4140,4570,2.2,1.6,2.8
+"27100","Eurajoki Keskus","Eurajoki","Satakunta",1420,1330,1510,2.2,0.5,4
+"60320","Alakylä-Jouppi","Seinäjoki","Etelä-Pohjanmaa",2060,1980,2140,2.2,1.1,3.4
+"80100","Joensuu Keskus, Pohjoinen","Joensuu","Pohjois-Karjala",2520,2430,2600,2.2,1.2,3.2
+"00210","Vattuniemi","Helsinki","Uusimaa",5520,5390,5650,2.1,1.3,2.8
+"00620","Metsälä-Etelä-Oulunkylä","Helsinki","Uusimaa",3590,3450,3730,2.1,1.1,3.1
+"02600","Etelä-Leppävaara","Espoo","Uusimaa",4080,3970,4200,2.1,1.3,3
+"40200","Mannila-Taulumäki","Jyväskylä","Keski-Suomi",2520,2440,2590,2.1,1.2,3
+"80110","Joensuu Keskus Eteläinen","Joensuu","Pohjois-Karjala",2560,2480,2630,2.1,1.2,3
+"28610","Musa-Tiiliruukki","Pori","Satakunta",1560,1510,1620,2,1,3
+"40720","Nisula","Jyväskylä","Keski-Suomi",2410,2340,2480,2,1.1,3
+"65610","Mustasaari Keskus","Mustasaari","Pohjanmaa",1940,1870,2010,2,0.8,3.1
+"67100","Kokkola Keskus","Kokkola","Keski-Pohjanmaa",2160,2090,2220,2,1,2.9
+"90410","Kaakkuri","Oulu","Pohjois-Pohjanmaa",1890,1760,2020,2,1.3,2.8
+"00910","Puotila","Helsinki","Uusimaa",3370,3280,3450,1.9,1.1,2.7
+"15110","Keski-Lahti","Lahti","Päijät-Häme",2600,2510,2680,1.9,0.9,2.8
+"20100","Turku Keskus","Turku","Varsinais-Suomi",2970,2890,3060,1.9,0.9,2.8
+"28120","Käppärä-Isomäki","Pori","Satakunta",1460,1410,1520,1.9,0.8,3
+"33100","Tampere Keskus","Tampere","Pirkanmaa",3350,3270,3440,1.9,1,2.9
+"65100","Vaasa Keskus","Vaasa","Pohjanmaa",2470,2400,2540,1.9,1,3
+"90540","Kuivasjärvi","Oulu","Pohjois-Pohjanmaa",1810,1760,1870,1.9,1,2.7
+"00220","Jätkäsaari","Helsinki","Uusimaa",4880,4600,5190,1.8,1.2,2.4
+"00420","Kannelmäki","Helsinki","Uusimaa",3130,3050,3200,1.8,1,2.6
+"00570","Kulosaari","Helsinki","Uusimaa",4530,4400,4650,1.8,1.1,2.6
+"02100","Tapiola","Espoo","Uusimaa",4520,4390,4650,1.8,0.8,2.6
+"75530","Porokylä","Nurmes","Pohjois-Karjala",1090,1030,1140,1.8,0.4,3.3
+"80230","Hukanhauta","Joensuu","Pohjois-Karjala",1960,1880,2040,1.8,0.6,2.9
+"00650","Veräjämäki","Helsinki","Uusimaa",3630,3490,3760,1.7,0.7,2.6
+"28430","Kartano-Harmaalinna","Pori","Satakunta",1630,1550,1710,1.7,0.6,2.9
+"33200","Tampere Keskus Läntinen","Tampere","Pirkanmaa",3360,3270,3450,1.7,0.9,2.6
+"33500","Osmonmäki-Petsamo","Tampere","Pirkanmaa",3000,2930,3070,1.7,0.9,2.4
