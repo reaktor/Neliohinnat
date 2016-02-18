@@ -128,8 +128,36 @@ pnro.ashi.dat <- pnro.ashi.raw %>%
 n_distinct(pnro.ashi.dat$pnro)
 # [1] 1571
 
-# Save data
+# Save all data
 save(pnro.dat, pnro.sp, pnro.ashi.dat, file="data_2016/pnro_data_20160215.RData")
+
+## DATA FOR STAN ##########
+
+# Auxiliary helper functions
+# source("source/common3.R")
+prefix.factor <- function (pnro, n) as.factor(substr(pnro, 1, n))
+l3 <- { . %>% prefix.factor(., 1) }
+l2 <- { . %>% prefix.factor(., 2) }
+l1 <- { . %>% prefix.factor(., 3) }
+# year2yr <- function (year) (year-2009.406)/10
+
+# FIXME: log.density has wrong sign. 
+
+# New data 'd' by Juuso
+load("data_2016/pnro_data_20160215.RData")
+d <- pnro.ashi.dat %>%
+  # Compute NEGATIVE log.density because Janne
+  mutate(log.density = -log(density_per_km2)/10) %>%
+  #  mutate(log.density = (log(density_per_km2)-14)/10) # This would be close to d$log.density
+  filter(!is.na(log.density) & !is.na(price)) %>%
+  mutate(pnro=factor(pnro), year=as.numeric(as.character(year))) %>% # pnro has extra levels
+  mutate(level1 = l1(pnro),
+         level2 = l2(pnro),
+         level3 = l3(pnro), 
+         yr = year - mean(unique(year)), #year2yr(year),
+         lprice = log(price)-6)
+
+saveRDS(d, "data_2016/d.rds")
 
 
 ## Write spatial data for web plots ######
