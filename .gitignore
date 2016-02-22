@@ -5,8 +5,10 @@ Neliohinnat.Rproj
 .DS_Store
 postinumerot 20140217.kml
 pnro-choropleth
-json/predictions
-json/predictions/*
+json_2015/predictions
+json_2016/predictions/*
+json_2016/predictions
+json_2016/predictions/*
 temp
 temp_pnro_shape
 

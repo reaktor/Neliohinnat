@@ -134,38 +134,29 @@ save(pnro.dat, pnro.sp, pnro.ashi.dat, file="data_2016/pnro_data_20160215.RData"
 
 ## Write spatial data for web plots ######
 
-# FIXME TODO
 
 load("data_2016/pnro_data_20160215.RData")
 
-## Reduce polygon resoluti
-# Check
-head(pnro.sp@polygons[[1]]@Polygons[[1]]@coords)
-
-# Round (need to lapply to multi polygons!!!):
-pnro.sp.rounded <- pnro.sp
-pnro.sp.rounded@polygons <- lapply(pnro.sp.rounded@polygons, function(p) {res=p;
-                                                                          for (pi in 1:length(res@Polygons))
-                                                                            res@Polygons[[pi]]@coords=round(res@Polygons[[pi]]@coords, d=3);
-                                                                          res})
-lapply(pnro.sp.rounded@polygons[[4]]@Polygons, function(x) head(x@coords))
-
-# Write only polygons as GeoJSON (can not specify file type for some reason, rename afterwards)
-rgdal::writeOGR(obj=pnro.sp.rounded, dsn="json_new/pnro_geojson", layer="pnro", driver="GeoJSON")
-file.rename("json_new/pnro_geojson", "json_new/pnro.geojson")
-# FIXME: why does it write 5 decimals to population and area_km2???
+# Write spatial polygons as geojson or topojson
 
 # Try writing to topojson
-# Following these: http://recology.info/2015/01/geojson-topojson-io/
 library("devtools")
 devtools::install_github("ropensci/geojsonio")
 library("geojsonio")
 
+# Note! topojson_write not supported anymore: https://github.com/ropensci/geojsonio/issues/24
+# Following these: http://recology.info/2015/01/geojson-topojson-io/
 # topojson requires input in shape file format
-writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
-topojson_write(shppath = "temp_pnro_shape", filename = "json_new/pnro_topojson")
+# writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
+# topojson_write(shppath = "temp_pnro_shape", filename = "json_2016/pnro_topojson")
 
-# the topojson does not include the data, so write it separately as json
+# 2016: Write as geojson and convert to topojson in some external application
+geojson_write(pnro.sp, file="json_2016/pnro.geojson")
+
+# Use https://github.com/mbostock/topojson/ to convert
+system("topojson -o json_2016/pnro_topojson.json json_2016/pnro.geojson")
+
+# the geojson/topojson does not include the data, so write it separately as json
 # Put into list
 pnro.info.list <- vector("list", length(pnro.sp@data$pnro))
 names(pnro.info.list) <- pnro.sp@data$pnro
@@ -178,13 +169,33 @@ library("jsonlite")
 # Write in non-pretty format
 pnro.info.list %>%
   toJSON(pretty=FALSE) %>%
-  writeLines(con="json_new/pnro_info_nonpretty.json")
+  writeLines(con="json_2016/pnro_info_nonpretty.json")
 
-# Write in pretty format
-pnro.info.list %>%
-  toJSON(pretty=TRUE) %>%
-  writeLines(con="json_new/pnro_info_pretty.json")
+
+
+# # Write in pretty format
+# pnro.info.list %>%
+#   toJSON(pretty=TRUE) %>%
+#   writeLines(con="json_new/pnro_info_pretty.json")
 
 # pnro.info.json <- jsonlite::toJSON(pnro.info.list, pretty=)
 # writeLines(pnro.info.json, con="json_new/pnro_info.json")
 # message("Then tidy the format (i.e. add ends of lines) using http://jsonlint.com/")
+
+
+# ## Reduce polygon resoluti
+# # Check
+# head(pnro.sp@polygons[[1]]@Polygons[[1]]@coords)
+# 
+# # Round (need to lapply to multi polygons!!!):
+# pnro.sp.rounded <- pnro.sp
+# pnro.sp.rounded@polygons <- lapply(pnro.sp.rounded@polygons, function(p) {res=p;
+#                                                                           for (pi in 1:length(res@Polygons))
+#                                                                             res@Polygons[[pi]]@coords=round(res@Polygons[[pi]]@coords, d=3);
+#                                                                           res})
+# lapply(pnro.sp.rounded@polygons[[4]]@Polygons, function(x) head(x@coords))
+# 
+# # Write only polygons as GeoJSON (can not specify file type for some reason, rename afterwards)
+# rgdal::writeOGR(obj=pnro.sp.rounded, dsn="json_new/pnro_geojson", layer="pnro", driver="GeoJSON")
+# file.rename("json_new/pnro_geojson", "json_new/pnro.geojson")
+# # FIXME: why does it write 5 decimals to population and area_km2???
