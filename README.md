@@ -2,9 +2,13 @@ Neliohinnat
 ===========
 
 
+## UPDATE 22.2.2016
+
+The service was update with apartment price data from year 2015. The repository was updated so that all original scripts and data were moved to folders ending in `_2015`, and new scripts and data are in folders enging in `_2016`.
+
 ## Introduction
 
-Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus. See the interactive visualisation [Kannattaakokauppa](http://kannattaakokauppa.fi/#/) and related blog posts at [Reaktor](http://reaktor.com/blog/asuntojen-trendit-ja-miten-niista-tehdaan-luotettavia-ennusteita) and [Louhos](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). 
+Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus. See the interactive visualisation [Kannattaakokauppa](http://kannattaakokauppa.fi/#/) and related blog posts at [Reaktor](http://reaktor.com/blog/asuntojen-trendit-ja-miten-niista-tehdaan-luotettavia-ennusteita), [rOpenGov](http://ropengov.github.io/r/2015/06/11/apartment-prices/), and [Louhos](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). 
 
 Discussion on [Hacker News](https://news.ycombinator.com/item?id=9503580).
 
@@ -28,9 +32,9 @@ The data sets are accessed with the [pxweb and [gisfin] package from [rOpenGov].
 
 ## Source code
 
-See the `source`-folder.
+See the `source_2016`-folder for latest source code.
 
 
 ## Statistical model
 
-See description in Finnish in [Louhos-blog](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). English description coming later.
+See description in English in [rOpenGov-blog](http://ropengov.github.io/r/2015/06/11/apartment-prices/) and in Finnish in [Louhos-blog](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/).
