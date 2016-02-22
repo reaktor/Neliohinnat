@@ -139,22 +139,31 @@ load("data_2016/pnro_data_20160215.RData")
 
 # Write spatial polygons as geojson or topojson
 
-# Try writing to topojson
-library("devtools")
-devtools::install_github("ropensci/geojsonio")
-library("geojsonio")
+# 2016: write first as shapefile and then convert to topojson
+rgdal::writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
+# Use https://github.com/mbostock/topojson/ to convert
+system("topojson -o json_2016/pnro.topojson temp_pnro_shape/pnro-rgdal.shp")
 
+# # Try writing to topojson
+# library("devtools")
+# devtools::install_github("ropensci/geojsonio")
+# library("geojsonio")
+
+# # 2016 alternative: Write as geojson and convert to topojson in some external application
+# geojson_write(pnro.sp, file="json_2016/pnro.geojson")
+# # Use https://github.com/mbostock/topojson/ to convert
+# system("topojson -o json_2016/pnro_from_geojsonio.topojson json_2016/pnro.geojson")
+
+# 2015: Use geojsonio::topojson_write()
 # Note! topojson_write not supported anymore: https://github.com/ropensci/geojsonio/issues/24
 # Following these: http://recology.info/2015/01/geojson-topojson-io/
 # topojson requires input in shape file format
 # writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
 # topojson_write(shppath = "temp_pnro_shape", filename = "json_2016/pnro_topojson")
 
-# 2016: Write as geojson and convert to topojson in some external application
-geojson_write(pnro.sp, file="json_2016/pnro.geojson")
 
-# Use https://github.com/mbostock/topojson/ to convert
-system("topojson -o json_2016/pnro_topojson.json json_2016/pnro.geojson")
+
+
 
 # the geojson/topojson does not include the data, so write it separately as json
 # Put into list
