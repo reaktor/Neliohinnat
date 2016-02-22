@@ -1,15 +1,15 @@
 library("rstan")
-library("MASS")
+# library("MASS")
 library("dplyr")
-library("RJSONIO2")
+library("RJSONIO")
 library("ggplot2")
 theme_set(theme_bw())
-# library(sp)
+library("sp")
 
-# source("source/common3.R")
+source("source_2016/common.R")
 
 # Model from 2015
-# s_2015 <- sflist2stanfit(readRDS("data_2015/s6list.rds")[1:8]) #; traceplot(s, "tau", inc_warmup=F)
+# s <- sflist2stanfit(readRDS("data_2015/s6list.rds")[1:8]) #; traceplot(s, "tau", inc_warmup=F)
 
 # Model from 2016
 s <- readRDS("data_2016/model_samples_debug_8chains_1000+1000t20_20160219.rds")
@@ -18,24 +18,15 @@ d <- readRDS("data_2016/d.rds")
 
 if (F) {
   s
-  traceplot(s1, "LOmega", inc_warmup=F)
-  traceplot(s2, "LOmega", inc_warmup=F)
-  traceplot(s1, "LOmega2", inc_warmup=F)
-  traceplot(s2, "LOmega2", inc_warmup=F)
-  traceplot(s1, "tau", inc_warmup=F)
-  traceplot(s2, "tau", inc_warmup=F)
-  traceplot(s1, "tau1", inc_warmup=F)
-  traceplot(s2, "tau1", inc_warmup=F)
-  traceplot(s1, "tau2", inc_warmup=F)
-  traceplot(s2, "tau2", inc_warmup=F)
-  traceplot(s1, "mean_beta", inc_warmup=F)
-  traceplot(s2, "mean_beta", inc_warmup=F)
-  traceplot(s1, "df", inc_warmup=F)
-  traceplot(s2, "df", inc_warmup=F)
-  traceplot(s1, "sigma", inc_warmup=F)
-  traceplot(s2, "sigma", inc_warmup=F)
-  traceplot(s1, "ysigma", inc_warmup=F)
-  traceplot(s2, "ysigma", inc_warmup=F)
+  traceplot(s, "LOmega", inc_warmup=F)
+  traceplot(s, "LOmega2", inc_warmup=F)
+  traceplot(s, "tau", inc_warmup=F)
+  traceplot(s, "tau1", inc_warmup=F)
+  traceplot(s, "tau2", inc_warmup=F)
+  traceplot(s, "mean_beta", inc_warmup=F)
+  traceplot(s, "df", inc_warmup=F)
+  traceplot(s, "sigma", inc_warmup=F)
+  traceplot(s, "ysigma", inc_warmup=F)
   #traceplot(s, "beta", inc_warmup=F)
   # etc.
 }
@@ -57,7 +48,7 @@ beta.prm.mean <- function (v) apply(extract(s, v)[[1]], c(2, 3), mean) %>% raise
 beta.prm <- function (v) extract(s, v)[[1]] %>% raise6
 
 # For debugging 
-if (T) {
+if (F) {
   beta <- beta.prm.mean("beta")
   lhinta <- beta[,1]+6
   trendi <- beta[,2]/10
@@ -93,7 +84,7 @@ mean.tbl.long <- function (name.postfix="4")
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
 
-load("data_2016/pnro_data_20150318.RData")
+load("data_2016/pnro_data_20160215.RData")
 pnro.area <- pnro.dat %>% transmute(pnro=pnro, log.density = -log(density_per_km2)/10) # FIXME: this is in two places
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
@@ -121,22 +112,22 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   # trendi is as percentage / 100.
   # trendimuutos is as percentage units / 100 / year.
   mutate(hinta = exp(6 + lprice), trendi = trend/10, trendimuutos = 2*quad/100, 
-         hinta2016 = exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2),
-         trendi2016 = (trend + 2*quad*year2yr(2016))/10) %>%
+         hinta2017 = exp(6 + lprice + trend*year2yr(2017) + quad*year2yr(2017)**2),
+         trendi2017 = (trend + 2*quad*year2yr(2017))/10) %>%
   tbl_df()
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
-           hinta2016=mean(hinta2016), trendi2016=mean(trendi2016), trendimuutos=mean(trendimuutos)) %>%
+           hinta2017=mean(hinta2017), trendi2017=mean(trendi2017), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
 
 res2080 <- res.long %>% group_by(pnro, log.density) %>% 
   summarise(lprice = mean(lprice), 
-            hinta2016.20 = quantile(hinta2016, .2), 
-            trendi2016.20 = quantile(trendi2016, .2), 
+            hinta2017.20 = quantile(hinta2017, .2), 
+            trendi2017.20 = quantile(trendi2017, .2), 
             trendimuutos.20 = quantile(trendimuutos, .2), 
-            hinta2016.80 = quantile(hinta2016, .8), 
-            trendi2016.80 = quantile(trendi2016, .8), 
+            hinta2017.80 = quantile(hinta2017, .8), 
+            trendi2017.80 = quantile(trendi2017, .8), 
             trendimuutos.80 = quantile(trendimuutos, .8) 
             ) %>%
   ungroup()
@@ -144,13 +135,15 @@ res2080 <- res.long %>% group_by(pnro, log.density) %>%
 
 # was:
 # write.table(res %>% select(-log.density),  "data_2016/pnro-hinnat.txt", row.names=F, quote=F)
-write.table(res2080,  "data_2016/pnro-hinnat2080.txt", row.names=F, quote=F)
-saveRDS(res2080, "data_2016/pnro-hinnat2080.rds")
+write.table(res2080,  "data_2016/pnro-hinnat_20-80_2016.txt", row.names=F, quote=F)
+saveRDS(res2080, "data_2016/pnro-hinnat_20-80_2016.rds")
 
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
 
-years = 2005:2016
+## COMPUTE PREDICTIONS ########
+
+years = 2005:2017
 predictions <- 
   expand.grid(sample=unique(res.long$sample), 
               year=years, 
@@ -167,290 +160,24 @@ predictions <-
   ungroup() %>%
   left_join(d %>% select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
-saveRDS(predictions, "data_2016/predictions.rds")
+saveRDS(predictions, "data_2016/predictions_2016.rds")
+
+# Compare predictions to those from year 2015
+predictions %>%
+  select(pnro, year, hinta) %>%
+  left_join(readRDS("data_2015/predictions.rds") %>%
+              select(pnro, year, hinta),
+            by = c("pnro", "year")) %>%
+  ggplot(aes(x=hinta.x, y=hinta.y)) + geom_point(aes(colour=factor(year)))
+# Looks similar enough
 
 
+## JSONs #############
 
-
-
-
-## Process for urbanisation blog post #############
-
-res.long.narrow <- res.long %>% select(pnro, lprice, trend, quad, sample) #%>% head(10)
-#saveRDS(res.long.narrow, file="res-long-narrow.rds")
-
-yearly.trends <- 
-  res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
-            mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
-            group_by(pnro, year) %>%
-            summarise(trend.y.mean=mean(trend.y), trend.y.median=median(trend.y))
-saveRDS(yearly.trends, "data/yearly-trends.rds")
-
-yearly.trends.long <- 
-  res.long.narrow %>% tidyr::expand(pnro, year=years) %>% left_join(res.long.narrow) %>%
-  mutate(trend.y = (trend + 2*quad*year2yr(year))/10) 
-# saveRDS(yearly.trends.long, file="yearly-trends-long.rds")
-# yearly.trends.long <- readRDS("/Users/Ouzor/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/yearly-trends-long.rds") 
-
-# Get population data
-pop.dat <- readRDS("data/pnro-hinnat.rds")
-load("data/pnro_data_20150318.RData")
-population <- pop.dat %>%
-  inner_join(pnro.dat %>% select(pnro, municipality)) %>%
-  mutate(logtiheys = -10*as.numeric(log.density))
-
-# Combine and process
-trendspost <- left_join(yearly.trends.long, population, by = "pnro") %>%
-  select(pnro,year,trend.y,logtiheys,municipality,sample) %>%
-  rename(kunta = municipality)
-isot <- c("Helsinki","Espoo","Tampere","Vantaa","Oulu","Turku","Jyväskylä","Kuopio","Lahti","Kouvola","Pori","muu")
-trendspost[!trendspost$kunta %in% isot,]$kunta = 'muu'
-
-# Fit models
-fit <- group_by(filter(trendspost,year<2015),kunta,year,sample) %>%
-  do({ mod <- rlm(trend.y ~ logtiheys,data = .,maxit = 50);
-       data.frame(k=coef(mod)[["logtiheys"]])})
-fit2 <- group_by(fit,kunta,year) %>%
-  do({std = sqrt(var(.$k));
-      k = mean(.$k);
-      data.frame(er = std,k = k)}) 
-trend.fit <- transform(fit2, kunta=factor(kunta, levels=isot))
-
-# Save for the blog post
-saveRDS(trend.fit, file="data/trends-fit.rds")
-
-
-
-#### plots #########
-
-pnro.plot <- function (ipnro) {
-  d.pnro <- predictions %>% filter(pnro %in% ipnro) 
-  p <- ggplot(d.pnro, aes(x=year, y=hinta)) + 
-    geom_line() +
-    geom_ribbon(aes(ymin=hinta25, ymax=hinta75), alpha=.2) +
-    geom_ribbon(aes(ymin=hinta10, ymax=hinta90), alpha=.2) 
-  d2.pnro <- d.pnro %>% filter(!is.na(n_kaupat))
-  if (nrow(d2.pnro)>0) 
-    p <- p + geom_point(data=d2.pnro, aes(x=year, y=obs_hinta, size=n_kaupat)) +
-    scale_size_continuous(name="Kauppojen\nmäärä")
-  p + ggtitle("Neliöhintoja 2005-2016, 50% ja 80% luottamusvälit") + theme_bw(15) + 
-    scale_x_continuous(breaks=c(2006, 2010, 2014), labels=c("-06", "-10", "-14")) + 
-    #scale_y_log10(breaks=c(200, 500, 700, 1000, 2000, 5000, 7000, 10000)) +
-    facet_wrap(~ pnro) + xlab("Vuosi")
-}
-
-
-pnro.plot(c("02620", "02940", "02210", "00320", "59130", "00100", "16230", "33100", "09120"))
-predictions$pnro %>% (function (i) i[grep("^02", i)]) %>% unique %>% pnro.plot(.)
-predictions$pnro %>% (function (i) i[grep("^56", i)]) %>% unique %>% pnro.plot(.)
-predictions$pnro %>% (function (i) i[grep("^59", i)]) %>% unique %>% pnro.plot(.)
-predictions$pnro %>% (function (i) i[grep("^90", i)]) %>% unique %>% pnro.plot(.)
-
-ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.5, size=3) + 
-  xlab("log.density") + ylab("log price - 6") + theme_minimal(15) #+ 
-  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
-ggsave("figs/density-lprice.png")
-ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend per year") + theme_minimal(15) #+ 
-  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
-ggsave("figs/density-trend.png")
-ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.5, size=3) +
-  xlab("log.density") + ylab("trend change per year") + theme_minimal(15) #+ 
-  #geom_smooth(method="gam", formula = y ~ s(x), se=F)
-ggsave("figs/density-trendchange.png")
-
-ggplot(res, aes(x=lprice, fill=l3(pnro))) + geom_histogram(binwidth=.04) +
-  xlab("log price - 6") + ylab("") + theme_minimal(15)
-ggsave("figs/lprice-histogram.png")
-ggplot(res, aes(x=trendi2016, fill=l3(pnro))) + geom_histogram(binwidth=.002) +
-  xlab("trend") + ylab("") + theme_minimal(15)
-ggsave("figs/trendi-histogram.png")
-ggplot(res, aes(x=trendimuutos, fill=l3(pnro))) + geom_histogram(binwidth=.0004) +
-  xlab("trend change") + ylab("") + theme_minimal(15)
-ggsave("figs/trendimuutos-histogram.png")
-
-
-## Spatial data and plots ######
-
-## Plot with alternative coordinates
-load("data/pnro_spatial_epsg2393.RData") # pnro.sp.alt appears here
-pnro.hinnat.sp <- merge(pnro.sp.alt, data.frame(res))
-
-
-pk.sp <- pnro.hinnat.sp[substr(pnro.hinnat.sp$pnro, 1, 2) %in% c("00", "01", "02"),]
-pnro.hinnat.sp.raw<- merge(pnro.sp.alt, 
-                           d %>% group_by(pnro) %>% 
-                             do(data.frame(lprice=mean(.$lprice), trend=coef(lm(lprice ~ year + 1, 
-                                                                                weights = .$n,
-                                                                                data=.))[["year"]])) %>%
-                             data.frame)
-pk.sp.raw <- pnro.hinnat.sp.raw[substr(pnro.hinnat.sp.raw$pnro, 1, 2) %in% c("00", "01", "02"),]
-
-
-pdf("figs/pnro_prices.pdf")
-spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pnro.hinnat.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
-spplot(pnro.hinnat.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
-dev.off()
-
-pdf("figs/pk-pnro_prices.pdf")
-spplot(pk.sp, zcol="lprice", lwd=0.00, col="transparent", main="Log price")
-spplot(pk.sp, zcol="trendi2016", lwd=0.00, col="transparent", main="Trend 2016")
-spplot(pk.sp, zcol="trendimuutos", lwd=0.00, col="transparent", main="Trend change per year")
-dev.off()
-
-
-
-pdf("figs/without-hierarhy.pdf")
-spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (raw)")
-spplot(pnro.hinnat.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
-spplot(pk.sp.raw, zcol="lprice", lwd=0.00, col="transparent", main="log.price (raw)")
-spplot(pk.sp.raw, zcol="trend", lwd=0.00, col="transparent", main="trend (raw)")
-dev.off()
-
-# Plots for blogs
-
-p1 <- predictions$pnro %>% (function (i) i[grep("^02[01234]", i)]) %>% unique %>% pnro.plot(.)
-p1 
-ggsave("figs/espoota.png", dpi=150)
-p1 + ggtitle("Prices (per m^2) 2005—2016, with 50% and 80% confidence intervals") + 
-  xlab("year") + ylab("price / eur") + scale_size_continuous(name="# of sales")
-ggsave("figs/espoota-en.png", dpi=150)
-
-png("figs/raw-vs-model.png", width=1024, height=1024)
-p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
-             col="transparent", main="Keskihinta raakana (log)")
-p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
-             col="transparent", main="Keskihinta mallista (log)")
-print(p1, split=c(1, 1, 2, 1), more=T)
-print(p2, split=c(2, 1, 2, 1), more=F)
-dev.off()
-
-png("figs/raw-vs-model-en.png", width=1024, height=1024)
-p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
-             col="transparent", main="Mean log-price, raw")
-p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
-             col="transparent", main="Mean log-price, model")
-print(p1, split=c(1, 1, 2, 1), more=T)
-print(p2, split=c(2, 1, 2, 1), more=F)
-dev.off()
-
-## Plots for ICCSS 2015 presentation #######
-
-p1 <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
-             col="transparent", colorkey=FALSE, main=list(label="Raw apartment prices in Finland",cex=2.5))
-p1b <- spplot(pnro.hinnat.sp.raw, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1), 
-             col="transparent", colorkey=FALSE, main=list(label="Raw prices",cex=2.5))
-p2 <- spplot(pnro.hinnat.sp, zcol="lprice", lwd=0.00, at=seq(-0.5, 3, .1),
-             col="transparent", colorkey=FALSE,  main=list(label="Modelled prices",cex=2.5))
-
-png("figs/raw-only-en2.png", width=512, height=850)
-print(p1)
-dev.off()
-
-png("figs/raw-vs-model-en2.png", width=1024, height=850)
-print(p1b, split=c(1, 1, 2, 1), more=T)
-print(p2, split=c(2, 1, 2, 1), more=F)
-dev.off()
-
-# trend vs population
-load("data/pnro_data_20150318.RData")
-pop.dat <- readRDS("data/pnro-hinnat.rds")
-yearly.trends <- readRDS("data/yearly-trends.rds")
-population <- pop.dat %>%
-  inner_join(pnro.dat %>% select(pnro, municipality)) %>%
-  mutate(logtiheys = -10*as.numeric(log.density))
-trends <- yearly.trends %>%
-  left_join(population) %>%
-  rename(kunta = municipality)
-
-log.vals = c(-1,0,2,4)
-norm.vals <- 10**(log.vals)
-
-# koko Suomen ajallinen trendi vs tiheys
-trends %>%
-  filter(year == 2014) %>%
-  transform(year = factor(year)) %>%
-  ggplot(data = ., aes(x=logtiheys, y=100*trend.y.mean)) +
-  geom_point(size=2, alpha=0.2) + 
-  geom_smooth(method="rlm", size=1.5, colour="red") + 
-  xlab('Density (population / km^2)') + ylab("Price trend (% / year)") + 
-  scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) + 
-  geom_hline(y=0, linetype="dashed") +
-  ggsave(width=7, height=5, file="figs/trend-population-2015.png")
-
-## MOre plots ########
-
-
-p1 <-
-d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=NA) %>% sample_n(70) %>% 
-  tidyr::gather(year, n, -pnro) %>%
-  ggplot(aes(x=year, y=pnro, fill=n)) + 
-  geom_tile() + xlab("Vuodet") + ylab("Postinumero") + 
-  theme_minimal(18) +
-  scale_x_discrete(labels=NULL) +
-  #theme(legend.justification=c(1,0), legend.position=c(1,0),
-  #      legend.background = element_rect(fill="#f0f0f0d0", size=0)) +
-  theme(axis.text.y = element_text(size=10), axis.ticks.x=element_blank()) +
-  scale_fill_gradient(low = "#f7fcf5", high = "#005a32", na.value="red", trans="sqrt",
-                      breaks=c(6, 30, 100, 300, 1000), name="Kauppojen\nmäärä") 
-#ggsave("figs/raakadata.png", dpi=150)
-
-p2 <- 
-d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=0) %>% 
-  tidyr::gather(year, n, -pnro) %>% { .[order(.$n),]} %>% 
-  mutate(i=row_number()/n()*100) %>% 
-  ggplot(aes(x=i, y=n)) + geom_line() + 
-  scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 30, 100, 1000)) + 
-  scale_x_continuous(breaks=c(0, 17.5, 50, 100)) +
-  ylab("Kauppojen määrä") + xlab("Postinumero-vuosi-yhdistelmät (%)") +
-  theme_minimal(18)
-
-png("figs/harvuus.png", width=1024, height=512)
-gridExtra::grid.arrange(p1, p2, ncol=2, widths=c(.5, 1), heights=c(1, 1))
-dev.off()
-
-png("figs/harvuus-en.png", width=1024, height=512)
-gridExtra::grid.arrange(p1 + xlab("year") + ylab("zip code") + 
-                          scale_fill_gradient(low = "#f7fcf5", high = "#005a32", na.value="red", trans="sqrt",
-                                              breaks=c(6, 30, 100, 300, 1000), name="# of sales") , 
-                        p2  + xlab("zip-year slots (%)") + ylab("# of sales"), 
-                        ncol=2, widths=c(.5, 1), heights=c(1, 1))
-dev.off()
-
-p1 <- 
-ggplot(res, aes(x=-log.density, y=lprice, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) + 
-  guides(color=F) + 
-  scale_color_hue(l=55) +
-  xlab("Asukastiheys (log)") + ylab("Hinta (log) ") + theme_minimal(18) #+ 
-p2 <- 
-ggplot(res, aes(x=-log.density, y=trendi2016, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) +
-  guides(color=F) +
-  scale_fill_hue(l=55) +
-  xlab("") + ylab("Trendi") + theme_minimal(18) #+ 
-p3 <- 
-ggplot(res, aes(x=-log.density, y=trendimuutos, color=l3(pnro))) + geom_point(alpha=.55, size=2.5) +
-  scale_color_hue(l=55, name="Alue\n(postinumeron\n1. numero)") +
-  xlab("") + ylab("Trendin muutos") + theme_minimal(18) #+ 
-
-png("figs/tiheys-korrelaatiot.png", width=1024, height=1024/3.5)
-gridExtra::grid.arrange(p1, p2, p3, ncol=3, widths=c(1, 1, 1.5), heights=c(1, 1, 1))
-dev.off()
-
-png("figs/tiheys-korrelaatiot-en.png", width=1024, height=1024/3.5)
-gridExtra::grid.arrange(p1 + xlab("pop. density (log)") + ylab("price (log)"), 
-                        p2 + ylab("trend"), 
-                        p3 + ylab("trend change") + 
-                          scale_color_hue(l=55, name="Zip district"), 
-                        ncol=3, widths=c(1, 1, 1.5), heights=c(1, 1, 1))
-dev.off()
-
-# JSONs
-
-res %>% plyr::dlply("pnro", function (i) list(hinta2016=i$hinta2016, 
-                                              trendi2016=i$trendi2016, 
+res %>% plyr::dlply("pnro", function (i) list(hinta2017=i$hinta2017, 
+                                              trendi2017=i$trendi2017, 
                                               trendimuutos=i$trendimuutos)) %>% 
-  toJSON %>% writeLines("json/trends.json")
+  toJSON %>% writeLines("json_2016/trends.json")
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
   plyr::d_ply("pnro", function (i) list(year=i$year, 
@@ -461,11 +188,26 @@ predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
                                         hinta90=i$hinta90, 
                                         obs_hinta=i$obs_hinta, 
                                         n_kaupat=i$n_kaupat) %>% toJSON %>%
-                      writeLines(., paste("json/predictions/", i$pnro[[1]], ".json",  sep=""))
-              )
+                writeLines(., paste("json_2016/predictions/", i$pnro[[1]], ".json",  sep=""))
+  )
 
-d %>% select(pnro, year, n)  %>% tidyr::spread(year, n, fill=0) %>% tidyr::gather(year, n, -pnro) %>% { .[order(.$n),]} %>% mutate(i=row_number()) %>% ggplot(aes(x=i, y=n)) + geom_line() + scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
+d %>% select(pnro, year, n) %>%
+  tidyr::spread(year, n, fill=0) %>% 
+  tidyr::gather(year, n, -pnro) %>% 
+  { .[order(.$n),]} %>% 
+  mutate(i=row_number()) %>% 
+  ggplot(aes(x=i, y=n)) + 
+  geom_line() + 
+  scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
 
-d %>% select(pnro, year, n)  %>% group_by(pnro) %>% summarise(n=sum(n))  %>% { .[order(.$n),]} %>% mutate(i=row_number()) %>% ggplot(aes(x=i, y=n)) + geom_line() + scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
+d %>% select(pnro, year, n)  %>% 
+  group_by(pnro) %>% 
+  summarise(n=sum(n))  %>% 
+  { .[order(.$n),]} %>% 
+  mutate(i=row_number()) %>% 
+  ggplot(aes(x=i, y=n)) + 
+  geom_line() + 
+  scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
+
 
 
