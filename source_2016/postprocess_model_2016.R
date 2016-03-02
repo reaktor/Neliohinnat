@@ -120,6 +120,7 @@ res <- res.long %>% group_by(pnro, log.density) %>%
  summarise(lprice = mean(lprice), 
            hinta2017=mean(hinta2017), trendi2017=mean(trendi2017), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
+saveRDS(res, "data_2016/pnro-hinnat_2016.rds")
 
 res2080 <- res.long %>% group_by(pnro, log.density) %>% 
   summarise(lprice = mean(lprice), 
