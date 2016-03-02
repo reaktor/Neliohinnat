@@ -142,7 +142,8 @@ load("data_2016/pnro_data_20160215.RData")
 # 2016: write first as shapefile and then convert to topojson
 rgdal::writeOGR(pnro.sp, "temp_pnro_shape", "pnro-rgdal", driver="ESRI Shapefile")
 # Use https://github.com/mbostock/topojson/ to convert
-system("topojson -o json_2016/pnro.topojson temp_pnro_shape/pnro-rgdal.shp")
+# system("topojson -o json_2016/pnro.topojson temp_pnro_shape/pnro-rgdal.shp")
+system("topojson -p pnro -o json_2016/pnro.topojson temp_pnro_shape/pnro-rgdal.shp")
 
 # # Try writing to topojson
 # library("devtools")
