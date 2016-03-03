@@ -21,6 +21,8 @@ library("gisfin")
 library("raster")
 library("dplyr")
 library("tidyr")
+library("stringr")
+
 
 ## Get apartment house price data #######
 
@@ -37,7 +39,7 @@ pnro.ashi.raw <- pxweb::get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1
                                                    Postinumero = c('*'), Rakennusvuosi = c('8'), Tiedot = c('*')),
                                        clean = TRUE) %>% tbl_df() %>%
   # Have to add leading zeros to Postinumero
-  mutate(Postinumero = sprintf("%05s", as.character(pnro.ashi.raw$Postinumero)))
+  mutate(Postinumero = sprintf("%05s", as.character(Postinumero)))
 n_distinct(pnro.ashi.raw$Postinumero)
 # [1] 1575
 stopifnot(all(nchar(as.character(pnro.ashi.raw$Postinumero))==5))
@@ -89,7 +91,7 @@ pnro.population <- pnro.population.raw %>%
   mutate(temp = gsub("  \\(", "|", as.character(Postinumeroalue)),
          pnro = substr(temp, 1, 5),
          name = sapply(strsplit(substr(temp, 7, 100), split="\\|"), "[", 1),
-         municipality = gsub("\\)", "", sapply(strsplit(temp, split="\\|"), "[", 2))) %>%
+         municipality = str_trim(gsub("\\)", "", sapply(strsplit(temp, split="\\|"), "[", 2)))) %>%
   rename(population = values) %>%
   select(pnro, name, municipality, population)
 
@@ -129,13 +131,13 @@ n_distinct(pnro.ashi.dat$pnro)
 # [1] 1571
 
 # Save all data
-save(pnro.dat, pnro.sp, pnro.ashi.dat, file="data_2016/pnro_data_20160215.RData")
+save(pnro.dat, pnro.sp, pnro.ashi.dat, file="data_2016/pnro_data_20160303.RData")
 
 
 ## Write spatial data for web plots ######
 
 
-load("data_2016/pnro_data_20160215.RData")
+load("data_2016/pnro_data_20160303.RData")
 
 # Write spatial polygons as geojson or topojson
 
