@@ -142,6 +142,10 @@ saveRDS(res2080, "data_2016/pnro-hinnat_20-80_2016.rds")
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
 
+
+
+
+
 ## COMPUTE PREDICTIONS ########
 
 years = 2005:2017
@@ -171,6 +175,23 @@ predictions %>%
             by = c("pnro", "year")) %>%
   ggplot(aes(x=hinta.x, y=hinta.y)) + geom_point(aes(colour=factor(year)))
 # Looks similar enough
+
+
+# For urbanisation analysis
+res.long.narrow <- res.long %>% select(pnro, lprice, trend, quad, sample) #%>% head(10)
+#saveRDS(res.long.narrow, file="res-long-narrow.rds")
+
+yearly.trends <- 
+  expand.grid(sample=unique(res.long.narrow$sample), 
+              year=years, 
+              pnro=unique(res.long.narrow$pnro)) %>% tbl_df %>%
+#   res.long.narrow %>% 
+#   tidyr::expand(pnro, year=years) %>% 
+  left_join(res.long.narrow) %>%
+  mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
+  group_by(pnro, year) %>%
+  summarise(trend.y.mean=mean(trend.y), trend.y.median=median(trend.y))
+saveRDS(yearly.trends, "data_2016/yearly-trends_2016.rds")
 
 
 ## JSONs #############

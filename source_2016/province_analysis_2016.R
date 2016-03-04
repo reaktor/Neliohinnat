@@ -83,3 +83,72 @@ pnro.province %>%
   head(100) %>%
   write.csv("data_2016/asuntohinnat_kvantiilit_2017_bottom100_20160302.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
 
+
+## ANALYSIS FOR MEDIA ##########
+
+# pnro_hinnat_2016 <- readRDS("data_2015/pnro-hinnat.rds") %>%
+#   inner_join(pnro.dat)
+# pnro_hinnat_2017 <- readRDS("data_2016/pnro-hinnat_2016.rds") %>%
+#   inner_join(pnro.dat)
+pnro_hinnat_combined <- readRDS("data_2015/pnro-hinnat.rds") %>%
+  inner_join(readRDS("data_2016/pnro-hinnat_2016.rds"),
+             by ="pnro") %>%
+  left_join(pnro.dat)
+
+library("ggplot2")
+theme_set(theme_bw(24))
+# compare prices
+ggplot(pnro_hinnat_combined, aes(x=hinta2016, y=hinta2017)) + 
+  geom_point(size=2.5, alpha=0.5) +
+  geom_abline(slope=1, size=1.5) +
+  ggtitle("Hintataso 2016 vs 2017")
+ggsave("figs_2016/Hintataso_2016-vs-2017.png", width=10, height=10)
+
+# compare trends
+ggplot(pnro_hinnat_combined, aes(x=100*trendi2016, y=100*trendi2017)) + 
+  geom_point(size=2.5, alpha=0.5) +
+  geom_abline(slope=1, size=1.5) +
+  geom_vline(xintercept=0, linetype="dashed") +
+  geom_hline(yintercept=0, linetype="dashed") +
+  ggtitle("Trendi 2016 vs 2017")
+ggsave("figs_2016/Trendi_2016-vs-2017.png", width=10, height=10)
+
+ggplot(pnro_hinnat_combined, aes(x=trendimuutos.x, y=trendimuutos.y)) + geom_point(alpha=0.5) +
+  geom_abline(slope=1) +
+  geom_vline(xintercept=0, linetype="dashed") +
+  geom_hline(yintercept=0, linetype="dashed") +
+  labs(x="Trendimuutos 2016", y="Trendimuutos 2017") +
+  ggtitle("Trendimuutos 2016 vs 2017")
+ggsave("figs_2016/Trendimuutos_2016-vs-2017.png", width=10, height=10)
+
+# Density
+ggplot(pnro_hinnat_combined, aes(x=density_per_km2, y=trendi2016)) +
+  geom_point() + 
+  scale_x_log10() +
+  geom_smooth(method="lm")
+
+ggplot(pnro_hinnat_combined, aes(x=density_per_km2, y=trendi2017)) +
+  geom_point() + 
+  scale_x_log10() +
+  geom_smooth(method="lm")
+
+
+m2016 <- lm(trendi2016 ~ log10(density_per_km2),
+            data=pnro_hinnat_combined)
+m2017 <- lm(trendi2017 ~ log10(density_per_km2),
+            data=pnro_hinnat_combined)
+
+# ## Urbanisaatio #######
+
+trends <- readRDS("data_2016/yearly-trends_2016.rds") %>%
+  left_join(pnro.dat, by = "pnro") 
+
+
+#ggplot(transform(filter(trends,year<2015), year=factor(year)), aes(log(density_per_km2),trend.y.mean),) + 
+ggplot(trends, aes(density_per_km2,trend.y.mean)) + 
+  geom_point(size=1) + #aes(color=trend.y.mean>0) 
+  geom_smooth(method="lm") + 
+  facet_wrap(~year, ncol=3) + 
+  xlab('Tiheys (as / km^2)') + ylab("Trendi (% / vuosi)") + 
+  scale_x_log10()
+#   scale_x_continuous(breaks = log(norm.vals), labels=norm.vals) + scale_colour_discrete(name = "Hinta" ,labels= c("laskee","nousee")) 
