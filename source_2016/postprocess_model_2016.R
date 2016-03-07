@@ -115,6 +115,8 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
          hinta2017 = exp(6 + lprice + trend*year2yr(2017) + quad*year2yr(2017)**2),
          trendi2017 = (trend + 2*quad*year2yr(2017))/10) %>%
   tbl_df()
+saveRDS(res.long, "data_2016/pnro-results_long_2016.rds")
+
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
