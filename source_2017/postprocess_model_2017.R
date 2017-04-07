@@ -8,10 +8,10 @@ library("sp")
 
 source("source_2017/common_2017.R")
 
-# Test Model from 2017
-s <- readRDS("data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
+# # Test Model from 2017
+# s <- readRDS("data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
 # Real model from 2017
-s <- readRDS("data_2017/model_samples")
+s <- readRDS("data_2017/model_samples_debug_8chains_1000+1000t20_20170406.rds")
 # Read data object
 d <- readRDS("data_2017/d.rds")
 
@@ -174,8 +174,8 @@ predictions %>%
   inner_join(readRDS("data_2016/predictions_2016.rds") %>%
               select(pnro, year, hinta_2016 = hinta),
             by = c("pnro", "year")) %>%
-#  ggplot(aes(x=hinta_2016, y=hinta_2017)) + geom_point(aes(colour=factor(year)), alpha=0.5) 
-ggplot(aes(x=hinta_2017-hinta_2016)) + geom_histogram()
+  ggplot(aes(x=hinta_2016, y=hinta_2017)) + geom_point(aes(colour=factor(year)), alpha=0.5) 
+# ggplot(aes(x=hinta_2017-hinta_2016)) + geom_histogram()
 # Looks similar enough
 
 # Plot comparison between 2015 and 2016

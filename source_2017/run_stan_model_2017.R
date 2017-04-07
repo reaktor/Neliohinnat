@@ -47,11 +47,12 @@ s <- s.f(4, iter=50, warmup=5, thin=1, refresh=1)
 
 # Note "numerical problems" are ok
 
-# Run as long as sensible on a laptop to get first results
-s <- s.f(nchains=4, iter=200, warmup=100, thin=2, refresh=5)
-saveRDS(s, "data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
+# # Run as long as sensible on a laptop to get first results
+# s <- s.f(nchains=4, iter=200, warmup=100, thin=2, refresh=5)
+# saveRDS(s, "data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
 
+## Run in AWS ############
 
 # Run eight long chains for final results
-# s <- s.f(nchains=8, iter=2000, warmup=1000, thin=20, refresh=50)
-# saveRDS(s, "data_2017/model_samples_debug_8chains_1000+1000t20_20160219.rds")
+s <- s.f(nchains=8, iter=2000, warmup=1000, thin=20, refresh=50)
+saveRDS(s, "data_2017/model_samples_debug_8chains_1000+1000t20_20170406.rds")
