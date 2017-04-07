@@ -111,25 +111,25 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   # trendi is as percentage / 100.
   # trendimuutos is as percentage units / 100 / year.
   mutate(hinta = exp(6 + lprice), trendi = trend/10, trendimuutos = 2*quad/100, 
-         hinta2017 = exp(6 + lprice + trend*year2yr(2017) + quad*year2yr(2017)**2),
-         trendi2017 = (trend + 2*quad*year2yr(2017))/10) %>%
+         hinta2018 = exp(6 + lprice + trend*year2yr(2017) + quad*year2yr(2017)**2),
+         trendi2018 = (trend + 2*quad*year2yr(2017))/10) %>%
   tbl_df()
 saveRDS(res.long, "data_2017/pnro-results_long_2017.rds")
 
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
-           hinta2017=mean(hinta2017), trendi2017=mean(trendi2017), trendimuutos=mean(trendimuutos)) %>%
+           hinta2018=mean(hinta2018), trendi2018=mean(trendi2018), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
 saveRDS(res, "data_2017/pnro-hinnat_2017.rds")
 
 res2080 <- res.long %>% group_by(pnro, log.density) %>% 
   summarise(lprice = mean(lprice), 
-            hinta2017.20 = quantile(hinta2017, .2), 
-            trendi2017.20 = quantile(trendi2017, .2), 
+            hinta2018.20 = quantile(hinta2018, .2), 
+            trendi2018.20 = quantile(trendi2018, .2), 
             trendimuutos.20 = quantile(trendimuutos, .2), 
-            hinta2017.80 = quantile(hinta2017, .8), 
-            trendi2017.80 = quantile(trendi2017, .8), 
+            hinta2018.80 = quantile(hinta2018, .8), 
+            trendi2018.80 = quantile(trendi2018, .8), 
             trendimuutos.80 = quantile(trendimuutos, .8) 
             ) %>%
   ungroup()
@@ -205,8 +205,8 @@ saveRDS(yearly.trends, "data_2017/yearly-trends_2017.rds")
 
 ## JSONs #############
 
-res %>% plyr::dlply("pnro", function (i) list(hinta2017=i$hinta2017, 
-                                              trendi2017=i$trendi2017, 
+res %>% plyr::dlply("pnro", function (i) list(hinta2018=i$hinta2018, 
+                                              trendi2018=i$trendi2018, 
                                               trendimuutos=i$trendimuutos)) %>% 
   toJSON %>% writeLines("json_2017/trends.json")
 
