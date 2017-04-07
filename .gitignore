@@ -15,3 +15,11 @@ temp_pnro_shape
 *.xls
 *.html
 s*.rds
+
+data_2016/*
+!data_2016/d.rds
+!data_2016/pnro_data_20160215.RData
+
+data_2017/*
+!data_2017/d.rds
+!data_2017/pnro_data_20170405.RData
