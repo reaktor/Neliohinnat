@@ -11,9 +11,10 @@ source("source_2017/common_2017.R")
 # # Test Model from 2017
 # s <- readRDS("data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
 # Real model from 2017
-s <- readRDS("data_2017/model_samples_debug_8chains_1000+1000t20_20170406.rds")
+# Short-term model and data.
+s <- readRDS("/Users/scellus/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/data_2017/model_2010-2016_samples_debug_8chains_1000+1000t20_20170407.rds")
 # Read data object
-d <- readRDS("data_2017/d.rds")
+d <- readRDS("data_2017/d_2010-2016.rds")
 
 if (F) {
   s
@@ -110,9 +111,9 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   # d^2/(10*d.yr)^2 lprice = 2*quad/100
   # trendi is as percentage / 100.
   # trendimuutos is as percentage units / 100 / year.
-  mutate(hinta = exp(6 + lprice), trendi = trend/10, trendimuutos = 2*quad/100, 
-         hinta2018 = exp(6 + lprice + trend*year2yr(2017) + quad*year2yr(2017)**2),
-         trendi2018 = (trend + 2*quad*year2yr(2017))/10) %>%
+  mutate(hinta = exp(6 + lprice), trendi = trend/7, trendimuutos = 2*quad/7/7, 
+         hinta2018 = exp(6 + lprice + trend*year2yr(2018) + quad*year2yr(2018)**2),
+         trendi2018 = (trend + 2*quad*year2yr(2018))/7) %>%
   tbl_df()
 saveRDS(res.long, "data_2017/pnro-results_long_2017.rds")
 
@@ -149,7 +150,7 @@ saveRDS(res2080, "data_2017/pnro-hinnat_20-80_2017.rds")
 
 ## COMPUTE PREDICTIONS ########
 
-years = 2005:2018
+years = 2010:2018
 predictions <- 
   expand.grid(sample=unique(res.long$sample), 
               year=years, 
@@ -197,7 +198,7 @@ yearly.trends <-
 #   res.long.narrow %>% 
 #   tidyr::expand(pnro, year=years) %>% 
   left_join(res.long.narrow) %>%
-  mutate(trend.y = (trend + 2*quad*year2yr(year))/10) %>%
+  mutate(trend.y = (trend + 2*quad*year2yr(year))/7) %>%
   group_by(pnro, year) %>%
   summarise(trend.y.mean=mean(trend.y), trend.y.median=median(trend.y))
 saveRDS(yearly.trends, "data_2017/yearly-trends_2017.rds")
@@ -240,5 +241,7 @@ d %>% select(pnro, year, n)  %>%
   geom_line() + 
   scale_y_continuous(trans = "log1p", breaks=c(0, 6, 10, 100, 1000))
 
-
+# Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
+# Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
+predictions %>% filter(pnro=="03250") %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) %>% ggplot(aes(x=year, y=y, color=q)) + geom_line()
 

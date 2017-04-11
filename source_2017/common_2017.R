@@ -1,6 +1,10 @@
 # Center & scale for modeling 
-# Updated on 5.4.2017 in agreement with Janne S.
-year2yr <- function (year) (year-mean(year))/length(unique(year))
+# The thing below is for data starting from year 2010.
+# The thing in comments is for the long-term data.
+# If you modify this, you need to rerun your model, and ALSO MODIFY
+# post-processing code, especially replace the denominator '7' 
+# with something else, maybe '10', in several places. (Be careful!)
+year2yr <- function (year) (year-2012.964)/7
 # year2yr <- function (year) (year-2010)/10
 
 # Prefixes for postal codes
