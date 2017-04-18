@@ -8,13 +8,18 @@ library("sp")
 
 source("source_2017/common_2017.R")
 
-# # Test Model from 2017
-# s <- readRDS("data_2017/model_samples_debug_4chains_100+100t2_20170405.rds")
+# Set data length (LONG: 2005-2016; SHORT: 2010-2016)
+DATA_LENGTH <- "SHORT"
+
+# Read data object (updated 12.4.2017)
+d <- readRDS("data_2017/d_20170412.rds")
+
+# Shorten data if necessary
+if (DATA_LENGTH == "SHORT")
+  d <- d %>% filter(year >= 2010)
+
 # Real model from 2017
-# Short-term model and data.
-s <- readRDS("/Users/scellus/Dropbox (reaktor.fi)/Predictive Analytics/Neliohinnat/data_2017/model_2010-2016_samples_debug_8chains_1000+1000t20_20170407.rds")
-# Read data object
-d <- readRDS("data_2017/d_2010-2016.rds")
+s <- readRDS(paste0("data_2017/",DATA_LENGTH,"_model_samples_8chains_5000+5000t100_20170412.rds"))
 
 if (F) {
   s
@@ -84,7 +89,9 @@ mean.tbl.long <- function (name.postfix="4")
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
 
+# This is used only to get pnro density info
 load("data_2017/pnro_data_20170405.RData")
+rm(pnro.sp, pnro.ashi.dat)
 pnro.area <- pnro.dat %>% transmute(pnro=pnro, log.density = -log(density_per_km2)/10) # FIXME: this is in two places
 pnro <- pnro.area$pnro
 n.samples <- length(extract(s, "lp__")[[1]])
@@ -115,14 +122,14 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
          hinta2018 = exp(6 + lprice + trend*year2yr(2018) + quad*year2yr(2018)**2),
          trendi2018 = (trend + 2*quad*year2yr(2018))/7) %>%
   tbl_df()
-saveRDS(res.long, "data_2017/pnro-results_long_2017.rds")
+saveRDS(res.long, paste0("data_2017/",DATA_LENGTH,"_pnro-results_longformat_2017.rds"))
 
 
 res <- res.long %>% group_by(pnro, log.density) %>% 
  summarise(lprice = mean(lprice), 
            hinta2018=mean(hinta2018), trendi2018=mean(trendi2018), trendimuutos=mean(trendimuutos)) %>%
   ungroup()
-saveRDS(res, "data_2017/pnro-hinnat_2017.rds")
+saveRDS(res, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_2017.rds"))
 
 res2080 <- res.long %>% group_by(pnro, log.density) %>% 
   summarise(lprice = mean(lprice), 
@@ -138,8 +145,8 @@ res2080 <- res.long %>% group_by(pnro, log.density) %>%
 
 # was:
 # write.table(res %>% select(-log.density),  "data_2016/pnro-hinnat.txt", row.names=F, quote=F)
-write.table(res2080,  "data_2017/pnro-hinnat_20-80_2017.txt", row.names=F, quote=F)
-saveRDS(res2080, "data_2017/pnro-hinnat_20-80_2017.rds")
+write.table(res2080,  paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.txt"), row.names=F, quote=F)
+saveRDS(res2080, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.rds"))
 
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
@@ -150,7 +157,11 @@ saveRDS(res2080, "data_2017/pnro-hinnat_20-80_2017.rds")
 
 ## COMPUTE PREDICTIONS ########
 
-years = 2010:2018
+if (DATA_LENGTH == "SHORT")
+  years <- 2010:2018
+if (DATA_LENGTH == "LONG")
+  years <- 2005:2018
+
 predictions <- 
   expand.grid(sample=unique(res.long$sample), 
               year=years, 
@@ -167,7 +178,10 @@ predictions <-
   ungroup() %>%
   left_join(d %>% select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
-saveRDS(predictions, "data_2017/predictions_2017.rds")
+saveRDS(predictions, paste0("data_2017/",DATA_LENGTH,"_predictions_2017.rds"))
+
+
+## VALIDATION ########
 
 # Compare predictions to those from year 2016
 predictions %>%
@@ -209,7 +223,7 @@ saveRDS(yearly.trends, "data_2017/yearly-trends_2017.rds")
 res %>% plyr::dlply("pnro", function (i) list(hinta2018=i$hinta2018, 
                                               trendi2018=i$trendi2018, 
                                               trendimuutos=i$trendimuutos)) %>% 
-  toJSON %>% writeLines("json_2017/trends.json")
+  toJSON %>% writeLines(paste0("json_2017/trends_",DATA_LENGTH,".json"))
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
   plyr::d_ply("pnro", function (i) list(year=i$year, 
@@ -220,7 +234,7 @@ predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
                                         hinta90=i$hinta90, 
                                         obs_hinta=i$obs_hinta, 
                                         n_kaupat=i$n_kaupat) %>% toJSON %>%
-                writeLines(., paste("json_2017/predictions/", i$pnro[[1]], ".json",  sep=""))
+                writeLines(., paste("json_2017/predictions_",DATA_LENGTH,"/", i$pnro[[1]], ".json",  sep=""))
   )
 
 d %>% select(pnro, year, n) %>%
@@ -243,5 +257,5 @@ d %>% select(pnro, year, n)  %>%
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-predictions %>% filter(pnro=="03250") %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) %>% ggplot(aes(x=year, y=y, color=q)) + geom_line()
+predictions %>% filter(pnro=="02100") %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) %>% ggplot(aes(x=year, y=y, color=q)) + geom_line()
 

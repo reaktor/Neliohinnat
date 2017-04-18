@@ -59,7 +59,7 @@ s <- s.f(4, iter=50, warmup=5, thin=1, refresh=1)
 
 # Run eight long chains for final results
 s_long <- s.f(nchains=8, iter=10000, warmup=5000, thin=100, refresh=50)
-saveRDS(s_long, "data_2017/long_model_samples_8chains_5000+5000t100_20170412.rds")
+saveRDS(s_long, "data_2017/LONG_model_samples_8chains_5000+5000t100_20170412.rds")
 
 ## Run shorter model for years 2010-2016 shorter years ################
 
@@ -76,7 +76,7 @@ s_short <- s.f_short(4, iter=50, warmup=5, thin=1, refresh=1)
 
 # Run eight long chains for final results
 s_short <- s.f_short(nchains=8, iter=10000, warmup=5000, thin=100, refresh=50)
-saveRDS(s_short, "data_2017/short_model_samples_8chains_5000+5000t100_20170412.rds")
+saveRDS(s_short, "data_2017/SHORT_model_samples_8chains_5000+5000t100_20170412.rds")
 
 
 # ## Alternative, run with years 2010-2016 ###########
