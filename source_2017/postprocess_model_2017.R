@@ -10,6 +10,7 @@ source("source_2017/common_2017.R")
 
 # Set data length (LONG: 2005-2016; SHORT: 2010-2016)
 DATA_LENGTH <- "SHORT"
+# SHORT decided on 18.4.2017
 
 # Read data object (updated 12.4.2017)
 d <- readRDS("data_2017/d_20170412.rds")
@@ -124,11 +125,18 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   tbl_df()
 saveRDS(res.long, paste0("data_2017/",DATA_LENGTH,"_pnro-results_longformat_2017.rds"))
 
+# Added 'trendi2018_luotettava'
+res <- res.long %>% 
+  group_by(pnro, log.density) %>% 
+  summarise(lprice = mean(lprice),
+            trendi2018_q25 = quantile(trendi2018, 0.25),
+            trendi2018_q75 = quantile(trendi2018, 0.75), 
+            hinta2018 = mean(hinta2018),
+            trendi2018 = mean(trendi2018),
+            trendimuutos = mean(trendimuutos)) %>%
+  ungroup() %>%
+  mutate(trendi2018_luotettava = (trendi2018_q25*trendi2018_q75 > 0))
 
-res <- res.long %>% group_by(pnro, log.density) %>% 
- summarise(lprice = mean(lprice), 
-           hinta2018=mean(hinta2018), trendi2018=mean(trendi2018), trendimuutos=mean(trendimuutos)) %>%
-  ungroup()
 saveRDS(res, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_2017.rds"))
 
 res2080 <- res.long %>% group_by(pnro, log.density) %>% 
@@ -222,7 +230,8 @@ saveRDS(yearly.trends, "data_2017/yearly-trends_2017.rds")
 
 res %>% plyr::dlply("pnro", function (i) list(hinta2018=i$hinta2018, 
                                               trendi2018=i$trendi2018, 
-                                              trendimuutos=i$trendimuutos)) %>% 
+                                              #trendimuutos=i$trendimuutos,
+                                              trendi2018_luotettava=i$trendi2018_luotettava)) %>% 
   toJSON %>% writeLines(paste0("json_2017/trends_",DATA_LENGTH,".json"))
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
