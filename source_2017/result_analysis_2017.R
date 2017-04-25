@@ -15,7 +15,7 @@ pnro.hinnat <- readRDS("data_2017/SHORT_pnro-hinnat_2017.rds")
 # m2p <- municipality_to_province() 
 # FIX: https://github.com/avoindata/mml/blob/master/rdata/Yleiskartta-1000/HallintoAlue_DataFrame.RData
 # Do 'municipality_to_province' and 'get_municipality_info_mml' manualyl:
-load("~/Downloads/HallintoAlue_DataFrame.RData")
+load("data_2017/HallintoAlue_DataFrame.RData")
 df <- df[, -grep("Enklaavi", colnames(df))]
 df <- df[!duplicated(df), ]
 rownames(df) <- convert_municipality_names(df$Kunta.FI)
@@ -37,18 +37,21 @@ pnro.dat <- pnro.dat %>%
 
 ## Use quantiles #####
 
-pnro.hinnat2 <- readRDS("data_2017/SHORT_pnro-hinnat_20-80_2017.rds")
+# UPDATE 25.4.2017: Use 25-75 quantiles everywhere, instead of 20-80. 
+
+# pnro.hinnat2 <- readRDS("data_2017/SHORT_pnro-hinnat_20-80_2017.rds")
 
 # pnro.hinnat.comb <- merge(pnro.hinnat, pnro.hinnat2)
-pnro.province <- pnro.hinnat2 %>%
-  inner_join(pnro.hinnat) %>%
+# pnro.province <- pnro.hinnat2 %>%
+#   inner_join(pnro.hinnat) %>%
+pnro.province <- pnro.hinnat %>%
   inner_join(pnro.dat) %>%
   mutate(hinta2018keski = round(hinta2018, d=-1),
-         hinta2018min = round(hinta2018.20, d=-1),
-         hinta2018max = round(hinta2018.80, d=-1),
+         hinta2018min = round(hinta2018_q25, d=-1),
+         hinta2018max = round(hinta2018_q75, d=-1),
          trendi2018keski = round(100*trendi2018, d=1),
-         trendi2018min = round(100*trendi2018.20, d=1),
-         trendi2018max = round(100*trendi2018.80, d=1)) %>%
+         trendi2018min = round(100*trendi2018_q25, d=1),
+         trendi2018max = round(100*trendi2018_q75, d=1)) %>%
   select(pnro, name, municipality, province, hinta2018keski, hinta2018min, hinta2018max, trendi2018keski, trendi2018min, trendi2018max) %>%
   rename(nimi = name,
          kunta = municipality,
@@ -57,7 +60,7 @@ pnro.province <- pnro.hinnat2 %>%
 pnro.province %>%
   arrange(maakunta, desc(trendi2018keski)) %>%
   mutate(pnro = as.character(pnro)) %>%
-  write.csv("data_2017/asuntohinnat_kvantiilit_2018_kokoSuomi_20170418.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+  write.csv("data_2017/asuntohinnat_kvantiilit_2018_kokoSuomi_20170425.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
 
 
 # Write top 100 
@@ -65,14 +68,14 @@ pnro.province %>%
   mutate(pnro = as.character(pnro)) %>%
   arrange(desc(trendi2018min)) %>%
   head(100) %>%
-  write.csv("data_2017/asuntohinnat_kvantiilit_2018_top100_20170418.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+  write.csv("data_2017/asuntohinnat_kvantiilit_2018_top100_20170425.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
 
 # Write top 100 and bottom 100
 pnro.province %>%
   mutate(pnro = as.character(pnro)) %>%
   arrange((trendi2018max)) %>%
   head(100) %>%
-  write.csv("data_2017/asuntohinnat_kvantiilit_2018_bottom100_20170418.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+  write.csv("data_2017/asuntohinnat_kvantiilit_2018_bottom100_20170425.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
 
 
 # Produce for each province

@@ -131,6 +131,8 @@ res <- res.long %>%
   summarise(lprice = mean(lprice),
             trendi2018_q25 = quantile(trendi2018, 0.25),
             trendi2018_q75 = quantile(trendi2018, 0.75), 
+            hinta2018_q25 = quantile(hinta2018, 0.25),
+            hinta2018_q75 = quantile(hinta2018, 0.75),
             hinta2018 = mean(hinta2018),
             trendi2018 = mean(trendi2018),
             trendimuutos = mean(trendimuutos)) %>%
@@ -138,23 +140,25 @@ res <- res.long %>%
   mutate(trendi2018_luotettava = (trendi2018_q25*trendi2018_q75 > 0))
 
 saveRDS(res, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_2017.rds"))
+res <- readRDS("data_2017/SHORT_pnro-hinnat_2017.rds")
 
-res2080 <- res.long %>% group_by(pnro, log.density) %>% 
-  summarise(lprice = mean(lprice), 
-            hinta2018.20 = quantile(hinta2018, .2), 
-            trendi2018.20 = quantile(trendi2018, .2), 
-            trendimuutos.20 = quantile(trendimuutos, .2), 
-            hinta2018.80 = quantile(hinta2018, .8), 
-            trendi2018.80 = quantile(trendi2018, .8), 
-            trendimuutos.80 = quantile(trendimuutos, .8) 
-            ) %>%
-  ungroup()
-
-
-# was:
-# write.table(res %>% select(-log.density),  "data_2016/pnro-hinnat.txt", row.names=F, quote=F)
-write.table(res2080,  paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.txt"), row.names=F, quote=F)
-saveRDS(res2080, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.rds"))
+# UPDATE 25.4.2017: Use 25-75 quantiles everywhere, instead of 20-80. 
+# res2080 <- res.long %>% group_by(pnro, log.density) %>% 
+#   summarise(lprice = mean(lprice), 
+#             hinta2018.20 = quantile(hinta2018, .2), 
+#             trendi2018.20 = quantile(trendi2018, .2), 
+#             trendimuutos.20 = quantile(trendimuutos, .2), 
+#             hinta2018.80 = quantile(hinta2018, .8), 
+#             trendi2018.80 = quantile(trendi2018, .8), 
+#             trendimuutos.80 = quantile(trendimuutos, .8) 
+#             ) %>%
+#   ungroup()
+# 
+# 
+# # was:
+# # write.table(res %>% select(-log.density),  "data_2016/pnro-hinnat.txt", row.names=F, quote=F)
+# write.table(res2080,  paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.txt"), row.names=F, quote=F)
+# saveRDS(res2080, paste0("data_2017/",DATA_LENGTH,"_pnro-hinnat_20-80_2017.rds"))
 
 # FIXME: exp(6 + lprice + trend*year2yr(2016) + quad*year2yr(2016)**2) in two places, 
 # make a function.
@@ -231,7 +235,9 @@ saveRDS(yearly.trends, "data_2017/yearly-trends_2017.rds")
 res %>% plyr::dlply("pnro", function (i) list(hinta2018=i$hinta2018, 
                                               trendi2018=i$trendi2018, 
                                               #trendimuutos=i$trendimuutos,
-                                              trendi2018_luotettava=i$trendi2018_luotettava)) %>% 
+                                              #trendi2018_luotettava=i$trendi2018_luotettava,
+                                              trendi2018_min=i$trendi2018_q25,
+                                              trendi2018_max=i$trendi2018_q75)) %>% 
   toJSON %>% writeLines(paste0("json_2017/trends_",DATA_LENGTH,".json"))
 
 predictions %>% group_by(pnro) %>% # filter(pnro %in% c("02940", "00100")) %>%
