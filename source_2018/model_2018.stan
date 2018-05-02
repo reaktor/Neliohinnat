@@ -52,5 +52,4 @@ model {
     ysigma ~ normal(0, 2);
     df ~ normal(0, 20);
     lprice ~ student_t(df+1, obs_mean, obs_sigma); // Reparameterize as a scale mixture?
-    lprice ~ student_t(4, obs_mean, obs_sigma); // Reparameterize as a scale mixture?
     }
