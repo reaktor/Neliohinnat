@@ -81,7 +81,9 @@ pnro.population = pnro.population.raw %>%
          median_income = starts_with('Asukkaiden mediaa'),
          owner_occupied_households = starts_with('Omistusasunnoissa'),
          total_households = starts_with('Taloudet yht'),
-         unemployed = starts_with('Työttömät'))
+         unemployed = starts_with('Työttömät')) %>%
+  mutate(density_per_km2 = round(population / area_km2, d=2),
+         area_km2 = round(area_km2, d=2))
 
 # Append population and area data to Duukkis postal area polygons
 load(file="./update_2021/data/pnro_polygons_raw.RData")
@@ -89,3 +91,48 @@ pnro.sp = subset(pnro.sp.raw, pnro.sp.raw@data$pnro %in% pnro.population$pnro)
 pnro.sp@data = pnro.sp@data %>%
   inner_join(pnro.population) %>%
   dplyr::select(pnro, name, municipality, population, area_km2)
+
+# Process price data
+pnro.ashi.dat = pnro.ashi.raw %>%
+  mutate(Vuosi = as.numeric(as.character(Vuosi))) %>%
+  rename(pnro = Postinumero,
+         year = Vuosi,
+         price = starts_with('Neliöhinta'),
+         n = starts_with('Kauppojen')) %>%
+  dplyr::select(pnro, year, price, n) %>%
+  inner_join(pnro.population) %>%
+  filter(pnro %in% pnro.sp@data$pnro)
+
+all(pnro.ashi.dat$pnro %in% pnro.sp@data$pnro) # TRUE
+
+save(pnro.population, pnro.sp, pnro.ashi.dat, file="./update_2021/data/pnro_data_20210128.RData")
+
+
+## Write spatial data for web plots ######
+
+load("./update_2021/data/pnro_data_20210128.RData")
+
+# Write first as shapefile and then convert to topojson
+require('rgdal')
+rgdal::writeOGR(pnro.sp, "temp_pnro_shape_2021", "pnro-rgdal", driver="ESRI Shapefile")
+
+# Use https://github.com/mbostock/topojson/ to convert
+# run in terminal:
+# shp2json temp_pnro_shape_2021/pnro-rgdal.shp > update_2021/json/pnro.geojson
+# geo2topo update_2021/json/pnro.geojson > update_2021/json/pnro.topojson
+
+# the geojson/topojson does not include the data, so write it separately as json
+# Put into list
+pnro.info.list <- vector("list", length(pnro.sp@data$pnro))
+names(pnro.info.list) <- pnro.sp@data$pnro
+for (pi in seq(pnro.info.list))
+  pnro.info.list[[pi]] <- pnro.sp@data[pi,]
+
+# Write json
+library("jsonlite")
+
+# Write in non-pretty format
+pnro.info.list %>%
+  toJSON(pretty=FALSE) %>%
+  writeLines(con="./update_2021/json/pnro_info_nonpretty.json")
+
