@@ -26,7 +26,6 @@ data_2017/*
 
 update_2021/json/predictions
 update_2021/json/predictions/*
-update_2021/data
 update_2021/data/*
 !update_2021/data/pnro_polygons_raw.RData
 !update_2021/data/pnro_data_20210128.RData
