@@ -30,3 +30,6 @@ update_2021/data/*
 !update_2021/data/pnro_polygons_raw.RData
 !update_2021/data/pnro_data_20210128.RData
 !update_2021/data/d_20210128.rds
+
+
+update_2021/source/alternative_model.R

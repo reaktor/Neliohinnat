@@ -12,7 +12,7 @@ source(paste0(BASE_PATH, '/source/common.R'))
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210128.rds')
 d <- readRDS(STAN_INPUT)
 
-SAMPLES = paste0(BASE_PATH, '/data/model_samples_debug_4chains_100+20t1_20210129.rds')
+SAMPLES = paste0(BASE_PATH, '/data/long_model_samples_8chains_5000+5000t100_20210129.rds')
 s = readRDS(SAMPLES)
 
 F = TRUE
@@ -121,11 +121,11 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
 
 RES_LONG = paste0(BASE_PATH, '/data/pnro_res_long_2021.rds')
 saveRDS(res.long, RES_LONG)
-
+res.long = readRDS(RES_LONG)
 
 res <- res.long %>% 
   group_by(pnro, log.density) %>% 
-  summarise(lprice = mean(lprice),
+  dplyr::summarise(lprice = mean(lprice),
             trendi2021_q25 = quantile(trendi2021, 0.25),
             trendi2021_q75 = quantile(trendi2021, 0.75), 
             hinta2021_q25 = quantile(hinta2021, 0.25),
@@ -163,13 +163,13 @@ predictions <-
 
 PRED = paste0(BASE_PATH, '/data/predictions_2021.rds')
 saveRDS(predictions, PRED)
-
+predictions = readRDS(PRED)
 
 ## VALIDATION ########
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "33720"
+single_pnro = "02620"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_hinta', ],  aes(x=year, y=y, color=q)) + 
