@@ -1,10 +1,10 @@
 # Script for retrieving data the apartment house price prediction
 # (c) 2017 Juuso Parkkinen / Reaktor
-# Update 2020 Henrik Aalto / Reaktor
+# Update 2021 Henrik Aalto / Reaktor
 
 # Necessary data
 # - apartment house prices for years 2010-2020 by postal code areas from statfi
-# - postal code area map data from Duukkis (http://www.palomaki.info/apps/pnro/)
+# - postal code area map data from statfi Paavo
 # - postal code area population from statfi Paavo
 
 ## Packages needed:
@@ -12,12 +12,6 @@
 # install.packages("pxweb")
 library("pxweb")
 
-# gisfin from ropengov: https://github.com/ropengov/gisfin
-# Need to install the development version 0.9.22 from GitHub 
- #library("devtools")
- #devtools::install_github("ropengov/gisfin")
-#library("gisfin")
- 
 #remotes::install_github("ropengov/geofi")
  library("geofi")
  
@@ -40,7 +34,7 @@ library("stringr")
 # [statfin_ashi_pxt_112q.px] 
 # Vanhojen osakeasuntojen keskihinnat ja kauppojen lukumäärät postinumeroalueittain ja rakennusvuosittain, talotyypit ja rakennusvuodet yhteensä
 px_data <- 
-  pxweb_get(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/asu/ashi/vv/statfin_ashi_pxt_112q.px",
+  pxweb_get(url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/asu/ashi/vv/statfin_ashi_pxt_112q.px",
             query = "./update_2021/source/psno_statfi_query.json" )
 px_data <- as.data.frame(px_data, column.name.type = "text", variable.value.type = "text")
 
@@ -62,7 +56,7 @@ stopifnot(all(nchar(as.character(pnro.ashi.raw$Postinumero))==5))
 # Now we want this table from 
 # [2021/paavo_pxt_12f7.px]
 px_data <- 
-  pxweb_get(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2021/paavo_pxt_12f7.px",
+  pxweb_get(url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2021/paavo_pxt_12f7.px",
             query = "./update_2021/source/paavo_population_query.json")
 pnro.population.raw <- as.data.frame(px_data, column.name.type = "text", variable.value.type = "text")
 
@@ -74,7 +68,7 @@ pnro.population = pnro.population.raw %>%
          municipality = str_trim(gsub("\\)", "", sapply(strsplit(temp, split="\\|"), "[", 2))),
          area_km2 = `Postinumeroalueen pinta-ala`/1000000) %>%
   dplyr::select(-Postinumeroalue, -temp, -`Postinumeroalueen pinta-ala`, -starts_with('Asukkaat yhteensä, 2018')) %>%
-  rename(population = starts_with('Asukkaat yhteensä, 2019'),
+  dplyr::rename(population = starts_with('Asukkaat yhteensä'),
          bachelor_degrees = starts_with('Alemman kork'),
          master_degrees = starts_with('Ylemmän kork'),
          mean_income = starts_with('Asukkaiden keski'),
@@ -85,9 +79,22 @@ pnro.population = pnro.population.raw %>%
   mutate(density_per_km2 = round(population / area_km2, d=2),
          area_km2 = round(area_km2, d=2))
 
-# Append population and area data to Duukkis postal area polygons
-load(file="./update_2021/data/pnro_polygons_raw.RData")
-pnro.sp = subset(pnro.sp.raw, pnro.sp.raw@data$pnro %in% pnro.population$pnro)
+
+# Fetch postal areas and convert to polygons
+library('rmapshaper')
+library('cleangeo')
+
+zip_raw = get_zipcodes(year=2020)
+
+Q = rmapshaper::ms_filter_islands(dplyr::select(zip_raw, pnro=posti_alue, geom), min_area = 90000)
+Q2 = rmapshaper::ms_simplify(Q, keep = 0.15)
+P = as(Q2, 'Spatial')
+P = cleangeo::clgeo_Clean(P)
+
+P_longlat = spTransform(P, CRS("+proj=longlat +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +no_defs"))
+
+# Append population and area data to postal area polygons
+pnro.sp = subset(P_longlat, P@data$pnro %in% pnro.population$pnro)
 pnro.sp@data = pnro.sp@data %>%
   inner_join(pnro.population) %>%
   dplyr::select(pnro, name, municipality, population, area_km2)
@@ -95,7 +102,7 @@ pnro.sp@data = pnro.sp@data %>%
 # Process price data
 pnro.ashi.dat = pnro.ashi.raw %>%
   mutate(Vuosi = as.numeric(as.character(Vuosi))) %>%
-  rename(pnro = Postinumero,
+  dplyr::rename(pnro = Postinumero,
          year = Vuosi,
          price = starts_with('Neliöhinta'),
          n = starts_with('Kauppojen')) %>%

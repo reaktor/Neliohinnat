@@ -115,8 +115,8 @@ res.long <- data.frame(pnro.area, level1 = l1(pnro), level2 = l2(pnro), level3 =
   # trendi is as percentage / 100.
   # trendimuutos is as percentage units / 100 / year.
   mutate(hinta = exp(6 + lprice), trendi = trend/YEAR_SCALE, trendimuutos = 2*quad/YEAR_SCALE/YEAR_SCALE, 
-         hinta2021 = exp(6 + lprice + trend*year2yr(2021) + quad*year2yr(2021)**2),
-         trendi2021 = (trend + 2*quad*year2yr(2021))/YEAR_SCALE) %>%
+         hinta2020 = exp(6 + lprice + trend*year2yr(2020) + quad*year2yr(2020)**2),
+         trendi2020 = (trend + 2*quad*year2yr(2020))/YEAR_SCALE) %>%
   tbl_df()
 
 RES_LONG = paste0(BASE_PATH, '/data/pnro_res_long_2021.rds')
@@ -126,15 +126,15 @@ res.long = readRDS(RES_LONG)
 res <- res.long %>% 
   group_by(pnro, log.density) %>% 
   dplyr::summarise(lprice = mean(lprice),
-            trendi2021_q25 = quantile(trendi2021, 0.25),
-            trendi2021_q75 = quantile(trendi2021, 0.75), 
-            hinta2021_q25 = quantile(hinta2021, 0.25),
-            hinta2021_q75 = quantile(hinta2021, 0.75),
-            hinta2021 = mean(hinta2021),
-            trendi2021 = mean(trendi2021),
+            trendi2020_q25 = quantile(trendi2020, 0.25),
+            trendi2020_q75 = quantile(trendi2020, 0.75), 
+            hinta2020_q25 = quantile(hinta2020, 0.25),
+            hinta2020_q75 = quantile(hinta2020, 0.75),
+            hinta2020 = mean(hinta2020),
+            trendi2020 = mean(trendi2020),
             trendimuutos = mean(trendimuutos)) %>%
   ungroup() %>%
-  mutate(trendi2021_luotettava = (trendi2021_q25*trendi2021_q75 > 0))
+  mutate(trendi2020_luotettava = (trendi2020_q25*trendi2020_q75 > 0))
 
 
 RES = paste0(BASE_PATH, '/data/pnro-hinnat_2021.rds')
@@ -143,7 +143,7 @@ res <- readRDS(RES)
 
 
 ## COMPUTE PREDICTIONS ########
-years <- 2010:2021
+years <- 2010:2020
 
 predictions <- 
   expand.grid(sample=unique(res.long$sample), 
@@ -161,7 +161,7 @@ predictions <-
   ungroup() %>%
   left_join(d %>% dplyr::select(pnro, year, obs_hinta=price, n_kaupat=n), by=c("year", "pnro"))
 
-PRED = paste0(BASE_PATH, '/data/predictions_2021.rds')
+PRED = paste0(BASE_PATH, '/data/predictions_2020.rds')
 saveRDS(predictions, PRED)
 predictions = readRDS(PRED)
 
@@ -169,7 +169,7 @@ predictions = readRDS(PRED)
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "02620"
+single_pnro = "00640"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_hinta', ],  aes(x=year, y=y, color=q)) + 
@@ -202,10 +202,10 @@ yearly.trends <-
 ## JSONs #############
 library('plyr')
 
-res %>% plyr::dlply("pnro", function (i) list(hinta2021=i$hinta2021, 
-                                              trendi2021=i$trendi2021,
-                                              trendi2021_min=i$trendi2021_q25,
-                                              trendi2021_max=i$trendi2021_q75)) %>% 
+res %>% plyr::dlply("pnro", function (i) list(hinta2020=i$hinta2020, 
+                                              trendi2020=i$trendi2020,
+                                              trendi2020_min=unname(i$trendi2020_q25),
+                                              trendi2020_max=unname(i$trendi2020_q75))) %>% 
   toJSON %>% writeLines(paste0(BASE_PATH, "/json/trends.json"))
 
 predictions %>% group_by(pnro) %>%
