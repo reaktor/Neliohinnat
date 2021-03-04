@@ -55,10 +55,12 @@ stopifnot(all(nchar(as.character(pnro.ashi.raw$Postinumero))==5))
 
 # Now we want this table from 
 # [2021/paavo_pxt_12f7.px]
-px_data <- 
-  pxweb_get(url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2021/paavo_pxt_12f7.px",
-            query = "./update_2021/source/paavo_population_query.json")
+url = "https://pxnet2.stat.fi/PXWeb/api/v1/fi/Postinumeroalueittainen_avoin_tieto/2021/paavo_pxt_12f7.px"
+pxm = pxweb_get(url)
+pxm$variables[[1]]$elimination <- TRUE
+px_data <- pxweb_advanced_get(url, query = "./update_2021/source/paavo_population_query.json", pxmdo = pxm)
 pnro.population.raw <- as.data.frame(px_data, column.name.type = "text", variable.value.type = "text")
+
 
 pnro.population = pnro.population.raw %>%
   filter(Postinumeroalue != "KOKO MAA") %>%
@@ -67,15 +69,34 @@ pnro.population = pnro.population.raw %>%
          name = sapply(strsplit(substr(temp, 7, 100), split="\\|"), "[", 1),
          municipality = str_trim(gsub("\\)", "", sapply(strsplit(temp, split="\\|"), "[", 2))),
          area_km2 = `Postinumeroalueen pinta-ala`/1000000) %>%
-  dplyr::select(-Postinumeroalue, -temp, -`Postinumeroalueen pinta-ala`, -starts_with('Asukkaat yhteensä, 2018')) %>%
+  dplyr::select(-Postinumeroalue, -temp, -`Postinumeroalueen pinta-ala`,
+                -starts_with('Asukkaat yhteensä, 2018')) %>%
   dplyr::rename(population = starts_with('Asukkaat yhteensä'),
          bachelor_degrees = starts_with('Alemman kork'),
          master_degrees = starts_with('Ylemmän kork'),
-         mean_income = starts_with('Asukkaiden keski'),
+         vocational_grads = starts_with('Ammatillisen tut'),
+         highschool_grads = starts_with('Ylioppilastutkinnon'),
+         educated = starts_with('Koulutetut yht'),
+         mean_income = starts_with('Asukkaiden keskitul'),
          median_income = starts_with('Asukkaiden mediaa'),
-         owner_occupied_households = starts_with('Omistusasunnoissa'),
-         total_households = starts_with('Taloudet yht'),
-         unemployed = starts_with('Työttömät')) %>%
+         households = starts_with('Taloudet yhteensä, 2019 (TE)'),
+         unemployed = starts_with('Työttömät'),
+         employed = starts_with('Työlliset'),
+         men = starts_with('Miehet'),
+         low_income = starts_with('Alimpaan tuloluokkaan kuuluvat asukkaat'),
+         mid_income = starts_with('Keskimmäiseen tuloluokkaan kuuluvat as'),
+         hi_income = starts_with('Ylimpään tuloluokkaan kuuluvat asu'),
+         refinement_jobs = starts_with('Jalostuksen'),
+         primary_prod_jobs = starts_with('Alkutuotannon'),
+         service_jobs = starts_with('Palveluiden'),
+         jobs = starts_with('Työpaikat'),
+         cottages = starts_with('Kesämökit'),
+         properties = starts_with('Rakennukset'),
+         living_properties = starts_with('Asuinrakennukset'),
+         other_properties = starts_with('Muut rakennukset'),
+         small_houses = starts_with('Pientalo'),
+         living_space = starts_with('Asumisv')
+         ) %>%
   mutate(density_per_km2 = round(population / area_km2, d=2),
          area_km2 = round(area_km2, d=2))
 
@@ -112,7 +133,7 @@ pnro.ashi.dat = pnro.ashi.raw %>%
 
 all(pnro.ashi.dat$pnro %in% pnro.sp@data$pnro) # TRUE
 
-save(pnro.population, pnro.sp, pnro.ashi.dat, file="./update_2021/data/pnro_data_20210128.RData")
+save(pnro.population, pnro.sp, pnro.ashi.dat, file="./update_2021/data/pnro_data_20210304.RData")
 
 
 ## Write spatial data for web plots ######
