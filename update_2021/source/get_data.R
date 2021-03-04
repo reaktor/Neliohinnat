@@ -94,6 +94,7 @@ pnro.population = pnro.population.raw %>%
          properties = starts_with('Rakennukset'),
          living_properties = starts_with('Asuinrakennukset'),
          other_properties = starts_with('Muut rakennukset'),
+         apartments = starts_with('Asunnot'),
          small_houses = starts_with('Pientalo'),
          living_space = starts_with('Asumisv')
          ) %>%

@@ -11,7 +11,7 @@
         "code": "Tiedot",
         "selection": {
           "filter": "item",
-          "values": ["pinta_ala", "he_vakiy", "he_miehet", "ko_koul", "ko_yliop", "ko_ammat", "ko_al_kork", "ko_yl_kork", "hr_ktu", "hr_mtu", "hr_pi_tul", "hr_ke_tul", "hr_hy_tul", "te_taly", "te_as_valj", "ra_ke", "ra_raky", "ra_muut", "ra_asrak", "ra_pt_as", "tp_tyopy", "tp_alku_a", "tp_jalo_bf", "tp_palv_gu", "pt_vakiy", "pt_tyoll", "pt_tyott"]
+          "values": ["pinta_ala", "he_vakiy", "he_miehet", "ko_koul", "ko_yliop", "ko_ammat", "ko_al_kork", "ko_yl_kork", "hr_ktu", "hr_mtu", "hr_pi_tul", "hr_ke_tul", "hr_hy_tul", "te_taly", "te_as_valj", "ra_ke", "ra_raky", "ra_muut", "ra_asunn", "ra_asrak", "ra_pt_as", "tp_tyopy", "tp_alku_a", "tp_jalo_bf", "tp_palv_gu", "pt_vakiy", "pt_tyoll", "pt_tyott"]
         }
       }
     ],
