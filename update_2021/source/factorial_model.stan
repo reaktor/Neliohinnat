@@ -24,14 +24,13 @@ parameters {
     row_vector[6] mean_beta;
     real<lower=0> sigma;
     real<lower=0> ysigma;
-    real<lower=0> df; 
+    real<lower=0> df;
+    unit_vector[ncovs] beta_cov;
 }
 transformed parameters {
     vector[N] z;
     matrix [N, 3] X_z;
     matrix [N, 6] X;
-    unit_vector[ncovs] beta_cov;
-    beta_cov = rep_vector(1.0/sqrt(ncovs), ncovs);
     z = covs * beta_cov;
     for (i in 1:N) { X_z[i, 1] = z[i]; X_z[i, 2] = yr[i]*z[i]; X_z[i, 3] = yr[i]*yr[i]*z[i]; }
     X = append_col(X_y, X_z);
