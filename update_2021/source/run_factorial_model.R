@@ -84,7 +84,14 @@ tic()
 s <- s.f(nchains=4, iter=100, warmup=20, thin=1, refresh=1) #30min on my laptop
 toc()
 
-#saveRDS(s, paste0(BASE_PATH, '/data/model_samples_debug_4chains_100+20t1_20210129.rds'))
+saveRDS(s, paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds'))
 
+# # Run eight long chains for final results
+# s <- s.f(nchains=8, iter=2000, warmup=1000, thin=20, refresh=50)
+# saveRDS(s, "data_2017/model_samples_debug_8chains_1000+1000t20_20170406.rds")
+
+# Run eight long chains for final results
+#s_long <- s.f(nchains=8, iter=10000, warmup=5000, thin=100, refresh=50)
+#saveRDS(s_long, "data_2017/LONG_model_samples_8chains_5000+5000t100_20170412.rds")
 
 
