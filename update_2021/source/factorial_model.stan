@@ -25,7 +25,8 @@ parameters {
     real<lower=0> sigma;
     real<lower=0> ysigma;
     real<lower=0> df;
-    unit_vector[ncovs] beta_cov;
+    //real<lower=0> sigma_b_cov;
+    vector[ncovs] beta_cov;
 }
 transformed parameters {
     vector[N] z;
@@ -49,6 +50,8 @@ model {
     LOmega1 ~ lkj_corr_cholesky(2); tau1 ~ lognormal(-2., 1.);    
     LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-2., 1.);
     mean_beta ~ normal(0, 5);
+    //sigma_b_cov ~ cauchy(0, 1);
+    beta_cov ~ normal(0, 0.25);
     for (i in 1:M) beta[i] ~ multi_normal_cholesky(head(zero_beta, 3), LSigma_beta); 
     for (i in 1:M1) beta1[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta1);
     for (i in 1:M2) beta2[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta2);

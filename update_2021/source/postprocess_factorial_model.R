@@ -3,6 +3,7 @@ library("dplyr")
 library("RJSONIO")
 library("ggplot2")
 library("sp")
+library('bayesplot')
 
 UPDATE_VERSION = 'update_2021'
 BASE_PATH = paste0('./', UPDATE_VERSION)
@@ -15,6 +16,7 @@ d <- readRDS(STAN_INPUT)
 SAMPLES = paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds')
 s = readRDS(SAMPLES)
 
+#mcmc_intervals(s_long, pars=vars(starts_with('beta_')))
 
 raise6 <- function (a) {
   dim.a <- dim(a); N <- length(dim.a)

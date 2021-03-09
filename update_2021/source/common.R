@@ -63,8 +63,7 @@ get_covariates <- function(df){
            c_median_income = stdna(median_income),
            c_low_income_share = low_income %>% nlogit(population),
            c_mid_income_share = mid_income %>% nlogit(population),
-           c_hi_income_share = hi_income %>% nlogit(population),
-           c_intercept = 1
+           c_hi_income_share = hi_income %>% nlogit(population)
     )
   if( 'year' %in% colnames(df) ){
     d = d %>%

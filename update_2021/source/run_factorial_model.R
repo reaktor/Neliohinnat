@@ -22,14 +22,11 @@ saveRDS(d, STAN_INPUT)
 
 d <- readRDS(STAN_INPUT) %>% filter(!is.na(price))
 
-covs = as.matrix(select(d, starts_with('c_')))
+covs = as.matrix(select(d, starts_with('c_'))) / 10
 n_covs = dim(covs)[2]
 FACTORIAL_MODEL = paste0(BASE_PATH, '/source/factorial_model.stan')
 m <- stan_model(file=FACTORIAL_MODEL)
 
-initf <- function() {
-  list(beta_cov = array(1/sqrt(n_covs), dim = c(n_covs)) )
-}
 s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=with(d,
                     list(N=nrow(d), M=nlevels(pnro),
@@ -41,7 +38,7 @@ s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
                         ncovs=n_covs,
                         covs=covs
                         )), 
-           iter=iter, warmup=warmup, thin=thin, init=initf,
+           iter=iter, warmup=warmup, thin=thin, init=0,
            chains=nchains, cores= nchains, refresh=refresh)
 
 # Run single short chain for debugging. Note "numerical problems" are ok
@@ -52,8 +49,10 @@ s <- s.f(4, iter=50, warmup=5, thin=1, refresh=1)
 
 # # Run as long as sensible on a laptop to get first results
 tic()
-s <- s.f(nchains=4, iter=100, warmup=20, thin=1, refresh=1) #30min on my laptop
+s <- s.f(nchains=4, iter=100, warmup=50, thin=1, refresh=1) #30min on my laptop
 toc()
+
+traceplot(s, 'beta_cov', inc_warmup=T)
 
 saveRDS(s, paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds'))
 
