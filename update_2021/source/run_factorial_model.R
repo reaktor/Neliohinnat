@@ -22,7 +22,7 @@ saveRDS(d, STAN_INPUT)
 
 d <- readRDS(STAN_INPUT) %>% filter(!is.na(price))
 
-covs = as.matrix(select(d, starts_with('c_'))) / 10
+covs = as.matrix(select(d, starts_with('c_')))
 n_covs = dim(covs)[2]
 FACTORIAL_MODEL = paste0(BASE_PATH, '/source/factorial_model.stan')
 m <- stan_model(file=FACTORIAL_MODEL)

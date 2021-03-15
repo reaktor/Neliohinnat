@@ -27,13 +27,16 @@ parameters {
     real<lower=0> df;
     //real<lower=0> sigma_b_cov;
     vector[ncovs] beta_cov;
+    vector[ncovs] beta_yr_cov;
 }
 transformed parameters {
     vector[N] z;
+    vector [N] z_yr;
     matrix [N, 3] X_z;
     matrix [N, 6] X;
     z = covs * beta_cov;
-    for (i in 1:N) { X_z[i, 1] = z[i]; X_z[i, 2] = yr[i]*z[i]; X_z[i, 3] = yr[i]*yr[i]*z[i]; }
+    z_yr = covs * beta_yr_cov;
+    for (i in 1:N) { X_z[i, 1] = z[i]; X_z[i, 2] = yr[i]*z_yr[i]; X_z[i, 3] = yr[i]*yr[i]*z_yr[i]; }
     X = append_col(X_y, X_z);
 }
 model {
