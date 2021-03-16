@@ -13,23 +13,23 @@ source(paste0(BASE_PATH, '/source/common.R'))
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
 d <- readRDS(STAN_INPUT)
 
-SAMPLES = paste0(BASE_PATH, '/data/long_model_samples_8chains_5000+5000t100_20210304.rds')
+SAMPLES = paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds')
 s = readRDS(SAMPLES)
 
-n_chains = 8
-n_samples = 5000 / 100
 
-
-raise6 <- function (a) {
+raise6 <- function (a, inc.covs) {
+  if (inc.covs) {cols = 6}
+  else {cols = 3}
   dim.a <- dim(a); N <- length(dim.a)
-  apply(a, 1:(N-1), function (v) c(v, rep(0, 6-dim.a[N]))) %>%
+  apply(a, 1:(N-1), function (v) c(v, rep(0, cols-dim.a[N]))) %>%
     aperm(c(2:N, 1))
 } 
 
-beta.prm.mean <- function (v) apply(rstan::extract(s, v)[[1]], c(2, 3), mean) %>% raise6
-beta.prm <- function (v) rstan::extract(s, v)[[1]] %>% raise6
+beta.prm.mean <- function (v) apply(rstan::extract(s, v)[[1]], c(2, 3), mean) %>% raise6(inc.covs)
+beta.prm <- function (v, inc.covs) rstan::extract(s, v)[[1]] %>% raise6(inc.covs)
 
 beta.names <- c("lprice", "trend", "quad", "k.lprice", "k.trend", "k.quad")
+
 
 par.tbl <- function(d, v.name, b.name, name.postfix) 
   data.frame(levels(d[[v.name]]), beta.prm.mean(b.name)) %>% 
@@ -37,8 +37,9 @@ par.tbl <- function(d, v.name, b.name, name.postfix)
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df()
 
-par.tbl.long <- function(d, v.name, b.name, name.postfix) {
-  samples <- beta.prm(b.name)
+par.tbl.long <- function(d, v.name, b.name, name.postfix, inc.covs=F) {
+  samples <- beta.prm(b.name, inc.covs)
+  if (!inc.covs) {beta.names = beta.names[1:3]}
   data.frame(expand.grid(1:dim(samples)[[1]], levels(d[[v.name]])), 
              array(samples, c(dim(samples)[[1]]*dim(samples)[[2]], dim(samples)[[3]]))) %>% 
     setNames(c("sample", v.name, 
@@ -46,21 +47,19 @@ par.tbl.long <- function(d, v.name, b.name, name.postfix) {
     tbl_df() }
 
 mean.tbl.long <- function (name.postfix="4") 
-  #rstan::extract(s, "mean_beta")[[1]] %>%
-  matrix(rstan::extract(s, "mean_beta", permute=F), n_samples*n_chains, 6) %>%
+  rstan::extract(s, "mean_beta")[[1]] %>%
   { data.frame(sample=1:dim(.)[[1]], .) } %>% 
   setNames(c("sample", 
              paste(beta.names, name.postfix, sep=""))) %>%
   tbl_df() 
 
-get.cov.samples <- function(covs, s) {
-  cov_mat = as.matrix( select(covs, starts_with('c_')) ) / 10
-  #beta_cov_mat = as.matrix(rstan::extract(s, 'beta_cov', permute=F)[[1]])
-  beta_cov_mat = matrix(rstan::extract(s, 'beta_cov', permute=F),  n_samples*n_chains, 22)
+get.cov.samples <- function(covs, s, b_cov_name = 'beta_cov', z_name = 'factorial_cov') {
+  cov_mat = as.matrix( select(covs, starts_with('c_')) )
+  beta_cov_mat = as.matrix(rstan::extract(s, b_cov_name)[[1]])
   z_mat = cbind(pnro, as.data.frame(cov_mat %*% t(beta_cov_mat) ) ) %>%
     pivot_longer(cols = starts_with('V'),
                  names_to = 'sample', names_prefix = 'V',
-                 values_to = 'factorial_cov')
+                 values_to = z_name)
   z_mat$sample = as.integer(z_mat$sample)
   return(z_mat)
 }
@@ -75,39 +74,42 @@ covs = pnro.population %>%
   select(pnro, starts_with('c_'))
 pnro = covs$pnro
 
-# temp temp
+##### temp temp
+covs_53 = covs %>% filter(pnro == '00530')
 
-z_samples = t(as.matrix(rstan::extract(s, 'z', permuted=FALSE)[[1]]))
-pnro_long = d %>% filter(!is.na(price)) %>% select(pnro)
-z_samples = cbind(pnro_long, z_samples)
+z_pnro = d %>% filter(!is.na(price)) %>% select(pnro)
 
-z_sample_mat = z_samples %>% distinct() %>%
-  pivot_longer(cols = -starts_with('pn'),
-               names_to = 'sample', names_prefix = 'V',
-               values_to = 'obs_factorial_cov')
-dim(cov_mat)
-tmp = z_sample_mat %>% left_join(z_mat) %>% mutate(diff = obs_factorial_cov - factorial_cov)
-tmp %>% filter(pnro == '00530') %>% ggplot() + geom_histogram( aes(x = obs_factorial_cov))
-ggplot() + geom_histogram(data = tmp, aes(x = diff))
+z_mat = as.data.frame(t(rstan::extract(s, 'z')[[1]])) %>%
+  mutate(pnro = z_pnro$pnro) %>% distinct() 
 
-res.long %>% filter(pnro == '00530') %>% ggplot() + geom_histogram( aes(x = lprice4))
+
+x = pivot_longer(z_mat, starts_with('V'), names_to = 'sample', names_prefix = 'V',
+                 values_to = 'factorial_cov') %>% mutate(sample = as.numeric(sample))
+z_dif = x %>% left_join(get.cov.samples(covs, s, 'beta_cov', 'factorial_cov'), by=c('pnro', 'sample')) %>%
+  mutate(diff = factorial_cov.x - factorial_cov.y) %>% filter(pnro == '00530')
+hist(z_dif$factorial_cov.y)
+
+z_dif %>% filter(pnro == '00530') %>% ggplot() + geom_histogram(aes(x = diff))
+
 
 # For NA pnro's in the model, look for upper level in the hierarchy and take beta1 etc.
 n.samples <- length(rstan::extract(s, "lp__")[[1]])
-res.long <- data.frame(pnro, level1 = l1(pnro), level2 = l2(pnro), level3 = l3(pnro)) %>% 
+res.long <- data.frame(pnro,  level1 = l1(pnro)) %>% 
   merge(data.frame(sample=1:n.samples)) %>% 
   left_join(par.tbl.long(d, "pnro",   "beta",  ""),  by=c("pnro",   "sample")) %>%
   left_join(par.tbl.long(d, "level1", "beta1", "1"), by=c("level1", "sample")) %>% 
-  left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
+  #left_join(par.tbl.long(d, "level2", "beta2", "2"), by=c("level2", "sample")) %>% 
   left_join(mean.tbl.long(                     "4"), by=c(          "sample")) %>% 
-  left_join(get.cov.samples(covs, s), by=c('pnro', 'sample')) %>%
+  left_join(get.cov.samples(covs, s, 'beta_cov', 'factorial_cov'), by=c('pnro', 'sample')) %>%
+  left_join(get.cov.samples(covs, s, 'beta_cov_yr', 'factorial_cov_yr'), by=c('pnro', 'sample')) %>%
+  left_join(get.cov.samples(covs, s, 'beta_cov_yr2', 'factorial_cov_yr2'), by=c('pnro', 'sample')) %>%
   mutate(pnro=pnro,
-         lprice=sum.0na(lprice, lprice1, lprice2, lprice4) + 
-           sum.0na(k.lprice, k.lprice1, k.lprice2,  k.lprice4) * factorial_cov, 
-         trend=sum.0na(trend, trend1, trend2,  trend4) +
-           sum.0na(k.trend, k.trend1, k.trend2,  k.trend4) * factorial_cov, 
-         quad=sum.0na(quad, quad1, quad2,  quad4) +
-           sum.0na(k.quad, k.quad1, k.quad2,  k.quad4) * factorial_cov
+         lprice=sum.0na(lprice,  lprice1, lprice4) + 
+           sum.0na(k.lprice4) * factorial_cov, 
+         trend=sum.0na(trend,  trend1,  trend4) +
+           sum.0na(k.trend4) * factorial_cov_yr, 
+         quad=sum.0na(quad,  quad1,  quad4) +
+           sum.0na(k.quad4) * factorial_cov_yr2
   ) %>%
   # Original unit is decade, for vars below it is year. 
   # d/d.yr lprice = trend + 2*quad*yr
@@ -151,7 +153,7 @@ predictions <-
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "00530"
+single_pnro = "00320"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_kaupat) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_hinta', ],  aes(x=year, y=y, color=q)) + 

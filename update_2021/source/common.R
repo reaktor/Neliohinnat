@@ -35,9 +35,17 @@ stdna <- function (x) {
   (x - mean(x, na.rm=T)) / sd(x, na.rm=T)
 }
 
+mutate_history_vars <- function(df){
+    d = df %>%
+      mutate(year=as.numeric(as.character(year)), 
+             yr = year2yr(year),
+             lprice = log(price)-6
+      )
+  return (d)
+}
+
 get_covariates <- function(df){
   d <- df %>%
-    mutate(log.density = -log(density_per_km2)/10) %>%
     mutate(pnro=factor(pnro)) %>% 
     mutate(level1 = l1(pnro),
            level2 = l2(pnro),
@@ -65,13 +73,5 @@ get_covariates <- function(df){
            c_mid_income_share = mid_income %>% nlogit(population),
            c_hi_income_share = hi_income %>% nlogit(population)
     )
-  if( 'year' %in% colnames(df) ){
-    d = d %>%
-      mutate(year=as.numeric(as.character(year)), 
-             yr = year2yr(year),
-             lprice = log(price)-6
-             )
-  }
-  
   return(d)
 }

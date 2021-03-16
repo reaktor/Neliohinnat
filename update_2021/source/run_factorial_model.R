@@ -13,7 +13,11 @@ source(paste0(BASE_PATH, '/source/common.R'))
 ## PREPARE DATA FOR STAN ##########
 
 load(paste0(BASE_PATH, '/data/pnro_data_20210304.RData'))
-d = get_covariates(pnro.ashi.dat)
+d_covs = pnro.population %>%
+  get_covariates() %>%
+  select(pnro, starts_with(c('c_','level')))
+d = pnro.ashi.dat %>% mutate_history_vars() %>% left_join(d_covs) %>%
+  mutate(pnro = as.factor(pnro))
 
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
 saveRDS(d, STAN_INPUT)
@@ -30,11 +34,12 @@ m <- stan_model(file=FACTORIAL_MODEL)
 s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=with(d,
                     list(N=nrow(d), M=nlevels(pnro),
-                        M1=nlevels(level1), M2=nlevels(level2), 
-                        lprice=lprice, count=n, yr=yr, z=log.density,
+                        M1=nlevels(level1),
+                        #M2=nlevels(level2), 
+                        lprice=lprice, count=n, yr=yr,
                         pnro=as.numeric(pnro), 
                         l1=as.numeric(level1),
-                        l2=as.numeric(level2),
+                        #l2=as.numeric(level2),
                         ncovs=n_covs,
                         covs=covs
                         )), 
@@ -52,7 +57,7 @@ tic()
 s <- s.f(nchains=4, iter=100, warmup=50, thin=1, refresh=1) #30min on my laptop
 toc()
 
-traceplot(s, 'beta_cov', inc_warmup=T)
+traceplot(s, 'beta_cov_yr', inc_warmup=F)
 
 saveRDS(s, paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds'))
 
