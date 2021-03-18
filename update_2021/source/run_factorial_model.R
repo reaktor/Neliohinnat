@@ -24,7 +24,7 @@ saveRDS(d, STAN_INPUT)
 
 ## RUN STAN #########
 
-d <- readRDS(STAN_INPUT) %>% filter(!is.na(price))
+d <- readRDS(STAN_INPUT) %>% filter(!is.na(price)) %>% droplevels()
 
 covs = as.matrix(select(d, starts_with('c_')))
 n_covs = dim(covs)[2]
@@ -35,11 +35,11 @@ s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=with(d,
                     list(N=nrow(d), M=nlevels(pnro),
                         M1=nlevels(level1),
-                        #M2=nlevels(level2), 
+                        M2=nlevels(level2), 
                         lprice=lprice, count=n, yr=yr,
                         pnro=as.numeric(pnro), 
                         l1=as.numeric(level1),
-                        #l2=as.numeric(level2),
+                        l2=as.numeric(level2),
                         ncovs=n_covs,
                         covs=covs
                         )), 
@@ -59,7 +59,7 @@ toc()
 
 traceplot(s, 'beta_cov_yr', inc_warmup=F)
 
-saveRDS(s, paste0(BASE_PATH, '/data/debug_factorial_model_samples.rds'))
+saveRDS(s, paste0(BASE_PATH, '/data/debug_2_factorial_model_samples.rds'))
 
 # # Run eight long chains for final results
 # s <- s.f(nchains=8, iter=2000, warmup=1000, thin=20, refresh=50)

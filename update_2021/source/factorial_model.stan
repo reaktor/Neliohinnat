@@ -2,14 +2,14 @@
 // FIXME: tau[,3] does not mix well; beta[,3] could be erased.
 data {
     int N; int M; int M1;
-    //int M2;
+    int M2;
     int ncovs;
     matrix[N, ncovs] covs;
     vector[N] lprice; 
     int<lower=1> count[N];
     real yr[N]; 
     int pnro[N]; int l1[N];
-    //int l2[N]; 
+    int l2[N]; 
 }
 transformed data {
     matrix[N, 3] X_y;
@@ -20,10 +20,10 @@ transformed data {
 parameters {
     cholesky_factor_corr[3] LOmega; vector<lower=0>[3] tau;  
     cholesky_factor_corr[3] LOmega1; vector<lower=0>[3] tau1;
-    //cholesky_factor_corr[6] LOmega2; vector<lower=0>[6] tau2;
+    cholesky_factor_corr[3] LOmega2; vector<lower=0>[3] tau2;
     matrix[M, 3] beta; // pnro level
     matrix[M1, 3] beta1; // l1 level
-    //matrix[M2, 6] beta2; // l2 level
+    matrix[M2, 3] beta2; // l2 level
     row_vector[3] mean_beta_plain;
     row_vector<lower=0>[3] mean_beta_cov;
     real<lower=0> sigma;
@@ -54,25 +54,25 @@ model {
     row_vector[6] x;
     matrix[3, 3] LSigma_beta;
     matrix[3, 3] LSigma_beta1;
-    //matrix[6, 6] LSigma_beta2;
+    matrix[3, 3] LSigma_beta2;
     LSigma_beta = diag_pre_multiply(tau, LOmega);
     LSigma_beta1 = diag_pre_multiply(tau1, LOmega1);
-    //LSigma_beta2 = diag_pre_multiply(tau2, LOmega2);
+    LSigma_beta2 = diag_pre_multiply(tau2, LOmega2);
     LOmega ~ lkj_corr_cholesky(2);  tau ~ lognormal(-2., 1.);
     LOmega1 ~ lkj_corr_cholesky(2); tau1 ~ lognormal(-2., 1.);    
-    //LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-2., 1.);
+    LOmega2 ~ lkj_corr_cholesky(2); tau2 ~ lognormal(-2., 1.);
     mean_beta_plain ~ normal(0, 5);
     mean_beta_cov ~ normal(0, 5);  
     //sigma_b_cov ~ cauchy(0, 1);
     beta_cov ~ normal(0, 0.25);
     for (i in 1:M) beta[i] ~ multi_normal_cholesky(head(zero_beta, 3), LSigma_beta); 
     for (i in 1:M1) beta1[i] ~ multi_normal_cholesky(head(zero_beta, 3), LSigma_beta1);
-    //for (i in 1:M2) beta2[i] ~ multi_normal_cholesky(zero_beta, LSigma_beta2);
+    for (i in 1:M2) beta2[i] ~ multi_normal_cholesky(head(zero_beta, 3), LSigma_beta2);
     // append_col() and append_row(); head() and tail(); segment()
     for (i in 1:N) {
            x = X[i];
            //obs_mean[i] = x * (mean_beta + beta2[l2[i]] + beta1[l1[i]])' + head(x, 3) * beta[pnro[i]]'; 
-           obs_mean[i] = x * mean_beta' + head(x, 3) * (beta[pnro[i]] + beta1[l1[i]])'; 
+           obs_mean[i] = x * mean_beta' + head(x, 3) * (beta[pnro[i]] + beta1[l1[i]] + beta2[l2[i]])'; 
            obs_sigma[i] = sqrt(ysigma^2 + sigma^2/count[i]); }
     sigma ~ normal(0, 2);
     ysigma ~ normal(0, 2);
