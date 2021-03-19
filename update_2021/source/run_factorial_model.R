@@ -14,8 +14,7 @@ source(paste0(BASE_PATH, '/source/common.R'))
 
 load(paste0(BASE_PATH, '/data/pnro_data_20210304.RData'))
 d_covs = pnro.population %>%
-  get_covariates() %>%
-  select(pnro, starts_with(c('c_','level')))
+  get_covariates(impute = T)
 d = pnro.ashi.dat %>% mutate_history_vars() %>% left_join(d_covs) %>%
   mutate(pnro = as.factor(pnro))
 

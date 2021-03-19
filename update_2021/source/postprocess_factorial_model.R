@@ -35,7 +35,7 @@ par.tbl <- function(d, v.name, b.name, name.postfix)
   data.frame(levels(d[[v.name]]), beta.prm.mean(b.name)) %>% 
   setNames(c(v.name, 
              paste(beta.names, name.postfix, sep=""))) %>%
-  tbl_df()
+  tibble::as_tibble()
 
 par.tbl.long <- function(d, v.name, b.name, name.postfix, inc.covs=F) {
   samples <- beta.prm(b.name, inc.covs)
@@ -44,14 +44,14 @@ par.tbl.long <- function(d, v.name, b.name, name.postfix, inc.covs=F) {
              array(samples, c(dim(samples)[[1]]*dim(samples)[[2]], dim(samples)[[3]]))) %>% 
     setNames(c("sample", v.name, 
                paste(beta.names, name.postfix, sep=""))) %>%
-    tbl_df() }
+    tibble::as_tibble()}
 
 mean.tbl.long <- function (name.postfix="4") 
   rstan::extract(s, "mean_beta")[[1]] %>%
   { data.frame(sample=1:dim(.)[[1]], .) } %>% 
   setNames(c("sample", 
              paste(beta.names, name.postfix, sep=""))) %>%
-  tbl_df() 
+  tibble::as_tibble() 
 
 get.cov.samples <- function(covs, s, b_cov_name = 'beta_cov', z_name = 'factorial_cov') {
   #covs = covs %>% filter(population > 0)
@@ -79,8 +79,7 @@ load(PNRO_DATA)
 rm(pnro.sp, pnro.ashi.dat)
 
 covs = pnro.population %>%
-  get_covariates() %>%
-  select(pnro, population, starts_with('c_'))
+  get_covariates(impute = T)
 pnro = covs$pnro
 
 
@@ -112,7 +111,7 @@ res.long <- data.frame(pnro,  level1 = l1(pnro), level2=l2(pnro)) %>%
   mutate(hinta = exp(6 + lprice), trendi = trend/YEAR_SCALE, trendimuutos = 2*quad/YEAR_SCALE/YEAR_SCALE, 
          hinta2020 = exp(6 + lprice + trend*year2yr(2020) + quad*year2yr(2020)**2),
          trendi2020 = (trend + 2*quad*year2yr(2020))/YEAR_SCALE) %>%
-  tbl_df()
+  tibble::as_tibble()
 
 #######################
 RES_LONG = paste0(BASE_PATH, '/data/pnro_res_long_factorial_2021.rds')
@@ -183,7 +182,7 @@ tmp = predictions %>%
   inner_join(readRDS("data_2018/predictions_2018.rds") %>%
                dplyr::select(pnro, year, update_2018 = hinta),
              by = c("pnro", "year")) %>%
-  mutate(diff = update_2021 - update_2018) #%>%
+  mutate(diff = update_2021 - update_2018) %>%
   ggplot(aes(x=update_2021, y=update_2018)) + 
   geom_point(aes(colour=factor(year)), alpha=0.5) + ggtitle('Prediction updates compared')
 # ggplot(aes(x=hinta_2021-hinta_2018)) + geom_histogram()
