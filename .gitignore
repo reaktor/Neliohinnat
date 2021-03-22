@@ -28,9 +28,10 @@ update_2021/json/predictions
 update_2021/json/predictions/*
 update_2021/json/*.geojson
 update_2021/data/*
+update_2021/source/*.rds
 !update_2021/data/pnro_polygons_raw.RData
 !update_2021/data/pnro_data_20210304.RData
-!update_2021/data/d_20210128.rds
+
 
 
 update_2021/source/alternative_model.R
