@@ -41,18 +41,26 @@ stdna <- function (x, log=F) {
 
 mutate_history_vars <- function(df){
     d = df %>%
-      mutate(year=as.numeric(as.character(year)), 
+      mutate(year=as.numeric(as.character(year)),
+             year_ix = year - min(year) + 1,
              yr = year2yr(year),
              lprice = log(price)-6
       )
   return (d)
 }
-impute_vars <- function(df){
-  ame.out = amelia(df, m=1, idvars=c('pnro', 'level1', 'level2'), noms = c('level3'))
+
+impute_vars <- function(df, include_intercept){
+  if(include_intercept){
+    ame.out = amelia(df, m=1, idvars=c('pnro', 'level1', 'level2', 'c_intercept'), noms = c('level3'))
+  }
+  else {
+    ame.out = amelia(df, m=1, idvars=c('pnro', 'level1', 'level2'), noms = c('level3'))
+  }
   res = ame.out$imputations$imp1
   return(res)
 }
-get_covariates <- function(df, impute){
+
+get_covariates <- function(df, impute, include_intercept = F){
   lim_population = 0
   lim_other =  0
   d <- df %>%
@@ -78,6 +86,7 @@ get_covariates <- function(df, impute){
            c_bachelor_share = bachelor_degrees %>% nlogit(population, censor_limit=lim_population),
            c_master_share = master_degrees %>% nlogit(population, censor_limit=lim_population),
            c_living_prop_ratio = living_properties %>% nlogit(properties),
+           c_living_space = stdna(living_space, log=T),
            c_house_ratio = small_houses %>% nlogit(apartments, censor_limit=lim_other),
            c_cottage_ratio = nlogit(cottages, cottages + properties),
            c_log_density = stdna(density_per_km2, log=T),
@@ -87,10 +96,14 @@ get_covariates <- function(df, impute){
            c_mid_income_share = mid_income %>% nlogit(population, censor_limit=lim_population),
            c_hi_income_share = hi_income %>% nlogit(population, censor_limit=lim_population)
     ) %>% 
-  select(pnro, population, starts_with(c('c_','level')))
+  dplyr::select(pnro, population, starts_with(c('c_','level')))
+  
+  if(include_intercept){
+    d$c_intercept = 1
+  }
   
   if(impute){
-    res = impute_vars(d)
+    res = impute_vars(d, include_intercept)
     return(res)
   }
   else{return(d)
