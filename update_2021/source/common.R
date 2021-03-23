@@ -60,7 +60,7 @@ impute_vars <- function(df, include_intercept){
   return(res)
 }
 
-get_covariates <- function(df, impute, include_intercept = F){
+get_covariates <- function(df, impute, include_intercept = F, level3_dummies =F){
   lim_population = 0
   lim_other =  0
   d <- df %>%
@@ -70,10 +70,9 @@ get_covariates <- function(df, impute, include_intercept = F){
            level3 = l3(pnro)) %>%
     mutate(c_male_share = men %>% nlogit(population, censor_limit=lim_population),
            c_population = stdna(population, log=T),
+           c_area = stdna(area_km2, log=T),
            c_employed_share = employed %>% nlogit(population, censor_limit=lim_population),
            c_unemployed_share = unemployed %>% nlogit(population, censor_limit=lim_population),
-           #c_employed_per_unemployed = regshare(employed, unemployed),
-           c_employed_per_unemployed_logit = employed %>% nlogit(employed + unemployed),
            c_refinement_jobs_per_jobs = refinement_jobs %>% nlogit(jobs, censor_limit=lim_other),
            c_service_jobs_per_jobs = service_jobs %>% nlogit(jobs, censor_limit=lim_other),
            c_primary_prod_jobs_per_jobs = primary_prod_jobs %>% nlogit(jobs, censor_limit=lim_other),
@@ -91,7 +90,7 @@ get_covariates <- function(df, impute, include_intercept = F){
            c_cottage_ratio = nlogit(cottages, cottages + properties),
            c_log_density = stdna(density_per_km2, log=T),
            c_mean_income = stdna(mean_income, log=T),
-           c_median_income = stdna(median_income, log=T),
+           #c_median_income = stdna(median_income, log=T),
            c_low_income_share = low_income %>% nlogit(population, censor_limit=lim_population),
            c_mid_income_share = mid_income %>% nlogit(population, censor_limit=lim_population),
            c_hi_income_share = hi_income %>% nlogit(population, censor_limit=lim_population)
@@ -101,11 +100,15 @@ get_covariates <- function(df, impute, include_intercept = F){
   if(include_intercept){
     d$c_intercept = 1
   }
-  
   if(impute){
-    res = impute_vars(d, include_intercept)
-    return(res)
+    d = impute_vars(d, include_intercept)
   }
-  else{return(d)
+  
+  if(level3_dummies){
+    d = d %>% mutate(
+      prefix = 'c_',
+      level3_c = paste(prefix, level3, sep='')
+      ) %>% mutate(value = 1)  %>% spread(level3_c, value,  fill = 0 ) %>%
+      dplyr::select(-prefix)
   }
 }

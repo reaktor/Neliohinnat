@@ -66,7 +66,7 @@ get.cov.samples <- function(covs, s, b_cov_name = 'beta_cov', z_name = 'factoria
 }
 
 get.cov.betas <- function(covs, s, b_cov_name = 'beta_cov') {
-  beta_cov_mat = as.data.frame(rstan::extract(s_stash, b_cov_name)[[1]])
+  beta_cov_mat = as.data.frame(rstan::extract(s, b_cov_name)[[1]])
   colnames(beta_cov_mat) = grep('c_', names(covs), value=T)
   
   res = t(do.call(cbind, lapply(beta_cov_mat, summary)))

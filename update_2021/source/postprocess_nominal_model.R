@@ -52,24 +52,26 @@ predictions = res.long %>%
 
 
 ### COVARIATES #####
-# get.cov.betas <- function(covs, s, b_cov_name = 'beta_cov') {
-#   beta_cov_mat = as.data.frame(rstan::extract(s_stash, b_cov_name)[[1]])
-#   colnames(beta_cov_mat) = grep('c_', names(covs), value=T)
-#   
-#   res = t(do.call(cbind, lapply(beta_cov_mat, summary)))
-#   return(res)
-# }
-# 
-# covs = d %>% select(starts_with('c_'))
-# betas = get.cov.betas(covs, s)
-# beta_yrs = get.cov.betas(covs, s, 'beta_cov_yr[')
+get.cov.betas <- function(d, s) {
+  covs = d %>% dplyr::select(starts_with('c_'))
+  tmp = rstan::extract(s, pars="beta_year")[[1]] %>% reshape2::melt() %>% setNames(c("i", "year", "var", "beta")) %>% 
+   mutate(var=colnames(covs)[var]) %>% as_tibble() %>%
+   ggplot(aes(x=year, y=beta, group=i)) + 
+   geom_line(alpha=.2) + geom_hline(yintercept=0, color=I("red"), alpha=I(.5)) + facet_wrap(~ var, scales = 'free_y') +
+   theme_bw(12)
+  tmp
+}
+
+
+get.cov.betas(d, s)
+beta_yrs = get.cov.betas(covs, s, 'beta_cov_yr[')
 
 ## VALIDATION ########
-mcmc_intervals(s, pars = vars(starts_with('beta_year[1,')))
+mcmc_intervals(s, pars = vars(starts_with('beta_year[11,25')))
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "33870"
+single_pnro = "04130"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_obs) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_price', ],  aes(x=year, y=y, color=q)) + 
@@ -92,21 +94,21 @@ tmp = predictions %>%
 ## JSONs #############
 library('plyr')
 
-res %>% plyr::dlply("pnro", function (i) list(hinta2020=i$hinta2020, 
-                                              trendi2020=i$trendi2020,
-                                              trendi2020_min=unname(i$trendi2020_q25),
-                                              trendi2020_max=unname(i$trendi2020_q75))) %>% 
+res %>% plyr::dlply("pnro", function (i) list(hinta2020=i$price2020, 
+                                              trendi2020=i$trend2020,
+                                              trendi2020_min=unname(i$trend2020_q25),
+                                              trendi2020_max=unname(i$trend2020_q75))) %>% 
   toJSON %>% writeLines(paste0(BASE_PATH, "/json/trends.json"))
 
 predictions %>% group_by(pnro) %>%
   plyr::d_ply("pnro", function (i) list(year=i$year, 
-                                        hinta10=i$hinta10, 
-                                        hinta25=i$hinta25, 
-                                        hinta50=i$hinta50, 
-                                        hinta75=i$hinta75, 
-                                        hinta90=i$hinta90, 
-                                        obs_hinta=i$obs_hinta, 
-                                        n_kaupat=i$n_kaupat) %>% toJSON %>%
+                                        hinta10=i$price10, 
+                                        hinta25=i$price25, 
+                                        hinta50=i$price50, 
+                                        hinta75=i$price75, 
+                                        hinta90=i$price90, 
+                                        obs_hinta=i$obs_price, 
+                                        n_kaupat=i$n_obs) %>% toJSON %>%
                 writeLines(., paste(BASE_PATH, "/json/predictions/", i$pnro[[1]], ".json",  sep=""))
   )
 
