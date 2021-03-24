@@ -14,10 +14,10 @@ source(paste0(BASE_PATH, '/source/common.R'))
 
 load(paste0(BASE_PATH, '/data/pnro_data_20210304.RData'))
 d_covs = pnro.population %>%
-  get_covariates(impute = F, include_intercept = F, level3_dummies = T) %>%
+  get_covariates(impute = T, include_intercept = F, level3_dummies = T) %>%
   full_join(data.frame(year = unique(pnro.ashi.dat$year)), by=character())
   
-d = d_covs %>% left_join(pnro.ashi.dat, by = c('pnro', 'year')) %>%
+d = d_covs %>% left_join(pnro.ashi.dat, by = c('pnro', 'year', 'population')) %>%
   mutate_history_vars() %>% mutate(pnro = as.factor(pnro))
 rm(pnro.ashi.dat, pnro.population, pnro.sp)
 
