@@ -33,7 +33,7 @@ covs = as.matrix(dplyr::select(d, starts_with('c_')))
 covs_pred = as.matrix(dplyr::select(d_pred, starts_with('c_')))
 n_covs = dim(covs)[2]
 #NOMINAL_MODEL = paste0(BASE_PATH, '/source/nominal_model.stan')
-NOMINAL_EMP_MODEL = paste0(BASE_PATH, '/source/nominal_emp_model.stan')
+NOMINAL_EMP_MODEL = paste0(BASE_PATH, '/source/models/nominal_emp_model.stan')
 m <- stan_model(file=NOMINAL_EMP_MODEL)
 
 s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)

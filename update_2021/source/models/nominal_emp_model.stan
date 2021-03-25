@@ -32,7 +32,7 @@ parameters {
     row_vector[2] beta1[M1]; // l1 level
     row_vector[2] beta2[M2]; // l2 level
     real<lower=0> sigma;
-    real<lower=0> ysigma;
+    real<lower=0> ysigma[n_years];
     real<lower=0> df;
     row_vector[n_covs] beta_year[n_years];
 }
@@ -57,7 +57,7 @@ model {
            x = X[i];
            obs_mean[i] = dot_product(covs[i], beta_year[year[i]]) + 
                             dot_product(x, (beta[pnro[i]] + beta1[l1[i]] + beta2[l2[i]]));
-           obs_sigma[i] = sqrt(ysigma^2 + sigma^2/count[i]); }
+           obs_sigma[i] = sqrt(ysigma[year[i]]^2 + sigma^2/count[i]); }
     sigma ~ normal(0, 2);
     ysigma ~ normal(0, 2);
     df ~ normal(0, 20);
@@ -70,7 +70,7 @@ generated quantities {
                               dot_product(X_pred[i], (beta[pnro_pred[i]] + 
                               beta1[l1_pred[i]] + beta2[l2_pred[i]]) );
         real expected_obs = lprice_pred[i];
-        real prec_model = 1 / ysigma^2;
+        real prec_model = 1 / ysigma[year_pred[i]]^2;
         real prec_obs = count_pred[i] / sigma^2; // may be zero because possibly count=0.
         real prec = prec_model + prec_obs; 
         pred[i] = normal_rng((prec_model * expected_model + prec_obs * expected_obs) / prec,

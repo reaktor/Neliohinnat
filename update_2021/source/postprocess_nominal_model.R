@@ -11,11 +11,12 @@ BASE_PATH = paste0('./', UPDATE_VERSION)
 source(paste0(BASE_PATH, '/source/common.R'))
 
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
-d <- readRDS(STAN_INPUT)
+d <- readRDS(STAN_INPUT) 
 
 SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds')
 s = readRDS(SAMPLES)
 
+mcmc_intervals(s, pars = vars(starts_with('ysigma')))
 
 res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
                  population = d$population,
@@ -28,7 +29,7 @@ res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
   group_by(pnro, sample) %>%
   mutate(delta = pred - lag(pred, default = first(pred), order_by = sample)) %>%
   ungroup() %>%
-  mutate(trend = delta/(pred - delta) )
+  mutate(trend = delta/(pred - delta) ) %>% filter(pnro != '70210')
 
 res = res.long %>% filter(year == '2020') %>% group_by(pnro) %>%
   dplyr::summarise(trend2020_q25 = quantile(trend, 0.25),
@@ -36,7 +37,8 @@ res = res.long %>% filter(year == '2020') %>% group_by(pnro) %>%
                    price2020_q25 = quantile(pred, 0.25),
                    price2020_q75 = quantile(pred, 0.75),
                    price2020 = mean(pred),
-                   trend2020 = mean(trend)) %>%
+                   trend2020 = mean(trend),
+                   population = first(population)) %>%
   ungroup() %>%
   mutate(trend2020_reliable = (trend2020_q25*trend2020_q75 > 0))
 
@@ -51,7 +53,9 @@ predictions = res.long %>%
   ungroup() %>%
   left_join(d %>% dplyr::select(pnro, year, obs_price=price, n_obs=n), by=c("year", "pnro"))
 
-
+RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_2021.rds')
+saveRDS(res, RES)
+res <- readRDS(RES)
 
 ### COVARIATES #####
 get.cov.betas <- function(d, s) {
@@ -66,14 +70,14 @@ get.cov.betas <- function(d, s) {
 
 
 get.cov.betas(d, s)
-beta_yrs = get.cov.betas(covs, s, 'beta_cov_yr[')
 
 ## VALIDATION ########
-mcmc_intervals(s, pars = vars(starts_with('beta_year[11,25')))
+#mcmc_intervals(s, pars = vars(starts_with('beta_year[11,25')))
+mcmc_intervals(s, pars = vars(starts_with('sigma'), starts_with('ysigma')))
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "46140"
+single_pnro = "53130"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_obs) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_price', ],  aes(x=year, y=y, color=q)) + 
