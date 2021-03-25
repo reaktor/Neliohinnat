@@ -32,8 +32,9 @@ d = d_pred %>% filter(!is.na(price))
 covs = as.matrix(dplyr::select(d, starts_with('c_')))
 covs_pred = as.matrix(dplyr::select(d_pred, starts_with('c_')))
 n_covs = dim(covs)[2]
-NOMINAL_MODEL = paste0(BASE_PATH, '/source/nominal_model.stan')
-m <- stan_model(file=NOMINAL_MODEL)
+#NOMINAL_MODEL = paste0(BASE_PATH, '/source/nominal_model.stan')
+NOMINAL_EMP_MODEL = paste0(BASE_PATH, '/source/nominal_emp_model.stan')
+m <- stan_model(file=NOMINAL_EMP_MODEL)
 
 s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=c(with(d,
@@ -52,7 +53,9 @@ s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
                     with(d_pred,
                     list(N_pred=nrow(d_pred), M_pred=nlevels(pnro),
                          M1_pred=nlevels(level1),
-                         M2_pred=nlevels(level2), 
+                         M2_pred=nlevels(level2),
+                         lprice_pred = replace_na(lprice, 0),
+                         count_pred = replace_na(n, 0),
                          yr_pred=yr,
                          year_pred = year_ix,
                          pnro_pred=as.numeric(pnro), 
@@ -74,7 +77,7 @@ tic()
 s <- s.f(nchains=4, iter=100, warmup=50, thin=1, refresh=1) #30min on my laptop
 toc()
 
-saveRDS(s, paste0(BASE_PATH, '/data/debug_nominal_model_samples.rds'))
+saveRDS(s, paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds'))
 
 # # Run eight long chains for final results
 # s <- s.f(nchains=8, iter=2000, warmup=1000, thin=20, refresh=50)

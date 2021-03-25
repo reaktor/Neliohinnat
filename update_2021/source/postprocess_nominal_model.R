@@ -11,15 +11,17 @@ BASE_PATH = paste0('./', UPDATE_VERSION)
 source(paste0(BASE_PATH, '/source/common.R'))
 
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
-d <- readRDS(STAN_INPUT) %>% filter(population > 0)
+d <- readRDS(STAN_INPUT)
 
-SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_model_samples.rds')
+SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds')
 s = readRDS(SAMPLES)
 
 
 res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
+                 population = d$population,
                  n = d$n,
                  as.data.frame(t(rstan::extract(s, 'pred')[[1]]))) %>%
+  filter(population > 0) %>%
   pivot_longer(cols = starts_with('V'),names_to = 'sample', names_prefix = 'V',
                values_to = 'pred') %>%
   mutate(pred = exp(6 + pred)) %>%
