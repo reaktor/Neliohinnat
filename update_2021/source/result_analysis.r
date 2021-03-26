@@ -1,7 +1,5 @@
 # Script for analysing the results by provinces
 
-library("sorvi")
-
 library("dplyr")
 library('stringr')
 
@@ -62,13 +60,13 @@ sum(pnro.hinnat$population)
 # Write top 100 
 pnro.province %>%
   mutate(pnro = as.character(pnro)) %>%
-  arrange(desc(trendi2018min)) %>%
+  arrange(desc(muutos2020min)) %>%
   head(100) %>%
- # write.csv("data_2017/asuntohinnat_kvantiilit_2018_top100_20170425.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+  write.csv("update_2021/data/asuntohinnat_kvantiilit_2020_top100.csv", quote=T, row.names=F, fileEncoding="utf8")
 
 # Write top 100 and bottom 100
 pnro.province %>%
   mutate(pnro = as.character(pnro)) %>%
-  arrange((trendi2018max)) %>%
+  arrange((muutos2020max)) %>%
   head(100) %>%
-#  write.csv("data_2017/asuntohinnat_kvantiilit_2018_bottom100_20170425.csv", quote=T, row.names=F, fileEncoding="ISO-8859-1")
+  write.csv("update_2021/data/asuntohinnat_kvantiilit_2020_bottom100.csv", quote=T, row.names=F, fileEncoding="utf8")
