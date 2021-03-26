@@ -13,7 +13,7 @@ source(paste0(BASE_PATH, '/source/common.R'))
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
 d <- readRDS(STAN_INPUT) 
 
-SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds')
+SAMPLES = paste0(BASE_PATH, '/data/nom_emp_samples_8chains_2500+1000t25.rds')
 s = readRDS(SAMPLES)
 
 mcmc_intervals(s, pars = vars(starts_with('ysigma')))
@@ -93,6 +93,7 @@ tmp = predictions %>%
   mutate(diff = update_2021 - update_2018) %>%
   ggplot(aes(x=update_2021, y=update_2018)) + 
   geom_point(aes(colour=factor(year)), alpha=0.5) + ggtitle('Prediction updates compared')
+tmp
 # ggplot(aes(x=hinta_2021-hinta_2018)) + geom_histogram()
 
 
