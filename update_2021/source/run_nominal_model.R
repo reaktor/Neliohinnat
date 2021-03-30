@@ -14,7 +14,7 @@ source(paste0(BASE_PATH, '/source/common.R'))
 
 load(paste0(BASE_PATH, '/data/pnro_data_20210304.RData'))
 d_covs = pnro.population %>%
-  get_covariates(impute = T, include_intercept = F, level3_dummies = T) %>%
+  get_covariates(impute = T, include_intercept = T, level3_dummies = F) %>%
   full_join(data.frame(year = unique(pnro.ashi.dat$year)), by=character())
   
 d = d_covs %>% left_join(pnro.ashi.dat, by = c('pnro', 'year', 'population')) %>%
@@ -26,7 +26,7 @@ saveRDS(d, STAN_INPUT)
 
 ## RUN STAN #########
 
-d_pred <- readRDS(STAN_INPUT)
+d_pred <- readRDS(STAN_INPUT) %>% mutate(pnro_yr_ix = as.factor(paste0(pnro, year)))
 d = d_pred %>% filter(!is.na(price))
 
 covs = as.matrix(dplyr::select(d, starts_with('c_')))
@@ -48,7 +48,8 @@ s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
                         l2=as.numeric(level2),
                         n_covs=n_covs,
                         n_years = max(year) - min(year) + 1,
-                        covs=covs
+                        covs=covs,
+                        pnro_yr_ix = as.numeric(pnro_yr_ix)
                         )),
                     with(d_pred,
                     list(N_pred=nrow(d_pred), M_pred=nlevels(pnro),

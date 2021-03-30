@@ -76,9 +76,8 @@ get_covariates <- function(df, impute, include_intercept = F, level3_dummies =F)
            c_refinement_jobs_per_jobs = refinement_jobs %>% nlogit(jobs, censor_limit=lim_other),
            c_service_jobs_per_jobs = service_jobs %>% nlogit(jobs, censor_limit=lim_other),
            c_primary_prod_jobs_per_jobs = primary_prod_jobs %>% nlogit(jobs, censor_limit=lim_other),
-           #c_jobs_per_capita = pmin(regshare(jobs, population), 3),
-           c_jobs_per_capita_logit = jobs %>% nlogit(jobs + population, censor_limit = lim_population),
-           c_jobs_per_capita_logit = pmin(c_jobs_per_capita_logit, 2.5),
+           #c_jobs_per_capita_logit = jobs %>% nlogit(jobs + population, censor_limit = lim_population),
+           #c_jobs_per_capita_logit = pmin(c_jobs_per_capita_logit, 2.5),
            c_educated_share = educated %>% nlogit(population, censor_limit=lim_population),
            c_high_school_share = highschool_grads %>% nlogit(population, censor_limit=lim_population),
            c_vocational_share = vocational_grads %>% nlogit(population, censor_limit=lim_population),
@@ -90,7 +89,6 @@ get_covariates <- function(df, impute, include_intercept = F, level3_dummies =F)
            c_cottage_ratio = nlogit(cottages, cottages + properties),
            c_log_density = stdna(density_per_km2, log=T),
            c_mean_income = stdna(mean_income, log=T),
-           #c_median_income = stdna(median_income, log=T),
            c_low_income_share = low_income %>% nlogit(population, censor_limit=lim_population),
            c_mid_income_share = mid_income %>% nlogit(population, censor_limit=lim_population),
            c_hi_income_share = hi_income %>% nlogit(population, censor_limit=lim_population)
@@ -111,4 +109,5 @@ get_covariates <- function(df, impute, include_intercept = F, level3_dummies =F)
       ) %>% mutate(value = 1)  %>% spread(level3_c, value,  fill = 0 ) %>%
       dplyr::select(-prefix)
   }
+  return(d)
 }

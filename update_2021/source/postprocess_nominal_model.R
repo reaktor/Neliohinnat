@@ -13,7 +13,7 @@ source(paste0(BASE_PATH, '/source/common.R'))
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
 d <- readRDS(STAN_INPUT) 
 
-SAMPLES = paste0(BASE_PATH, '/data/nom_emp_samples_8chains_2500+1000t25.rds')
+SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds')
 s = readRDS(SAMPLES)
 
 mcmc_intervals(s, pars = vars(starts_with('ysigma')))
@@ -21,7 +21,7 @@ mcmc_intervals(s, pars = vars(starts_with('ysigma')))
 res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
                  population = d$population,
                  n = d$n,
-                 as.data.frame(t(rstan::extract(s, 'pred')[[1]]))) %>%
+                 as.data.frame(t(rstan::extract(s, 'pred_mean')[[1]]))) %>%
   filter(population > 0) %>%
   pivot_longer(cols = starts_with('V'),names_to = 'sample', names_prefix = 'V',
                values_to = 'pred') %>%
@@ -53,7 +53,7 @@ predictions = res.long %>%
   ungroup() %>%
   left_join(d %>% dplyr::select(pnro, year, obs_price=price, n_obs=n), by=c("year", "pnro"))
 
-RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_2021.rds')
+RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_debug_2021.rds')
 saveRDS(res, RES)
 res <- readRDS(RES)
 
@@ -72,12 +72,12 @@ get.cov.betas <- function(d, s) {
 get.cov.betas(d, s)
 
 ## VALIDATION ########
-#mcmc_intervals(s, pars = vars(starts_with('beta_year[11,25')))
+mcmc_intervals(s, pars = vars(starts_with('df')))
 mcmc_intervals(s, pars = vars(starts_with('sigma'), starts_with('ysigma')))
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-single_pnro = "53130"
+single_pnro = "00530"
 preds_tmp = predictions %>% filter(pnro==single_pnro) %>% tidyr::gather(q, y, -pnro, -year,  -n_obs) 
 ggplot() + 
   geom_line(data=preds_tmp[preds_tmp$q!='obs_price', ],  aes(x=year, y=y, color=q)) + 
@@ -87,7 +87,7 @@ ggplot() +
 # Compare predictions to those from year 2018
 tmp = predictions %>%
   dplyr::select(pnro, year, update_2021 = price) %>%
-  inner_join(readRDS("data_2018/predictions_2018.rds") %>%
+  inner_join(readRDS("archive/data_2018/predictions_2018.rds") %>%
                dplyr::select(pnro, year, update_2018 = hinta),
              by = c("pnro", "year")) %>%
   mutate(diff = update_2021 - update_2018) %>%
