@@ -57,6 +57,8 @@ nrow(pos_change) # --> 656 / 3008 = 21.8 % pnro with increase in 2020
 sum(pos_change$population) # 2246885 / 5455832 ≈ 41.1%
 sum(pnro.hinnat$population)
 
+# TO DO: filter population > 100 due to reliability
+
 # Write top 100 
 pnro.province %>%
   mutate(pnro = as.character(pnro)) %>%

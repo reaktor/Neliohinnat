@@ -13,10 +13,12 @@ source(paste0(BASE_PATH, '/source/common.R'))
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
 d <- readRDS(STAN_INPUT) 
 
-SAMPLES = paste0(BASE_PATH, '/data/debug_nominal_empirical_model_samples.rds')
+SAMPLES = paste0(BASE_PATH, '/data/nom_emp_samples_8chains_1000+1000t20_20210330.rds')
 s = readRDS(SAMPLES)
 
-mcmc_intervals(s, pars = vars(starts_with('ysigma')))
+mcmc_intervals(s, pars = vars(starts_with('ysigma'), starts_with('sigma')))
+mcmc_intervals(s, pars = vars(starts_with('beta_year[2,')))
+traceplot(s, 'sigma', inc_warmup=F)
 
 res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
                  population = d$population,
@@ -53,7 +55,7 @@ predictions = res.long %>%
   ungroup() %>%
   left_join(d %>% dplyr::select(pnro, year, obs_price=price, n_obs=n), by=c("year", "pnro"))
 
-RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_debug_2021.rds')
+RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_2021.rds')
 saveRDS(res, RES)
 res <- readRDS(RES)
 
