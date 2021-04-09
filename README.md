@@ -14,7 +14,7 @@ The model was revised quite thoroughly to include yearly varying coefficients fo
 
 ## UPDATE 7.3.2016
 
-The service was update with apartment price data from year 2015, and the predictions are now given for year 2017. The repository was updated so that all original scripts and data were moved to folders ending in `_2015`, and new scripts and data are in folders enging in `_2016`.
+The service was update with apartment price data from year 2015, and the predictions are now given for year 2017. The repository was updated so that all original scripts and data were moved to folders ending in `_2015`, and new scripts and data are in folders ending in `_2016`.
 
 ## Introduction
 

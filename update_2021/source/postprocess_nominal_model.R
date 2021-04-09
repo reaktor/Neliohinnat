@@ -129,20 +129,22 @@ require('gridExtra')
 load('update_2021/data/pnro_data_20210304.RData')
 pnro2020 = pnro.ashi.dat %>% filter(year == '2020') %>% 
   filter(!is.na(price)) %>% select(pnro, price)
-res_short = res %>% filter(pnro %in% pnro2020$pnro) %>% mutate(type = 'orig') %>%
+res_short = res %>% mutate(type = 'orig') %>%
   left_join(pnro2020) %>%
   rbind(res %>% mutate(type = 'pred', price = price2020))
 pnro_sf <- sf::st_as_sf(pnro.sp)  %>% 
   sf::st_transform("+proj=laea +y_0=0 +lon_0=25 +lat_0=62 +ellps=WGS84 +no_defs") 
-pnro_sf %>% left_join(res_short) %>% na.omit() %>%
-  mutate(lprice = log(price2020)) %>%
-  ggplot(aes(fill=price2020)) + geom_sf(size=.1) + 
+pnro_sf %>% left_join(res_short) %>% filter(!is.na(type)) %>%
+  mutate(lprice = log(price2020),
+         type = factor(type, levels = c('orig', 'pred'),
+                       labels = c('Observed price for 2020', 'Prediction for 2020'))) %>%
+  ggplot(aes(fill=price)) + geom_sf(size=.1) + 
   scale_fill_viridis_c(na.value="#00000000", trans= 'log', labels = function(x)round(x,-2)) +
   theme_void() + guides(fill=guide_colorbar(title = '€/sqm', label = T, ticks = F)) +
-  theme(plot.margin = unit(c(0, 0, 0, 0), "lines")) + facet_wrap(~type)
-ggsave('figs/sparsitymap.png', 
-       grid.arrange(p_holes, p_full, ncol=2, widths=c(1,1.18)),
-       width = 10.4, height = 9, dpi = 300, units = "in")
+  theme(plot.margin = unit(c(0, 2, 0, 0), "lines"),
+        strip.text = element_text(face="bold", size=10, margin = margin(.1, 0, .1, 0, "cm"))) + 
+  facet_wrap(~type)
+ggsave('figs/sparsitymap.png')
 
 
 # Plots to show data scarcity
