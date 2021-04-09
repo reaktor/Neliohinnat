@@ -8,7 +8,9 @@ The old model was a good one, and is explained in detail in its own [blog post](
 
 The new model stands on the foundations of the old one. There is still the spatial hierarchy based on postal codes meaning if there are no observations from a postal area, its predictions will be more or less close to those of the neighboring ones. However, we use that hierarchy only for the average level - in technical terms intercept - and for a linear trend. The quadratic trend component has been dropped. Then, in addition to the spatial hierarchy, we include demographic covariates from open data with yearly varying coefficients. In brief, that means the temporal structure is more flexible than previously and the model uses demographics when extrapolating the predictions.
 
-The importance of extrapolation might not be intuitive but is a very essential part of the model. Around 90% of all reported transactions have happened in less than 30% of the 33k-odd postal area - year combinations. On the other hand, there are less than a hundred transactions in total from over 75% - that is some 24k - postal area - year combos. Essentially, a vast majority of the predictions of the model are extrapolations.
+The importance of extrapolation might not be intuitive but is a very essential part of the model. Around 90% of all reported transactions have happened in less than 30% of the 33k-odd postal area - year combinations. On the other hand, there are less than a hundred transactions in total from over 75% - that is some 24k - postal area - year combos. Essentially, a vast majority of the predictions of the model are extrapolations, as can be seen in the figure below.
+
+![Only sparse price data available](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/sparsitymap.png)
 
 Thanks to using covariates for the extrapolation, we are also able to see how the effects of them, e.g. apartment size per person or median income, have changed over time. The yearly covariates provide us interesting insights into the effects of the pandemic, but before taking a closer look at those, let’s dive into some details of the model.
 

@@ -18,7 +18,7 @@ s = readRDS(SAMPLES)
 
 mcmc_intervals(s, pars = vars(starts_with('ysigma'), starts_with('sigma')))
 mcmc_intervals(s, pars = vars(starts_with('beta_year[2,')))
-traceplot(s, 'sigma', inc_warmup=F)
+traceplot(s, 'tau1', inc_warmup=F)
 
 res.long = cbind(pnro = d$pnro, year = d$year, obs_price = d$price,
                  population = d$population,
@@ -58,6 +58,9 @@ predictions = res.long %>%
 RES = paste0(BASE_PATH, '/data/pnro-hinnat_nominal_2021.rds')
 saveRDS(res, RES)
 res <- readRDS(RES)
+
+PREDS = paste0(BASE_PATH, '/data/predictions_nominal_2021.rds')
+saveRDS(predictions, PREDS)
 
 ### COVARIATES #####
 get.cov.betas <- function(d, s) {
@@ -121,7 +124,27 @@ predictions %>% group_by(pnro) %>%
                 writeLines(., paste(BASE_PATH, "/json/predictions/", i$pnro[[1]], ".json",  sep=""))
   )
 
-######
+###### Plots to show data scarcity
+require('gridExtra')
+load('update_2021/data/pnro_data_20210304.RData')
+pnro2020 = pnro.ashi.dat %>% filter(year == '2020') %>% 
+  filter(!is.na(price)) %>% select(pnro, price)
+res_short = res %>% filter(pnro %in% pnro2020$pnro) %>% mutate(type = 'orig') %>%
+  left_join(pnro2020) %>%
+  rbind(res %>% mutate(type = 'pred', price = price2020))
+pnro_sf <- sf::st_as_sf(pnro.sp)  %>% 
+  sf::st_transform("+proj=laea +y_0=0 +lon_0=25 +lat_0=62 +ellps=WGS84 +no_defs") 
+pnro_sf %>% left_join(res_short) %>% na.omit() %>%
+  mutate(lprice = log(price2020)) %>%
+  ggplot(aes(fill=price2020)) + geom_sf(size=.1) + 
+  scale_fill_viridis_c(na.value="#00000000", trans= 'log', labels = function(x)round(x,-2)) +
+  theme_void() + guides(fill=guide_colorbar(title = '€/sqm', label = T, ticks = F)) +
+  theme(plot.margin = unit(c(0, 0, 0, 0), "lines")) + facet_wrap(~type)
+ggsave('figs/sparsitymap.png', 
+       grid.arrange(p_holes, p_full, ncol=2, widths=c(1,1.18)),
+       width = 10.4, height = 9, dpi = 300, units = "in")
+
+
 # Plots to show data scarcity
 d %>% dplyr::select(pnro, year, n) %>%
   tidyr::spread(year, n, fill=0) %>% 
