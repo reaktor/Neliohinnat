@@ -45,23 +45,25 @@ The predictions and their confidence intervals presented in the actual service a
 
 If you are interested in the details, please take a look at the [source code](https://github.com/reaktor/Neliohinnat/blob/henrika_2021_factorial/update_2021/source/models/nominal_emp_model.stan).
 
-## Covid-19 puts urbanisation to halt
+## Covid-19 puts urbanisation to halt?
 
-Now, back to the big picture and the insights we obtained. First, urbanisation is a constant trend in Finland. It might not be trivial to see in the individual coefficients, but looking at the first two components of principal component analysis, it becomes evident. The first component can be considered some sort of a rurality index - it is high in areas with low employment, high unemployment, little service jobs, and low income. Then, the second principal component is high in areas with people with high school and bachelor degrees but not master degrees, people with income in mid tertile, and areas with small apartment sizes per resident. In other words, the component could be vaguely called a suburb-index.
+Now, back to the big picture. Urbanisation is a persistent trend in Finland. Overall, living space per person and mean income are the main predictors in the model, and their coefficients increase monotonically year by year, implying increasing centralization: High prices are rising, and vice versa. If one looks at the principal variation of the $\textrm{year}\times\textrm{covariate}$ matrix, the main axis is almost monotonic in time, reflecting this development.  The second component is high in areas of middle-level education, income in the mid tertile, and small apartment sizes per resident. The component could vaguely be called a suburb index. But the variance of the second component is only 14% of the first one. 
 
-The picture below illustrates how the the apartment prices have changed over years from the perspective of the principal components. A year left to the previous one means prices have decreased in areas with high first component - the rurality index. A year above the previous one then means prices have increased in suburbish areas. Clearly, 2020 increased suburban prices even more than 2016 while rural prices did not decrease but even increased a bit. However, looking at the previous years, it is quite likely the urbanisation has not stopped completely.
+The picture below illustrates how the the apartment prices have changed over years from the perspective of these two components.  Year 2020 certainly looks anomalous, although posterior uncertainty is pretty high on PC2. 
 
-![Transition from first principal compontent to the second](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/princomps-2020.png)
+![Space of principal variation of the covariate coefficientws, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers.](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/princomps-2020.png)
 
-The phenomenon is easily distinguishable also by looking at our map and the actual predictions. Prices have increased in some previously fairly stable suburbs whereas city centre prices have increased a bit less than earlier. If previously apartment prices have decreased almost everywhere outside the largest cities, now our model estimates there is weak growth almost through the whole western half of Finland.
+The phenomenon is readily present on our maps (FIXME: linkki). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is weak growth almost across the western half of Finland.
 
 ## Room for improvement
 
-As a conclusion, the model got quite a big facelift from an almost purely "pseudospatial" zip prefix structure to one with demographic covariates, and an partly nonparametric temporal structure. Are we satisfied? No…
+As a conclusion, the model got quite a big face lift, from an almost purely "pseudospatial" zip-prefix structure to one with demographic covariates, and an partly nonparametric temporal structure. Are we satisfied? No…
 
-First, zip-code hierarchies are unlikely to have intrinsic predictive power. They are used just as a proxy for spatial proximity. The current role of these is to [...] Efficient implementations of propoer spatial models based on adjacency are now available (FIXME: link), and those could be adapted to our model. One could have spatial random effects for price level and trend for local adjustment of prices arising from covariates, or even a spatiotemporal random effect for modelling these deviations from covariates in a fully nonparametric way.
+First, the zip-code hierarchy is unlikely to have intrinsic predictive power: It is just a proxy for spatial adjacency. Efficient implementations of true adjacency-based spatial random effects are now [available](https://mc-stan.org/users/documentation/case-studies/icar_stan.html), and those could be adapted to our model, to either provide parametric deviations from predictions of covariates as zip codes now do, or a fully non-parametric spatiotemporal random effect. 
 
-Because even more sparse data is available about apartments with various numbers of rooms, one clear opportunity is to take these into the model, and build an associated hierarchy. Modeling apartment heterogeneity would improve overall price estimates, on dense areas give information of prices specific to apartment types. And of course, the development of prices of different apartments may sometimes diverge in interesting ways form the viewpoint of covariates. 
+We currently have poor temporal coverage of covariates, they are snapshots from years 2018--2019. If available, using year-wise covariates would improve accuracy and make interpretation of temporal changes of covariate coefficients safer. 
 
-Manu other spatial datasets could be appended to the covariates, or modelled separately. Voting is one obvious choice. 
+Because even more sparse data is available about apartments with various numbers of rooms, one clear opportunity is to take these into the model, and build an associated hierarchy. Modeling apartment heterogeneity would improve overall price estimates, and on dense areas give information of prices specific to apartment types. And of course, the development of prices of different apartments may sometimes diverge in interesting ways form the viewpoint of covariates. 
+
+Many other spatial datasets could be appended to the covariates, or modelled separately. Voting is one obvious choice. 
 
