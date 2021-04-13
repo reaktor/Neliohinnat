@@ -2,17 +2,19 @@
 
 Some years ago, we needed apartment price estimates for areas for which such are not provided due to too small population or too few transactions. We ended up creating a model based on the hierarchy of zip codes and making a public demonstration out of it --- Kannattaako Kauppa. Although the associated quadratic temporal model served well in its purpose years ago, its limits have become apparent, and the pandemic with its new anomalies now finally pushed us to update not only data but model as well. 
 
-The orignal model is described in detail in a [blog post](http://ropengov.org/2015/06/a-hierarchical-model-of-finnish-apartment-prices/). We see too drawbacks. First,  spatial smoothness, or extrapolation of evidence, is based almost entirely on the zip hierarchy (the exception being population density). Alternatives would be explicit spatial adjacencies, which way we didn't go yet, and the known demographics of the areas, which are now in the model. Then there is the quadratic assumption of temporal development. That was justifiable six years ago and is still to a degree --- but now, something that takes the peculiarities of single years into account is more interesting and better fits the data. 
+The orignal model is detailed in a [blog post](http://ropengov.org/2015/06/a-hierarchical-model-of-finnish-apartment-prices/). We see too drawbacks. First,  spatial smoothness, or generalizing of evidence spatially, is based almost entirely on the zip hierarchy (the exception being population density). Alternatives would be explicit spatial adjacencies, which way we didn't go yet, and the known demographics of the areas, which are now in the model. Then there is the quadratic assumption of temporal development. That was justifiable six years ago and is still to a degree --- but now, something that takes the peculiarities of single years into account is more interesting and better fits the data. 
 
 ## Demographics help with sparse observations
 
-The new model stands on the foundations of the old one. There is still the spatial hierarchy based on postal codes meaning if there are no observations from a postal area, its predictions will be more or less close to those of the neighboring ones. However, we use that hierarchy only for the average level - in technical terms intercept - and for a linear trend. The quadratic trend component has been dropped. Then, in addition to the spatial hierarchy, we include demographic covariates from open data with yearly varying coefficients. In brief, that means the temporal structure is more flexible than previously and the model uses demographics when extrapolating the predictions.
+In the new model, predictive power mainly becomes from _demographic covariates_, 23 variables selected from the open data that describe the people, households, apartments and professions of the zip code areas. The covariates have yearly coefficients. This means that the temporal structure in the model is much more flexible than in the original model. Zip-code prefix hierarchy is still there, but with the quadratic term dropped, allowing adjacent regions to be similarly deviant from the prices predicted by covariates. 
 
-The importance of extrapolation might not be intuitive but is a very essential part of the model. Around 90% of all reported transactions have happened in less than 30% of the 33k-odd postal area - year combinations. On the other hand, there are less than a hundred transactions in total from over 75% - that is some 24k - postal area - year combos. Essentially, a vast majority of the predictions of the model are extrapolations, as can be seen in the figure below.
+But what use is "predictive power" for past prices? When one has only a few transactions, the price level of the place at the given year is left uncertain. By accident, those sales maybe on the high or low side of the scale. Trends estimated from such data are again a bit more hazy, and many "top performers" on ranking lists turn out to be statistical flukes. So good modeling, if nothing else, shows us the uncertainty. But a good model also generalizes over regions similar in demography (covariates) or location (adjacency), and understands that declines and rises tend to continue, to a degree to be estimated from data. 
+
+More radically, looking at slots of combined year and zip code, around 90% of all reported transactions have happened in less than 30% of the slots. Meanwhile, some 24k or 75% of the slots have _in total_ less than one hundred transaction. (Note that many postal code areas have no apartments either, the model predicts a price there as well.) Essentially, a vast majority of the estimates provided by the model are extrapolations, as can be seen in the figure below. So predictive power is needed to fill the holes, preferably so that we know how uncertain the fill is. 
 
 ![Only sparse price data available](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/sparsitymap.png)
 
-Thanks to using covariates for the extrapolation, we are also able to see how the effects of them, e.g. apartment size per person or median income, have changed over time. The yearly covariates provide us interesting insights into the effects of the pandemic, but before taking a closer look at those, let’s dive into some details of the model.
+As an extra benefit of having demographics in the model, we see how their effects on prices change over time. The covaraite coefficients provide us interesting insights into the effects of the pandemic, but before taking a closer look at those, let’s dive into some details of the model.
 
 ## The core model
 
@@ -43,7 +45,7 @@ The predictions and their confidence intervals presented in the actual service a
 
 If you are interested in the details, please take a look at the [source code](https://github.com/reaktor/Neliohinnat/blob/henrika_2021_factorial/update_2021/source/models/nominal_emp_model.stan).
 
-## Corona put urbanisation to a halt
+## Covid-19 puts urbanisation to halt
 
 Now, back to the big picture and the insights we obtained. First, urbanisation is a constant trend in Finland. It might not be trivial to see in the individual coefficients, but looking at the first two components of principal component analysis, it becomes evident. The first component can be considered some sort of a rurality index - it is high in areas with low employment, high unemployment, little service jobs, and low income. Then, the second principal component is high in areas with people with high school and bachelor degrees but not master degrees, people with income in mid tertile, and areas with small apartment sizes per resident. In other words, the component could be vaguely called a suburb-index.
 
@@ -55,5 +57,11 @@ The phenomenon is easily distinguishable also by looking at our map and the actu
 
 ## Room for improvement
 
-As a conclusion, the model got quite a big facelift from a purely spatial solution to one with demographic covariates and an essentially nonparametric temporal structure. Are we satisfied? Probably not. A clear opportunity we have yet to touch is modeling the prices of apartments with different room numbers with something hierarchical as data on that level is openly available. And there are other spatial datasets that could be appended to the covariates. If something, it is clear there is still room for improvement.
+As a conclusion, the model got quite a big facelift from an almost purely "pseudospatial" zip prefix structure to one with demographic covariates, and an partly nonparametric temporal structure. Are we satisfied? No…
+
+First, zip-code hierarchies are unlikely to have intrinsic predictive power. They are used just as a proxy for spatial proximity. The current role of these is to [...] Efficient implementations of propoer spatial models based on adjacency are now available (FIXME: link), and those could be adapted to our model. One could have spatial random effects for price level and trend for local adjustment of prices arising from covariates, or even a spatiotemporal random effect for modelling these deviations from covariates in a fully nonparametric way.
+
+Because even more sparse data is available about apartments with various numbers of rooms, one clear opportunity is to take these into the model, and build an associated hierarchy. Modeling apartment heterogeneity would improve overall price estimates, on dense areas give information of prices specific to apartment types. And of course, the development of prices of different apartments may sometimes diverge in interesting ways form the viewpoint of covariates. 
+
+Manu other spatial datasets could be appended to the covariates, or modelled separately. Voting is one obvious choice. 
 
