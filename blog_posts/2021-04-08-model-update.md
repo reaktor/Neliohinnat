@@ -51,7 +51,7 @@ Now, back to the big picture. Urbanisation is a persistent trend in Finland. Ove
 
 The picture below illustrates how the the apartment prices have changed over years from the perspective of these two components.  Year 2020 certainly looks anomalous, although posterior uncertainty is pretty high on PC2. 
 
-![Space of principal variation of the covariate coefficientws, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers.](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/princomps-2020.png)
+![Space of principal variation of the covariate coefficientws, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers.](../figs/princomps-2020.png)
 
 The phenomenon is readily present on our maps (FIXME: linkki). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is weak growth almost across the western half of Finland.
 
