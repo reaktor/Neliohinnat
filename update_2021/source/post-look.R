@@ -38,36 +38,32 @@ cov_year_samples <- rstan::extract(fit, pars="beta_year")[[1]]
 
 beta_samples_df <- cov_year_samples %>% reshape2::melt() %>% 
   setNames(c("sample", "year", "var", "beta")) %>% 
-  mutate(var=cov_names[var]) %>% filter(var != "c_intercept") %>%
+  mutate(var=cov_names[var], year=years[year]) %>% 
+  filter(var != "c_intercept") %>%
   as_tibble()
 
 # Covariate coef samples as function of year (alpha lines)
 p1 <- beta_samples_df %>% filter(sample %% 10 == 0) %>% 
+  filter(var %in% c("c_living_space", "c_mean_income", "c_high_school_share",  
+                    "c_area", "c_population", "c_log_density")) %>%
   ggplot(aes(x=year, y=beta, group=sample)) + 
-  geom_line(alpha=.2) + geom_hline(yintercept=0, color=I("red"), alpha=I(.5)) 
-
-p1 + facet_wrap(~ var, scales=NULL)
+  geom_line(alpha=.2) + geom_hline(yintercept=0, color=I("red"), alpha=I(.5)) +
+  scale_x_continuous(breaks=c(2013, 2016, 2019)) + 
+  ylab("coefficient for a standardized covariate") +
+  theme_minimal(14) 
+  
+p1 + facet_wrap(~ var, scales=NULL) 
 p1 + facet_wrap(~ var, scales="free_y")
 
 # Covariate coef change 2019...2020
-# NOTE that this depends on there being 11 years!
-beta_samples_df %>% filter(year %in% c(10, 11)) %>% 
+# NOTE that this depends on year literals. 
+beta_samples_df %>% filter(year %in% c(2019, 2020)) %>% 
   tidyr::pivot_wider(names_from="year", values_from="beta", names_prefix="y") %>%
-  mutate(change_19_20=y11-y10) %>%
-  ggplot(aes(y=var, x=change_19_20)) + geom_point(alpha=.02) + 
-  xlim(-.2, .1) +
-  geom_vline(xintercept = 0, color="red")
-
-# Covariate effect vs. change 2019...2020, per covariate, samples
-# NOTE that this depends on there being 11 years!
-beta_samples_df %>% filter(year %in% c(10, 11)) %>% 
-  tidyr::pivot_wider(names_from="year", values_from="beta", names_prefix="y") %>%
-  mutate(change_19_20 = y11-y10) %>%
-  ggplot(aes(y=change_19_20, x=y11,  alpha=I(.1))) +  geom_point(size=.1) +
-  geom_vline(xintercept = 0, color="red", alpha=.5) +
-  geom_hline(yintercept = 0, color="red", alpha=.5) +
-  facet_wrap(~ var) + #+ scale_color_gradient(low="black", high="red")
-  theme_minimal()
+  mutate(change_19_20=y2020-y2019) %>%
+  ggplot(aes(y=var, x=change_19_20)) + geom_point(alpha=.05) + 
+  xlim(-.15, .1) +
+  geom_vline(xintercept = 0, color="red") + theme_minimal(14)
+ggsave("../../figs/")
 
 
 ### SVD for covariates x years
@@ -150,12 +146,14 @@ vs_df <- lapply(seq_along(cov_sols),
 
 
 vs_df %>% ggplot(aes(x=X1, y=name)) + geom_point(alpha=.05) + 
-  geom_vline(xintercept = 0, color="red", alpha=.5)
-ggsave("")
+  geom_vline(xintercept = 0, color="red", alpha=.5) + 
+  xlab("Covariate coeffs on PC1 (centralization)") + ylab("") + theme_minimal(14)
+ggsave("../../figs/")
 
 vs_df %>% ggplot(aes(x=X2, y=name)) + geom_point(alpha=.05) + 
-  geom_vline(xintercept = 0, color="red", alpha=.5)
-ggsave("")
+  geom_vline(xintercept = 0, color="red", alpha=.5) + 
+  xlab("Covariate coeffs on PC2") + ylab("") + theme_minimal(14)
+ggsave("../../figs/")
 
 ### The following is for SVD'ing pnro x year directly, without covariates.
 
