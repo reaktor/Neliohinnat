@@ -52,7 +52,7 @@ p1 <- beta_samples_df %>% filter(sample %% 10 == 0) %>%
   ylab("coefficient for a standardized covariate") +
   theme_minimal(14) 
   
-p1 + facet_wrap(~ var, scales=NULL) 
+p1 + facet_wrap(~ var, scales=NULL); ggsave("../../figs/cov-timeseries.png")
 p1 + facet_wrap(~ var, scales="free_y")
 
 # Covariate coef change 2019...2020
@@ -62,8 +62,9 @@ beta_samples_df %>% filter(year %in% c(2019, 2020)) %>%
   mutate(change_19_20=y2020-y2019) %>%
   ggplot(aes(y=var, x=change_19_20)) + geom_point(alpha=.05) + 
   xlim(-.15, .1) +
+  xlab("change of coefficients from 2019 to 2020") + ylab("") +
   geom_vline(xintercept = 0, color="red") + theme_minimal(14)
-ggsave("../../figs/")
+ggsave("../../figs/cov-change-1920.png")
 
 
 ### SVD for covariates x years
@@ -148,12 +149,12 @@ vs_df <- lapply(seq_along(cov_sols),
 vs_df %>% ggplot(aes(x=X1, y=name)) + geom_point(alpha=.05) + 
   geom_vline(xintercept = 0, color="red", alpha=.5) + 
   xlab("Covariate coeffs on PC1 (centralization)") + ylab("") + theme_minimal(14)
-ggsave("../../figs/")
+ggsave("../../figs/PC1-coeffs.png")
 
 vs_df %>% ggplot(aes(x=X2, y=name)) + geom_point(alpha=.05) + 
   geom_vline(xintercept = 0, color="red", alpha=.5) + 
   xlab("Covariate coeffs on PC2") + ylab("") + theme_minimal(14)
-ggsave("../../figs/")
+ggsave("../../figs/PC2-coeffs.png")
 
 ### The following is for SVD'ing pnro x year directly, without covariates.
 
