@@ -12,7 +12,7 @@ What use is "predictive power" for past prices? When one has only a few transact
 
 Looking at slots of combined year and zip code, around 90% of all reported transactions are in about 18% of the slots. Meanwhile, some 31k or 93% of the slots have less than one hundred transaction, and 73% have less than ten. Not that many postal areas have no apartments either! But even on areas with aparments, data is sparse, and modelling is needed to fill the holes.
 
-![Only sparse price data available](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/sparsitymap.png)
+![_The price data are quite sparse. Modeling helps to fill the holes and refine estimates where only few transactions are available._](https://raw.githubusercontent.com/reaktor/Neliohinnat/henrika_2021_factorial/figs/sparsitymap.png)
 
 As an additional benefit of having demographics in the model, we see how they affect prices over time. Covariate coefficients provide us interesting insights into the effects of the pandemic, but before taking a closer look at those, let’s dive into some details of the model.
 
@@ -24,38 +24,52 @@ The open data provided by Statistics Finland is a rare treasure, accurate demogr
 
 Another challenge in the demographic data is its snapshot quality: The information is from years 2018 and 2019. We know it is  dubious to use demographics from one year to predict the prices of past or following years. Then again, complete temporal covariate data is available neither as time series nor as yearly snapshots. Assuming demographics change a lot slower than apartment prices, we just have to be careful with interpretations, especially causal ones. For predictions, using a snapshot of demography is obviously better than not using demographics at all.
 
-## When in doubt, trust the empiria
+### When in doubt, trust the empiria
 
-After running the first model fits and nowcasts, we faced yet another challenge. The model worked well but its fit was a tad off on some postal areas despite existing observations. Of course, that is not an issue or a mistake per se but an indication that the model thinks the prices should be something else they are - a possible sign of under or over valuation. However, we all know apartment prices are a complex issue, and the market is essentially right. Our covariates are imperfect not containing data on e.g. lakeside closenesses or commuting times. Thus, instead of trusting the model, we decided to go empirical. As the nowcast of the earlier model was simply its fit, the fit is now a prior. Then, we plug in the actual observations as evidence and use the posterior of that as our prediction. In other words, if there is evidence the prices differ from what the model first thinks, we trust the evidence.
+Varying numbers of transactions per zip$\times$year slots offer a subtle choice for reporting.
+
+Especially in city centers, one sometimes has hundreds of transactions per slot. The mean price for the slot is then known quite well: In Etelä-Haaga of Helsinki, with postal code 00320, there were 386 apartments sold in 2019, with the log-price 2.54. We don't know the population variance (without modeling), but we can trust on relative accuracy of the mean: 386 sales, who can argue with that?
+
+If that happened to be an anomalous year in Etelä-Haaga, for example due to a large construction work or other transient effect, the model has no way to predict the anomaly. So there is variation unique to the slots that the model doesn't catch, and sometimes we see it when transactions are plenty. When transactions are few or absent, then we have to rely on the model, including its uncertainty.
+
+In cases we know the "emprical truth" like in Etelä-Haaga, what should we communicate? One can either communicate the price level and trend from the model, and say: "Well, you know, these models are imperfect and we have the error term there for that. It even takes into account the varying number of transactions." (As it does.) The alternative is to make a compromise: "All right, in this particular slot the evidence is so strong that the model need to have less weight, if at all."
+
+On earlier iterations we have communicated the smooth trends from the model. This time we decided to try the compromise. But how to make it? We just need to redraw the border between modeled expectation and error. 
+
+In the original model, our error variance already has two parts, one independent of number of transactions $n$, and one that scales with $1/n$, assuming independent transactions. Now we take the first part into the model, make it a lot-specific random effect (details below). 
+
+As a result, the prices you see on the site are now more into reality where good evidence is available. 
+
+### Formal parts
 
 The essential parts of the model are
 $$
-h_{it} = x_i^T \beta_t + \sum_l \left( a_{li} t + b_{li} \right) + u_{it} + \epsilon_{it}\;,
-$$
-$$
-u_{it} \sim N\!\left(0  , \sigma^u_t \right)\;,
-$$
-$$
-\epsilon_{it} \sim t\! \left(0,\, \frac{ \sigma^\epsilon } { \sqrt{n_{it}} },\, \nu \right)\;.
+\begin{aligned}
+h_{it} &= x_i^T \beta_t + \sum_l \left( a_{li} t + b_{li} \right) + u_{it} + \epsilon_{it}\;,\\
+u_{it} &\sim N\!\left(0  , \sigma^u_t \right)\;,\\
+\epsilon_{it} &\sim t\! \left(0,\, \frac{ \sigma^\epsilon } { \sqrt{n_{it}} },\, \nu \right)\;.
+\end{aligned}
 $$
 
-Of indices, $i$ refers to the postal coden and $t$ is the year. Then $h$ are the observed log-price, $x$ are covariates, $\beta$ are (yearly) covariate coefficients. The sum is the "pseudospatial" random effect built on the postal-code prefix hierarchy with levels $l$, and varying trends $a$ and price levels $b$. This relatively rigid structure is loosened by the $i \times t$ -level random effect $u$. Model terms up to this point are supposed to represent underlying real prices. Note that the last term has yearly spread $\sigma^u_{t}$, allowing some years to be more deviant than others. 
+Of indices, $i$ refers to the postal coden and $t$ is the year. Then $h$ are the observed log-price, $x$ are covariates, $\beta$ are (yearly) covariate coefficients. The sum is the "pseudospatial" random effect built on the postal-code prefix hierarchy, with prefix levels $l$, and varying trends $a$ and intercepts $b$. This relatively rigid structure is loosened by the $i \times t$ -level random effect $u$. Model terms up to this point are supposed to represent underlying real prices. Note that the last term has yearly spread $\sigma^u_{t}$, allowing some years to be more deviant than others. 
 
 Finally, finite numbers of observed transactions $n$ cause "measurement error" $\epsilon$. Assuming indepedent transactions, the variance of this error scales with $1/n$, but we have left space for outliers by using a Student-t distribution with its degrees of freedom $\nu$ parametrized to the model. They are fitted to $\nu$≈2. Note that if the measurement errors were gaussian, $u$ could be marginalized away. (We tried that, and it of course accelerates fitting manyfold.) Although technically the parameter set $(\nu, \sigma^\epsilon, \sigma^u)$ is well identifiable, on the basis of various trials, we are not convinced that estimates of these are robust enough to assumptions that do not quite hold.
 
-On the web site, $h$ are the black points denoting observations, and reported price estimates and credible intervals are the part of the model without measurement error $\epsilon$, that is, $\exp (h-\epsilon)$. Due to the importance of the demographic covariates, we do not produce any predictions for areas with zero residents. 
+On the web site, $\exp h$ are the black points denoting observations, and reported price estimates and credible intervals are the part of the model without measurement error $\epsilon$, that is, $\exp (h-\epsilon)$. Due to the importance of the demographic covariates, we do not produce any predictions for areas with zero residents. 
 
 In addition to the structure detailed above, the model of course has priors, and for example covariances for coefficients $a, b$. If you are interested in the details, please take a look at the [source code](https://github.com/reaktor/Neliohinnat/blob/henrika_2021_factorial/update_2021/source/models/nominal_emp_model.stan).
 
 ## Covid-19 puts urbanisation to halt?
 
-Now, back to the big picture. Urbanisation is a persistent trend in Finland. Overall, living space per person and mean income are the main predictors in the model, and their coefficients increase monotonically year by year, implying increasing centralization: High prices are rising, and vice versa. If one looks at the principal variation of the $\textrm{year}\times\textrm{covariate}$ matrix, the main axis is almost monotonic in time, reflecting this development.  The second component is high in areas of middle-level education, income in the mid tertile, and small apartment sizes per resident. The component could vaguely be called a suburb index. But the variance of the second component is only 14% of the first one. 
+Now, back to the big picture. Urbanisation is a persistent trend in Finland. Overall, living space per person and mean income are the main predictors in the model, and their coefficients increase monotonically year by year, implying increasing centralization: High prices are rising, and vice versa. If one looks at the principal variation of the year$\times$covariate matrix, the main axis is almost monotonic in time, reflecting this development.  The second component is a complex combination of not so demographic covariates about population, size, and average space. The component could vaguely be called a suburb index. But the variance of the second component is only 14% of the first one. 
 
 The picture below illustrates how the the apartment prices have changed over years from the perspective of these two components.  Year 2020 certainly looks anomalous, although posterior uncertainty is pretty high on PC2. 
 
-![Space of principal variation of the covariate coefficientws, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers.](../figs/princomps-2020.png)
+![_Space of principal variation of the covariate coefficientws, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers. Ellipses denote 80% credible areas._](../figs/princomps-2020.png)
 
 The phenomenon is readily present on our maps (FIXME: linkki). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is weak growth almost across the western half of Finland.
+
+[FIXME: Somewhere above, that PC2 doesn't quite explain the whole oddness of 2020. Then a figure about cov shift 2019...2020 (left), and a map of price changes (right).]
 
 ## Room for improvement
 
@@ -63,7 +77,7 @@ As a conclusion, the model got quite a big face lift, from an almost purely "pse
 
 First, the zip-code hierarchy is unlikely to have intrinsic predictive power: It is just a proxy for spatial adjacency. Efficient implementations of true adjacency-based spatial random effects are now [available](https://mc-stan.org/users/documentation/case-studies/icar_stan.html), and those could be adapted to our model, to either provide parametric deviations from predictions of covariates as zip codes now do, or a fully non-parametric spatiotemporal random effect. 
 
-We currently have poor temporal coverage of covariates, they are snapshots from years 2018--2019. If available, using year-wise covariates would improve accuracy and make interpretation of temporal changes of covariate coefficients safer. 
+We currently have poor temporal coverage of covariates, they are snapshots from years 2018--2019. Better coverage does not seem to be currently available. If it was, year-wise covariates would improve accuracy and make interpretation of temporal changes of covariate coefficients safer. 
 
 Many covariates are proportions of population, households, or other denominators. Uncertainty of these varies by the size of the area, this could be included in the model. We think the effect on the results would be modest. 
 
