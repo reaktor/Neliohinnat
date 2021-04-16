@@ -18,7 +18,17 @@ d_covs = pnro.population %>%
 fit <- readRDS("models/nom_emp_samples_8chains_1000+1000t20_20210330.rds")
 
 STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
-d <- readRDS(STAN_INPUT) 
+d <- readRDS(STAN_INPUT) %>% as_tibble
+
+# Slot statistics
+n_slots <- d %>% select(pnro, year, n) %>% mutate(n=ifelse(is.na(n), 0, n)) 
+
+n_slots %>% arrange(-n) %>% 
+  mutate(pcn=cumsum(n)/sum(n), p=(1:n())/n()) %>% 
+  ggplot(aes(x=p, y=pcn)) + geom_line() + xlim(0, .3) + scale_y_continuous(breaks=.9)
+
+n_slots %>% summarise(mean(n<100))
+
 
 d2 <- cbind(pnro = d$pnro, year = d$year, 
             as.data.frame(t(rstan::extract(fit, 'pred_mean')[[1]]))) %>% as_tibble
@@ -54,6 +64,7 @@ p1 <- beta_samples_df %>% filter(sample %% 10 == 0) %>%
   
 p1 + facet_wrap(~ var, scales=NULL); ggsave("../../figs/cov-timeseries.png")
 p1 + facet_wrap(~ var, scales="free_y")
+
 
 # Covariate coef change 2019...2020
 # NOTE that this depends on year literals. 
