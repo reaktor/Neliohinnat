@@ -65,6 +65,12 @@ p1 <- beta_samples_df %>% filter(sample %% 10 == 0) %>%
 p1 + facet_wrap(~ var, scales=NULL); ggsave("../../figs/cov-timeseries.png")
 p1 + facet_wrap(~ var, scales="free_y")
 
+# A general look at covariates
+d_covs %>% filter(year==2020) %>% 
+  select(matches("^c_"), pnro, population) %>% 
+  pivot_longer(matches("^c_"), names_to="cov", values_to="y") %>% 
+  ggplot(aes(x=log(population), y=y)) + facet_wrap(~ cov) + geom_point(alpha=.5, size=.1)
+
 
 # Covariate coef change 2019...2020
 # NOTE that this depends on year literals. 
