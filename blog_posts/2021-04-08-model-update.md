@@ -36,7 +36,7 @@ In cases we know the "emprical truth" like in Etelä-Haaga, what should we commu
 
 On earlier iterations we have communicated the smooth trends from the model. This time we decided to try the compromise. But how to make it? We just need to redraw the border between modeled expectation and error.
 
-In the original model, our error variance already has two parts, one independent of number of transactions $n$, and one that scales with $1/n$, assuming independent transactions. Now we take the first part into the model, make it a slot-specific random effect (details below).
+In the original model, our error variance already has two parts, one independent of number of transactions $n$, and one that scales with $1/n$, thereby assuming independent transactions within a slot. In the new model, we take the first part away from error variance and place it into the model as a slot-specific random effect (details below).
 
 As a result, the prices you see on the site are now more into reality where good evidence is available.
 
@@ -55,7 +55,7 @@ Of indices, $i$ refers to the postal code and $t$ is the year. Then $h$ are the 
 
 Finally, finite numbers of observed transactions $n$ cause "measurement error" $\epsilon$. Assuming indepedent transactions, the variance of this error scales with $1/n$, but we have left space for outliers by using a Student-t distribution with its degrees of freedom $\nu$ parametrized to the model. They are fitted to $\nu$≈2. Note that if the measurement errors were gaussian, $u$ could be marginalized away. (We tried that, and it of course accelerates fitting manyfold.) Although technically the parameter set $(\nu, \sigma^\epsilon, \sigma^u)$ is well identifiable, on the basis of various trials, we are not convinced that estimates of these are robust enough to assumptions that do not quite hold.
 
-On the web site, $\exp h$ are the black points denoting observations, and reported price estimates and credible intervals are the part of the model without measurement error $\epsilon$, that is, $\exp (h-\epsilon)$. Due to the importance of the demographic covariates, we do not produce any predictions for areas with zero residents. We also leave the fill color gray on areas with less than a hundred residents as the estimates for those are a lot more uncertain and would distort the big picture.
+On the web site, $\exp h$ are the black points denoting observations, and reported price estimates and credible intervals are the part of the model without measurement error $\epsilon$, that is, $\exp (h-\epsilon)$.  Because covariate uncertainty is not (yet) in the model, on maps we leave the fill color gray on areas with less than a hundred residents. And estimates are completely missing where residents are zero. 
 
 In addition to the structure detailed above, the model of course has priors, and for example covariances for coefficients $a, b$. If you are interested in the details, please take a look at the [source code](https://github.com/reaktor/Neliohinnat/blob/henrika_2021_factorial/update_2021/source/models/nominal_emp_model.stan).
 
@@ -67,9 +67,11 @@ The picture below illustrates how the the apartment prices have changed over yea
 
 ![*Space of principal variation of the covariate coefficients, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers. Ellipses denote 80% credible areas.*](../figs/princomps-2020.png)
 
-The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi/). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is weak growth almost across the western half of Finland. It will eventually be interesting to see how the prices of 2021 fit to the pattern - will urbanisation get back to the old track or has the lure of suburbs come to stay?
+The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi/). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is (weak) growth almost across the western half of Finland. It will eventually be interesting to see how the prices of 2021 fit to the pattern --- will urbanisation get back to the old track or has the lure of suburbs come to stay?
 
-[FIXME: Somewhere above, that PC2 doesn't quite explain the whole oddness of 2020. Then a figure about cov shift 2019...2020 (left), and a map of price changes (right).]
+![*Coefficients of selected covariates for years, as time series. Lines are posterior samples. Note the varying scales. The most important predictors in the model, mean income and living space, for example, show a more or less contant trend, while for some covariates year 2021 was exceptional.*](../figs/cov-timeseries-varscale.png)
+
+![*Change of posterior-median prices in southern Finland (2019---2020) shows an west-east division, and growth on less crowded areas.*](../figs/map-south-19-20-change.png)
 
 ## Room for improvement
 
@@ -79,9 +81,9 @@ First, the zip-code hierarchy is unlikely to have intrinsic predictive power: it
 
 We currently have poor temporal coverage of covariates, they are snapshots from years 2018--2019. Better coverage does not seem to be currently available. If it was, year-wise covariates would improve accuracy and make interpretation of temporal changes of covariate coefficients safer.
 
-Many covariates are proportions of population, households, or other denominators. Uncertainty of these varies by the size of the area. We did shrink the fractions, but it would be better to take the uncertainty into the main model. Even after the shrinkage, the covariates of some population-wise small areas seem outliers meaning the estimates for those are far from certain. Thus, as mentioned above, we do not indicate their price change estimates with a color on the map to keep the high level results more credible.[FIXME: punaiset tulppaanit]
+Presenting prices _and_ uncertainty on the same map is a challenge. Currently, the only indication of uncertainty on the map itself is grey where a credible interval of prices crosses zero. Obviously, this confuses high confidence of almost exact zero with a total lack of information, and anything between. 
 
-Overall, indicating uncertainty properly along with the price change on the map would be an improvement as currently we leave the fill color gray also for areas on which the credible price change interval overlaps with zero. That is, if the model cannot say whether the prices went up or down, there's a neutral color. However, it's a different case if the model is confident about prices being stable compared to the estimates being from high positives to low negatives, and that is currently not indicated in any way.
+Many covariates are computed as fractions of certain kind of people, households, or other objects. Uncertainty of these varies by the denominator, which is related to the size of the area. We did shrink the fractions, but it would be better to take covariate uncertainty into the main model. Even after the shrinkage, covariates of some population-wise small areas seem outliers, meaning the price estimates for those are far from certain. These are left  grey on the [price-change map](http://kannattaakokauppa.fi/#/fi/?mode=trend), along with other uncertain areas. 
 
 Because even more sparse data is available about apartments with various numbers of rooms, one clear opportunity is to take these into the model, and build an associated hierarchy. Modeling apartment heterogeneity would improve overall price estimates, and on dense areas give information of prices specific to apartment types. And of course, the development of prices of different apartments may sometimes diverge in interesting ways from the viewpoint of covariates.
 

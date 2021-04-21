@@ -53,17 +53,17 @@ beta_samples_df <- cov_year_samples %>% reshape2::melt() %>%
   as_tibble()
 
 # Covariate coef samples as function of year (alpha lines)
-p1 <- beta_samples_df %>% filter(sample %% 10 == 0) %>% 
+p1 <- beta_samples_df %>% filter(sample %% 20 == 0) %>% 
   filter(var %in% c("c_living_space", "c_mean_income", "c_high_school_share",  
-                    "c_area", "c_population", "c_log_density")) %>%
+                    "c_employed_share", "c_male_share", "c_log_density")) %>%
   ggplot(aes(x=year, y=beta, group=sample)) + 
-  geom_line(alpha=.2) + geom_hline(yintercept=0, color=I("red"), alpha=I(.5)) +
+  geom_line(alpha=.3, size=.6) + geom_hline(yintercept=0, color=I("red"), alpha=I(.5)) +
   scale_x_continuous(breaks=c(2013, 2016, 2019)) + 
-  ylab("coefficient for a standardized covariate") +
+  ylab("coefficient for standardized covariate") +
   theme_minimal(14) 
   
 p1 + facet_wrap(~ var, scales=NULL); ggsave("../../figs/cov-timeseries.png")
-p1 + facet_wrap(~ var, scales="free_y")
+p1 + facet_wrap(~ var, scales="free_y"); ggsave("../../figs/cov-timeseries-varscale.png")
 
 # A general look at covariates
 d_covs %>% filter(year==2020) %>% 
@@ -203,3 +203,21 @@ X2_pnro_plot <- function (d, zip_pattern, xmin=-2, xmax=2)
 X2_pnro_plot(d4, "^", -2, 2); ggsave("../../figs/map-Finland-pnro-price-princomp2.png")
 X2_pnro_plot(d4, "^00", -2, 2); ggsave("../../figs/map-Hki-pnro-price-princomp2.png")
 X2_pnro_plot(d4, "^0[012]", -2, 2); ggsave("../../figs/map-capital-pnro-price-princomp2.png")
+
+d_change <- d2 %>% 
+  select(pnro, year, matches("^V[0-9]+")) %>% 
+  pivot_longer(matches("^V[0-9]"), names_to="sample", values_to="lprice") %>% 
+  filter(year %in% c(2019, 2020)) %>% 
+  pivot_wider(names_from=year, values_from=lprice, names_prefix="y") %>% 
+  mutate(change_19_20=y2020-y2019) %>% select(pnro, change_19_20) %>%
+  group_by(pnro) %>% 
+  summarise_all(function (x) clipclip(median(x), -.1, .10)) %>%
+  left_join(d %>% select(pnro, population) %>% distinct)
+
+southp <- function(geometry) sf::st_coordinates(sf::st_centroid(geometry))[,2] < 4e5
+pnro_sf %>% left_join(d_change) %>% 
+  filter(southp(geometry)) %>%
+  mutate(change_19_20 = ifelse(population<46, NA, change_19_20)) %>%
+  ggplot(aes(fill=change_19_20)) + 
+  geom_sf(size=.0)+ scale_fill_viridis_c(na.value="#000000") + theme_void(14)
+ggsave("../../figs/map-south-19-20-change.png")
