@@ -69,16 +69,19 @@ The picture below illustrates how the the apartment prices have changed over yea
 
 The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi/) and in the smaller map below. Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is (weak) growth almost across the western half of Finland. 
 
+![*Change of posterior-median prices in southern Finland (2019---2020) shows an west-east division, and growth on less crowded areas.*](../figs/map-south-19-20-change.png)
 
-Another way to look at the peculiarity of 2021 is to look at the coefficients of some of the covariates as time series as illustrated below. Clearly, small living space is still related with increasing prices but the effects of e.g. shares of high school graduates and employed people as well as living density are somewhat different to previous years. The combination is challenging to interpret, and perhaps the model is trying to catch something nonlinear with them - for instance the price increase in the rural areas of the west of Finland.
-
-All in all, it will eventually be interesting to see how the prices of 2021 fit to the pattern --- will urbanisation get back to the old track or has the lure of suburbs come to stay?
-
+Another way to look at the peculiarity of 2020 is to look at the coefficients of some of the covariates as time series as illustrated below. Here, it is enough to say a positive value means the corresponding covariate is related to higher-than-average prices and vice versa. Clearly, small living space is still related with increasing prices but the effects of e.g. shares of high school graduates and employed people as well as living density are somewhat different to previous years. The combination is challenging to interpret, and perhaps the model is trying to catch something nonlinear with them - perhaps the price increase in the rural areas of the west of Finland also visible in the map above.
 
 
 ![*Coefficients of selected covariates for years, as time series. Lines are posterior samples. Note the varying scales. The most important predictors in the model, mean income and living space, for example, show a more or less contant trend, while for some covariates year 2021 was exceptional.*](../figs/cov-timeseries-varscale.png)
 
-![*Change of posterior-median prices in southern Finland (2019---2020) shows an west-east division, and growth on less crowded areas.*](../figs/map-south-19-20-change.png)
+Yet another way to compare the years to each others is to look at the idiosyncratic variations in the zip$ \times $year random effect. This is variation not explained by the zip-code hierarchy nor by covariates. The yearly standard deviations of the random effects are parametrised to the model and shown below. In layman's terms, the further to the right the values of a year are, the more challenging the prices of that year are to estimate with the zip codes and demographics. Although there may be a border effect, year 2020 again looks to be different to the previous ones. 
+
+All in all, 2020 was anomalous compared to the previous years. It will eventually be interesting to see how the prices of 2021 fit to the pattern --- will urbanisation get back to the old track or has the lure of suburbs come to stay?
+
+
+
 
 ![*Yet another way to compare anomalousness of years is the idiosyncratic variation in the zip$ \times $year random effect. This is variation not explained by the zip-code hierarchy nor by covariates. The yearly standard deviations of the r.e. are parametrised to the model and shown above. Although there may be a border effect, year 2021 again looks to outperform.*](../figs/stds-of-slot-re.png)
 
