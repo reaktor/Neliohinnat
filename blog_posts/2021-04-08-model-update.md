@@ -67,7 +67,14 @@ The picture below illustrates how the the apartment prices have changed over yea
 
 ![*Space of principal variation of the covariate coefficients, by year. PC1, the axis of explaining most of the variation, is almost monotonic in time, representing continuing urbanisation. PC2 reflects remaining variation, maybe related to prices on suburbs or more genrally, less crowded areas around city centers. Ellipses denote 80% credible areas.*](../figs/princomps-2020.png)
 
-The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi/). Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is (weak) growth almost across the western half of Finland. It will eventually be interesting to see how the prices of 2021 fit to the pattern --- will urbanisation get back to the old track or has the lure of suburbs come to stay?
+The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi/) and in the smaller map below. Prices have increased on some previously fairly stable suburbs, whereas city centres received relatively modest increases. Outside the largest cities prices used to decrease, but now the estimate is (weak) growth almost across the western half of Finland. 
+
+
+Another way to look at the peculiarity of 2021 is to look at the coefficients of some of the covariates as time series as illustrated below. Clearly, small living space is still related with increasing prices but the effects of e.g. shares of high school graduates and employed people as well as living density are somewhat different to previous years. The combination is challenging to interpret, and perhaps the model is trying to catch something nonlinear with them - for instance the price increase in the rural areas of the west of Finland.
+
+All in all, it will eventually be interesting to see how the prices of 2021 fit to the pattern --- will urbanisation get back to the old track or has the lure of suburbs come to stay?
+
+
 
 ![*Coefficients of selected covariates for years, as time series. Lines are posterior samples. Note the varying scales. The most important predictors in the model, mean income and living space, for example, show a more or less contant trend, while for some covariates year 2021 was exceptional.*](../figs/cov-timeseries-varscale.png)
 
