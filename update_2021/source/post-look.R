@@ -65,6 +65,13 @@ p1 <- beta_samples_df %>% filter(sample %% 20 == 0) %>%
 p1 + facet_wrap(~ var, scales=NULL); ggsave("../../figs/cov-timeseries.png")
 p1 + facet_wrap(~ var, scales="free_y"); ggsave("../../figs/cov-timeseries-varscale.png")
 
+# Variances of slot re
+rstan::extract(fit, pars="ysigma")[[1]] %>% 
+  data.frame %>% setNames(years) %>% pivot_longer(matches("^20")) %>% 
+  ggplot(aes(x=value, y=name)) + geom_point(alpha=.3, size=.6) + 
+  theme_minimal(14) + ylab("year") + xlab("ysigma")
+ggsave("../../figs/stds-of-slot-re.png")
+
 # A general look at covariates
 d_covs %>% filter(year==2020) %>% 
   select(matches("^c_"), pnro, population) %>% 
@@ -80,7 +87,8 @@ beta_samples_df %>% filter(year %in% c(2019, 2020)) %>%
   ggplot(aes(y=var, x=change_19_20)) + geom_point(alpha=.05) + 
   xlim(-.15, .1) +
   xlab("change of coefficients from 2019 to 2020") + ylab("") +
-  geom_vline(xintercept = 0, color="red") + theme_minimal(14)
+  geom_vline(xintercept = 0, color="red") + 
+  theme_minimal(14)
 ggsave("../../figs/cov-change-1920.png")
 
 

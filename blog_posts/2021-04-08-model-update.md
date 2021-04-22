@@ -73,6 +73,8 @@ The phenomenon is readily present on our [maps](http://kannattaakokauppa.fi/#/fi
 
 ![*Change of posterior-median prices in southern Finland (2019---2020) shows an west-east division, and growth on less crowded areas.*](../figs/map-south-19-20-change.png)
 
+![*A way to compare anomalousness of years is the idiosyncratic variation in the zip$\times$year random effect. This is variation not explained by the zip-code hierarchy nor by covariates. The yearly standard deviations of the r.e. are parametrised to the model and shown above. Although there may be a border effect, year 2021 again looks to outperform.*](../figs/stds-of-slot-re.png)
+
 ## Room for improvement
 
 As a conclusion, the model got quite a big face lift, from an almost purely "pseudospatial" zip-prefix structure to one with demographic covariates, and an partly nonparametric temporal structure. Are we satisfied? No...
