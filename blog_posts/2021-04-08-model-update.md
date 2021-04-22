@@ -80,7 +80,7 @@ All in all, it will eventually be interesting to see how the prices of 2021 fit 
 
 ![*Change of posterior-median prices in southern Finland (2019---2020) shows an west-east division, and growth on less crowded areas.*](../figs/map-south-19-20-change.png)
 
-![*A way to compare anomalousness of years is the idiosyncratic variation in the zip$\times$year random effect. This is variation not explained by the zip-code hierarchy nor by covariates. The yearly standard deviations of the r.e. are parametrised to the model and shown above. Although there may be a border effect, year 2021 again looks to outperform.*](../figs/stds-of-slot-re.png)
+![*Yet another way to compare anomalousness of years is the idiosyncratic variation in the zip$ \times $year random effect. This is variation not explained by the zip-code hierarchy nor by covariates. The yearly standard deviations of the r.e. are parametrised to the model and shown above. Although there may be a border effect, year 2021 again looks to outperform.*](../figs/stds-of-slot-re.png)
 
 ## Room for improvement
 
