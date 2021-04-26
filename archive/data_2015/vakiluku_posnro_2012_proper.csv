@@ -1,0 +1,3037 @@
+Postinumero;alue;vakiluku
+00100;Helsinki Keskusta;17308
+00120;Punavuori;6681
+00130;Kaartinkaupunki;1502
+00140;Kaivopuisto;7746
+00150;Eira;9300
+00160;Katajanokka;4507
+00170;Kruununhaka;7123
+00180;Ruoholahti;12149
+00190;Suomenlinna;756
+00200;Lauttasaari;14607
+00210;Vattuniemi;6798
+00220;Jätkäsaari;602
+00230;Ilmala;0
+00240;Länsi-Pasila;4898
+00250;Taka-Töölö;10868
+00260;Keski-Töölö;5415
+00270;Pohjois-Meilahti;7575
+00280;Ruskeasuo;2792
+00290;Meilahden sairaala-alue;161
+00300;Pikku Huopalahti;5742
+00310;Kivihaka;881
+00320;Etelä-Haaga;9220
+00330;Munkkiniemi;8470
+00340;Kuusisaari-Lehtisaari;1693
+00350;Munkkivuori-Niemenmäki;8857
+00360;Pajamäki;1862
+00370;Reimarla;6414
+00380;Pitäjänmäen teollisuusalue;4132
+00390;Konala;5977
+00400;Pohjois-Haaga;9197
+00410;Malminkartano;8574
+00420;Kannelmäki;13639
+00430;Maununneva;4751
+00440;Lassila;4490
+00500;Sörnäinen;12401
+00510;Etu-Vallila;8433
+00520;Itä-Pasila;6473
+00530;Kallio;18348
+00540;Kalasatama;596
+00550;Vallila;9033
+00560;Toukola-Vanhakaupunki;12414
+00570;Kulosaari;3827
+00580;Verkkosaari;1921
+00590;Kaitalahti;368
+00600;Koskela-Helsinki;4119
+00610;Käpylä;7951
+00620;Metsälä-Etelä-Oulunkylä;3082
+00630;Maunula-Suursuo;7812
+00640;Oulunkylä-Patola;7713
+00650;Veräjämäki;4284
+00660;Länsi-Pakila;6506
+00670;Paloheinä;6016
+00680;Itä-Pakila;3721
+00690;Tuomarinkylä-Torpparinmäki;2711
+00700;Malmi;13085
+00710;Pihlajamäki;11582
+00720;Pukinmäki-Savela;8305
+00730;Tapanila;11313
+00740;Siltamäki;10069
+00750;Puistola;9122
+00760;Suurmetsä;7733
+00770;Jakomäki;5999
+00780;Tapaninvainio;7036
+00790;Viikki;9933
+00800;Länsi-Herttoniemi;7063
+00810;Herttoniemi;11137
+00820;Roihuvuori;7268
+00830;Tammisalo;2244
+00840;Laajasalo;8173
+00850;Jollas;3113
+00860;Santahamina;475
+00870;Etelä-Laajasalo;4858
+00880;Roihupellon teollisuusalue;52
+00890;Itäsalmi;2120
+00900;Puotinharju;3968
+00910;Puotila;6082
+00920;Myllypuro;10989
+00930;Itäkeskus-Marjaniemi;6584
+00940;Kontula;25445
+00950;Vartioharju;5567
+00960;Pohjois-Vuosaari;7083
+00970;Mellunkylä;10331
+00980;Etelä-Vuosaari;22625
+00990;Aurinkolahti;6983
+01120;Västerskog;1273
+01150;Söderkulla;4519
+01180;Kalkkiranta;491
+01190;Box;1010
+01200;Hakunila;11799
+01230;Vaarala;2908
+01260;Itä-Hakkila;4748
+01280;Länsimäki;9570
+01300;Tikkurila;17176
+01340;Leinelä;367
+01350;Hiekkaharju;8900
+01360;Koivukylä-Havukoski;12013
+01370;Jokiniemi;5741
+01380;Kuusikko-Hakkila;1943
+01390;Ruskeasanta-Ilola;8574
+01400;Rekola;8001
+01420;Päiväkumpu;3225
+01450;Korso;18248
+01480;Mikkola;6608
+01490;Nikinmäki;3849
+01510;Kirkonkylä-Veromäki;5303
+01520;Tammisto;7508
+01530;Veromiehenkylä;535
+01600;Myyrmäki;15668
+01610;Kaivoksela;4018
+01620;Martinlaakso;11794
+01630;Hämeenkylä;2104
+01640;Hämevaara;2720
+01650;Vapaala;4019
+01660;Varisto;2358
+01670;Vantaanlaakso;2732
+01680;Askisto;2034
+01690;Ylästö;4624
+01700;Kivistö;2993
+01710;Pähkinärinne;4678
+01720;Petikko;63
+01730;Vantaanpuisto;2301
+01740;Tuupakan teollisuusalue;210
+01750;Keimola;855
+01760;Seutula;2099
+01770;Martinlaakson teollisuusalue;0
+01800;Klaukkala Keskus;7104
+01810;Luhtajoki;713
+01820;Haikala;3483
+01830;Lepsämä;2405
+01840;Klaukkala;4229
+01860;Perttula;2138
+01900;Nurmijärvi Keskus;8767
+01940;Palojoki;800
+02100;Tapiola;3888
+02110;Otsolahti;2677
+02120;Länsikorkee-Hakalehto;2769
+02130;Pohjois-Tapiola;5918
+02140;Laajalahti-Friisinmäki;3656
+02150;Otaniemi;3731
+02160;Westend;3098
+02170;Haukilahti;5789
+02180;Mankkaa;6615
+02200;Niittykumpu;8793
+02210;Olari-Kuitinmäki;11099
+02230;Matinkylä;19192
+02240;Friisilä;1977
+02260;Iivisniemi;3821
+02270;Suomenoja;2272
+02280;Puolarmetsä;4409
+02290;Puolarmetsän sairaala;26
+02300;Nöykkiö;2549
+02320;Kivenlahti;15664
+02330;Kattilalaakso;7948
+02340;Latokaski;5040
+02360;Espoonlahti;9305
+02380;Suvisaaristo;651
+02400;Kirkkonummi Keskus;12316
+02410;Gesterby;2157
+02420;Jorvas;1886
+02430;Masala;4081
+02440;Luoma;653
+02450;Sundsberg;1652
+02460;Kantvik;1618
+02470;Upinniemi;330
+02480;Porkkala;4051
+02490;Pikkala;302
+02510;Oitmäki;495
+02520;Lapinkylä;821
+02540;Kylmälä;680
+02550;Evitskog;861
+02570;Siuntio Kirkonkylä;1359
+02580;Siuntio Asemanseutu;3377
+02590;Lappers;258
+02600;Etelä-Leppävaara;10547
+02610;Kilo;5782
+02620;Karakallio;7992
+02630;Nihtisilta;2958
+02650;Pohjois-Leppävaara;9682
+02660;Lintuvaara;6214
+02680;Uusmäki;649
+02700;Suur-Kauniainen;8792
+02710;Viherlaakso;6042
+02720;Laaksolahti-Lähderanta;2684
+02730;Laaksolahti;4559
+02740;Karvasmäki-Kunnarla;2675
+02750;Sepänkylä;5866
+02760;Espoon Keskus Itäinen;14212
+02770;Espoon Keskus Läntinen;9995
+02780;Kauklahti;7911
+02810;Kumpyöli-Karhusuo;1779
+02820;Nupuri-Nuuksio;1471
+02860;Siikajärvi;713
+02880;Veikkola;5848
+02920;Niipperi;5135
+02940;Lippajärvi;10127
+02970;Kalajärvi;3633
+02980;Lakisto;432
+03100;Nummela;14564
+03150;Huhmari;808
+03220;Tervalampi;620
+03250;Ojakkala;2034
+03300;Otalampi;2456
+03320;Selki;332
+03400;Vihti Kirkonkylä;6620
+03430;Jokikunta;539
+03600;Karkkila Keskus;6729
+03620;Polari;2146
+03710;Uusitalo;206
+03790;Vihtijärvi;531
+03810;Ikkala;647
+03850;Pusula;1758
+03870;Hyönölä;189
+04130;Nikkilä;7091
+04150;Martinkylä;664
+04170;Paippinen;1218
+04200;Kerava Keskus;11020
+04220;Ahjo-Kaskela;5011
+04230;Pihkaniitty;7377
+04240;Talma;1264
+04250;Alikerava;4769
+04260;Savio;6088
+04300;Hyrylä;10164
+04310;Tuusula Keskus;2569
+04320;Riihikallio;4395
+04330;Lahela;2284
+04340;Mattila;2304
+04350;Nahkela;517
+04360;Ruotsinkylä-Kiilinmäki;1265
+04370;Rusutjärvi;787
+04380;Tuomala;602
+04390;Jäniksenlinna;472
+04400;Loutti;9016
+04410;Järvenpää Keskus;9697
+04420;Kyrölä;4051
+04430;Kinnari-Mikonkorpi;8915
+04440;Jamppa;4389
+04460;Nummenkylä;1949
+04480;Haarajoki;2284
+04500;Kellokoski;5889
+04530;Ohkola;939
+04600;Mäntsälä Keskus;9240
+04620;Kaunismäki;1751
+04630;Sääksjärvi;909
+04660;Numminen;1745
+04680;Hirvihaara;655
+04740;Sälinkää;1227
+04770;Sahakylä;221
+04820;Kaukalampi;303
+04840;Hautjärvi;254
+04920;Saarentaus;325
+04940;Levanto;283
+05100;Röykkä;2276
+05200;Rajamäki;6582
+05250;Kiljava;182
+05400;Jokela;6558
+05430;Nuppulinna;1054
+05450;Nukari;1129
+05460;Hakalanmäki-Hakala;3413
+05470;Palopuro;345
+05510;Päivärinta;468
+05620;Noppo;1350
+05720;Kytäjä;463
+05800;Hyvinkää Keskus;8979
+05810;Martti;5437
+05820;Mustamännistö;5131
+05830;Kirjavatolppa-Kruununpuisto;7155
+05840;Hyvinkäänkylä-Vehkoja;3894
+05850;Hyvinkää, sairaala-alue;0
+05860;Talvisilta;1435
+05880;Paavola-Vaivero;3624
+05900;Vieremä;3923
+05950;Ridasjärvi;394
+06100;Porvoo Keskus;18056
+06150;Kevätkumpu;5668
+06200;Porvoo itäinen;2630
+06400;Gammelbacka;6849
+06450;Eestinmäki-Ernestas;2068
+06500;Saksala-Suomenkylä;2199
+06530;Kerkkoo;821
+06650;Hamari;1483
+06750;Tolkkinen;1720
+06830;Kulloonkylä;1087
+06850;Kulloo;22
+06880;Kärrby;340
+06950;Emäsalo;383
+07110;Hinthaara;1548
+07130;Anttila;659
+07150;Laukkoski;984
+07170;Keski-Pornainen;2540
+07190;Halkia;1487
+07220;Kaarenkylä;301
+07230;Monninkylä;1610
+07280;Ilola;934
+07310;Sannainen;404
+07320;Jakari-Sannäs;448
+07350;Gäddrag;93
+07360;Tirmo;44
+07370;Pellinki;152
+07390;Suurpellinki;123
+07410;Kråkö;334
+07450;Voolahti;420
+07500;Askola Kirkonkylä;1112
+07510;Vakkola;670
+07530;Onkimaa;314
+07550;Torpinkylä;329
+07560;Pukkila Keskus;1410
+07565;Kantele;279
+07580;Tiilää;73
+07590;Huuvari-Tiilää;647
+07600;Myrskylä Keskus;1748
+07680;Juornaankylä;528
+07690;Kankkila;136
+07700;Koskenkylän saha-alue;1225
+07720;Malmgård;78
+07740;Gammelby;424
+07750;Isnäs;512
+07780;Härkäpää;175
+07800;Lapinjärvi Keskus;907
+07810;Ingermaninkylä;261
+07820;Porlammi;544
+07830;Pukaro;311
+07840;Lindkoski;208
+07850;Heikinkylä;323
+07870;Skinnarby;453
+07880;Liljendal Keskus;1037
+07890;Mickelspiltom;212
+07900;Loviisa Keskus;4097
+07910;Valko;1157
+07920;Etelä-Harju;1453
+07930;Pernaja Kirkonkylä;695
+07940;Määrlahti;999
+07945;Kuggom;508
+07955;Tesjoki;1262
+07960;Ahvenkoski;140
+07970;Ruotsinpyhtää Keskus;587
+07980;Kuninkaankylä;322
+07990;Ruotsinkylä-Koskisto;326
+08100;Lohja Keskus;7767
+08150;Keskilohja;5304
+08200;Ojamo;4023
+08350;Routio;2477
+08360;Kisakallio;0
+08450;Hormajärvi;316
+08480;Karstu;269
+08500;Ventelä-Millola;6526
+08680;Muijala;1861
+08700;Virkkala;7536
+08800;Kirkniemi;1692
+09120;Karjalohja;1229
+09220;Sammatti;1590
+09430;Saukkola;1693
+09520;Millola;117
+09630;Koisjärvi;527
+09810;Nummi-Oinola;1010
+09930;Leppäkorpi;305
+10120;Tähtelä;674
+10140;Päivölä;310
+10160;Degerby;882
+10210;Inkoo Keskus;2719
+10230;Inkoo Asemanseutu;393
+10250;Fagervik;135
+10270;Barösund;148
+10300;Karjaa Keskus;7539
+10320;Bäljars;1329
+10330;Pinjainen;607
+10350;Meltolan sairaala-alue;93
+10360;Mustio;1343
+10380;Kaunislahti;115
+10410;minnefors;387
+10420;Pohjankuru;1882
+10440;Bollsta;344
+10470;Fiskari;503
+10480;Antskog;116
+10520;Tenhola Kirkonkylä;1778
+10570;Bromarv;524
+10600;Tammisaari Keskus;5153
+10620;Högbacka;1865
+10640;Dragsvik;990
+10650;Flyet;2691
+10660;Trollböle;890
+10680;Skogby;224
+10710;Snappertuna;370
+10820;Lappohja;636
+10900;Hanko Keskus;4470
+10940;Hangonkylä;2178
+10960;Hanko Pohjoinen;1919
+11100;Riihimäki Keskus;6563
+11120;Pohjois-Riihimäki;7269
+11130;Peltosaari-Patastenmäki;9268
+11310;Taka-Kasarmi;821
+11710;Herajoki;3232
+11910;Lasi-Kumela;2557
+12100;Oitti;2718
+12130;Mommila;355
+12170;Hietoinen;222
+12210;Hausjärvi kk;242
+12240;Hikiä;1759
+12310;Ryttylä;1883
+12350;Turkhauta;464
+12380;Leppäkoski;544
+12400;Tervakoski;4732
+12450;Vähikkälä;288
+12520;Kormu;460
+12540;Launonen;1594
+12600;Läyliäinen;1968
+12630;Sajaniemi;293
+12640;Joentaka;336
+12700;Loppi kk;2409
+12750;Pilpala;540
+12820;Räyskälä;53
+12920;Topeno;368
+12950;Vojakkala-Eerolankulma;190
+13100;Hämeenlinna Keskus;10497
+13110;Kantola;180
+13130;Kauriala;6214
+13200;Keinusaari;1403
+13210;Hätilä;8357
+13220;Sairio;1681
+13250;Katuma;1019
+13270;Ruununmylly;1538
+13300;Käikälä;2758
+13330;Harviala;709
+13430;Hattelmala;1204
+13500;Jukola;11766
+13530;Hämeenlinna sairaala-alue;0
+13600;Ojoinen;3865
+13700;Parolannummi;435
+13720;Parola;4405
+13800;Katinala;1355
+13880;Rahkoila;1314
+13900;Pekola;913
+14140;Jokimaa;212
+14200;Turenki;9043
+14240;Väli-Janakkala;929
+14300;Renko kk;2232
+14330;Kaloinen;17
+14370;Lukana;43
+14430;Vuohiniemi;73
+14450;Rimmilä;115
+14500;Iittala;3372
+14530;Leteensuo;271
+14610;Lepaa;444
+14620;Tyrväntö;168
+14680;Alvettula;599
+14690;Torvoila;175
+14700;Hauho kk;1969
+14770;Eteläinen;941
+14810;Pohjoinen;310
+14820;Syrjäntaka;853
+14840;Sairiala;227
+14870;Juttila;239
+14930;Sappee;117
+14960;Puutikkala;89
+14980;Kuohijoki;52
+15100;Lahti Asemanseutu;6178
+15110;Keski-Lahti;4820
+15140;Kartano-Paavola;15053
+15150;Möysä;4158
+15160;Kolava;1595
+15170;Tenava-Tonttila;3791
+15200;Kiveriö;3620
+15210;Kivistönmäki;4191
+15230;Kytölä;2698
+15240;Mukkula;7865
+15270;Kukkila;1648
+15300;Myllypohja-Koiskala;4080
+15320;Ahtiala;2887
+15340;Kunnas-Hiekkanummi;2845
+15460;Mäkelä;611
+15500;Liipola;4995
+15520;Saksala;2300
+15540;Villähde;4489
+15550;Rakokivi;3668
+15560;Nastola kk;4262
+15580;Ruuhijärvi;263
+15610;Laune-Nikkilä;5346
+15680;Renkomäki-Ämmälä;3064
+15700;Hennala-Jokimaa;6414
+15800;Kärpänen;3473
+15810;Kasakkamäki;1379
+15820;Okeroinen;1096
+15830;Metsäkangas;3836
+15840;Riihelä;2053
+15850;Likolampi;645
+15860;Kartano;3481
+15870;Salpakangas;4068
+15880;Soramäki;4973
+15900;Jalkaranta;1711
+15950;Kiikkula;4167
+15980;Messilä;0
+16100;Uusikylä;1440
+16160;Okkeri;105
+16200;Artjärvi Keskus;687
+16230;Artjärvi Kirkonkylä;303
+16260;Hietana;182
+16270;Villikkala;151
+16280;Kuivanto;616
+16300;Orimattila Keskus;10683
+16310;Virenoja;604
+16320;Pennala;998
+16330;Heinämaa;333
+16350;Niinikoski;329
+16390;Pakaa;295
+16450;Mallusjoki;504
+16500;Herrala;885
+16510;Luhtikylä;461
+16540;Mertie;289
+16600;Järvelä;3073
+16610;Kärkölä kk;771
+16630;Tennilä;330
+16670;Lappila;641
+16710;Hollola kk;965
+16730;Kutajärvi;1007
+16790;Manskivi;104
+16800;Hämeenkoski;2075
+16900;Lammi kk;5006
+16960;Iso-Evo;175
+16970;Evo;73
+16980;Ronni;11
+17110;Sipilä;1318
+17120;Paimela;579
+17130;Vesivehmaa;780
+17150;Urajärvi;378
+17200;Vääksy Keskus;5357
+17220;Pietilä;166
+17240;Kalkkinen;438
+17320;Asikkala;353
+17410;Viitaila;261
+17430;Kurhila;302
+17440;Vähimaa;60
+17450;Iso-Äiniö-Vähimaa;223
+17470;Maakeski;287
+17500;Padasjoki Keskus;1967
+17510;Nyystölä;292
+17530;Arrakoski;243
+17610;Auttoinen;320
+17630;Vesijako;118
+17710;Torittu;73
+17740;Kasiniemi-Torittu;51
+17780;Harmoinen;63
+17800;Kuhmoinen Keskus;1924
+17840;Harjunsalmi;81
+17850;Pihlajakoski;90
+17870;Ruolahti;63
+17930;Päijälä;86
+17950;Kylämä;25
+17970;Puukkoinen;36
+18100;Heinola Keskus;7164
+18120;Reumasairaala-alue;920
+18130;Tommola-Sahanniemi;1891
+18150;Jyränkö;2475
+18200;Kaakonlampi-Pyhätön;2155
+18300;Heinola kk;2946
+18600;Myllyoja;831
+19110;Vierumäki taajama;686
+19120;Vierumäki urheiluopisto;133
+19160;Huutotöyry;493
+19210;Lusi;490
+19230;Onkiniemi;123
+19250;Syrjäkoski;57
+19260;Paaso-Syrjäkoski;130
+19310;Karilanmaa;88
+19320;Nikkaroinen;93
+19370;Nuoramoinen;451
+19410;Kuortti;468
+19420;Mansikkamäki;182
+19430;Pertunmaa Keskus;781
+19460;Ruorasmäki;126
+19470;Lihavanpää-Hartosenpää;153
+19480;Hartosenpää;69
+19510;Lepsala;36
+19540;Koitti-Lepsala;304
+19600;Hartola Keskus;2320
+19610;Murakka;117
+19620;Pohela;190
+19630;Kalhonkylä;86
+19650;Joutsa Keskus;3523
+19670;Mieskonmäki;188
+19700;Sysmä Keskus;3099
+19730;Särkilampi;32
+19740;Liikola;123
+19770;Valittula;134
+19850;Putkijärvi-Siltasuo;107
+19910;Tammijärvi;455
+19920;Pappinen;178
+19950;Luhanka;310
+20100;Turku Keskus;24887
+20200;Iso-Heikkilä;1899
+20210;Pahaniemi;4166
+20240;Pansio-Perno;5202
+20250;Pitkämäki-Muhkuri;746
+20300;Pohjola-Kastu;6268
+20320;Kuninkoja-Mälikkälä;15842
+20360;Kärsämäki-Urusvuori-Halinen;10868
+20380;Räntämäki-Saramäki;2804
+20400;Moisio;3234
+20460;Jäkärlä;3550
+20500;Vesilinna;5907
+20520;Kupittaa;2833
+20540;Nummi-Ylioppilaskylä;20103
+20610;Varissuo;12842
+20660;Littoinen;7326
+20700;Vartiovuori-Samppalinna;5528
+20720;Vasaramäki;5988
+20730;Skanssi;25
+20740;Ilpoinen-Harittu;9491
+20750;Huhkola-Lauste-Vaala;5125
+20760;Piispanristi;3980
+20780;Kaarina Keskus;11103
+20800;Ammattikorkeakoulu;0
+20810;Martti-Korppolaismäki;15739
+20880;Uittamo;4142
+20900;Moikoinen-Pikisaari;8236
+20960;Kakskerta;1440
+21100;Naantali Keskus;6853
+21110;Taimo-Nuhjala-Lietsala;7354
+21120;Viherjäinen;1904
+21130;Poikko;595
+21140;Rymättylä Keskus;1338
+21150;Röölä;300
+21160;Merimasku;1695
+21180;Livonsaari;204
+21195;Velkua;235
+21200;Raisio Keskus;12071
+21210;Hakinmäki;2601
+21220;Somersoja;1406
+21230;Lemu;1857
+21240;Askainen Keskus;875
+21250;Masku;6718
+21260;Ihala;3814
+21270;Nousiainen;4843
+21280;Kuloinen;2275
+21290;Rusko;3960
+21310;Vahto;1776
+21330;Paattinen;1836
+21340;Tortinmäki;601
+21350;Ilmarinen;1877
+21360;Lieto Asemanseutu;1854
+21370;Käyrä;600
+21380;Aura Keskus;3354
+21410;Vanhalinna;2102
+21420;Lieto Keskus;7682
+21430;Yliskulma;805
+21450;Tarvasjoki Keskus;1854
+21480;Prunkila;348
+21490;Marttila;1094
+21500;Piikkiö;7096
+21510;Hevonpää;469
+21520;Naskarla;11
+21530;Paimio Keskus;8263
+21540;Preitilä;1407
+21555;Taatila;333
+21560;Ollila;536
+21570;Sauvo Keskus;2568
+21590;Karuna;434
+21600;Parainen Keskus;10791
+21610;Kirjala;1112
+21620;Kuusisto;2069
+21630;Lielahti;596
+21650;Lillandet;417
+21660;Nauvo Keskus;751
+21670;Mattnäs-Nötö;221
+21680;Nötö;8
+21710;Korppoo Keskus-Utö;637
+21720;Korpoström;24
+21740;Utö;46
+21750;Norrskata;101
+21760;Houtskär Keskus;419
+21770;Mossala;140
+21800;Kyrö;2441
+21820;Kumila;363
+21840;Karinainen;387
+21860;Auvainen;426
+21870;Riihikoski;1954
+21880;Pöytyä;424
+21890;Haveri;305
+21900;Yläne Keskus;1495
+21930;Uusikartano;563
+22100;Maarianhamina;11405
+22120;Möckelö;640
+22130;Gottby;844
+22140;Önningby;883
+22150;Jomala Centrum;1904
+22160;Järsö;306
+22220;Emkarby;398
+22240;Hammarland;1500
+22270;Storby;943
+22310;Pålsböle;542
+22320;Ödkarby;843
+22330;Tjudö;319
+22340;Geta;491
+22410;Godby;1523
+22430;Saltvik;680
+22520;Tosarby;509
+22530;Sund;517
+22550;Vårdö;410
+22610;Lemland;1471
+22630;Lumparland;397
+22710;lands Degerby;573
+22720;Sottunga;97
+22730;Kökar;235
+22810;Seglinge;17
+22820;Kumlinge;216
+22830;Enklinge;82
+22840;Lappo;72
+22910;Torsholma;91
+22920;Brändö-Åland;156
+22930;Fiskö;31
+22940;va;87
+22950;Jurmo;51
+23100;Mynämäki Keskus;6306
+23120;Mietoinen Keskus;886
+23140;Hietamäki;704
+23200;Vinkkilä;1642
+23210;Vehmaa;531
+23260;Rautila;181
+23310;Taivassalo;1669
+23360;Kustavi;874
+23390;Iniö;225
+23450;Lokalahti;967
+23500;Uusikaupunki Keskus;11249
+23600;Kalanti Keskus;2213
+23660;Kalanti Asemanseutu;387
+23800;Laitila Keskus;7936
+23840;Soukainen;214
+23880;Suontaka;157
+23930;Pyhämaa;554
+23950;Pyhäranta;573
+23960;Santtio;259
+24100;Salo Keskus;9195
+24130;Ylhäisi;3972
+24240;Rappula;4049
+24260;Ollikkala;4615
+24280;Tupuri-Hähkänä;5356
+24800;Halikko Keskus;4791
+24910;Halikko Asemanseutu;1057
+25110;Kruusila;331
+25130;Muurla;1586
+25160;Tuohittu;111
+25170;Kotalato;137
+25180;Romsila;235
+25190;Inkere;998
+25210;Vartsala;385
+25230;Angelniemi;390
+25240;Hajala;675
+25250;Märynummi;1069
+25260;Vaskio;1035
+25320;Raatala;452
+25330;Kuusjoki Keskus;844
+25340;Kanunki;421
+25360;Pertteli Keskus;1238
+25370;Hiisi;694
+25380;Rekijoki;500
+25390;Kiikala Keskus;836
+25410;Suomusjärvi Keskus;1146
+25420;Lahnajärvi;159
+25430;Kettula;72
+25460;Toija;1236
+25470;Kisko kk;290
+25500;Perniö Keskus;3535
+25520;Perniö Asemanseutu;676
+25540;Knaapila;215
+25550;Aijala;131
+25560;Koski Asemanseutu;229
+25570;Teijo-Mathildedal;575
+25610;Ylönkylä;402
+25630;Finby;308
+25640;Förby;264
+25650;Strömma;98
+25660;Mathildedal;140
+25700;Kemiö Keskus;2316
+25710;Vreta-Vestlax;334
+25730;Mjösund;111
+25760;Kiila;125
+25810;Mark;63
+25820;Vestlax;116
+25830;Västanfjärd Keskus;501
+25840;Nivelax;292
+25860;Björkboda;326
+25870;Dragsfjärd;974
+25900;Taalintehdas;1460
+25910;Vänoxa;16
+25930;Kasnäs;71
+25940;Hiittinen;77
+25950;Rosala-Kasnäs-Hitis;127
+25960;Högsåra;46
+26100;Rauma Keskus;15612
+26200;Merirauma-Kappelinluhta;5110
+26410;Kaaro;1622
+26510;Uotila;2753
+26560;Kolla;737
+26660;Paroalho;4971
+26720;Monnanummi;392
+26740;Vasarainen;557
+26820;Sampaanala;1590
+26840;Kortela;827
+26910;Unaja;691
+26930;Vermuntila;661
+26950;Voiluoto;404
+27100;Eurajoki Keskus;3318
+27110;Irjanne;560
+27130;Eurajoki asemanseutu;341
+27150;Lapijoki;1292
+27160;Olkiluoto;0
+27170;Kuivalahti;376
+27220;Ala-Kieri;641
+27230;Lappi;2181
+27250;Kodiksami;155
+27260;Kuolimaa;199
+27310;Kodisjoki;549
+27320;Ihode;770
+27340;Reila;494
+27400;Kiukainen Keskus;1401
+27420;Panelia Asemanseutu;267
+27430;Panelia;1257
+27450;Harola;214
+27500;Kauttua;3301
+27510;Eura Keskus;4282
+27600;Hinnerjoki;754
+27640;Honkilahti kk;320
+27650;Honkilahti;341
+27670;Mannila;189
+27710;Köyliö Keskus;1126
+27730;Tuiskula;200
+27740;Voitoinen;176
+27750;Yttilä;360
+27800;Säkylä Keskus;3293
+27820;Iso-Vimma;794
+27840;Kakkuri;475
+27860;Vuori;365
+27910;Huovinrinne;172
+27920;Otajoki;294
+28100;Pori Keskus;12286
+28120;Käppärä-Isomäki;3772
+28130;Impola;5908
+28190;Pormestarinluoto;3823
+28200;Toejoki;4918
+28220;Ruosniemi;4650
+28240;Isojoenranta;743
+28260;Harjunpää;989
+28300;Kalaholma-Väinölä;2617
+28330;Koivistonluoto;2821
+28360;Vanhakoivisto;4349
+28370;Sampola;3230
+28400;Ulvila Keskus;5772
+28430;Kartano-Harmaalinna;1758
+28450;Vanha-Ulvila;4370
+28500;Keskussairaala-alue-Tiilimäki;726
+28540;Pinomäki;669
+28560;Lattomeri;507
+28580;Niittymaa;575
+28600;Vähärauma;4697
+28610;Musa-Tiiliruukki;4152
+28660;Pietniemi-Leppäkorpi;3947
+28760;Kyläsaari;2370
+28800;Pihlava;4492
+28840;Yyteri-Kaanaa;930
+28880;Mäntyluoto;432
+28900;Tahkoluoto-Reposaari;1050
+29100;Luvia Keskus;3115
+29180;Peränkylä;240
+29200;Harjavalta Keskus;7424
+29250;Nakkila Keskus;4915
+29270;Hormisto;480
+29280;Järvimaa;302
+29310;Kaasmarkku;586
+29320;Leineperi;251
+29340;Kullaa Keskus;943
+29350;Palus;296
+29570;Söörmarkku;956
+29600;Noormarkku Keskus;4962
+29630;Pomarkku Keskus;2052
+29640;Honkakoski;295
+29680;Kairila;312
+29700;Ahlainen;785
+29720;Lamppi;201
+29740;Etelämaa;110
+29750;Pohjansaha;124
+29760;Köörtilä;88
+29790;Tuorila;332
+29810;Siikainen Keskus;954
+29830;Sammi;218
+29860;Otamo;140
+29880;Leväsjoki-Saarineva;234
+29900;Merikarvia Keskus-Rannikko;2308
+29940;Kuvaskangas;290
+30100;Forssa Keskus;10714
+30300;Viksberg;2649
+30420;Tölö;4872
+31110;Matku;597
+31130;Koijärvi;276
+31140;Menonen;209
+31160;Nuutajärvi;311
+31170;Savijoki;201
+31230;Susikas;219
+31250;Teuro;211
+31300;Tammela Keskus;3278
+31310;Mustiala;116
+31340;Porras;617
+31350;Vistinkoski;246
+31370;Eerikkilän Urheiluopisto;0
+31380;Letku-Torro;343
+31400;Somero Keskus;6300
+31410;Ylöpirtti;403
+31450;Häntälä;359
+31460;Hirsjärvi;261
+31470;Somerniemi;711
+31490;Terttilä;272
+31500;Koski Tl;2466
+31520;Pitkäjärvi;524
+31530;Pyöli;376
+31600;Jokioinen Keskus;3921
+31610;Vaulammi;479
+31620;Latovainio;427
+31630;Minkiö;619
+31640;Humppila Keskus;2270
+31650;Venäjänkangas;212
+31700;Urjala Asemanseutu-Hanhisuo;1493
+31720;Urjalankylä-Kehro;400
+31730;Honkola;134
+31750;Kehro;59
+31760;Urjala Keskus;1988
+31810;Oriniemi;414
+31830;Halkivaha;304
+31850;Koskioinen;164
+31860;Tursa;322
+31900;Punkalaidun Keskus;1997
+31930;Vanttila;111
+31950;Sadonmaa;185
+31960;Orisuo;77
+31970;Kanteenmaa;179
+32100;Ypäjä Keskus;2117
+32140;Ypäjä Asemanseutu;331
+32200;Loimaa Keskus;8328
+32210;Loimaa kk;2481
+32250;Kojonkulma;336
+32260;Kojonperä;177
+32270;Metsämaa-Murto;507
+32280;Metsäkorpi;164
+32300;Mellilä;1341
+32410;Niinijoki;609
+32430;Ylhäinen;90
+32440;Alastaro Keskus;1873
+32450;Tammiainen;297
+32500;Oripää Keskus;1226
+32520;Latva;168
+32560;Virttaa;461
+32610;Vampula Keskus;1082
+32620;Rutava;440
+32700;Huittinen Keskus;7947
+32710;Sampu;635
+32730;Keikyä;792
+32740;Äetsä Keskus,;1876
+32760;Suttila;199
+32770;Huhtamo;252
+32800;Kokemäki Keskus;4219
+32810;Peipohja;1936
+32830;Riste;518
+32860;Korkeaoja;181
+32910;Kauvatsa Asemanseutu;325
+32920;Kauvatsa;632
+33100;Tampere Keskus;16207
+33180;Lapinniemi-Käpylä;2427
+33200;Tampere Keskus Läntinen;6657
+33210;Itä-Amuri-Tammerkoski;5762
+33230;Länsi-Amuri;5758
+33240;Tahmela;1699
+33250;Pispala;2350
+33270;Epilä;7467
+33300;Rahola;4644
+33310;Tesoma;7461
+33330;Myllypuro-Kalkku;3451
+33340;Haukiluoma-Ikuri;5095
+33380;Pitkäniemi;18
+33400;Luoteis-Tampere;7172
+33410;Lentävänniemi;4345
+33420;Lamminpää;2117
+33430;Vuorentausta;2929
+33450;Siivikkala;2813
+33470;Ylöjärvi Keskus;6038
+33480;Manninmäki-Haavisto;6984
+33500;Osmonmäki-Petsamo;10876
+33520;Keskussairaala-alue-Kauppi;959
+33530;Kissanmaa;4578
+33540;Kaleva;8274
+33560;Takahuhti;10152
+33580;Atala-Linnainmaa;14435
+33610;Olkahinen-Tasanne;3952
+33680;Aitolahti;1743
+33700;Messukylä;1748
+33710;Kaukajärvi;17448
+33720;Hervanta;23436
+33730;Leinola-Vehmainen;1791
+33800;Nekala;4938
+33820;Koivistonkylä;9251
+33840;Peltolammi;3508
+33850;Multisilta;2501
+33870;Vuores;754
+33880;Höytämö;3809
+33900;Härmälä-Rantaperkiö;9991
+33920;Toivio;1206
+33950;Killo;5080
+33960;Suuppa;10304
+33980;Pirkkala kk;1338
+34110;Lakiala;1328
+34130;Ylinen;1320
+34140;Mutala;760
+34150;Kyrönlahti;399
+34180;Länsi-Teisko;165
+34240;Kämmenteisko;1581
+34260;Terälahti;893
+34270;Velaatta;311
+34300;Kuru Keskus;1596
+34320;Parkkuu;239
+34330;Poikelus;276
+34410;Murole;180
+34420;Muroleen Kanava;50
+34430;Kekkonen;143
+34450;Jäminkipohja;372
+34510;Luode;108
+34530;Länsi-Aure;72
+34550;Itä-Aure;176
+34600;Ruovesi Keskus-Nenonen;2748
+34640;Mustajärvi;233
+34710;Vaskivesi;385
+34730;Vaskuu;119
+34740;Koro;83
+34770;Kurjenkylä;251
+34800;Virrat Keskus;4872
+34870;Visuvesi;629
+34910;Äijänneva,;120
+34930;Liedenpohja;363
+34950;Ohtola;197
+34970;Toisvesi;121
+34980;Killinkoski;394
+35100;Orivesi Asemanseutu;3099
+35220;Eräjärvi;539
+35240;Ristakallio;198
+35260;Leväslahti;16
+35270;Västilä;167
+35300;Orivesi Keskus;4641
+35320;Hirsilä;599
+35400;Länkipohja;978
+35420;Talviainen;118
+35480;Längelmäki;64
+35500;Korkeakoski;1095
+35520;Pirttikangas;79
+35530;Lyly;283
+35540;Juupajoki;452
+35550;Salokunta;169
+35600;Halli;1416
+35610;Pihlaisto;103
+35630;Suinula-Valkamanperä;177
+35700;Vilppula Keskus;3629
+35740;Ylä-Vääri;114
+35750;Väärinmaja;309
+35800;Mänttä;4402
+35820;Asemakulma-Mustalahti;2147
+35990;Kolho;1175
+36100;Kangasala Asemanseutu;1181
+36110;Ruutana;2658
+36120;Suinula-Haviseva;1117
+36200;Kangasala Keskus;9891
+36220;Suorama;4888
+36240;Nattari;4489
+36270;Huutijärvi;1373
+36280;Pikonlinna;73
+36340;Tohkala;263
+36420;Sahalahti Keskus;1812
+36430;Pakkala;499
+36450;Salmentaka;241
+36520;Raikku;379
+36570;Kaivanto;303
+36600;Pälkäne Keskus;3450
+36640;Iltasmäki;404
+36660;Laitikkala;289
+36720;Aitoo;611
+36760;Luopioinen Keskus;847
+36810;Kuhmalahti Keskus;557
+36840;Kuhmajärvi;355
+36880;Vehkajärvi;149
+36910;Rautajärvi;392
+36930;Kyynärö;192
+37100;Nokia Keskus;6466
+37120;Koskenmäki;10115
+37130;Alhoniitty;4787
+37140;Harjuniitty;2119
+37150;Kankaantaka;3966
+37180;Sarkola;380
+37200;Siuro;2519
+37210;Kulovesi;27
+37240;Linnavuori;775
+37310;Tottijärvi;876
+37350;Rämsöö;162
+37370;Narva;1055
+37380;Krääkkiö;184
+37420;Valkkinen;823
+37470;Vesilahti Keskus;1951
+37500;Lempäälä Keskus;7713
+37530;Säijä;493
+37550;Kuivaspää;4694
+37560;Kulju;4197
+37570;Koivuniemi;409
+37600;Valkeakoski Keskus;11525
+37630;Vääräkoivu;7112
+37700;Sääksmäki;501
+37720;Ritvala;195
+37740;Haukila;302
+37770;Tarttila;491
+37800;Toijala keskus;9385
+37830;Viiala Keskus;5807
+37850;Metsäkansa;353
+37860;Kärjenniemi;773
+37900;Kylmäkoski Asemanseutu;309
+37910;Kylmäkoski Keskus;1335
+37960;Sotkia;275
+38100;Karkku;883
+38120;Kutala;237
+38130;Ellivuori;10
+38140;Kärppälä;391
+38200;Vammala Keskus;6356
+38210;Vammala Asemanseutu;4421
+38220;Stormi;872
+38250;Roismala;1379
+38270;Sammaljoki;370
+38280;Illo;468
+38300;Kiikka;1959
+38360;Kiikoinen;1227
+38370;Tervahauta;1
+38420;Häijää;1034
+38460;Mouhijärvi Keskus;1797
+38470;Hyynilä;292
+38490;Haukijärvi;76
+38510;Suodenniemi;1265
+38600;Lavia Keskus;1540
+38650;Yli-Putto;150
+38670;Kalliala-Haunia;187
+38680;Tuunajärvi;97
+38700;Kankaanpää Keskus;6081
+38710;Myllymäki;2154
+38720;Vihteljärvi;496
+38740;Hapuoja;437
+38750;Veneskoski;275
+38760;Venesjärvi;370
+38770;Lohikko;529
+38800;Jämijärvi Keskus;1710
+38840;Niinisalo;933
+38860;Suurimaa;214
+38910;Ala-Honkajoki;560
+38920;Vatajankoski;260
+38950;Honkajoki Keskus;1376
+38970;Lauhala;270
+39100;Hämeenkyrö Keskus;3391
+39110;Simuna;217
+39130;Sasi;751
+39150;Pinsiö;838
+39160;Julkujärvi;3191
+39170;Jumesniemi;186
+39180;Herttuala;85
+39195;Kaipio;163
+39200;Kyröskoski;4923
+39230;Osara;205
+39290;Vesajärvi;178
+39310;Viljakkala Keskus;1006
+39340;Karhe;283
+39360;Komi;238
+39380;Lavajärvi;172
+39410;Luhalahti;332
+39430;Röyhiö;163
+39450;Sisättö;125
+39500;Ikaalinen Keskus;4715
+39530;Kilvakkala;1063
+39580;Riitiala;407
+39590;Tevaniemi;261
+39610;Kovelahti;206
+39620;Kovesjoki;209
+39660;Lapinneva;277
+39700;Parkano Keskus;5658
+39750;Vatajanjärvi;403
+39770;Aureskoski;81
+39780;Alaskylä;228
+39810;Linnankylä;354
+39820;Kihniö Keskus;1734
+39880;Kihniö Asemanseutu;107
+39920;Suomijärvi;171
+39930;Karvia Keskus;1138
+39940;Kantti;269
+39960;Sarvela;456
+39965;Karviankylä;184
+39980;Sara;205
+39990;Alkkia;104
+40100;Jyväskylä Keskus;12989
+40200;Mannila-Taulumäki;3442
+40250;Ritoniemi-Lohikoski;6107
+40270;Pappilanrinne-Pappilanvuori;10714
+40320;Seppälän Teollisuusalue;4567
+40340;Huhtasuo;6322
+40400;Halssila;4162
+40420;Jyskä;4886
+40500;Keljo-Ristonmaa;3290
+40520;Kuokkala-Ristikivi;15641
+40530;Keljonkangas;5151
+40600;Mattilanpelto;2294
+40620;Keskussairaala-alue-Kukkumäki;410
+40630;Kypärämäki;3845
+40640;Keltinmäki;6842
+40660;Länsi-Palokka;661
+40700;Mäki-Matti;4353
+40720;Nisula;2719
+40740;Kortepohja;6916
+40800;Vaajakoski;8104
+40820;Vuoritsalo;969
+40900;Säynätsalo;3402
+40930;Kinkomaa;1206
+40950;Muurame Keskus;7943
+41120;Puuppola;2036
+41140;Kuikka;642
+41160;Tikkakoski;4906
+41180;Vehniä;812
+41210;Jokihaara;386
+41220;Höytiä;330
+41230;Uurainen Keskus;1690
+41240;Kyynämöinen;258
+41260;Hoikankylä;161
+41270;Lannevesi;561
+41290;Kangashäkki;854
+41310;Leppävesi;2996
+41325;Laukkavirta;287
+41330;Vihtavuori;2595
+41340;Laukaa Keskus;5322
+41350;Laukaa Asemanseutu;728
+41360;Valkola;516
+41370;Kuusa;1121
+41390;Äijälä,;458
+41400;Lievestuore;3415
+41410;Kankainen;196
+41440;Ruuhimäki;224
+41450;Leppälahti;678
+41490;Niemisjärvi;809
+41500;Hankasalmi Asemanseutu;1525
+41520;Hankasalmi Keskus;2046
+41530;Veneranta;171
+41540;Ristimäki;264
+41550;Hannula;181
+41560;Säkinmäki;203
+41580;Sauvamäki;300
+41630;Oravasaari;393
+41660;Toivakka Keskus;1918
+41710;Rutalahti-Kivisuo;289
+41730;Kivisuo;32
+41750;Havumäki;97
+41770;Leivonmäki;692
+41800;Korpilahti Keskus;3626
+41820;Saakoski;313
+41840;Moksi;101
+41860;Rannila;237
+41870;Putkilahti;196
+41880;Oittila;144
+41900;Petäjävesi Keskus;2746
+41920;Kintaus;614
+41925;Ylä-Kintaus;173
+41930;Kuohu;864
+41940;Vesanka;1357
+41970;Huttula;51
+41980;Kuivasmäki;183
+42100;Jämsä Keskus;10731
+42140;Juokslahti;280
+42220;Kaipola;1172
+42300;Jämsänkoski Keskus;5827
+42330;Haavisto;437
+42440;Koskenpää;687
+42520;Asunta;164
+42560;Pohjoisjärvi;44
+42600;Multia Keskus-Väätäiskylä;1547
+42660;Sahrajärvi;133
+42700;Keuruu Keskus;8233
+42720;Valkealahti;78
+42800;Haapamäki;1271
+42820;Riiho;84
+42830;Ylä-Kolkki;55
+42840;Kolkki;138
+42850;Pohjaslahti;150
+42870;Kotala;447
+42910;Pihlajavesi;317
+42930;Katajamäki;123
+43100;Saarijärvi Keskus;6506
+43130;Tarvaala;423
+43170;Häkkilä;270
+43220;Mahlu;474
+43240;Lehtola;170
+43250;Kolkanlahti;370
+43270;Kalmari;558
+43300;Kannonkoski Keskus;1326
+43340;Kannonjärvi;183
+43390;Lokakylä;87
+43420;Kukko;71
+43430;Väätäiskylä;43
+43440;Pylkönmäki Keskus;546
+43480;Pääjärvi;153
+43490;Kangasaho;176
+43500;Karstula Keskus;2965
+43520;Kiminki;245
+43540;Rantakylä-Pirttilahti;150
+43560;Vahanka;201
+43610;Aho;112
+43640;Humppi;152
+43660;Vastinki;268
+43700;Kyyjärvi Keskus;1299
+43720;Kumpulainen;131
+43800;Kivijärvi Keskus-Sompala;1123
+43840;Sompala;52
+43900;Kinnula Keskus;1441
+43940;Muhola-Saarensalmi;245
+43960;Saarensalmi;71
+44100;Äänekoski Keskus,;4391
+44120;Mämmensalmi-Mustaniemi;2667
+44150;Likolahti-Karhunlähde;3472
+44160;Huutomäki;416
+44170;Hietama;544
+44190;Parantala;256
+44200;Suolahti Keskus;4827
+44220;Sörkänmäki;485
+44250;Äänekoivisto,;422
+44260;Vihijärvi;296
+44280;Sumiainen Keskus;924
+44300;Konnevesi Keskus;1859
+44320;Sirkkamäki;140
+44330;Hytölä;307
+44350;Istunmäki;391
+44370;Mäntymäki;188
+44400;Konginkangas Keskus;723
+44420;Liimattala;390
+44440;Räihä;126
+44460;Kalaniemi;149
+44480;Niinilahti;166
+44500;Viitasaari Keskus;4530
+44530;Ilmolahti;178
+44580;Huopanankoski;223
+44590;Vuorilahti;78
+44610;Kärnä;183
+44630;Kumpumäki;211
+44640;Kymönkoski;405
+44670;Suovanlahti;155
+44680;Lahnanen;70
+44730;Löytänä;103
+44740;Keitelepohja-Kotvala;208
+44760;Keihärinkoski;367
+44770;Valkeisjärvi;28
+44790;Kotvala;59
+44800;Pihtipudas Keskus;2581
+44860;Alvajärvi;285
+44880;Muurasjärvi;667
+44910;Elämäjärvi;276
+44920;Peninki;216
+44950;Kärväsjärvi;196
+44970;Korppinen;182
+45100;Kouvola Keskus;9617
+45120;Kotkankallio-Vahteranmäki;3956
+45130;Korjala-Kaunisnurmi;1785
+45150;Kankaronmäki-Eskolanmäki;4887
+45160;Lehtomäki;5254
+45200;Tornionmäki;6131
+45330;Harju;348
+45360;Kukkuramäki;3870
+45370;Valkeala kk;2745
+45410;Utti;889
+45460;Savero;199
+45610;Koria;5073
+45700;Kuusankoski Keskus;9043
+45720;Kotiharju-Ruhjonmäki;2863
+45740;Maunuksela;3165
+45750;Kuusankosken Sairaala-alue;96
+45810;Pilkanmaa;1575
+45910;Voikkaa;2794
+45940;Oravala;318
+46110;Tuohikotti;393
+46140;Vekaranjärvi;174
+46230;Aro;510
+46400;Kaipiainen;497
+46430;Tirva-Inkerilä;310
+46450;Enäjärvi;182
+46530;Kannuskoski;177
+46570;Saaramaa;42
+46710;Sippola;791
+46730;Ruotila;120
+46750;Liikkala;307
+46800;Myllykoski;4868
+46810;Ummeljoki;1521
+46860;Anjalankoski Keskus;670
+46900;Inkeroinen;3935
+46910;Anjala;2065
+46930;Huruksela;230
+46950;Ahvio;72
+46960;Muhniemi;349
+47110;Löytty;100
+47150;Raussila;177
+47200;Elimäki kk;2414
+47260;Ratula;143
+47310;Haapa-Kimola;264
+47350;Kimonkylä;136
+47400;Kausala;4716
+47440;Sääskjärvi;142
+47450;Erottaja;277
+47460;Hiisiö;64
+47490;Mankala-Hiisiö;372
+47520;Iitti kk;140
+47540;Löyttilä;188
+47610;Kymentaka;170
+47650;Kimola;222
+47710;Jaala kk;1150
+47760;Huhdasjärvi;135
+47810;Selänpää;337
+47830;Hasula;126
+47850;Verla;159
+47900;Vuohijärvi;278
+47910;Hillosensalmi;33
+48100;Kotkansaari;10494
+48130;Katariina;727
+48200;Hovinsaari;1719
+48210;Toukolan Sairaala-Alue;555
+48220;Metsola;1218
+48230;Korela-Jylppy;1542
+48300;Ruonala;1195
+48310;Mussalo;4551
+48350;Karhuvuori;3648
+48400;Sutela;4251
+48410;Kaukola;1717
+48600;Karhula;7256
+48700;Kyminlinna;2532
+48710;Koivula;1427
+48720;Kymi;1915
+48750;Nikeli;170
+48770;Ristinkallio;1975
+48800;Otsola-Mäntykangas;2205
+48810;Rantahaka;796
+48900;Sunila;1411
+48910;Suulisniemi;1551
+48930;Tiutinen;375
+49200;Heinlahti;723
+49210;Huutjärvi;1033
+49220;Siltakylä;1845
+49240;Purolanlahti;391
+49270;Pyhtää kk;887
+49290;Vastila;449
+49300;Tavastila;717
+49340;Juurikorpi;148
+49400;Hamina Keskus;10167
+49410;Poitsila;2052
+49420;Uusi-Summa;2048
+49460;Hillo;1263
+49480;Vanha-Summa;485
+49490;Neuvoton;1482
+49510;Husula;1180
+49520;Reitkalli;289
+49540;Metsäkylä;490
+49570;Kannusjärvi;452
+49610;Sivatti;97
+49630;Vehkajoki;116
+49640;Paijärvi;171
+49660;Pyhältö;625
+49700;Miehikkälä Kirkonkylä;917
+49720;Hurttala;60
+49730;Muurikkala;342
+49750;Kalliokoski;158
+49760;Suur-Miehikkälä;235
+49770;Salo-Miehikkälä;242
+49780;Onkamaa;120
+49840;Mäntlahti;145
+49860;Klamila;689
+49900;Virolahti Keskus;2080
+49930;Vaalimaa;173
+49960;Ala-Pihlaja;220
+49980;Ravijoki;280
+50100;Mikkeli Keskus;8979
+50120;Siekkilä;1620
+50130;Nuijamies;2976
+50150;Karkialampi;1402
+50160;Kattilansilta;2516
+50170;Peitsari;6026
+50180;Visulahti;814
+50190;Tuppurala;4879
+50200;Kovala;636
+50300;Rämälä;353
+50350;Norola;348
+50500;Tuukkala-Kaituenmäki;1545
+50520;Moision Sairaala-alue;148
+50600;Karikko;4643
+50670;Otava;1952
+50700;Syysjärvi;574
+50770;Korpikoski;253
+50800;Annilanselkä;550
+50970;Ihastjärvi;2353
+51130;Vanhamäki;181
+51200;Kangasniemi Keskus;4031
+51260;Tahkomäki;169
+51270;Kutemajärvi;234
+51310;Levä;148
+51335;Kaihlamäki;51
+51340;Hännilä-Särkiharju;323
+51360;Koivula-Synsiö;197
+51380;Synsiö;51
+51420;Harjumaa-Pajulankylä;253
+51430;Läsäkoski;83
+51440;Vuojalahti;261
+51450;Pajulankylä;67
+51460;Luusniemi;225
+51520;Hiirola;440
+51540;Kalvitsa;355
+51600;Haukivuori Keskus-Piitkäaho;1470
+51620;Pitkäaho;64
+51670;Nykälä;172
+51720;Rahula;488
+51740;Huuhanaho;215
+51760;Nuutilanmäki;300
+51780;Kuosmala;139
+51810;Maivala;163
+51820;Hatsola;290
+51850;Vuorenmaa;233
+51860;Narila;80
+51880;Koikkala;255
+51890;Risulahti;96
+51900;Juva Keskus;4641
+51930;Paatela;176
+51940;Härkälä;129
+51980;Lauteala;278
+52100;Anttola;1548
+52110;Majavesi;392
+52150;Hauhala;144
+52200;Puumala Keskus;1958
+52230;Hurissalo;250
+52270;Ryhälä;39
+52300;Ristiina Keskus;3002
+52320;Vitsiälä;353
+52330;Heimari;44
+52340;Hangastenmaa;234
+52360;Someenjärvi;104
+52420;Pellosniemi;716
+52510;Hietanen;507
+52520;Syväsmäki;152
+52550;Hirvensalmi Keskus;1721
+52610;Tuukkalanlahti;118
+52620;Kuitula;88
+52700;Mäntyharju Keskus;5190
+52720;Karankamäki-Koirakivi;122
+52730;Koirakivi;89
+52740;Tuustaipale;297
+52760;Mynttilä;103
+52780;Kuomiokoski;136
+52830;Suomenniemi;704
+52850;Halmeniemi;128
+52890;Käävänkylä;87
+52920;Voikoski;135
+52960;Nurmaa;141
+52970;Pankalahti-Ahvenainen;94
+52980;Ahvenainen;68
+53100;Lappeenranta keskus;9981
+53130;Keskussairaala-alue-Kimpinen;673
+53200;Kaukas-Tirilä;1542
+53300;Lauritsala-Mälkiä;8191
+53400;Laihia;1963
+53420;Mustola;579
+53500;Parkkarila-Harapainen-Reijola;5263
+53550;Kourulanmäki;1016
+53600;Kesämäki;2437
+53650;Mattila-Kuusela;2104
+53810;Kuusimäki-Lavola;3858
+53830;Rutola;652
+53850;Skinnarila;10659
+53900;Pallo-Tysterniemi-Leiri;2488
+53920;Voisalmi;3204
+53950;Kivisalmi;2137
+54100;Joutseno Keskus;5434
+54110;Lampikangas;1083
+54120;Pulp;1813
+54190;Konnunsuo;85
+54230;Nuijamaa;714
+54250;Rapattila;177
+54260;Hanhijärvi;796
+54270;Vainikkala;473
+54300;Vilkjärvi;625
+54310;Hytti;438
+54330;Simola;435
+54390;Pulsa;154
+54410;Ylämaa Keskus;1004
+54430;Hujakkala;163
+54460;Ylijärvi;105
+54490;Ahomäki;181
+54500;Taavetti-Somerharju;2857
+54510;Uro;468
+54530;Luumäki;1228
+54550;Suo-Anttila;96
+54580;Somerharju;37
+54590;Kaitjärvi;141
+54710;Lemi Keskus;1365
+54720;Laksiainen;146
+54750;Välijoki;298
+54770;Heituinlahti;581
+54800;Savitaipale Keskus;2700
+54820;Kotimäki;263
+54850;Kuukanniemi;1122
+54915;Saimaanharju-Kyläniemi;1823
+54920;Taipalsaari;1562
+54930;Levänen;315
+54940;Solkei;124
+54950;Pettilä;104
+54960;Vehkataipale;572
+55100;Imatra Keskus;10140
+55120;Mansikkala-Tuulikallio;3287
+55300;Rauha-Tiuruniemi;974
+55320;Rauha;552
+55330;Tiuruniemi;69
+55400;Tainionkoski-Mustalampi;1440
+55420;Karhumäki-Karhukallio;2156
+55510;Sotkulampi-Linnasuo;1351
+55610;Rajapatsas-Teppanala;3059
+55700;Vintteri-Virasoja;1451
+55800;Vuoksenniska-Saarlampi;4310
+55910;Rautio-Kurkvuori;1715
+56100;Ruokolahti Keskus;2203
+56120;Salosaari;880
+56140;Äitsaari,;268
+56210;Virmutjoki;436
+56310;Syyspohja;225
+56330;Utula;35
+56350;Kyläniemi;20
+56410;Kaiturinpää;165
+56440;Pohja-Lankila;245
+56510;Puntala;436
+56550;Niska-Pietilä;144
+56610;Rautjärvi;628
+56640;Purnujärvi;105
+56710;Miettilä;139
+56730;Laikko;319
+56800;Simpele;2669
+57100;Heikinpohja-Piispanmäki;3791
+57120;Savonlinna;6
+57130;Savonlinna Keskus;2017
+57170;Sortteerinlahti-Talvisalo;2066
+57200;Miekonniemi-Venäjänniemi;2610
+57210;Nojanmaa;2767
+57220;Haka-alue-Viuhonmäki;1650
+57230;Inkerinkylä;3516
+57310;Rinkilä;738
+57510;Laitaatsilta;527
+57600;Poukkusilta-Pihlajaniemi;2074
+57710;Kellarpelto-Rantakoivikko;3028
+57810;Aholahti;332
+58130;Oravi;141
+58140;Ahvensalmi;80
+58150;Makkola;232
+58160;Karvila;182
+58170;Simanala;280
+58175;Enonkoski Keskus;938
+58180;Ihamaniemi;154
+58200;Kerimäki Keskus;3392
+58220;Louhi;425
+58260;Kumpuranta;202
+58300;Savonranta Keskus;734
+58320;Raikuu;192
+58350;Villala;214
+58360;Säimen;228
+58390;Rönkönvaara;77
+58410;Haapakallio;624
+58420;Silvola;325
+58430;Kulennoinen;487
+58450;Punkaharju;431
+58500;Punkasalmi;1691
+58520;Hiukkajoki;308
+58550;Putikko;444
+58570;Ruhvana;80
+58580;Vuoriniemi;131
+58610;Telakanava;144
+58620;Lohilahti;303
+58650;Kiviapaja;121
+58680;Piojärvi;51
+58690;Ala-Särkilahti-Piojärvi;113
+58700;Sulkava Keskus;2244
+58720;Kaartilankoski;314
+58770;Pihlajalahti;248
+58810;Kallislahti;345
+58830;Parkumäki;315
+58850;Hiltula;112
+58900;Rantasalmi Keskus;2596
+58910;Rantasalmi Asemanseutu;189
+58920;Kolkontaipale;346
+58940;Tuusmäki;262
+59100;Parikkala Keskus;2391
+59130;Koitsanlahti;189
+59210;Melkoniemi;158
+59310;Särkisalmi;974
+59320;Haapaoja;93
+59410;Kirjavala;431
+59510;Maironiemi;443
+59520;Saari;131
+59530;Mikkolanniemi;93
+59610;Tarnala;197
+59710;Kummunkylä;121
+59720;Niukkala;166
+59730;Uukuniemi;128
+59800;Kesälahti Keskus;1695
+59810;Suurikylä;96
+59820;Purujärvi-Rajavaara;165
+60100;Seinäjoki Keskus;9313
+60120;Pohja;2548
+60150;Kasperi;4476
+60200;Törnävä;10216
+60220;Huhtala;1932
+60280;Eskoon Keskuslaitosalue;2
+60320;Alakylä-Jouppi;6972
+60420;Impivaara;1219
+60450;Munakka;419
+60510;Hyllykallio;7846
+60550;Nurmo Keskus;4442
+60560;Halkosaari;702
+60640;Kurjenneva;660
+60720;Tuomikylä;1854
+60760;Pohjanluoma;1022
+60800;Ilmajoki Keskus;5823
+61100;Peräseinäjoki Keskus;2076
+61110;Vuolle;186
+61120;Louko;715
+61140;Pasto;141
+61150;Sydänmaa;66
+61160;Koura;578
+61170;Sääskiniemi;305
+61180;Haapaluoma;241
+61220;Myllysalo;257
+61230;Luopa;735
+61250;Jalasto;297
+61270;Luopajärvi;655
+61280;Jokipii;583
+61290;Taivalmaa;123
+61300;Kurikka Keskus;6824
+61310;Panttila;779
+61330;Koskenkorva;2145
+61340;Nopankylä;272
+61350;Huissi;430
+61360;Mieto;1095
+61370;Lohiluoma;369
+61380;Polvenkylä;172
+61400;Ylistaro Keskus;2050
+61410;Ylistaro Asemanseutu;844
+61430;Isorehto;401
+61440;Untamala;203
+61450;Kylänpää;640
+61460;Hanhikoski;234
+61470;Kitinoja;401
+61500;Isokyrö Keskus;2785
+61520;Lehmäjoki;242
+61550;Orismala;697
+61560;Orisberg;58
+61600;Jalasjärvi Keskus;4050
+61630;Hirvijärvi;313
+61640;Ala-Valli;214
+61650;Kalakoski;402
+61680;Mantila;261
+61710;Pentinmäki;300
+61720;Koskue;600
+61730;Yli-Valli;263
+61760;Ilvesjoki;384
+61800;Kauhajoki Keskus;8444
+61810;Luomankylä;302
+61820;Kainasto;642
+61840;Norinkylä;342
+61850;Kauhajoki Asemanseutu;2281
+61860;Harja;215
+61880;Ikkeläjärvi;203
+61910;Nummijärvi;314
+61920;Nummikoski;80
+61940;Hyyppä;316
+61950;Juonikylä;167
+61960;Kyrönlatva;153
+61980;Päntäne;962
+62100;Lapua Keskus;10780
+62130;Hellanmaa;587
+62150;Rintakangas;158
+62160;Karhunkylä;629
+62165;Tiisteenjoki;363
+62170;Lakaluoma;287
+62175;Ylikylä-Mäenpää;157
+62185;Mäki-Paavola;159
+62190;Ruha;650
+62200;Kauhava Keskus;5838
+62220;Pernaa;500
+62230;Jylhä;429
+62240;Huhmarkoski;587
+62260;Hirvijoki;213
+62280;Mustamaa;130
+62290;Hirvikylä;301
+62295;Kauhajärvi;473
+62300;Härmä;2506
+62310;Voltti;1237
+62340;Kuoppa-Vakkuri;106
+62350;Ekola;126
+62370;Kangasto;237
+62375;Ylihärmä Keskus-Vesiluoma;2641
+62380;Kosolankylä;236
+62395;Petterinmäki;135
+62410;Rintala;356
+62420;Kortesjärvi Keskus;1074
+62430;Peltotupa;148
+62435;Pirttinen;119
+62440;Perkiömäki;117
+62470;Purmojärvi;470
+62500;Evijärvi Keskus;1601
+62510;Kuoppa-aho;360
+62520;Kautiainen;153
+62540;Vasikka-aho;313
+62570;Särkilä;228
+62600;Lappajärvi Keskus;1906
+62610;Tarvola;132
+62620;Ala-Seppä;218
+62630;Karvala;355
+62640;Savonkylä;146
+62660;Itäkylä;645
+62710;Kurejoki;843
+62720;Sissala;326
+62730;Haukkala;222
+62740;Koskenvarsi;224
+62750;Saukonkylä;209
+62760;Menkijärvi;251
+62800;Vimpeli Keskus;2458
+62810;Savonjoki;123
+62830;Luoma-Aho;328
+62840;Lakaniemi-Pokela;55
+62860;Sahi;219
+62870;Vinni;68
+62880;Sääksvesi-Vinni;310
+62900;Alajärvi Keskus;4774
+62920;Levijoki;110
+62940;Hoisko;582
+62950;Paalijärvi;453
+62990;Möksy;153
+63100;Kuortane Keskus;1562
+63120;Leppälänkylä;370
+63130;Mäyry;747
+63150;Ruona;433
+63160;Salmi;162
+63210;Niinimaa;121
+63230;Lentilä;312
+63250;Rantala;106
+63300;Alavus Keskus;4910
+63320;Kattelus;77
+63330;Pahajoki;166
+63340;Sapsalampi;212
+63350;Sulkavankylä;244
+63355;Seinäjärvi;144
+63360;Kuivaskylä;296
+63370;Taipalus;567
+63400;Alavus Asemanseutu;1355
+63410;Rantatöysä;491
+63430;Kätkänjoki;172
+63450;Löyä;69
+63500;Lehtimäki Keskus;1012
+63510;Lehtimäki Kirkonkylä;286
+63530;Länsikylä;187
+63540;Hernesmaa;225
+63600;Töysä Keskus;1346
+63610;Tuuri;1136
+63640;Ritola;350
+63660;Ähtärinranta,;192
+63680;Hakojärvi;336
+63700;Ähtäri Keskus,;4564
+63770;Peränne;214
+63780;Alastaipale;175
+63800;Soini Keskus;1850
+63830;Keisala;81
+63880;Kukonkylä;199
+63890;Hautakylä;133
+63900;Myllymäki-Vehunkylä;580
+63910;Inhan Tehtaat;247
+63920;Inha;374
+63950;Vehunkylä;51
+64100;Kristiinankaupunki Keskus;3054
+64140;Tiukka;541
+64200;Närpiö Keskus;2817
+64210;Kalax;449
+64220;Yttermark;988
+64230;Närpiön Asemanseutu;894
+64240;Böle;249
+64250;Pjelax;354
+64260;Kaskinen;1444
+64300;Lapväärtti;1807
+64320;Dagsmark;497
+64350;Karijoki Keskus;1218
+64370;Myrkky;342
+64440;Metsälä-Kallträsk;240
+64450;Kallträsk;60
+64460;Härkmeri;361
+64480;Skaftung;277
+64490;Siipyy;193
+64510;Nämpnäs;396
+64530;Norrnäs;272
+64550;Rangsby;272
+64610;Övermark;1186
+64700;Teuva Keskus;3577
+64720;Perälä;675
+64740;Horo;287
+64760;Peltola;393
+64770;Äystö,;518
+64810;Vanhakylä;262
+64820;Kärjenkoski;199
+64830;Villamo;197
+64840;Heikkilänjoki;57
+64850;Möykky;146
+64900;Isojoki Keskus;1219
+64930;Kodesjärvi;222
+65100;Vaasa Keskus;17119
+65130;Hietalahti;4
+65170;Vaskiluoto;350
+65200;Palosaari;5633
+65230;Vetokannas;5859
+65280;Gerby;6755
+65300;Asevelikylä;4220
+65320;Huutoniemi;6286
+65350;Suvilahti;3844
+65370;Ristinummi;4608
+65380;Vanha Vaasa;3479
+65410;Sundom;2421
+65450;Sulva;1934
+65460;Tölby-Rimal;313
+65470;Rimal;47
+65480;Vikby;273
+65520;Helsingby;1496
+65610;Mustasaari Keskus;5785
+65630;Karperö;1244
+65650;Koskö;271
+65710;Singsby;619
+65730;Jungsund;418
+65760;Iskmo;325
+65800;Raippaluoto;829
+65870;Björköby;366
+65920;Norra Vallgrund-Söderudden;345
+65930;Södra Vallgrund;366
+65970;Söderudden;227
+66100;Maalahti;1971
+66140;Övermalax;1594
+66160;Långåminne;332
+66200;Korsnäs Keskus;827
+66210;Moikipää;589
+66220;Bergö;484
+66230;Korsbäck;94
+66240;Petolahti;1077
+66260;Svarvar;111
+66270;Pirttikylä-Sorvari;928
+66280;Taklax;392
+66290;Harrström;341
+66295;Töjby;366
+66300;Jurva Keskus;2262
+66320;Niemenkylä;351
+66330;Hakko;286
+66340;Sarvijoki;378
+66350;Tainus;152
+66360;Kesti;419
+66370;Närvijoki;327
+66400;Laihia Keskus;5950
+66420;Ruto;347
+66430;Vedenoja;184
+66440;Tervajoki;2035
+66450;Jakkula;877
+66460;Haapala;355
+66470;Jukaja-Jokisalo;349
+66500;Vähäkyrö Keskus;2427
+66510;Merikaarto;1250
+66520;Veikkaala;573
+66530;Koivulahti;1765
+66540;Petsmo;541
+66550;Västerhankmo;315
+66560;Österhankmo;234
+66580;Kuni;395
+66590;Vassor;160
+66600;Vöyri Keskus;2776
+66640;Maksamaa;1067
+66660;Bertby;140
+66680;Kaurajärvi;90
+66710;Kaitsor;272
+66730;Oxkangar;67
+66800;Oravainen Keskus;978
+66810;Kimo;329
+66820;Komossa;237
+66830;Oravaisten Tehdas;493
+66840;Pensala;373
+66850;Jepua;987
+66900;Uusikaarlepyy Keskus;3973
+66910;Soklot;448
+66930;Kovjoki;246
+66950;Munsala;941
+66970;Hirvlax;512
+66980;Monå;124
+66999;Kaukaluoto;64
+67100;Kokkola Keskus;10056
+67200;Kiviniitty-Tullimäki;4241
+67300;Halkokari;3868
+67400;Rytimäki;4394
+67410;Vitsari;803
+67500;Sokoja;1103
+67600;Linnusperä-Kaustari;3067
+67700;Kirkonmäki-Isokylä;4814
+67800;Koivuhaka;3721
+67900;Ykspihjala;1373
+68100;Himanka Keskus;2666
+68150;Hillilä;323
+68210;Marinkainen;950
+68220;Karhi;140
+68230;Lohtaja Keskus;1177
+68240;Ala-Viirre;358
+68300;Kälviä Keskus;3846
+68320;Ruotsalo;767
+68370;Ullava Keskus;418
+68380;Yli-Ullava;357
+68390;Rahkonen;143
+68410;Alaveteli;1637
+68500;Kruunupyy Keskus;2904
+68530;Lepplax;560
+68550;Öja;767
+68555;Bosund;988
+68560;Eugmo;975
+68570;Luoto;2151
+68580;Furuholmen;836
+68600;Pietarsaari Keskus;11737
+68620;Skutnäs-Västermalm;4846
+68630;Kyrkostrand;2604
+68660;Östermalm-Björnholmen;2245
+68690;Sundby;358
+68700;Teerijärvi;1803
+68750;Småbönders;291
+68800;Kolppi;1206
+68810;Ytteresse;1574
+68820;Ähtävä,;1138
+68830;Bäckby;151
+68840;Nederlappfors;344
+68870;Edsevö;548
+68910;Pännäinen;1252
+68920;Forsby;479
+68930;Purmo;690
+68940;Lillby;504
+68970;Överpurmo;226
+68999;Rita;101
+69100;Kannus Keskus;5161
+69150;Eskola;477
+69170;Yli-Kannus;291
+69300;Toholampi Keskus;2207
+69310;Laitala;383
+69330;Määttälä;150
+69340;Purontaka;169
+69410;Sykäräinen;505
+69420;Syri;69
+69440;Lestijärvi Keskus;506
+69450;Yli-Lesti;223
+69510;Halsua Keskus-Marjusaari;854
+69550;Kanala;94
+69570;Karvonen;298
+69600;Kaustinen Keskus;4017
+69660;Köyhäjoki;256
+69700;Veteli Keskus;1465
+69730;Tunkkari;453
+69750;Sillanpää;208
+69820;Räyrinki;704
+69830;Pulkkinen;280
+69850;Patana;234
+69910;Kivikangas;54
+69920;Oksakoski-Kivikangas;542
+69950;Perho Keskus-Salamajärvi;1327
+69970;Salamajärvi;36
+69980;Möttönen;975
+70100;Kuopio Keskus;11671
+70110;Etu-Niirala;3558
+70150;Neulamäki;5408
+70200;Puijonlaakso;6596
+70210;Kuopion Keskussairaala-alue;114
+70240;Niuvaniemen Sairaala-alue;131
+70260;Julkula;2584
+70280;Länsi-Puijo;2096
+70300;Linnanpelto;923
+70340;Inkilänmäki;3157
+70400;Kettulanlahti;767
+70420;Päiväranta;2585
+70460;Saarijärvi;4065
+70500;Männistö;6649
+70600;Niirala-Huuhanmäki;3244
+70620;Haapaniemi;2322
+70700;Särkiniemi;3917
+70780;Jynkkä;4998
+70800;Pitkälahti;3327
+70820;Litmanen;12264
+70840;Jynkänmäki;4368
+70870;Hiltulanlahti;2477
+70900;Toivala;2933
+70910;Vuorela;2946
+70940;Jännevirta;592
+71130;Kortejoki;585
+71150;Vartiala;624
+71160;Riistavesi;1511
+71170;Laukka-aho;128
+71200;Tuusniemi Keskus;1645
+71210;Tuusjärvi;247
+71240;Paakkila;246
+71260;Juurikkamäki;155
+71280;Kosula;239
+71310;Vehmersalmi Keskus;1310
+71330;Räsälä;331
+71360;Litmaniemi;191
+71380;Mustinlahti;162
+71460;Paukarlahti;485
+71470;Oravikoski;424
+71480;Kurkimäki;1111
+71490;Airaksela;272
+71520;Kaislastenlahti;303
+71570;Syvänniemi;1335
+71610;Salonkulma;5
+71640;Talluskylä;237
+71650;Hirvilahti-Salonkulma;477
+71660;Leinolanlahti;116
+71670;Kurolanlahti;99
+71680;Pulkonkoski-Saarinen;229
+71690;Varpasmaa;19
+71720;Käärmelahti;636
+71730;Kinnulanlahti;665
+71740;Tavinsalmi;101
+71745;Haatala;31
+71750;Maaninka Keskus;1173
+71760;Ahkionlahti-Vianta;289
+71775;Tuovilanlahti-Haatala;434
+71800;Siilinjärvi Keskus;10371
+71820;Pöljä;850
+71840;Kuuslahti;555
+71850;Leppäkaarre;2125
+71870;Harjamäki;494
+71890;Hamula;903
+71910;Alapitkä;834
+71920;Pajujärvi;428
+71950;Lammasaho;132
+71960;Lukkarila;242
+72100;Karttula Keskus;1757
+72140;Itä-Karttula-Riuttasenpää;33
+72210;Tervo Keskus-Eliaksela;1215
+72220;Eliaksela;70
+72300;Vesanto Keskus;1381
+72310;Niinivesi;260
+72330;Tiitilänkylä;113
+72350;Pienola;316
+72360;Närhilä;106
+72380;Horontaipale;131
+72400;Pielavesi Keskus-Jylänki;2926
+72430;Kumpula;232
+72490;Saarinen;21
+72510;Jokijärvi;117
+72530;Säviäntaipale;239
+72550;Säviä;299
+72570;Vuorikylä;118
+72600;Keitele Keskus;2103
+72630;Kuusela-Rajala;96
+72710;Vaaraslahti;463
+72740;Laukkala;156
+72810;Jylhänkylä;152
+72840;Saarela;115
+72930;Tossavanlahti;108
+72950;Porttila;91
+72980;Petäjäkylä;80
+73100;Lapinlahti Keskus;5110
+73110;Mäntylahti-Karvasalmi;298
+73120;Nerkoo-Horsmanmäki;552
+73200;Varpaisjärvi Keskus;1913
+73230;Syvärinpää;358
+73250;Korpijärvi;226
+73300;Nilsiä Keskus;3226
+73310;Tahkovuori;105
+73320;Reittiö;1339
+73350;Haluna;437
+73360;Pajulahti;627
+73410;Pieksänkoski;248
+73460;Muuruvesi;745
+73470;Västinniemi;302
+73500;Juankoski Keskus;3023
+73600;Kaavi Keskus;2215
+73620;Kortteinen-Rasilampi;291
+73640;Sivakkavaara;137
+73645;Niinivaara-Onnivaara;84
+73670;Luikonlahti;540
+73710;Viitaniemi;170
+73730;Losomäki;76
+73770;Säyneinen-Ala-Siikajärvi;579
+73810;Palonurmi-Aholansaari;323
+73830;Keski-Siikajärvi;281
+73850;Ala-Luosta-Riitasalo;99
+73860;Pykälikkö;0
+73900;Rautavaara Keskus;1418
+73970;Riitasalo;17
+73990;Kangaslahti;152
+74100;Iisalmi Keskus, Eteläinen;3811
+74120;Iisalmi Keskus Pohjoinen;6622
+74130;Kihmula;4935
+74140;Ritoniemi;1241
+74150;Laidunmäki;1079
+74160;Koljonvirta;1007
+74170;Soinlahti;911
+74200;Vieremä Keskus;2443
+74230;Salahmi;441
+74240;Marttisenjärvi;165
+74250;Nissilä;127
+74270;Kauppilanmäki;517
+74300;Sonkajärvi Keskus;2896
+74340;Sukeva-Kainuunmäki;802
+74345;Kalliosuo;93
+74360;Sonkakoski;193
+74380;Jyrkkä;88
+74390;Laakajärvi;78
+74420;Hernejärvi;306
+74470;Paloinen;183
+74490;Koirakoski;130
+74510;Peltosalmi-Sourunsalo;743
+74520;Kirmanranta;578
+74540;Kotikylä;168
+74550;Pörsänmäki;252
+74590;Kurenpolvi;319
+74595;Runni;705
+74610;Honkaranta;197
+74630;Heinäkylä;254
+74640;Sulkavanjärvi;190
+74670;Rapakkojoki;117
+74680;Myllyniemi;491
+74700;Kiuruvesi Keskus;6703
+74720;Niemiskylä;209
+74740;Aittojärvi;306
+74770;Kalliokylä;64
+74840;Koppeloharju;227
+74940;Remeskylä-Tihilänkangas;141
+74980;Tihilänkangas;34
+75500;Nurmes Keskus;4494
+75530;Porokylä;2897
+75650;Savikylä;442
+75680;Ylä-Luosta;117
+75700;Valtimo Keskus;1525
+75710;Karhunpää;294
+75740;Pajukoski;121
+75770;Puukari;188
+75790;Rumo;96
+75840;Ylä-Valtimo;167
+75890;Saramo-Petäiskylä-Mujejärvi;80
+75930;Petäiskylä;64
+75940;Mujejärvi;10
+75970;Kohtavaara;115
+75990;Höljäkkä;144
+76100;Pieksämäki Keskus;5846
+76120;Kotiopuisto;2131
+76130;Pappilanmäki;1022
+76150;Länsirinne;3151
+76280;Partaharju;155
+76620;Pyhitty;160
+76780;Lamminmäki;115
+76850;Naarajärvi;3028
+76940;Nenonpelto;225
+77110;Paltanen;86
+77120;Venetmäki;186
+77140;Huumala;99
+77220;Neuvola;178
+77240;Halkokumpu;166
+77320;Hurskaala;69
+77330;Virtasalmi Keskus;709
+77350;Montola;254
+77380;Kantala;160
+77430;Siikamäki;426
+77460;Maavesi;388
+77480;Savuniemi;53
+77520;Haapakoski-Partaharju;200
+77570;Jäppilä Keskus;791
+77580;Tihusniemi;159
+77600;Suonenjoki Keskus;6718
+77630;Lempyy;227
+77690;Suontee;127
+77700;Rautalampi Keskus;2664
+77770;Myhinpää;121
+77800;Iisvesi;558
+77910;Vaajasalmi;115
+77930;Kerkonjoensuu;436
+77960;Pakarila;5
+78200;Varkaus Keskus;4573
+78210;Kuoppakangas;1718
+78250;Päiviönsaari;1035
+78300;Kommila;2370
+78310;Puurtila;1207
+78400;Luttila;1357
+78480;Timola;547
+78500;Pitkälänniemi-Könönpelto;2586
+78610;Kurola;245
+78710;Akonlahti;691
+78850;Käpykangas;3098
+78870;Kaura-Aho;2459
+78880;Kuvansi;1297
+78900;Ruokokoski;244
+79100;Leppävirta Keskus;5739
+79130;Sorsakoski;1082
+79140;Kotalahti;353
+79150;Konnuslahti-Valkeamäki;415
+79160;Saamaiskylä;65
+79180;Tuppurinmäki;41
+79190;Valkeamäki;37
+79230;Moninmäki;63
+79255;Kurjala-Moninmäki;166
+79265;Puponmäki;103
+79330;Näädänmaa;103
+79350;Itä-Soisalo;109
+79410;Niinimäki;162
+79480;Kangaslampi Keskus;660
+79520;Viljolahti;166
+79600;Joroinen Keskus;2612
+79620;Huutokoski;237
+79630;Kolma;241
+79660;Kerisalo;191
+79680;Lahnalahti;137
+79690;Kaitainen;205
+79700;Heinävesi Keskus;2467
+79810;Karvion kanava;227
+79820;Varistaipale;117
+79830;Palokki;86
+79850;Uusi-Valamo;0
+79860;Suuraho - Uusi-Valamo;186
+79885;Etelä-Petruma;68
+79895;Sarvikumpu;128
+79910;Kerma;290
+79940;Vihtari-Poikiinaho;174
+80100;Joensuu Keskus, Pohjoinen;8860
+80110;Joensuu Keskus Eteläinen;4578
+80130;Kanervala;2417
+80140;Noljakka;8135
+80160;Rantakylä-Latola;10252
+80170;Utra;3832
+80200;Niinivaara;4151
+80210;Sairaala-alue;0
+80220;Penttilä;2786
+80230;Hukanhauta;4796
+80260;Kettuvaara;4697
+80330;Reijola;2354
+80400;Ylämylly;5332
+80510;Onttola-Kunnasniemi;1167
+80710;Lehmo;5241
+80770;Kontiolahti as;672
+80780;Kontioniemi;378
+80790;Kontioranta-Kontioniemi;84
+80850;Paihola;514
+80910;Kulho;1568
+81100;Kontiolahti;2889
+81120;Katajaranta;430
+81160;Romppala-Riihikangas;252
+81200;Eno Keskus;2979
+81210;Louhioja;285
+81220;Jakokoski;720
+81230;Mönni;159
+81235;Lehtoi;260
+81260;Ahveninen;165
+81270;Paukkaja;117
+81280;Uimaharju;1847
+81290;Ukkola;277
+81295;Haapalahti;152
+81320;Kuismavaara;46
+81330;Luhtapohja;97
+81350;Tokrajärvi;154
+81360;Sarvinki;117
+81390;Revonkylä;90
+81420;Tyrjänsaari;86
+81430;Kivilahti;97
+81450;Huhus-Käenkoski;110
+81460;Käenkoski;30
+81470;Naarva;67
+81560;Vuonisjärvi;213
+81570;Kelvä;111
+81590;Vuonislahti;160
+81650;Hattuvaara;161
+81660;Lehmikylä;12
+81700;Lieksa Keskus;5914
+81720;Mähkö-Timitra;3038
+81750;Pankakoski;944
+81810;Jamali;342
+81820;Kylänlahti;346
+81850;Mätäsvaara;164
+81860;Viekijärvi;396
+81950;Pankajärvi;92
+81970;Jongunjoki-Pankajärvi;198
+82110;Heinävaara;1117
+82120;Keskijärvi;233
+82140;Kiihtelysvaara Keskus;984
+82160;Oskola;62
+82170;Uskali;57
+82180;Huhtilampi;91
+82200;Hammaslahti;3245
+82210;Suhmura;562
+82220;Niittylahti;1962
+82290;Nieminen;422
+82300;Rääkkylä Keskus;1067
+82310;Oravisalo-Varpasalo;297
+82335;Rasivaara;689
+82350;Tikkala;366
+82360;Onkamo;427
+82380;Tolosenmäki;485
+82395;Haarajärvi;172
+82430;Puhos-Leinovaara;935
+82460;Hummovaara;129
+82490;Heinoniemi;132
+82500;Kitee Keskus;6360
+82510;Kiteenlahti;285
+82580;Juurikka;408
+82590;Närsäkkälä;132
+82600;Tohmajärvi Keskus;2980
+82655;Värtsilä Keskus;362
+82660;Uusi-Värtsilä;228
+82670;Kaurila;117
+82675;Niirala-Jänisjoki;134
+82685;Littilä;205
+82710;Kovero;477
+82730;Tuupovaara Keskus-Pirttiaho;820
+82750;Öllölä;129
+82760;Hoilola;103
+82770;Kaustajärvi;33
+82815;Marjovaara;161
+82820;Maukkula;269
+82830;Haukivaara;100
+82840;Pirttiaho;38
+82850;Kinnasniemi;74
+82865;Kokinvaara-Mannervaara;41
+82870;Luutalahti;38
+82880;Mannervaara;24
+82900;Ilomantsi Keskus;4054
+82915;Sonkaja;215
+82960;Lehtovaara-Kuikkalampi;149
+82967;Hattu;93
+82980;Möhkö;87
+83100;Liperi Keskus;2637
+83130;Salokylä;379
+83140;Puromäki;137
+83150;Roukalahti;229
+83160;Tutjunniemi;150
+83320;Risti-Juojärvi;82
+83330;Kaatamo;257
+83340;Kaarnalampi;88
+83400;Viinijärvi;1543
+83430;Käsämä;607
+83450;Vaivio;342
+83460;Harinjärvi;279
+83480;Ahonkylä;215
+83500;Outokumpu Keskus;6348
+83550;Kokonvaara;159
+83630;Kuusjärvi;452
+83660;Varislahti;278
+83700;Polvijärvi Keskus;2640
+83720;Kuorevaara;298
+83750;Sotkuma;516
+83760;Sola;78
+83780;Horsmanaho;240
+83825;Kinahmo;300
+83830;Hukkala;135
+83835;Ruvaslahti;231
+83840;Saarivaara;63
+83855;Martonvaara-Sammakkovaara;164
+83870;Polvela-Timovaara;221
+83880;Kajoo;204
+83900;Juuka Keskus;3878
+83910;Paalasmaa;87
+83915;Vihtasuo;9
+83940;Nunnanlahti;364
+83950;Ahmovaara;480
+83960;Koli;270
+83985;Tuopanjoki;3
+84100;Ylivieska Keskus;12771
+84460;Tuomiperä;219
+84540;Vähäkangas;533
+84650;Kantokylä;213
+84770;Isokoski;108
+84880;Raudaskylä;682
+85100;Kalajoki Keskus;6898
+85120;Metsä;325
+85140;Tynkä;868
+85150;Typpö;333
+85160;Rautio;617
+85180;Rahja;481
+85200;Alavieska Keskus;2203
+85210;Kähtävä;253
+85230;Talus;278
+85310;Sievi Asemanseutu;567
+85320;Markkula;280
+85340;Jyrinki;748
+85410;Sievi Keskus;2091
+85430;Koivisto;618
+85450;Joenkylä;290
+85470;Kiiskilampi;555
+85500;Nivala Keskus;7520
+85540;Mönkö;575
+85560;Ainastalo;489
+85580;Karvoskylä;704
+85620;Sarja;298
+85630;Sarjanahde;618
+85640;Maliskylä;558
+85660;Ruuskankylä;178
+85710;Parkkila;387
+85730;Tulppo;140
+85800;Haapajärvi Keskus;5886
+85820;Oksava;951
+85840;Kuona;310
+85900;Reisjärvi Keskus;2078
+85930;Kangaskylä-Tolpankangas;182
+85940;Räisälänmäki;275
+85980;Köyhänperä;376
+86100;Pyhäjoki Keskus;1958
+86110;Parhalahti;379
+86160;Pirttikoski;318
+86170;Yppäri;584
+86210;Petäjäskoski;217
+86220;Merijärvi Keskus;862
+86230;Ylipää;156
+86240;Pyhänkoski;210
+86300;Oulainen Keskus;6991
+86350;Kilpua;143
+86360;Ilveskorpi;234
+86400;Vihanti Keskus;1815
+86440;Lampinsaari;312
+86460;Alpua;425
+86470;Lumimetsä;215
+86480;Karhukangas;55
+86510;Matkaniva;311
+86530;Annonen;190
+86550;Mieluskylä;390
+86600;Haapavesi Keskus;5532
+86650;Kytökylä-Joutenniva;500
+86680;Vatjusjärvi;520
+86690;Karsikas;193
+86710;Kärsämäki Keskus;2718
+86790;Venetpalo;24
+86800;Pyhäsalmi;4505
+86810;Pellikkaperä;190
+86850;Hiidenniemi;251
+86870;Vesikoski;296
+86900;Pyhäkumpu;528
+86980;Väliaho;68
+87100;Kajaani Keskus;5905
+87150;Purola;2288
+87200;Teppana;4108
+87250;Kättö-Kätönlahti;4406
+87300;Palokangas;1149
+87400;Petäisenniska;1822
+87500;Lehtikangas;6102
+87700;Lohtaja-Kettu;4243
+87800;Vuoreslahti;940
+87830;Nakertaja;1516
+87850;Paltaniemi;522
+87900;Karankalahti;498
+87910;Linnantaus;513
+87930;Salmijärvi;383
+87950;Kuluntalahti;901
+87970;Jormua;488
+88120;Tuhkakylä;96
+88200;Otanmäki-Kytökoski;1018
+88270;Vuolijoki Keskus;941
+88300;Paltamo Keskus;2480
+88310;Melalahti;224
+88340;Manamansalo;109
+88350;Kivesjärvi;109
+88380;Mieslahti;248
+88400;Ristijärvi Keskus-Hiisijärvi;1331
+88440;Jokikylä;76
+88460;Hiisijärvi;52
+88470;Kontiomäki;571
+88490;Pohjavaara;266
+88530;Paakki;116
+88600;Sotkamo Keskus;6577
+88610;Vuokatti;2593
+88615;Vuokatin Urheiluopisto;0
+88620;Korholanmäki;499
+88640;Ontojoki;88
+88670;Juurikkalahti-Maanselkä;213
+88690;Maanselkä;63
+88730;Ylä-Vieksi;143
+88740;Härmänkylä-Iivantiira;89
+88760;Iivantiira;161
+88820;Katerma;14
+88900;Kuhmo Keskus;8455
+88930;Lentiira-Kuumu;317
+88940;Kuumu;19
+89110;Törmänmäki;55
+89140;Kotila-Törmänmäki;91
+89200;Puolanka Keskus;2469
+89210;Puokiovaara;65
+89320;Joukokylä;133
+89330;Suolijärvi;72
+89400;Hyrynsalmi Keskus;2264
+89430;Hoikka;54
+89440;Sakara;114
+89540;Moisiovaara;229
+89560;Karhuvaara;77
+89600;Ämmänsaari,;5584
+89610;Jumaliskylä;56
+89640;Pesiökylä;136
+89660;Takalo;109
+89670;Näljänkä;254
+89680;Vaaranniva;101
+89730;Ahjola;38
+89740;Kianta;74
+89760;Piispajärvi-Peranka-Kaikkoinen;106
+89770;Peranka;42
+89780;Kaikkonen;62
+89800;Suomussalmi Keskus;1547
+89830;Ala-Vuokki;54
+89840;Ylä-Vuokki;81
+89920;Ruhtinansalmi;419
+90100;Oulu Keskus;7959
+90120;Heinäpää;6466
+90130;Raksila;5897
+90140;Karjasilta;3090
+90150;Höyhtyä;5822
+90220;Kontinkangas;630
+90230;Värttö-Maikkula;7359
+90240;Iinatti;6391
+90250;Kaukovainio;6636
+90310;Madekoski;2994
+90400;Äimärautio,;544
+90410;Kaakkuri;4458
+90420;Metsokangas;9128
+90440;Kempele Keskus;8963
+90450;Honkanen;7175
+90460;Oulunsalo Keskus;8555
+90470;Varjakka;1276
+90480;Hailuoto;983
+90500;Tuira;7736
+90510;Hietasaari;1727
+90520;Taskila-Toppila;4583
+90530;Välivainio;5185
+90540;Kuivasjärvi;9898
+90550;Pyykkösjärvi-Puolivälikangas;4467
+90560;Koskela-Oulu;3025
+90570;Kaijonharju-Linnanmaa;6874
+90580;Rajakylä;4713
+90590;Teknologiakylä;0
+90620;Rusko-Heikinharju;575
+90630;Korvensuora;6413
+90650;Haapalehto;10570
+90660;Sanginsuu;665
+90670;Hiukkavaara;212
+90800;Pateniemi;8373
+90810;Kiviniemi;2953
+90820;Kello;3258
+90830;Haukipudas Keskus;8027
+90840;Haukipudas Asemanseutu;2008
+90850;Martinniemi;2189
+90860;Halosenniemi;564
+90900;Kiiminki Keskus;6556
+90910;Kontio;1633
+90940;Jääli;5094
+91100;Ii Keskus;6295
+91110;Ii Asemanseutu;902
+91140;Olhava;407
+91150;Yli-Olhava;170
+91200;Yli-Ii Keskus;1313
+91210;Jakkukylä;491
+91240;Tannila;220
+91260;Pahkakoski-Räinä;130
+91300;Ylikiiminki Keskus;3382
+91310;Arkala;217
+91410;Jokirinne;967
+91430;Leppiniemi;163
+91500;Muhos Keskus;7220
+91510;Rova;476
+91560;Kylmälänkylä;132
+91600;Utajärvi Keskus;2189
+91620;Sanginkylä;180
+91630;Juorkuna;108
+91640;Särkijärvi;108
+91660;Ahmas;292
+91670;Rokua;0
+91700;Vaala Keskus-Oterma;1628
+91710;Jylhämä;66
+91720;Oterma;82
+91730;Kankari;108
+91740;Jaalanka-Liminpuro;126
+91750;Liminpuro;66
+91760;Säräisniemi;302
+91780;Neittävä;136
+91790;Nuojua;164
+91800;Tyrnävä;5678
+91900;Liminka Keskus;5801
+91910;Tupos;3090
+91930;Ala-Temmes;469
+91950;Temmes;705
+91980;Lumijoki;2005
+92100;Raahe Keskus;3888
+92120;Ollinsaari-Mestauskallio;3227
+92130;Isoholmi-Antinkangas;3286
+92140;Pattijoki Keskus;6289
+92150;Kummatti-Junnilanmäki;1461
+92160;Saloinen;1782
+92180;Lapaluoto;148
+92210;Arkkukari;898
+92220;Piehinki;723
+92230;Mattilanperä;238
+92240;Lasikangas;302
+92260;Kopsa;320
+92320;Siikajoki Keskus;1076
+92330;Karinkanta;220
+92350;Revonlahti;812
+92400;Ruukki Keskus;1814
+92430;Paavola-Huumola;1017
+92440;Saarikoski;36
+92450;Luohua;332
+92470;Tuomioja;260
+92500;Rantsila Keskus;1576
+92520;Sipola;81
+92530;Mankila;209
+92600;Pulkkila Keskus;1249
+92610;Vorna;93
+92620;Piippola Keskus;957
+92640;Leskelä;200
+92650;Laakkola;174
+92700;Kestilä;1429
+92810;Pelsonsuo;190
+92830;Veneheitto;279
+92910;Tavastkenkä;289
+92920;Ahokylä;79
+92930;Pyhäntä;1188
+93100;Pudasjärvi Keskus;5117
+93140;Kipinä;486
+93160;Hetejärvi;277
+93170;Yli-Kollaja;117
+93180;Ikosenniemi;31
+93187;Ala-Siurua;154
+93190;Yli-Siurua-Ikosenniemi;136
+93195;Kokkokylä;68
+93220;Livo;117
+93225;Pärjänsuo;259
+93240;Rytinki;132
+93250;Sarajärvi;283
+93270;Sotkajärvi;497
+93277;Iinattijärvi;156
+93280;Syöte;278
+93290;Pintamo;91
+93350;Jaurakkajärvi;154
+93390;Puhoskylä;230
+93400;Taivalkoski Keskus;3296
+93420;Jurmu;246
+93440;Loukusa;62
+93470;Inget;136
+93540;Tyrövaara;346
+93590;Vanhala;219
+93600;Kuusamo Keskus;10901
+93630;Kuoliovaara;190
+93680;Vasaraperä;150
+93730;Poussu;51
+93760;Kemilä-Murtovaara-Teeriranta;35
+93780;Teeriranta;26
+93820;Aikkila-Rukatunturi;145
+93825;Rukatunturi;243
+93840;Patoniemi;19
+93850;Käylä-Patoniemi;294
+93920;Määttälänvaara;166
+93940;Vuotunki;98
+93990;Kärpänkylä;16
+93999;Kuusamo;3796
+94100;Kemi Keskus;6546
+94200;Torvinen-Vainio;2669
+94300;Pajusaari;324
+94400;Keminmaa Keskus;2872
+94430;Kaakamo;1022
+94450;Lassila-Jokisuu;2407
+94460;Ruottala;195
+94500;Lautiosaari;2178
+94600;Ristikangas-Kivikko;2809
+94700;Takajärvi-Haukkari;6311
+94720;Peurasaari;1071
+94800;Veitsiluoto;0
+94830;Pikku Berliini-Hepola;1922
+94900;Ajos;369
+95100;Kuivaniemi Keskus;1048
+95110;Kuivaniemi kk;320
+95130;Hyryoja;169
+95160;Oijärvi-Lamminperä;230
+95200;Simo Keskus;1404
+95210;Filpus;251
+95220;Simoniemi;325
+95225;Viantie;250
+95230;Maksniemi;863
+95255;Alaniemi;91
+95260;Tainionjoki;57
+95270;Yli-Kärppä-Tainionjoki;152
+95300;Tervola Keskus;1934
+95310;Liedakkala;459
+95315;Törmä;216
+95325;Paakkola;179
+95330;Tervola;534
+95340;Loue;287
+95350;Peura;22
+95355;Koivu-Peura;295
+95365;Maula;279
+95370;Itäkoski;206
+95375;Yli-Paakkola;108
+95400;Tornio Keskus;2699
+95410;Kiviranta;3173
+95420;Miukki-Palosaari-Luotomäki;3954
+95430;Suensaari;1269
+95440;Kyläjoki;956
+95450;Kirkonmäki;3560
+95460;Kantojärvi;1086
+95470;Pirkkiö-Röyttä;977
+95490;Terästehtaanalue;0
+95500;Vojakkala-Yli-Liakka;1106
+95520;Kukkola;343
+95530;Karunki;812
+95540;Korpikylä;77
+95560;Aapajoki;222
+95590;Arpela;889
+95600;Ylitornio Keskus;2243
+95610;Kainuunkylä;249
+95615;Pekanpää;116
+95620;Aavasaksa;474
+95630;Kuivakangas;147
+95635;Kaulinranta;242
+95640;Juoksenki;232
+95645;Turtola;269
+95655;Etelä-Portimojärvi;133
+95660;Kantomaanpää;195
+95670;Pessalompolo;130
+95675;Meltosjärvi;138
+95680;Lohijärvi;60
+95690;Mellakoski;199
+95700;Pello Keskus;2404
+95710;Naamijoki;51
+95720;Jarhoinen;35
+95750;Orajärvi;126
+95760;Konttajärvi;113
+95770;Lankojärvi;199
+95780;Sirkkakoski;127
+95790;Lampsijärvi;98
+95800;Sieppijärvi-Taapajärvi;507
+95830;Vaattojärvi;178
+95840;Venejärvenkylä;72
+95850;Ruokojärvi;33
+95860;Pasmajärvi;44
+95900;Kolari Keskus;1867
+95920;Saaripudas;173
+95930;Äkäsjoensuu,;131
+95940;Tapojärvi;55
+95950;Kihlanki-Tapojärvi;46
+95970;Äkäslompolo,;561
+95980;Ylläsjärvi;243
+95990;Kurtakko;80
+96100;Rovaniemi Keskus;9292
+96190;Lapinrinne-Ahokangas;3822
+96200;Sahanperä-Ratantaus;4852
+96300;Niemelänkangas-Korvanniemi;5450
+96320;Teollisuuskylä;35
+96400;Pullinranta-Kiiruna;3586
+96440;Ounasrinne;3255
+96460;Pöykkölä;2552
+96500;Korkalovaara;5754
+96600;Koskenkylä;1280
+96700;Niskanperä;813
+96800;Ylikylä-Patosaari;1590
+96900;Saarenkylä;7275
+96910;Syväsenvaara;2895
+96930;Napapiiri Rovaniemi;63
+96960;Someroharju;121
+97110;Rautionsaari;549
+97130;Hirvas;783
+97140;Muurola;1267
+97145;Totonvaara;12
+97160;Petäjäinen;103
+97170;Jaatila;163
+97220;Sinettä;852
+97240;Sonka;311
+97250;Raanujärvi;218
+97280;Tapio;325
+97290;Marraskoski;103
+97310;Patokoski;140
+97320;Marrasjärvi;73
+97330;Rattosjärvi;57
+97335;Ruuhivaara;84
+97340;Meltaus-Jääskö-Perttaus;342
+97370;Unarin-Luusua;54
+97380;Kukasranta;32
+97390;Kierinki;143
+97420;Lohiniva;448
+97430;Taapajärvi;4
+97470;Alakylä-Sailehto;153
+97510;Vikajärvi;198
+97520;Nampa;49
+97530;Nampa-Yli-Nampa;90
+97540;Tiainen;90
+97580;Misi;82
+97590;Raajärvi;8
+97610;Oikarainen;487
+97615;Tennirova;30
+97620;Viiri-Tennirova;84
+97625;Vanttauskoski;341
+97630;Pekkala;106
+97635;Juuniemi;85
+97645;Juujärvi;116
+97650;Juotas;150
+97655;Autti;169
+97665;Pohjasperä;192
+97670;Kivitaipale;267
+97675;Narkaus-Kämät;147
+97680;Saari-Kämä;87
+97685;Siika-Kämä;45
+97690;Sulaoja;133
+97700;Ranua Keskus;3239
+97715;Raiskio;194
+97720;Yli-Simo-Raiskio;94
+97760;Saariharju;174
+97765;Kuha-Impiö-Itäranua;106
+97770;Petäjäjärvi;11
+97780;Kuukasjärvi-Petäjäjärvi;91
+97785;Kelankylä;78
+97810;Suorsa;22
+97815;Pernu-Suorsa;70
+97820;Perä-Posio;120
+97840;Lehtiniemi;113
+97850;Ristilä;95
+97870;Jumisko;47
+97880;Nolimo-Jumisko;53
+97890;Karjalaisenniemi;252
+97895;Mourujärvi;102
+97900;Posio Keskus;2019
+97920;Suonnankylä;99
+97925;Tolva;80
+97940;Lohiranta;94
+97950;Säikkä;23
+97960;Kuloharju-Säikkä;106
+97965;Kynsilä;104
+97970;Sirniö;84
+97980;Anetjärvi;143
+97999;Köngäs;12
+98100;Kemijärvi Keskus;2775
+98120;Särkikangas;1871
+98230;Luusua-Karsimus;218
+98310;Karvakko;578
+98350;Tapionniemi;148
+98360;Vuostimo;153
+98400;Isokylä-Ryti-Lehtola;653
+98420;Ryti-Lehtola;137
+98440;Kallaanvaara;801
+98450;Kostamo;293
+98500;Pelkosenniemi Keskus;522
+98510;Saunavaara;52
+98530;Pyhätunturi;211
+98550;Suvanto;31
+98560;Kairala-Luiro;87
+98570;Aapajärvi;41
+98580;Luiro;39
+98600;Kursu;282
+98620;Pahkakumpu;74
+98630;Ahvenselkä;82
+98660;Salmivaara;148
+98710;Joutsijärvi;122
+98720;Suomutunturi;111
+98760;Hirvasvaara-Paloperä;77
+98770;Aholanvaara;47
+98780;Maaninkavaara;97
+98790;Paloperä;44
+98800;Savukoski Keskus-Värriö;573
+98810;Lunkkaus;41
+98820;Värriö;54
+98830;Martti-Ruuvaoja;173
+98840;Ruuvaoja;12
+98850;Kuosku;136
+98900;Salla Keskus;2331
+98920;Kelloselkä;165
+98930;Kotalankylä;115
+98950;Saija;162
+98960;Naruska;57
+98970;Onkamojärvi;79
+98980;Kallunki-Niemelä;40
+98995;Hautajärvi;280
+99100;Kittilä Keskus;2858
+99110;Kaukonen;322
+99120;Kallo;139
+99130;Sirkka-Rauhala;1324
+99135;Rauhala;28
+99140;Köngäs-Hanhivaara;223
+99150;Tepasto;105
+99160;Lompolo-Pulju;67
+99170;Pulju;26
+99180;Rautusjärvi;63
+99190;Hanhimaa;45
+99195;Pokka;9
+99230;Jeesiöjärvi;42
+99240;Kuivasalmi;30
+99250;Kiistala-Jeesiöjärvi;83
+99270;Hormakumpu;36
+99280;Tepsa;86
+99290;Kelontekemä;95
+99300;Muonio Keskus;1896
+99310;Yli-Muonio;163
+99320;Kätkäsuvanto;118
+99330;Pallastunturi;0
+99340;Raattama-Pallastunturi;146
+99360;Kangosjärvi;126
+99400;Enontekiö Keskus;702
+99410;Vuontisjärvi;110
+99420;Peltovuoma;179
+99430;Nunnanen;82
+99440;Leppäjärvi;147
+99450;Palojoensuu-Kuttanen;105
+99460;Kuttanen;56
+99470;Karesuvanto;281
+99490;Kilpisjärvi;157
+99510;Raudanjoki-Seipäjärvi;74
+99520;Seipäjärvi;39
+99530;Vuojärvi;90
+99540;Torvinen;161
+99550;Aska-Orakylä;86
+99555;Luosto;101
+99560;Orakylä;282
+99600;Sodankylä Keskus;5576
+99610;Siurunmaa;42
+99620;Kelujärvi;237
+99640;Tanhua;90
+99645;Lokka;86
+99650;Sattanen;285
+99655;Sattasvaara;125
+99660;Kersilö;46
+99665;Moskuvaara;44
+99670;Petkula;41
+99690;Vuotso;280
+99695;Tankavaara;7
+99710;Vaalajärvi;304
+99720;Riipi;201
+99740;Syväjärvi;188
+99750;Sassali;58
+99760;Uimaniemi;24
+99770;Jeesiö;140
+99800;Ivalo;4841
+99830;Saariselkä;349
+99860;Nellim;137
+99870;Inari Keskus-Lemmenjoki;951
+99885;Lemmenjoki;49
+99910;Kaamanen-Partakko;197
+99930;Sevettijärvi-Näätämö;109
+99940;Näätämö;21
+99950;Karigasniemi;299
+99980;Utsjoki Keskus;738
+99990;Nuorgam;209
