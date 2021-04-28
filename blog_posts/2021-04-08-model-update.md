@@ -1,3 +1,4 @@
+# DON'T EDIT in the repo. The current one is elsewhere. 
 # Here we go again, although this is not the final title
 
 Some years ago, we needed apartment price estimates for areas for which such are not provided, due to too small population or too few transactions. We ended up creating a model based on the hierarchy of zip codes and making a public demonstration out of it --- Kannattaako Kauppa. Although the associated quadratic temporal model served well in its purpose years ago, its limits have become apparent, and the pandemic with its new anomalies now finally pushed us to update not only data but the model as well.
