@@ -137,15 +137,45 @@ pnro_sf <- sf::st_as_sf(pnro.sp)  %>%
 pnro_sf %>% left_join(res_short) %>% filter(!is.na(type)) %>%
   mutate(lprice = log(price2020),
          type = factor(type, levels = c('orig', 'pred'),
-                       labels = c('Observed price for 2020', 'Prediction for 2020'))) %>%
+                       labels = c('Tilastotieto 2020', 'Arvio 2020'))) %>%
   ggplot(aes(fill=price)) + geom_sf(size=.1) + 
   scale_fill_viridis_c(na.value="#00000000", trans= 'log', labels = function(x)round(x,-2)) +
-  theme_void() + guides(fill=guide_colorbar(title = '€/sqm', label = T, ticks = F)) +
+  theme_void() + guides(fill=guide_colorbar(title = '€/m²', label = T, ticks = F)) +
   theme(plot.margin = unit(c(0, 2, 0, 0), "lines"),
         strip.text = element_text(face="bold", size=10, margin = margin(.1, 0, .1, 0, "cm"))) + 
   facet_wrap(~type)
-ggsave('figs/sparsitymap.png')
+ggsave('figs/sparsitymap_fin.png')
 
+
+###### Blog hero
+pnro2020 = pnro.ashi.dat %>% filter(year == '2020') %>% 
+  filter(!is.na(price)) %>% select(pnro, price)
+res_short_2020 = res %>% mutate(type = 'orig') %>%
+  left_join(pnro2020) %>% mutate(pick = !is.na(price))
+res_short_2nd = res_short_2020 %>%
+  mutate(type='second',
+         pick =  !is.na(price) | grepl('3', pnro, fixed=T)) 
+res_short_3rd = res_short_2020 %>%
+  mutate(type='third',
+         pick =  !is.na(price) | grepl('3', pnro, fixed=T) | grepl('8', pnro, fixed=T) | grepl('4', pnro, fixed=T))
+long_df = res_short_2020 %>%
+  rbind(res_short_2nd) %>%
+  rbind(res_short_3rd) %>%
+  rbind(res %>% mutate(type = 'pred', price = price2020, pick = T)) %>%
+  mutate(price = price2020) 
+long_df$price[long_df$pick == F] = NA
+
+pnro_sf <- sf::st_as_sf(pnro.sp)  %>% 
+  sf::st_transform("+proj=laea +y_0=0 +lon_0=25 +lat_0=62 +ellps=WGS84 +no_defs") 
+pnro_sf %>% left_join(long_df) %>% filter(!is.na(type)) %>%
+  mutate(lprice = log(price2020),
+         type = factor(type, levels = c('orig', 'second', 'third','pred'),
+                       labels = c('1', '2', '3','4'))) %>%
+  ggplot(aes(fill=price)) + geom_sf(size=.1) + 
+  scale_fill_viridis_c(na.value="#00000000", trans= 'log', labels = function(x)round(x,-2)) +
+  theme_void() + guides(fill = F) +
+  facet_wrap(~type, ncol = 4)
+ggsave('figs/heroimage2.png')
 
 # Plots to show data scarcity
 d %>% dplyr::select(pnro, year, n) %>%
