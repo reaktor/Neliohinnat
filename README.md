@@ -10,19 +10,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 The service was updated to include apartment price data and predictions up to 2020. Data fetching queries were fixed to match pxweb's new api and minor refactoring was done. Data and sources are now in `update_2021` folder.
 
-The model was revised quite thoroughly to include yearly varying coefficients for demographic covariates from StatFi. The temporal part of the model is no more fixed to be quadratic but is essentially nonparametric thanks to the yearly coefficients. Instead of forecasting future prices, which is difficult due to unpredictable real world events, the focus is now on nowcasting present and past prices. The blog post at [Reaktor's blog](link here) as well as the actual [source code]() describe the updated model in more detail. Last, a facelift was given to the interactive visualisation.
-
-## UPDATE 7.3.2016
-
-The service was update with apartment price data from year 2015, and the predictions are now given for year 2017. The repository was updated so that all original scripts and data were moved to folders ending in `_2015`, and new scripts and data are in folders ending in `_2016`.
+The model was revised quite thoroughly to include yearly varying coefficients for demographic covariates from StatFi. The temporal part of the model is no more fixed to be quadratic but is essentially nonparametric thanks to the yearly coefficients. Instead of forecasting future prices, which is difficult due to unpredictable real world events, the focus is now on nowcasting present and past prices. The blog post at [Reaktor's blog](https://www.reaktor.com/blog/how-to-estimate-housing-prices-with-demographic-data/) as well as the actual [source code](https://github.com/reaktor/Neliohinnat/blob/master/update_2021/source/models/nominal_emp_model.stan) describe the updated model in more detail. Last, a facelift was given to the interactive visualisation.
 
 ## Introduction
 
-Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus. See the interactive visualisation [Kannattaakokauppa](http://kannattaakokauppa.fi/#/) and related blog posts at [Reaktor](http://reaktor.com/blog/asuntojen-trendit-ja-miten-niista-tehdaan-luotettavia-ennusteita), [rOpenGov](http://ropengov.github.io/r/2015/06/11/apartment-prices/), and [Louhos](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). 
+Apartment price trends across Finland, on the level of zip codes, based on open data from Tilastokeskus. See the interactive visualisation [Kannattaakokauppa](https://kannattaakokauppa.fi/#/) and related blog post at [Reaktor](https://www.reaktor.com/blog/how-to-estimate-housing-prices-with-demographic-data/) as well as older ones in [rOpenGov](http://ropengov.github.io/r/2015/06/11/apartment-prices/), and [Louhos](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/). 
 
 Discussion on [Hacker News](https://news.ycombinator.com/item?id=9503580).
 
-Also news coverage at [HS](http://www.hs.fi/kotimaa/a1430886950224), [Tivi](http://www.tivi.fi/Kaikki_uutiset/2015-05-07/Ryhtym%C3%A4ss%C3%A4-asuntokaupoille-Katso-miten-asuntosi-hinta-kehittyy-tulevaisuudessa-3221240.html) and [Helsingin Uutiset](http://www.helsinginuutiset.fi/artikkeli/284968-nain-paljon-asuntosi-maksaa-vuonna-2016-koko-suomen-kattava-ennustepalvelu-aloitti).
+Also news coverage at [Talouselämä](https://www.talouselama.fi/uutiset/te/d022d625-3669-4451-9e9a-9c97bb4c7378), [Kauppalehti](https://www.kauppalehti.fi/uutiset/asuntojen-hinnat-kohosivat-porilaisella-alueella-nopeammin-kuin-helsingin-ytimessa-katso-hakukoneesta-kuuluuko-naapurustosi-kovimpien-nousijoiden-listalle/dd8313d4-f8c4-4190-b74c-c366deb2713d) and [Kaleva](https://www.kaleva.fi/kaijonharjun-ja-linnanmaan-asuntojen-hinnat-nousiv/3561834).
 
 ## Data sources
 
@@ -46,7 +42,7 @@ See the `update_2021/source`-folder for latest source code.
 
 ## Statistical model
 
-See description in English in [rOpenGov-blog](http://ropengov.github.io/r/2015/06/11/apartment-prices/) and in Finnish in [Louhos-blog](http://louhos.github.io/news/2015/05/07/asuntohintojen-muutokset/).
+See description in English in [Reaktor-blog](https://www.reaktor.com/blog/how-to-estimate-housing-prices-with-demographic-data/).
 
 ## Future development
 
