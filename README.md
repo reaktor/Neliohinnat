@@ -42,8 +42,18 @@ See the `update_2021/source`-folder for latest source code.
 
 ## Statistical model
 
-See description in English in [Reaktor-blog](https://www.reaktor.com/blog/how-to-estimate-housing-prices-with-demographic-data/).
+See description in English in [Reaktor-blog](https://www.reaktor.com/blog/how-to-estimate-housing-prices-with-demographic-data/). There are three models in the source folder: base, factorial, and nominal. The first one is the original one from 2015 and the second one the original with a factorial covarite instead of population density. The nominal then is the one described in the blog and used to obtain the latest results.
+
+### Instructions
+Whichever model you want to use, run the scripts in the following order:
+1. `get_data.R`
+2. `run_XX_model.R`
+3. `postprocess_xx_model.R`
+4. `result_analysis.R`
+
 
 ## Future development
 
 The latest update was quite big. Development possibilities would be to at least model prices of apartments with different room numbers separately with something hierarchical since the data is already available from StatFi. Another obvious possibility is to further study the effects of the covariates and perhaps introduce new ones from Paavo or from other open data sources.
+
+The codebase should also be refactored properly.
