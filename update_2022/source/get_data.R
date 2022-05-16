@@ -60,8 +60,8 @@ stopifnot(all(nchar(as.character(pnro.ashi.raw$Postinumero))==5))
 #   d <- pxweb_interactive()
 # but Paavo I couldn't find. 
 # The old query works, except for zip codes that need to be updated (maybe). 
-# (One could also load the whole table from the web interface, but this 
-#  selects the right variables and is maybe a little bit safer, format-wise.)
+# (One could also load the whole table from the web interface, but the thing below 
+#  selects the right variables and is maybe a little bit safer format-wise.)
 
 zip_raw = get_zipcodes(year=2022)
 pq <- pxweb_query("source/queries/paavo_population_query.json")

@@ -5,8 +5,10 @@ library('tictoc')
 rstan_options(auto_write = TRUE)
 options(mc.cores = detectCores() - 1)
 
-UPDATE_VERSION = 'update_2022'
-BASE_PATH = paste0('./', UPDATE_VERSION)
+#UPDATE_VERSION = 'update_2022'
+#BASE_PATH = paste0('./', UPDATE_VERSION)
+
+# You are supposedly running this from the 'update_202x' directory.
 
 source("source/common.R")
 
@@ -32,8 +34,7 @@ d <- d_pred %>% filter(!is.na(price))
 covs <- as.matrix(dplyr::select(d, starts_with('c_')))
 covs_pred <- as.matrix(dplyr::select(d_pred, starts_with('c_')))
 n_covs <- dim(covs)[2]
-NOMINAL_EMP_MODEL <- "source/models/nominal_emp_model.stan"
-m <- stan_model(file=NOMINAL_EMP_MODEL)
+m <- stan_model(file="source/models/nominal_emp_model.stan")
 
 s.f <- function (nchains=1, iter=2500, warmup=1000, thin=25, refresh=-1)
   sampling(m, data=c(with(d,
@@ -74,16 +75,16 @@ if (F) {
 }
 
 # # Run longer chains to get close to final results. 
-# ≈ 16h in AWS
-if (T) {
+# ≈ 16h in AWS, but some chains took ≈20...22 hours.
+if (F) {
   s <- s.f(nchains=6, iter=2000, warmup=1000, thin=20, refresh=50)
   saveRDS(s, "data/samples_1000+1000_20220426.rds")
 }
 
 # Run final results.
-# ≈ 3.4 days in AWS
-if (F) {
+# ≈ 3.4 days in AWS, so some chains would take ≈5 days (Now Fri 7pm, so Mon to Wed) 
+if (T) {
   s <- s.f(nchains=8, iter=10000, warmup=5000, thin=100, refresh=50)
-  saveRDS(s_long, "data/samples_5000+5000_20220426.rds")
+  saveRDS(s, "data/samples_5000+5000_20220426.rds")
 }
 
