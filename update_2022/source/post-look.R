@@ -1,24 +1,17 @@
 library(dplyr)
 library(ggplot2)
-library(rstan)
 
+# Lots of things needed here. 
 
-UPDATE_VERSION = 'update_2022'
-BASE_PATH = paste0('../../', UPDATE_VERSION)
+source("source/common.R")
 
-source(paste0(BASE_PATH, '/source/common.R'))
+load("data/pnro_data_20220426.RData") # pnro.ashi.dat, pnro.population, pnro.sp
 
-## PREPARE DATA FOR STAN ##########
+d_covs0 <- get_covariates(pnro.population, impute = T, include_intercept = T, level3_dummies = F)
+d_covs <- crossing(d_covs0, distinct(pnro.ashi.dat, year))
+d <- readRDS("data/d_20220426.rds") 
 
-load(paste0(BASE_PATH, '/data/pnro_data_20210304.RData'))
-d_covs = pnro.population %>%
-  get_covariates(impute = T, include_intercept = T, level3_dummies = F) %>%
-  full_join(data.frame(year = unique(pnro.ashi.dat$year)), by=character())
-
-fit <- readRDS("models/nom_emp_samples_8chains_1000+1000t20_20210330.rds")
-
-STAN_INPUT = paste0(BASE_PATH, '/data/d_20210304.rds')
-d <- readRDS(STAN_INPUT) %>% as_tibble
+fit <- readRDS("data/samples_5000+5000_20220426.rds")
 
 # Slot statistics
 n_slots <- d %>% select(pnro, year, n) %>% mutate(n=ifelse(is.na(n), 0, n)) 
@@ -43,6 +36,7 @@ d_covs_pure <- d_covs %>% select(matches("^c_"))
 cov_names <- colnames(d_covs_pure)
 ICEPT_IDX <- match("c_intercept", cov_names)
 years <- sort(unique(d2$year))
+pnros <- d_covs0$pnro
 
 cov_year_samples <- rstan::extract(fit, pars="beta_year")[[1]]
 
@@ -68,7 +62,7 @@ p1 + facet_wrap(~ var, scales="free_y"); ggsave("figs/cov-timeseries-varscale.pn
 # Variances of slot re
 rstan::extract(fit, pars="ysigma")[[1]] %>% 
   data.frame %>% setNames(years) %>% pivot_longer(matches("^20")) %>% 
-  ggplot(aes(x=value, y=name)) + geom_point(alpha=.3, size=.6) + 
+  ggplot(aes(x=value, y=name)) + geom_point(alpha=.04, size=2) + 
   theme_minimal(14) + ylab("year") + xlab("ysigma")
 ggsave("figs/stds-of-slot-re.png")
 
@@ -86,10 +80,10 @@ beta_samples_df %>% filter(year %in% c(2020, 2021)) %>%
   mutate(change_20_21=y2021-y2020) %>%
   ggplot(aes(y=var, x=change_20_21)) + geom_point(alpha=.05) + 
   xlim(-.15, .1) +
-  xlab("change of coefficients from 2019 to 2020") + ylab("") +
+  xlab("change of coefficients from 2020 to 2021") + ylab("") +
   geom_vline(xintercept = 0, color="red") + 
   theme_minimal(14)
-ggsave("figs/cov-change-1920.png")
+ggsave("figs/cov-change-2021.png")
 
 
 ### SVD for covariates x years
@@ -130,7 +124,7 @@ d4 <- d2 %>% mutate(X1=pnro_scores[,1], X2=pnro_scores[,2]) %>% filter(year==202
 pnro_sf %>% left_join(d4) %>% #mutate(X1 = clipclip(X1), X2=clipclip(X2)) %>%
   filter(substr(pnro, 1, 1) %in% c("0", "1", "2", "3")) %>%
   # filter(substr(pnro, 1, 1) %in% c("0", "2", "3")) %>%
-  ggplot(aes(fill=clipclip(X2-.4*X1))) + geom_sf(size=.1) + scale_fill_viridis_c(na.value="#00000000")
+  ggplot(aes(fill=clipclip(X2-.4*X1, xmax=1))) + geom_sf(size=.1) + scale_fill_viridis_c(na.value="#00000000")
 
 
 # We need to do the same for samples, to get confidence intervals.
@@ -143,7 +137,8 @@ us_df <- lapply(seq_along(cov_sols),
 
 #us_df %>% ggplot(aes(x=X1, y=X2)) + geom_point(alpha=.2, size=.2) + facet_wrap(~ year)
 
-us_df %>% ggplot(aes(x=name, y=X2, group=sample)) + geom_line(alpha=.05) + geom_point(alpha=.05)
+us_df %>% ggplot(aes(x=name, y=X2, group=sample)) + geom_path(alpha=.05) + geom_point(alpha=.05)
+us_df %>% ggplot(aes(x=X1, y=X2, group=sample, color=name)) + geom_path(alpha=.1) 
 
 # This is markedly different from post_mean_u
 post_svd_mean_u <- us_df %>% group_by(name) %>% summarise(X1=mean(X1), X2=mean(X2))
@@ -156,7 +151,7 @@ us_df %>%
   xlab("PC1: \"Urbanisation/centralisation index\"") + ylab("PC2: \"Suburb index\"") +
   theme_classic(14) +
   theme(axis.text.x = element_blank(), axis.text.y = element_blank()) #+ coord_equal()
-ggsave("../../figs/princomps-2021.png")
+ggsave("figs/princomps-2021.png")
 
 # 2021 anomalous?
 us_df %>% mutate(year=name) %>% group_by(sample) %>% arrange(X2) %>% summarise(min_year=year[1]) %>% 
@@ -174,12 +169,12 @@ vs_df <- lapply(seq_along(cov_sols),
 vs_df %>% ggplot(aes(x=X1, y=name)) + geom_point(alpha=.05) + 
   geom_vline(xintercept = 0, color="red", alpha=.5) + 
   xlab("Covariate coeffs on PC1 (centralization)") + ylab("") + theme_minimal(14)
-ggsave("../../figs/PC1-coeffs.png")
+ggsave("figs/PC1-coeffs.png")
 
 vs_df %>% ggplot(aes(x=X2, y=name)) + geom_point(alpha=.05) + 
   geom_vline(xintercept = 0, color="red", alpha=.5) + 
   xlab("Covariate coeffs on PC2") + ylab("") + theme_minimal(14)
-ggsave("../../figs/PC2-coeffs.png")
+ggsave("figs/PC2-coeffs.png")
 
 ### The following is for SVD'ing pnro x year directly, without covariates.
 
@@ -190,7 +185,9 @@ d3 <- d2 %>%
   summarise_each(mean)
 
 # sol <- princomp(d3 %>% select(-pnro))
-sol <- svd(d3 %>% select(-pnro) %>% scale(center=T, scale=F)) 
+sol <- svd(scale(d3 %>% select(-pnro) %>% apply(., 1, \(x) x-mean(x)) %>% t, center=T, scale=F))
+
+#sol <- svd(d3 %>% select(-pnro) %>% scale(center=T, scale=F)) 
 d_loadings <- data.frame(X1=sol$v[,1], X2=sol$v[,2]) %>% mutate(year=as.numeric(colnames(d3)[-1]))
 # Again, the rotation is basically identity and can be skipped.
 if (F) {
@@ -203,29 +200,119 @@ if (F) {
 scores_rotated <- sol$u[,c(1, 2)] %*% rot12 %>% scale
 d4 <- d3 %>% mutate(X1 = scores_rotated[,1], X2 = scores_rotated[,2])
 
-X2_pnro_plot <- function (d, zip_pattern, xmin=-2, xmax=2) 
-  pnro_sf %>% left_join(d) %>% mutate(X1 = clipclip(X1, xmin, xmax), X2=clipclip(X2, xmin, xmax)) %>%
-    filter(grepl(zip_pattern, pnro)) %>%
-    ggplot(aes(fill=-X2)) + geom_sf(size=.1) + scale_fill_viridis_c(na.value="#00000000")
+southp <- function(geometry) sf::st_coordinates(sf::st_centroid(geometry))[,2] < 4e5
 
-X2_pnro_plot(d4, "^", -2, 2); ggsave("../../figs/map-Finland-pnro-price-princomp2.png")
-X2_pnro_plot(d4, "^00", -2, 2); ggsave("../../figs/map-Hki-pnro-price-princomp2.png")
-X2_pnro_plot(d4, "^0[012]", -2, 2); ggsave("../../figs/map-capital-pnro-price-princomp2.png")
+plot_scalar <- function (d, var, pred) {
+  var <- enquo(var); pred <- enquo(pred)
+  pnro_sf %>% left_join(d) %>%
+  filter(!!pred) %>%
+  ggplot(aes(fill = !!var)) + geom_sf(size=.1) +
+  scale_fill_viridis_c() }
+
+pnro_sf %>% left_join(d4) %>% ggplot(aes(x=X1, y=log(population))) + geom_point()
+pnro_sf %>% left_join(d4) %>% ggplot(aes(x=X2, y=log(population))) + geom_point()
+
+good_pnro1 <- quote(pnro != "70210")
+good_pnro2 <- quote(pnro != "70210" & X2<1.0)
+
+plot_scalar(d4, -X1, grepl("^", pnro) & !!good_pnro1); ggsave("figs/map-Finland-pnro-price-princomp1.png")
+plot_scalar(d4, X2, grepl("^", pnro) & !!good_pnro2); ggsave("figs/map-Finland-pnro-price-princomp2.png")
+
+plot_scalar(d4, -X1, southp(geometry) & !!good_pnro1); ggsave("figs/map-south-pnro-price-princomp1.png")
+plot_scalar(d4, X2, southp(geometry) & !!good_pnro2); ggsave("figs/map-south-pnro-price-princomp2.png")
+
+plot_scalar(d4, -X1, grepl("^00", pnro) & !!good_pnro2); ggsave("figs/map-Hki-pnro-price-princomp1.png")
+plot_scalar(d4, X2, grepl("^00", pnro) & !!good_pnro2); ggsave("figs/map-Hki-pnro-price-princomp2.png")
+
+plot_scalar(d4, -X1, grepl("^0[012]", pnro) & !!good_pnro2); ggsave("figs/map-capital-pnro-price-princomp1.png")
+plot_scalar(d4, X2, grepl("^0[012]", pnro) & !!good_pnro2); ggsave("figs/map-capital-pnro-price-princomp2.png")
 
 d_change <- d2 %>% 
   select(pnro, year, matches("^V[0-9]+")) %>% 
   pivot_longer(matches("^V[0-9]"), names_to="sample", values_to="lprice") %>% 
-  filter(year %in% c(2019, 2020)) %>% 
+  filter(year %in% c(2020, 2021)) %>% 
   pivot_wider(names_from=year, values_from=lprice, names_prefix="y") %>% 
-  mutate(change_19_20=y2020-y2019) %>% select(pnro, change_19_20) %>%
+  mutate(change_21_20=y2021-y2020) %>% select(pnro, change_21_20) %>%
   group_by(pnro) %>% 
   summarise_all(function (x) clipclip(median(x), -.1, .10)) %>%
   left_join(d %>% select(pnro, population) %>% distinct)
 
-southp <- function(geometry) sf::st_coordinates(sf::st_centroid(geometry))[,2] < 4e5
 pnro_sf %>% left_join(d_change) %>% 
   filter(southp(geometry)) %>%
-  mutate(change_19_20 = ifelse(population<46, NA, change_19_20)) %>%
-  ggplot(aes(fill=change_19_20)) + 
+  mutate(change_21_20 = ifelse(population<46, NA, change_21_20)) %>%
+  ggplot(aes(fill=change_21_20)) + 
   geom_sf(size=.0)+ scale_fill_viridis_c(na.value="#000000") + theme_void(14)
-ggsave("../../figs/map-south-19-20-change.png")
+ggsave("figs/map-south-21-20-change.png")
+
+# SVD to the predictions over zip_codes x years, but for each sample separately. 
+
+d3l <- cbind(pnro = d$pnro, year = d$year, 
+            as.data.frame(t(rstan::extract(fit, 'pred_mean')[[1]]))) %>% 
+  pivot_longer(cols=starts_with("V"), names_to="sample", values_to="lprice") %>% 
+  pivot_wider(names_from="year", values_from="lprice") %>% 
+  group_by(sample) %>% group_split
+
+pnro_svd <- function (d3) { 
+  # Note the implicit intercept term 11^T, that is, centered over years and zip codes. 
+  select(d3, -pnro, -sample) %>% apply(., 1, \(x) x-mean(x)) %>% t %>% scale(center=T, scale=F) %>% svd() }
+
+sols <- lapply(d3l, pnro_svd) # takes a while (a couple of minutes or something)
+
+# This tries to fix polarity ambiquity in sample-wise component matrices
+est_flippage <- function(loadings_matrix) { # matrix with rows: samples; cols: zips or years
+  for (i in 1:10) {
+    loadings_mean <- apply(loadings_matrix, 2, mean)
+    loadings_matrix <- outer(sign(loadings_matrix %*% loadings_mean)[,1], 
+                             rep(1, ncol(loadings_matrix))) * loadings_matrix }
+  loadings_matrix }
+
+loadings_col <- function (i_col, col_name=NULL, target="V") {
+  unit_names <- if (target=="U") pnros else years
+  unit_var <- if (target=="U") "pnro" else "year"
+  if (is.null(col_name)) col_name <- paste("X", i_col, sep="")
+  sapply(sols, \(s) {if (target=="U") s$u else s$v}[,i_col]) %>% t %>% 
+    est_flippage %>% data.frame() %>% as_tibble() %>% 
+    setNames(unit_names) %>% mutate(sample=1:n()) %>% 
+    # regex below should match both years (in case of V) and zip codes (in case of U)
+    pivot_longer(matches("^[0-9]+$"), names_to=unit_var, values_to=col_name) }
+
+d_loadings <- loadings_col(1) %>% left_join(loadings_col(2)) #%>% left_join(loadings_col(3))
+d_loadings_mean <- d_loadings %>% group_by(year) %>% summarise(across(matches("^X"), mean))
+
+d_loadings %>%
+  ggplot(aes(x=-X1, y=X2, group=as.factor(year))) + 
+    stat_ellipse(level=.8, color="white", fill="#00508015", geom="polygon") + 
+    geom_path(aes(group=NULL), data=d_loadings_mean, color="#c06040", size=1) +
+    geom_label(aes(label=year), data=d_loadings_mean) +
+    xlab("PC1: \"Urbanisation/centralisation index\"") + ylab("PC2: \"Suburb index\"") +
+    theme_classic(14) +
+    theme(axis.text.x = element_blank(), axis.text.y = element_blank()) #+ coord_equal()
+ggsave("figs/princomps-2021.png")
+
+d_scores <- loadings_col(1, target="U") %>% 
+  left_join(loadings_col(2, target="U")) %>% 
+  left_join(loadings_col(3, target="U"))
+d_scores_mean <- d_scores %>% group_by(pnro) %>% summarise(across(matches("^X"), mean))
+
+d5 <- d_scores_mean
+
+pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X1, y=log(population))) + geom_point()
+pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X2, y=log(population))) + geom_point()
+pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X3, y=log(population))) + geom_point()
+
+good_pnro1 <- quote(pnro != "70210")
+good_pnro2 <- quote(pnro != "70210" & X2<0.012)
+
+plot_scalar(d5, -X1, grepl("^", pnro) & !!good_pnro1); ggsave("figs/map-Finland-pnro-price-princomp1.png")
+plot_scalar(d5, X2, grepl("^", pnro) & !!good_pnro2); ggsave("figs/map-Finland-pnro-price-princomp2.png")
+
+plot_scalar(d5, -X1, southp(geometry) & !!good_pnro1); ggsave("figs/map-south-pnro-price-princomp1.png")
+plot_scalar(d5, X2, southp(geometry) & !!good_pnro2); ggsave("figs/map-south-pnro-price-princomp2.png")
+
+plot_scalar(d5, -X1, grepl("^00", pnro) & !!good_pnro2); ggsave("figs/map-Hki-pnro-price-princomp1.png")
+plot_scalar(d5, X2, grepl("^00", pnro) & !!good_pnro2); ggsave("figs/map-Hki-pnro-price-princomp2.png")
+
+plot_scalar(d5, -X1, grepl("^0[012]", pnro) & !!good_pnro2); ggsave("figs/map-capital-pnro-price-princomp1.png")
+plot_scalar(d5, X2, grepl("^0[012]", pnro) & !!good_pnro2); ggsave("figs/map-capital-pnro-price-princomp2.png")
+
+

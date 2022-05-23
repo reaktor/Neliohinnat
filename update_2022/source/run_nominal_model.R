@@ -14,11 +14,15 @@ source("source/common.R")
 
 ## PREPARE DATA FOR STAN ##########
 
-load("data/pnro_data_20220426.RData") 
-d_covs <- pnro.population %>%
-  get_covariates(impute = T, include_intercept = T, level3_dummies = F) %>%
-  full_join(data.frame(year = unique(pnro.ashi.dat$year)), by=character())
-  
+load("data/pnro_data_20220426.RData") # pnro.ashi.dat, pnro.population, pnro.sp
+d_covs0 <- get_covariates(pnro.population, impute = T, include_intercept = T, level3_dummies = F)
+d_covs <- crossing(d_covs0, distinct(pnro.ashi.dat, year))
+
+if (F) {
+  d_covs <- pnro.population %>%
+    get_covariates(impute = T, include_intercept = T, level3_dummies = F) %>%
+    full_join(data.frame(year = unique(pnro.ashi.dat$year)), by=character()) }
+    
 d <- d_covs %>% left_join(pnro.ashi.dat, by = c('pnro', 'year', 'population')) %>%
   mutate_history_vars() %>% mutate(pnro = as.factor(pnro))
 rm(pnro.ashi.dat, pnro.population, pnro.sp)

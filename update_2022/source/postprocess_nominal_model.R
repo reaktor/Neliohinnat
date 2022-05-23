@@ -80,7 +80,7 @@ mcmc_intervals(s, pars = vars(starts_with('sigma'), starts_with('ysigma')))
 
 # Tällä kannattaa tarkistella että prediktion osuvat yhteen datan kanssa. 
 # Postinumeroita: parikkala 59130, haaga 00320, espoo lippajärvi 02940, pieksämäki 76100, tapiola 02100
-some_pnros <- c("00100", "59130", "00320", "02940", "76100", "02100", "00100")
+some_pnros <- c("01600", "59130", "00320", "02940", "76100", "02100", "56800")
 
 predictions %>% 
   filter(pnro %in% some_pnros) %>% tidyr::gather(q, y, -pnro, -year,  -n_obs, -obs_price) %>% 
