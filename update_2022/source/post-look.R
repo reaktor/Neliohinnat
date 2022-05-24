@@ -43,6 +43,7 @@ ICEPT_IDX <- match("c_intercept", cov_names)
 years <- sort(unique(d2$year))
 pnros <- d_covs0$pnro
 
+
 # Covariate plots ----
 
 cov_year_samples <- rstan::extract(fit, pars="beta_year")[[1]]
@@ -290,28 +291,31 @@ d_loadings_quant <-
 d_loadings_quant %>% filter(var=="X1") %>% ggplot(aes(x=year, y=y0, ymin=y_lower, ymax=y_upper)) +
   geom_point() + geom_linerange() + 
   xlab("vuosi") + ylab("X1, 80% luottamusväli") +
-  theme_minimal(14) + theme(axis.text.y = element_blank())
+  theme_minimal(13) + theme(axis.text.y = element_blank())
+ggsave("figs/comp1-yearly.png", bg="white", width=6, height=4)
 
 d_loadings_quant %>% filter(var=="X1d") %>% ggplot(aes(x=year, y=y0, ymin=y_lower, ymax=y_upper)) +
   geom_point(size=2) + geom_linerange(size=.7) + geom_hline(yintercept=0, color="red", alpha=.5) + 
   scale_y_continuous(breaks=0) + 
-  xlab("vuosi") + ylab("∆X1 (muutos edellisvuodesta), 80% luottamusväli") +
+  xlab("vuosi") + ylab("∆X1 (muutos vuodessa), 80% l.-väli") +
   theme_minimal(14)
+ggsave("figs/comp1-yearly-diff.png", bg="white", width=6, height=4)
 
 d_loadings_quant %>% filter(var=="X2") %>% ggplot(aes(x=year, y=y0, ymin=y_lower, ymax=y_upper)) +
   geom_point(size=2) + geom_linerange(size=.7) + 
-  xlab("vuosi") + ylab("X2, 80% luottamusväli") +
+  xlab("vuosi") + ylab("X2, 80% l.-väli") +
   theme_minimal(14) + theme(axis.text.y = element_blank())
+ggisave("figs/comp2-yearly.png", bg="white", width=6, height=4)
 
 d_loadings %>%
-  ggplot(aes(x=-X1, y=X2, group=as.factor(year))) + 
-    stat_ellipse(level=.8, color="white", fill="#00508015", geom="polygon") + 
+  ggplot(aes(x=X1, y=X2, group=as.factor(year))) + 
+    stat_ellipse(level=.8, color="white", fill="#00508020", geom="polygon") + 
     geom_path(aes(group=NULL), data=d_loadings_mean, color="#c06040", size=1) +
     geom_label(aes(label=year), data=d_loadings_mean) +
     xlab("X1: keskittyminen") + ylab("X2: lähiöistyminen?") +
-    theme_light(14) +
+    theme_minimal(14) +
     theme(axis.text.x = element_blank(), axis.text.y = element_blank()) #+ coord_equal()
-ggsave("figs/princomps-2021.png")
+ggsave("figs/X1X2.png", bg="white", width=6, height=4)
 
 d_scores <- loadings_col(1, target="U") %>% 
   left_join(loadings_col(2, target="U")) %>% 
@@ -319,7 +323,6 @@ d_scores <- loadings_col(1, target="U") %>%
 d_scores_mean <- d_scores %>% group_by(pnro) %>% summarise(across(matches("^X"), mean))
 
 d5 <- d_scores_mean
-
 pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X1, y=log(population))) + geom_point()
 pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X2, y=log(population))) + geom_point()
 pnro_sf %>% left_join(d5) %>% ggplot(aes(x=X3, y=log(population))) + geom_point()
@@ -329,12 +332,12 @@ good_pnro2 <- quote(pnro != "70210" & X2<0.012)
 
 qz <- function (x) ecdf(x)(x)
 
-plot_scalar <- function (d, var, pred, line=F, limits=c(NA, NA), guide=F) {
+plot_scalar <- function (d, var, pred, line=F, limits=c(NA, NA), guide=F, scale="viridis") {
   var <- enquo(var); pred <- enquo(pred)
   p <- pnro_sf %>% left_join(d) %>%
     filter(!!pred) %>%
     ggplot(aes(fill = !!var)) + geom_sf(size={ifelse(line, .1, 0)}) +
-    scale_fill_viridis_c(limits=limits, oob=scales::squish)
+    scale_fill_viridis_c(limits=limits, oob=scales::squish, option=scale) + theme_minimal(14)
   if (guide) p else p + guides(fill="none") }
 
 southp <- function(geometry, limit=4e5) sf::st_coordinates(sf::st_centroid(geometry))[,2] < limit
@@ -347,26 +350,27 @@ gwithin <- function(geometry, x0=-.3, x1=.3, y1=-1.8) {
   
   
 plot_scalar(d5, X1, grepl("^", pnro) & !!good_pnro1) + ggtitle("X1")
-ggsave("figs/map-Finland-pnro-price-princomp1.png")
+ggsave("figs/map-X1.png", bg="white", width=4, height=6)
 
-plot_scalar(d5, X2, grepl("^", pnro) & !!good_pnro2) + ggtitle("X2")
-ggsave("figs/map-Finland-pnro-price-princomp2.png")
+plot_scalar(d5, X2, grepl("^", pnro) & !!good_pnro2) + ggtitle("X2") 
+ggsave("figs/map-X2.png", bg="white", width=4, height=6)
+
 
 if (F) {
   plot_scalar(d5, X1, southp(geometry) & !!good_pnro1); ggsave("figs/map-south-pnro-price-princomp1.png")
   plot_scalar(d5, X2, southp(geometry) & !!good_pnro2); ggsave("figs/map-south-pnro-price-princomp2.png") }
 
 plot_scalar(d5, X1, gwithin(geometry) & !!good_pnro2) + ggtitle("X1")
-ggsave("figs/map-cap-pnro-price-princomp1.png")
+ggsave("figs/map-X1-cap.png", bg="white", width=6, height=5)
 
 plot_scalar(d5, X2, gwithin(geometry) & !!good_pnro2, limits=c(-.005, .009)) + ggtitle("X2")
-ggsave("figs/map-cap-pnro-price-princomp1.png")
+ggsave("figs/map-X2-cap.png", bg="white", width=6, height=5)
 
 plot_scalar(d5, X1, gwithin(geometry, -2, .3, 0) & !!good_pnro2) + ggtitle("X1")
-ggsave("figs/map-sw-pnro-price-princomp1.png")
+ggsave("figs/map-X1-sw.png", bg="white", width=4, height=5)
 
 plot_scalar(d5, X2, gwithin(geometry, -2, .3, 0) & !!good_pnro2, limits=c(-.007, .008)) + ggtitle("X2")
-ggsave("figs/map-sw-pnro-price-princomp1.png")
+ggsave("figs/map-X2-sw.png", bg="white", width=4, height=5)
 
 if (F) {
   plot_scalar(d5, -X1, southp(geometry, limit=-1e5) & !!good_pnro1); # ggsave("figs/map-south-pnro-price-princomp1.png")
