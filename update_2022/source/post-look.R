@@ -305,7 +305,7 @@ d_loadings_quant %>% filter(var=="X2") %>% ggplot(aes(x=year, y=y0, ymin=y_lower
   geom_point(size=2) + geom_linerange(size=.7) + 
   xlab("vuosi") + ylab("X2, 80% l.-väli") +
   theme_minimal(14) + theme(axis.text.y = element_blank())
-ggisave("figs/comp2-yearly.png", bg="white", width=6, height=4)
+ggsave("figs/comp2-yearly.png", bg="white", width=6, height=4)
 
 d_loadings %>%
   ggplot(aes(x=X1, y=X2, group=as.factor(year))) + 
@@ -349,28 +349,28 @@ gwithin <- function(geometry, x0=-.3, x1=.3, y1=-1.8) {
 }
   
   
-plot_scalar(d5, X1, grepl("^", pnro) & !!good_pnro1) + ggtitle("X1")
-ggsave("figs/map-X1.png", bg="white", width=4, height=6)
+plot_scalar(d5, X1, grepl("^", pnro) & !!good_pnro1) + ggtitle("keskittyminen, koko maa")
+ggsave("figs/map-X1.png", bg="white", width=5, height=6)
 
-plot_scalar(d5, X2, grepl("^", pnro) & !!good_pnro2) + ggtitle("X2") 
-ggsave("figs/map-X2.png", bg="white", width=4, height=6)
+plot_scalar(d5, X2, grepl("^", pnro) & !!good_pnro2) + ggtitle("lähiöistyminen (?), koko maa") 
+ggsave("figs/map-X2.png", bg="white", width=5, height=6)
 
 
 if (F) {
   plot_scalar(d5, X1, southp(geometry) & !!good_pnro1); ggsave("figs/map-south-pnro-price-princomp1.png")
   plot_scalar(d5, X2, southp(geometry) & !!good_pnro2); ggsave("figs/map-south-pnro-price-princomp2.png") }
 
-plot_scalar(d5, X1, gwithin(geometry) & !!good_pnro2) + ggtitle("X1")
-ggsave("figs/map-X1-cap.png", bg="white", width=6, height=5)
+plot_scalar(d5, X1, gwithin(geometry) & !!good_pnro2) + ggtitle("Helsingin ympäristö")
+ggsave("figs/map-X1-cap.png", bg="white", width=5, height=5)
 
-plot_scalar(d5, X2, gwithin(geometry) & !!good_pnro2, limits=c(-.005, .009)) + ggtitle("X2")
-ggsave("figs/map-X2-cap.png", bg="white", width=6, height=5)
+plot_scalar(d5, X2, gwithin(geometry) & !!good_pnro2, limits=c(-.005, .009)) + ggtitle("Helsingin ympäristö")
+ggsave("figs/map-X2-cap.png", bg="white", width=5, height=5)
 
-plot_scalar(d5, X1, gwithin(geometry, -2, .3, 0) & !!good_pnro2) + ggtitle("X1")
-ggsave("figs/map-X1-sw.png", bg="white", width=4, height=5)
+plot_scalar(d5, X1, gwithin(geometry, -2, .3, 0) & !!good_pnro2) + ggtitle("lounas")
+ggsave("figs/map-X1-sw.png", bg="white", width=5, height=5)
 
-plot_scalar(d5, X2, gwithin(geometry, -2, .3, 0) & !!good_pnro2, limits=c(-.007, .008)) + ggtitle("X2")
-ggsave("figs/map-X2-sw.png", bg="white", width=4, height=5)
+plot_scalar(d5, X2, gwithin(geometry, -2, .3, 0) & !!good_pnro2, limits=c(-.007, .008)) + ggtitle("lounas")
+ggsave("figs/map-X2-sw.png", bg="white", width=5, height=5)
 
 if (F) {
   plot_scalar(d5, -X1, southp(geometry, limit=-1e5) & !!good_pnro1); # ggsave("figs/map-south-pnro-price-princomp1.png")
