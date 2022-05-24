@@ -292,20 +292,20 @@ d_loadings_quant %>% filter(var=="X1") %>% ggplot(aes(x=year, y=y0, ymin=y_lower
   geom_point() + geom_linerange() + 
   xlab("vuosi") + ylab("X1, 80% luottamusväli") +
   theme_minimal(13) + theme(axis.text.y = element_blank())
-ggsave("figs/comp1-yearly.png", bg="white", width=6, height=4)
+ggsave("figs/yearly-X1.png", bg="white", width=6, height=4)
 
 d_loadings_quant %>% filter(var=="X1d") %>% ggplot(aes(x=year, y=y0, ymin=y_lower, ymax=y_upper)) +
   geom_point(size=2) + geom_linerange(size=.7) + geom_hline(yintercept=0, color="red", alpha=.5) + 
   scale_y_continuous(breaks=0) + 
   xlab("vuosi") + ylab("∆X1 (muutos vuodessa), 80% l.-väli") +
   theme_minimal(14)
-ggsave("figs/comp1-yearly-diff.png", bg="white", width=6, height=4)
+ggsave("figs/yearly-X1-diff.png", bg="white", width=6, height=4)
 
 d_loadings_quant %>% filter(var=="X2") %>% ggplot(aes(x=year, y=y0, ymin=y_lower, ymax=y_upper)) +
   geom_point(size=2) + geom_linerange(size=.7) + 
   xlab("vuosi") + ylab("X2, 80% l.-väli") +
   theme_minimal(14) + theme(axis.text.y = element_blank())
-ggsave("figs/comp2-yearly.png", bg="white", width=6, height=4)
+ggsave("figs/yearly-X2.png", bg="white", width=6, height=4)
 
 d_loadings %>%
   ggplot(aes(x=X1, y=X2, group=as.factor(year))) + 
@@ -315,7 +315,7 @@ d_loadings %>%
     xlab("X1: keskittyminen") + ylab("X2: lähiöistyminen?") +
     theme_minimal(14) +
     theme(axis.text.x = element_blank(), axis.text.y = element_blank()) #+ coord_equal()
-ggsave("figs/X1X2.png", bg="white", width=6, height=4)
+ggsave("figs/yearly-X1X2.png", bg="white", width=6, height=4)
 
 d_scores <- loadings_col(1, target="U") %>% 
   left_join(loadings_col(2, target="U")) %>% 

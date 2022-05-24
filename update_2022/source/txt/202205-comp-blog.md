@@ -27,14 +27,14 @@ Ja todellakin, ensimmäinen löytyvä hahmo on keskittyminen: hinnat nousevat ka
 
 Kehitys on lisäksi vuosien osalta monotonista, ja jopa nopeutunut parina kolmena viimeisenä vuotena.
 
-![](../../figs/comp1-yearly.png){width=49%}
-![](../../figs/comp1-yearly-diff.png){width=49%}
+![](../../figs/yearly-X1.png){width=49%}
+![](../../figs/yearly-X1-diff.png){width=49%}
 
 Keskittyminen selittää n. 75% hintojen vaihtelusta. Toiseksi vahvin komponentti selittää n. 15%, ja lopuista on hankalampi ottaa selvää. 
 
 Toinen komponentti on vuosinäkymältään mielenkiintoinen:
 
-![](../../figs/comp2-yearly.png){width=49%}
+![](../../figs/yearly-X2.png){width=49%}
 
 Se oli korkealla aikasarjan alussa, v. 2010, ja koronavuosina 2020--2021, sekä mahdollisesti myös v. 2016. Kun tätä komponenttia katsoo kartoilla, voi todeta sen vastaavan hintojen nousua lähiöissä keskustojen ulkopuolella, sekä mahdollisesti Järvi-Suomessa. 
 
@@ -46,7 +46,7 @@ Lähiöistymiskomponentin vaikutus on kuitenkin keskittymiskehitykseen verrattun
 
 Kun lähiöistymiskehitys laitetaan y-akselille ja keskittymiskehitys x-akselille ja plotataan kuvaan vuodet epävarmuuksineen, saadaan aikaan tällainen yhteenveto kymmenen vuoden hintakehityksestä:
 
-![](../../figs/X1X2.png){width=60%}
+![](../../figs/yearly-X1X2.png){width=60%}
 
 Lähiöistymisen syitä on vaikea tietää, ja sen voimakkuuskin on epävarmaa. Se sopii kuitenkin tarinaan koronan aiheuttamasta etätöiden lisääntymisestä ja kaipuusta väljempiin asuinolosuhteisiin. Toinen näkökulma samaan asiaan voi olla viime aikoina uutisoitu pienten asuntojen hinnanlasku; pieniä asuntojahan on enemmän keskustoissa. 
 
